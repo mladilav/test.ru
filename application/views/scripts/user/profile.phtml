@@ -1,0 +1,18 @@
+<h1> Пользователь:
+    <?= Zend_Auth::getInstance()->getIdentity()->username; ?></h1>
+<img src="<?= Zend_Auth::getInstance()->getIdentity()->photo; ?>" width="150px" height="150px">
+<ul>
+    <li><b>Email:</b><?= Zend_Auth::getInstance()->getIdentity()->email; ?></li>
+    <li><b>Gender: </b><?= Zend_Auth::getInstance()->getIdentity()->gender; ?></li>
+    <li><b>Group: </b><?= Zend_Auth::getInstance()->getIdentity()->group; ?></li>
+    <li><b>Role: </b><?= Zend_Auth::getInstance()->getIdentity()->role; ?></li>
+    <li><b>VK: </b><?php if (Zend_Auth::getInstance()->getIdentity()->vk != 0) echo 'yes'; else { ?>
+            <a href="/regauth/vk">bind</a>
+        <?php }; ?></li>
+    <li><b>FC: </b><?php if (Zend_Auth::getInstance()->getIdentity()->fc != 0) echo 'yes'; else { ?>
+            <a href="/auth/regfc">bind</a>
+        <?php }; ?></li>
+    <li><b>TW: </b><?php if (Zend_Auth::getInstance()->getIdentity()->tw != 0) echo 'yes'; else { ?>
+            <a href="/auth/regtw">bind</a>
+        <?php }; ?></li>
+</ul>

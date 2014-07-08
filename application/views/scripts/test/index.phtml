@@ -1,0 +1,17 @@
+<?php
+// Создаём заголовок страницы, который загрузится в layout
+$this->title = "Тесты";
+$this->headTitle($this->title);
+?>
+<p><a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'addtest')); ?>">Добавить тест</a></p>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Тип</th>
+        <th>Автор</th>
+    </tr>
+    <?php
+    // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+    echo $this->partialLoop('/partials/tests.phtml', $this->tests);
+    ?>
+</table>

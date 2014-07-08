@@ -1,0 +1,15 @@
+<?php
+
+$this->title = "Удаление раздела";
+$this->headTitle($this->title);
+?>
+<p>Вы действительно хотите удалить раздел
+    '<?php echo $this->escape($this->part['name']); ?>'?
+</p>
+<form action="<?php echo $this->url(array('action' => 'deletepart')); ?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo $this->part['id']; ?>"/>
+        <input type="submit" name="del" value="Да"/>
+        <input type="submit" name="del" value="Нет"/>
+    </div>
+</form>

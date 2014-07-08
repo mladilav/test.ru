@@ -1,0 +1,11 @@
+<tr>
+    <td><?php echo $this->escape($this->title); ?></td>
+    <td><?php echo $this->escape($this->categoryId); ?></td>
+    <td><?php echo htmlspecialchars_decode($this->escape($this->body)); ?></td>
+    <td><?php echo $this->escape($this->userId); ?></td>
+    <td><?php echo $this->escape($this->date); ?></td>
+    <td><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'edit', 'id' => $this->id)); ?>">Редактировать</a>
+    </td>
+    <td><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'delete', 'id' => $this->id)); ?>">Удалить</a>
+    </td>
+</tr>

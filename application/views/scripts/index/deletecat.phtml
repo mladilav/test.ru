@@ -1,0 +1,15 @@
+<?php
+
+$this->title = "Удаление категория";
+$this->headTitle($this->title);
+?>
+<p>Вы действительно хотите удалить категорию
+    '<?php echo $this->escape($this->category['name']); ?>'?
+</p>
+<form action="<?php echo $this->url(array('action' => 'deletecat')); ?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo $this->category['id']; ?>"/>
+        <input type="submit" name="del" value="Да"/>
+        <input type="submit" name="del" value="Нет"/>
+    </div>
+</form>
