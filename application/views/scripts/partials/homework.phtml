@@ -1,0 +1,15 @@
+<tr>
+    <td><?php echo $this->escape($this->id); ?></td>
+    <td><?php  if($_COOKIE['lang'] == "ua") echo $this->escape($this->nameUa); else  echo $this->escape($this->name); ?></td>
+    <td><?php echo '<a href = "'.$this->escape($this->file).'" download="">'.$this->escape($this->file).'</a>'; ?></td>
+    <td><?php echo '<a href = "'.$this->escape($this->test).'" >'.$this->escape($this->test).'</a>'; ?></td>
+    <td><?php echo date("H:i:s d-m-Y",$this->escape($this->date)); ?></td>
+    <td>
+        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'deletehomework', 'id' => $this->id)); ?>">
+            <i class="icon-trash"></i></a>
+    </td>
+    <td>
+        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'sendhomework', 'id' => $this->id)); ?>">
+            <i class="icon-share-alt"></i></a>
+    </td>
+</tr>

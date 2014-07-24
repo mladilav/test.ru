@@ -47,9 +47,9 @@ class Zend_Oauth_Http_AccessToken extends Zend_Oauth_Http
      */
     public function execute()
     {
-        $params   = $this->assembleParams();
+        $params = $this->assembleParams();
         $response = $this->startRequestCycle($params);
-        $return   = new Zend_Oauth_Token_Access($response);
+        $return = new Zend_Oauth_Token_Access($response);
         return $return;
     }
 
@@ -61,12 +61,12 @@ class Zend_Oauth_Http_AccessToken extends Zend_Oauth_Http
     public function assembleParams()
     {
         $params = array(
-            'oauth_consumer_key'     => $this->_consumer->getConsumerKey(),
-            'oauth_nonce'            => $this->_httpUtility->generateNonce(),
+            'oauth_consumer_key' => $this->_consumer->getConsumerKey(),
+            'oauth_nonce' => $this->_httpUtility->generateNonce(),
             'oauth_signature_method' => $this->_consumer->getSignatureMethod(),
-            'oauth_timestamp'        => $this->_httpUtility->generateTimestamp(),
-            'oauth_token'            => $this->_consumer->getLastRequestToken()->getToken(),
-            'oauth_version'          => $this->_consumer->getVersion(),
+            'oauth_timestamp' => $this->_httpUtility->generateTimestamp(),
+            'oauth_token' => $this->_consumer->getLastRequestToken()->getToken(),
+            'oauth_version' => $this->_consumer->getVersion(),
         );
 
         if (!empty($this->_parameters)) {
@@ -94,9 +94,9 @@ class Zend_Oauth_Http_AccessToken extends Zend_Oauth_Http
      */
     public function getRequestSchemeHeaderClient(array $params)
     {
-        $params      = $this->_cleanParamsOfIllegalCustomParameters($params);
+        $params = $this->_cleanParamsOfIllegalCustomParameters($params);
         $headerValue = $this->_toAuthorizationHeader($params);
-        $client      = Zend_Oauth::getHttpClient();
+        $client = Zend_Oauth::getHttpClient();
 
         $client->setUri($this->_consumer->getAccessTokenUrl());
         $client->setHeaders('Authorization', $headerValue);
@@ -179,7 +179,7 @@ class Zend_Oauth_Http_AccessToken extends Zend_Oauth_Http
      */
     protected function _cleanParamsOfIllegalCustomParameters(array $params)
     {
-        foreach ($params as $key=>$value) {
+        foreach ($params as $key => $value) {
             if (!preg_match("/^oauth_/", $key)) {
                 unset($params[$key]);
             }

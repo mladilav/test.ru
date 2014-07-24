@@ -123,7 +123,7 @@ abstract class Zend_Ldap_Filter_Abstract
             $val = str_replace(array('\\', '*', '(', ')'), array('\5c', '\2a', '\28', '\29'), $val);
             // ASCII < 32 escaping
             $val = Zend_Ldap_Converter::ascToHex32($val);
-            if (null === $val) $val = '\0';  // apply escaped "null" if string is empty
+            if (null === $val) $val = '\0'; // apply escaped "null" if string is empty
             $values[$key] = $val;
         }
         return (count($values) == 1) ? $values[0] : $values;

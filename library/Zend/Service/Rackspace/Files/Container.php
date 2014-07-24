@@ -64,7 +64,7 @@ class Zend_Service_Rackspace_Files_Container
             );
         }
         $this->service = $service;
-        $this->name    = $data['name'];
+        $this->name = $data['name'];
     }
 
     /**
@@ -236,7 +236,7 @@ class Zend_Service_Rackspace_Files_Container
      * Get an object of the container
      *
      * @param string $name
-     * @param array  $headers
+     * @param array $headers
      *
      * @return Zend_Service_Rackspace_Files_Object|bool
      */
@@ -250,7 +250,7 @@ class Zend_Service_Rackspace_Files_Container
      *
      * @param string $name
      * @param string $file the content of the object
-     * @param array  $metadata
+     * @param array $metadata
      *
      * @return bool
      */
@@ -279,7 +279,7 @@ class Zend_Service_Rackspace_Files_Container
      * @param string $obj_source
      * @param string $container_dest
      * @param string $obj_dest
-     * @param array  $metadata
+     * @param array $metadata
      * @param string $content_type
      *
      * @return bool
@@ -315,7 +315,7 @@ class Zend_Service_Rackspace_Files_Container
      * Set the metadata of an object in the container
      *
      * @param string $object
-     * @param array  $metadata
+     * @param array $metadata
      *
      * @return bool
      */

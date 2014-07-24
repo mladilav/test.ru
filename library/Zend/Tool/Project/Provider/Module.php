@@ -60,7 +60,7 @@ class Zend_Tool_Project_Provider_Module
             $targetModuleEnabledResources = array(
                 'ControllersDirectory', 'ModelsDirectory', 'ViewsDirectory',
                 'ViewScriptsDirectory', 'ViewHelpersDirectory', 'ViewFiltersDirectory'
-                );
+            );
         }
 
         // find the actual modules directory we will use to house our module
@@ -79,9 +79,9 @@ class Zend_Tool_Project_Provider_Module
             $targetModuleResource,
             array(
                 'denyNames' => array('ModulesDirectory', 'ViewControllerScriptsDirectory'),
-                'denyType'  => 'Zend_Tool_Project_Context_Filesystem_File'
-                )
-            );
+                'denyType' => 'Zend_Tool_Project_Context_Filesystem_File'
+            )
+        );
 
         // the iterator for the module skeleton
         $targetIterator = new RecursiveIteratorIterator($moduleContextFilterIterator, RecursiveIteratorIterator::SELF_FIRST);
@@ -139,7 +139,7 @@ class Zend_Tool_Project_Provider_Module
         // determine if testing is enabled in the project
         require_once 'Zend/Tool/Project/Provider/Test.php';
         //$testingEnabled = Zend_Tool_Project_Provider_Test::isTestingEnabled($this->_loadedProfile);
-        
+
         $resources = self::createResources($this->_loadedProfile, $name);
 
         $response = $this->_registry->getResponse();

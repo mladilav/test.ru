@@ -51,11 +51,11 @@ class Zend_Pdf_Destination_FitRectangle extends Zend_Pdf_Destination_Explicit
     /**
      * Create destination object
      *
-     * @param Zend_Pdf_Page|integer $page  Page object or page number
-     * @param float $left    Left edge of displayed page
-     * @param float $bottom  Bottom edge of displayed page
-     * @param float $right   Right edge of displayed page
-     * @param float $top     Top edge of displayed page
+     * @param Zend_Pdf_Page|integer $page Page object or page number
+     * @param float $left Left edge of displayed page
+     * @param float $bottom Bottom edge of displayed page
+     * @param float $right Right edge of displayed page
+     * @param float $top Top edge of displayed page
      * @return Zend_Pdf_Destination_FitRectangle
      * @throws Zend_Pdf_Exception
      */

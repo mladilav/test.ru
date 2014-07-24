@@ -38,22 +38,22 @@ require_once 'Zend/Xml/Security.php';
  */
 class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
 {
-    const SERVICE_NAME         = 'FindingService';
-    const SERVICE_VERSION      = '1.0.0';
+    const SERVICE_NAME = 'FindingService';
+    const SERVICE_VERSION = '1.0.0';
     const RESPONSE_DATA_FORMAT = 'XML';
 
-    const ENDPOINT_URI  = 'http://svcs.ebay.com';
+    const ENDPOINT_URI = 'http://svcs.ebay.com';
     const ENDPOINT_PATH = 'services/search/FindingService/v1';
 
     const XMLNS_FINDING = 'e';
-    const XMLNS_MS      = 'ms';
+    const XMLNS_MS = 'ms';
 
     /**
      * @var array
      */
     protected static $_xmlNamespaces = array(
         self::XMLNS_FINDING => 'http://www.ebay.com/marketplace/search/v1/services',
-        self::XMLNS_MS      => 'http://www.ebay.com/marketplace/services'
+        self::XMLNS_MS => 'http://www.ebay.com/marketplace/services'
     );
 
     /**
@@ -138,9 +138,9 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
      * Finds items by a keyword query and/or category and allows searching
      * within item descriptions.
      *
-     * @param  string            $keywords
-     * @param  boolean           $descriptionSearch
-     * @param  integer           $categoryId
+     * @param  string $keywords
+     * @param  boolean $descriptionSearch
+     * @param  integer $categoryId
      * @param  Zend_Config|array $options
      * @link   http://developer.ebay.com/DevZone/finding/CallRef/findItemsAdvanced.html
      * @return Zend_Service_Ebay_Finding_Response_Items
@@ -148,8 +148,8 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     public function findItemsAdvanced($keywords, $descriptionSearch = true, $categoryId = null, $options = null)
     {
         // prepare options
-        $options                      = parent::optionsToArray($options);
-        $options['keywords']          = $keywords;
+        $options = parent::optionsToArray($options);
+        $options['keywords'] = $keywords;
         $options['descriptionSearch'] = $descriptionSearch;
         if (!empty($categoryId)) {
             $options['categoryId'] = $categoryId;
@@ -162,7 +162,7 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     /**
      * Finds items in a specific category. Results can be filtered and sorted.
      *
-     * @param  integer           $categoryId
+     * @param  integer $categoryId
      * @param  Zend_Config|array $options
      * @link   http://developer.ebay.com/DevZone/finding/CallRef/findItemsByCategory.html
      * @return Zend_Service_Ebay_Finding_Response_Items
@@ -170,7 +170,7 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     public function findItemsByCategory($categoryId, $options = null)
     {
         // prepare options
-        $options               = parent::optionsToArray($options);
+        $options = parent::optionsToArray($options);
         $options['categoryId'] = $categoryId;
 
         // do request
@@ -181,7 +181,7 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
      * Finds items on eBay based upon a keyword query and returns details for
      * matching items.
      *
-     * @param  string            $keywords
+     * @param  string $keywords
      * @param  Zend_Config|array $options
      * @link   http://developer.ebay.com/DevZone/finding/CallRef/findItemsByKeywords.html
      * @return Zend_Service_Ebay_Finding_Response_Items
@@ -189,7 +189,7 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     public function findItemsByKeywords($keywords, $options = null)
     {
         // prepare options
-        $options             = parent::optionsToArray($options);
+        $options = parent::optionsToArray($options);
         $options['keywords'] = $keywords;
 
         // do request
@@ -199,8 +199,8 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     /**
      * Finds items based upon a product ID, such as an ISBN, UPC, EAN, or ePID.
      *
-     * @param  integer           $productId
-     * @param  string            $productIdType Default value is ReferenceID
+     * @param  integer $productId
+     * @param  string $productIdType Default value is ReferenceID
      * @param  Zend_Config|array $options
      * @link   http://developer.ebay.com/DevZone/finding/CallRef/findItemsByProduct.html
      * @return Zend_Service_Ebay_Finding_Response_Items
@@ -212,9 +212,9 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         }
 
         // prepare options
-        $options              = parent::optionsToArray($options);
-        $options['productId'] = array(''     => $productId,
-                                      'type' => $productIdType);
+        $options = parent::optionsToArray($options);
+        $options['productId'] = array('' => $productId,
+            'type' => $productIdType);
 
         // do request
         return $this->_findItems($options, 'findItemsByProduct');
@@ -224,7 +224,7 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
      * Finds items in eBay stores. Can search a specific store or can search all
      * stores with a keyword query.
      *
-     * @param  string            $storeName
+     * @param  string $storeName
      * @param  Zend_Config|array $options
      * @link   http://developer.ebay.com/DevZone/finding/CallRef/findItemsIneBayStores.html
      * @return Zend_Service_Ebay_Finding_Response_Items
@@ -232,7 +232,7 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     public function findItemsInEbayStores($storeName, $options = null)
     {
         // prepare options
-        $options              = parent::optionsToArray($options);
+        $options = parent::optionsToArray($options);
         $options['storeName'] = $storeName;
 
         // do request
@@ -240,7 +240,7 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     }
 
     /**
-     * @param  array  $options
+     * @param  array $options
      * @param  string $operation
      * @return Zend_Service_Ebay_Finding_Response_Items
      */
@@ -249,9 +249,9 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         // set default output selector value
         if (!array_key_exists('outputSelector', $options)) {
             $options['outputSelector'] = array('AspectHistogram',
-                                               'CategoryHistogram',
-                                               'SellerInfo',
-                                               'StoreInfo');
+                'CategoryHistogram',
+                'SellerInfo',
+                'StoreInfo');
         }
 
         // do request
@@ -263,13 +263,13 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         require_once 'Zend/Service/Ebay/Finding/Response/Items.php';
         $response = new Zend_Service_Ebay_Finding_Response_Items($dom->firstChild);
         return $response->setOperation($operation)
-                        ->setOption($options);
+            ->setOption($options);
     }
 
     /**
      * Gets category and/or aspect metadata for the specified category.
      *
-     * @param  integer           $categoryId
+     * @param  integer $categoryId
      * @param  Zend_Config|array $options
      * @link   http://developer.ebay.com/DevZone/finding/CallRef/getHistograms.html
      * @return Zend_Service_Ebay_Finding_Response_Histograms
@@ -277,12 +277,12 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     public function getHistograms($categoryId, $options = null)
     {
         // prepare options
-        $options               = parent::optionsToArray($options);
+        $options = parent::optionsToArray($options);
         $options['categoryId'] = $categoryId;
 
         // do request
         $operation = 'getHistograms';
-        $dom       = $this->_request($operation, $options);
+        $dom = $this->_request($operation, $options);
 
         /**
          * @see Zend_Service_Ebay_Finding_Response_Histograms
@@ -290,14 +290,14 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         require_once 'Zend/Service/Ebay/Finding/Response/Histograms.php';
         $response = new Zend_Service_Ebay_Finding_Response_Histograms($dom->firstChild);
         return $response->setOperation($operation)
-                        ->setOption($options);
+            ->setOption($options);
     }
 
     /**
      * Checks specified keywords and returns correctly spelled keywords for best
      * search results.
      *
-     * @param  string            $keywords
+     * @param  string $keywords
      * @param  Zend_Config|array $options
      * @link   http://developer.ebay.com/DevZone/finding/CallRef/getSearchKeywordsRecommendation.html
      * @return Zend_Service_Ebay_Finding_Response_Keywords
@@ -305,12 +305,12 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     public function getSearchKeywordsRecommendation($keywords, $options = null)
     {
         // prepare options
-        $options             = parent::optionsToArray($options);
+        $options = parent::optionsToArray($options);
         $options['keywords'] = $keywords;
 
         // do request
         $operation = 'getSearchKeywordsRecommendation';
-        $dom       = $this->_request($operation, $options);
+        $dom = $this->_request($operation, $options);
 
         /**
          * @see Zend_Service_Ebay_Finding_Response_Keywords
@@ -318,12 +318,12 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         require_once 'Zend/Service/Ebay/Finding/Response/Keywords.php';
         $response = new Zend_Service_Ebay_Finding_Response_Keywords($dom->firstChild);
         return $response->setOperation($operation)
-                        ->setOption($options);
+            ->setOption($options);
     }
 
     /**
      * @param  string $operation
-     * @param  array  $options
+     * @param  array $options
      * @link   http://developer.ebay.com/DevZone/finding/Concepts/MakingACall.html#StandardURLParameters
      * @return DOMDocument
      */
@@ -331,13 +331,13 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
     {
         // generate default options
         // constructor load global-id and application-id values
-        $default = array('OPERATION-NAME'       => $operation,
-                         'SERVICE-NAME'         => self::SERVICE_NAME,
-                         'SERVICE-VERSION'      => self::SERVICE_VERSION,
-                         'GLOBAL-ID'            => $this->getOption(self::OPTION_GLOBAL_ID),
-                         'SECURITY-APPNAME'     => $this->getOption(self::OPTION_APP_ID),
-                         'RESPONSE-DATA-FORMAT' => self::RESPONSE_DATA_FORMAT,
-                         'REST-PAYLOAD'         => '');
+        $default = array('OPERATION-NAME' => $operation,
+            'SERVICE-NAME' => self::SERVICE_NAME,
+            'SERVICE-VERSION' => self::SERVICE_VERSION,
+            'GLOBAL-ID' => $this->getOption(self::OPTION_GLOBAL_ID),
+            'SECURITY-APPNAME' => $this->getOption(self::OPTION_APP_ID),
+            'RESPONSE-DATA-FORMAT' => self::RESPONSE_DATA_FORMAT,
+            'REST-PAYLOAD' => '');
 
         // prepare options to ebay syntax
         $options = $default + $this->_optionsToNameValueSyntax($options);
@@ -346,7 +346,7 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         $client = $this->getClient();
         $client->getHttpClient()->resetParameters();
         $response = $client->setUri(self::ENDPOINT_URI)
-                           ->restGet(self::ENDPOINT_PATH, $options);
+            ->restGet(self::ENDPOINT_PATH, $options);
 
         return $this->_parseResponse($response);
     }
@@ -377,7 +377,7 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         // second trying, check request status
         if ($response->isError()) {
             $message = $response->getMessage()
-                     . ' (HTTP status code #' . $response->getStatus() . ')';
+                . ' (HTTP status code #' . $response->getStatus() . ')';
         }
 
         // third trying, search for error message into XML response
@@ -386,9 +386,9 @@ class Zend_Service_Ebay_Finding extends Zend_Service_Ebay_Abstract
         foreach (self::$_xmlNamespaces as $alias => $uri) {
             $xpath->registerNamespace($alias, $uri);
         }
-        $ns           = self::XMLNS_FINDING;
-        $nsMs         = self::XMLNS_MS;
-        $expression   = "//$nsMs:errorMessage[1]/$ns:error/$ns:severity[.='Error']";
+        $ns = self::XMLNS_FINDING;
+        $nsMs = self::XMLNS_MS;
+        $expression = "//$nsMs:errorMessage[1]/$ns:error/$ns:severity[.='Error']";
         $severityNode = $xpath->query($expression)->item(0);
         if ($severityNode) {
             $errorNode = $severityNode->parentNode;

@@ -46,7 +46,7 @@ class Zend_Gdata_Extension_Reminder extends Zend_Gdata_Extension
     protected $_minutes = null;
 
     public function __construct($absoluteTime = null, $method = null, $days = null,
-            $hours = null, $minutes = null)
+                                $hours = null, $minutes = null)
     {
         parent::__construct();
         $this->_absoluteTime = $absoluteTime;
@@ -135,6 +135,7 @@ class Zend_Gdata_Extension_Reminder extends Zend_Gdata_Extension
         $this->_days = $value;
         return $this;
     }
+
     public function getHours()
     {
         return $this->_hours;

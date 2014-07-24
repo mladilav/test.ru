@@ -62,7 +62,7 @@ class Zend_Dojo_Form_Element_HorizontalSlider extends Zend_Dojo_Form_Element_Sli
     public function setTopDecorationDijit($dijit)
     {
         $decoration = $this->getTopDecoration();
-        $decoration['dijit'] = (string) $dijit;
+        $decoration['dijit'] = (string)$dijit;
         $this->setDijitParam('topDecoration', $decoration);
         return $this;
     }
@@ -76,7 +76,7 @@ class Zend_Dojo_Form_Element_HorizontalSlider extends Zend_Dojo_Form_Element_Sli
     public function setTopDecorationContainer($container)
     {
         $decoration = $this->getTopDecoration();
-        $decoration['container'] = (string) $container;
+        $decoration['container'] = (string)$container;
         $this->setDijitParam('topDecoration', $decoration);
         return $this;
     }
@@ -145,7 +145,7 @@ class Zend_Dojo_Form_Element_HorizontalSlider extends Zend_Dojo_Form_Element_Sli
     public function setBottomDecorationDijit($dijit)
     {
         $decoration = $this->getBottomDecoration();
-        $decoration['dijit'] = (string) $dijit;
+        $decoration['dijit'] = (string)$dijit;
         $this->setDijitParam('bottomDecoration', $decoration);
         return $this;
     }
@@ -159,7 +159,7 @@ class Zend_Dojo_Form_Element_HorizontalSlider extends Zend_Dojo_Form_Element_Sli
     public function setBottomDecorationContainer($container)
     {
         $decoration = $this->getBottomDecoration();
-        $decoration['container'] = (string) $container;
+        $decoration['container'] = (string)$container;
         $this->setDijitParam('bottomDecoration', $decoration);
         return $this;
     }

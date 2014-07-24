@@ -1,8 +1,7 @@
 <?php
-echo 11;
-exit;
 
-class Application_Form_Posts_Addpart extends Zend_Form
+
+class Application_Form_Add extends Zend_Form
 {
     public function init()
     {
@@ -20,7 +19,19 @@ class Application_Form_Posts_Addpart extends Zend_Form
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $title->setLabel('Название:')
+        $title->setLabel('Название на русском:')
+            ->setRequired(true)
+            ->addFilter('StripTags')
+            ->addFilter('StringTrim')
+            ->addValidator('NotEmpty', true,
+                array('messages' => array('isEmpty' => $isEmptyMessage))
+            );
+
+        $titleUa = new Zend_Form_Element_Text('titleUa');
+
+        // задаём ему label и отмечаем как обязательное поле;
+        // также добавляем фильтры и валидатор с переводом
+        $titleUa->setLabel('Название на украинском:')
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
@@ -43,41 +54,61 @@ class Application_Form_Posts_Addpart extends Zend_Form
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
         $description
-            ->setLabel('Краткое описание')
+            ->setLabel('Краткое описание на русском')
+            ->setRequired(true)
+            ->addFilter('StringTrim')
+            ->addValidator('NotEmpty', true,
+                array('messages' => array('isEmpty' => $isEmptyMessage))
+            );
+
+        $descriptionUa = new Zend_Form_Element_Textarea('descriptionUa');
+
+        // задаём ему label и отмечаем как обязательное поле;
+        // также добавляем фильтры и валидатор с переводом
+        $descriptionUa
+            ->setLabel('Краткое описание на украинском')
+            ->setRequired(true)
+            ->addFilter('StringTrim')
+            ->addValidator('NotEmpty', true,
+                array('messages' => array('isEmpty' => $isEmptyMessage))
+            );
+
+        $textUa = new Zend_Form_Element_Textarea('bodyUa');
+
+        // задаём ему label и отмечаем как обязательное поле;
+        // также добавляем фильтры и валидатор с переводом
+        $textUa->setLabel("Текст на украинском")
             ->setRequired(true)
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty', true,
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             );
         // создаём элемент формы для пароля
-        $text = new Zend_Form_Element_Textarea('text');
+        $text = new Zend_Form_Element_Textarea('body');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $text
+        $text->setLabel("Текст на русском")
             ->setRequired(true)
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty', true,
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             );
-
+        $categories = new Application_Model_DbTable_Category();
         $category = new Zend_Form_Element_Select('category');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
         $category->setLabel('Рубрика:')
-            ->addMultiOptions(array(
-                '0' => '0',
-                '1' => '1',
-                '2' => '2'
-            ));
+            ->addMultiOptions($categories->arraySelect());
 
         // создаём кнопку submit
         $submit = new Zend_Form_Element_Submit('add');
-        $submit->setLabel('Добавить');
+        $submit->setLabel('Добавить статью')
+               ->setAttrib('class','btn btn-success');
 
         // добавляем элементы в форму
-        $this->addElements(array($id, $title, $icon, $description, $text, $category, $submit));
+        $this->addElements(array($id, $title,$titleUa, $icon,$category, $description,$descriptionUa, $text,$textUa, $submit));
         // указываем метод передачи данных
         $this->setMethod('post');
 

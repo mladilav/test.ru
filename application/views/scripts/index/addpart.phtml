@@ -1,6 +1,15 @@
 <?php
-$this->title = "Добавить раздел";
+if ($this->lang == "ua") $this->title = "Додати розділ"; else
+$this->title = "Добавить раздел";?>
+<div class="settings">
+    <ul class="breadcrumb">
+        <li><a href="/index/settings/"><?php if($this->lang == "ua") echo 'Управління матеріалами'; else echo 'Управление материалами';?></a>
+            <span class="divider">/</span></li>
+        <li class="active"><?php if($this->lang == "ua") echo 'Додати розділ'; else echo 'Добавить раздел';?></li>
+    </ul>
+<?php
 echo $this->errMessage;
 echo $this->form;
 ?>
+</div>
 

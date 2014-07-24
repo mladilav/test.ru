@@ -62,7 +62,7 @@ class Zend_Config_Writer_FileAbstract extends Zend_Config_Writer
     /**
      * Set wether to exclusively lock the file or not
      *
-     * @param  boolean     $exclusiveLock
+     * @param  boolean $exclusiveLock
      * @return Zend_Config_Writer_Array
      */
     public function setExclusiveLock($exclusiveLock)

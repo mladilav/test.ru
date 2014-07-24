@@ -1,0 +1,38 @@
+<h2><?php if($this->lang == "ua") echo 'Управління користувачами'; else echo 'Управление пользователями';?></h2>
+<div class="settings">
+
+        <h3><?php if($this->lang == "ua") echo 'Групи користувачів:'; else echo 'Группы пользователей:';?></h3>
+        <p><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'addgroups')); ?>">
+                <?php if($this->lang == "ua") echo 'Додати групу'; else echo 'Добавить группу';?></a></p>
+        <table class="table table-condensed">
+            <tr>
+                <th>ID</th>
+                <th width="100%"><?php if($this->lang == "ua") echo 'Назва'; else echo 'Название';?></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <?php
+            // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+            echo $this->partialLoop('/partials/groups.phtml', $this->groups);
+            ?>
+        </table>
+
+        <h3><?php if($this->lang == "ua") echo 'Користувачі:'; else echo 'Пользователи:';?></h3>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Аватар</th>
+                <th><?php if($this->lang == "ua") echo 'Нік'; else echo 'Ник';?></th>
+                <th><?php if($this->lang == "ua") echo 'Пошта'; else echo 'Почта';?></th>
+                <th><?php if($this->lang == "ua") echo 'Група'; else echo 'Группа';?></th>
+                <th>Роль</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <?php
+            // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+            echo $this->partialLoop('/partials/users.phtml', $this->users);
+            ?>
+        </table>
+</div>
+

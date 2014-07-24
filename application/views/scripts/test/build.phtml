@@ -1,0 +1,103 @@
+<script src="js/jquery-1.7.2.min.js"></script>
+<script>
+    var count;
+    count = 0;
+
+    function AddQuest(id)
+    {
+        var td = document.getElementById("name"+id);
+        var name = td.innerHTML;
+        var tr = document.createElement("tr");
+        var td1 = document.createElement("td");
+        var td2 = document.createElement("td");
+        td1.innerHTML = name;
+        td1.className = 'questionName'
+        var btn = document.createElement("i");
+        tr.id = "quests"+id;
+        tr.className = 'questionTR'
+        td1.id = "quest"+id;
+        btn.className = "icon-remove";
+        btn.id = id;
+        td2.appendChild(btn);
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        var table=document.getElementById("quest");
+        table.appendChild(tr);
+        btn.onclick = deleteQuest;
+        count++;
+        var b = document.getElementById("addquest");
+        b.innerHTML = count;
+
+    }
+    function deleteQuest()
+    {
+        var tr = document.getElementById("quests"+this.id)
+        tr.parentNode.removeChild(tr);
+        count--;
+        var b = document.getElementById("addquest");
+        b.innerHTML = count;
+    }
+
+    function addTest(){
+        var list = document.getElementsByClassName("questionName");
+        var data = new Array();
+        for(var j = 0; j < list.length; j++){
+            data[j] = list[j].id.substring(5);
+        }
+        var obj = JSON.stringify(data);
+        return obj;
+    }
+
+    $(function() {
+        $("#search").keyup(function(){
+            var search = $("#search").val();
+
+            $.ajax({
+                type: "POST",
+                url: "http://test.ru/test/data",
+                data: {"search": search},
+                cache: false,
+                success: function(response){
+                    $("#result").html(response);
+                }
+            });
+            return false;
+        });
+
+        $("#add").click(function(){
+            var obj = addTest();
+            $.ajax({
+                type: "POST",
+                url: "http://test.ru/test/add",
+                data: {"obj": obj},
+                cache: false,
+                success: function(response){
+                    $("#resultAdd").html(response);
+                }
+            });
+        });
+    });
+
+
+</script>
+<div class="row-fluid">
+    <div class="span6">
+        <h3>Поиск вопроссов:</h3>
+<?php
+echo $this->errMessage;
+echo '<div id="form-search">';
+echo $this->form;
+echo '</div>';
+?>
+<h4>Результат поиска</h4>	<div id="result">Вводите запрос</div>
+    </div>
+    <div class="span6" >
+        <h3>Добавленные вопросы:</h3>
+        <h4 class="text-success">Количество вопросов: <b id="addquest">0</b></h4>
+        <table class="table table-striped" id="quest">
+            </table>
+        <div id = "resultAdd"></div>
+        <button class="btn btn-primary" id="add">Добавить тест</button>
+
+    </div>
+</div>

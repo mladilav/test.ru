@@ -66,10 +66,10 @@ class Zend_Form_Element_Image extends Zend_Form_Element_Xhtml
         $decorators = $this->getDecorators();
         if (empty($decorators)) {
             $this->addDecorator('Tooltip')
-                 ->addDecorator('Image')
-                 ->addDecorator('Errors')
-                 ->addDecorator('HtmlTag', array('tag' => 'dd'))
-                 ->addDecorator('Label', array('tag' => 'dt'));
+                ->addDecorator('Image')
+                ->addDecorator('Errors')
+                ->addDecorator('HtmlTag', array('tag' => 'dd'))
+                ->addDecorator('Label', array('tag' => 'dt'));
         }
         return $this;
     }
@@ -82,7 +82,7 @@ class Zend_Form_Element_Image extends Zend_Form_Element_Xhtml
      */
     public function setImage($path)
     {
-        $this->src = (string) $path;
+        $this->src = (string)$path;
         return $this;
     }
 

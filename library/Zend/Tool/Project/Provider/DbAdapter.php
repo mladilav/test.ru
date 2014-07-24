@@ -47,7 +47,8 @@ class Zend_Tool_Project_Provider_DbAdapter
 
     protected $_sectionName = 'production';
 
-    public function configure($dsn = null, /* $interactivelyPrompt = false, */ $sectionName = 'production')
+    public function configure($dsn = null, /* $interactivelyPrompt = false, */
+                              $sectionName = 'production')
     {
         $profile = $this->_loadProfile(self::NO_PROFILE_THROW_EXCEPTION);
 
@@ -75,8 +76,8 @@ class Zend_Tool_Project_Provider_DbAdapter
 
         if ($dsn) {
             $this->_configureViaDSN($dsn);
-        //} elseif ($interactivelyPrompt) {
-        //    $this->_promptForConfig();
+            //} elseif ($interactivelyPrompt) {
+            //    $this->_promptForConfig();
         } else {
             $this->_registry->getResponse()->appendContent('Nothing to do!');
         }
@@ -91,7 +92,7 @@ class Zend_Tool_Project_Provider_DbAdapter
         if (strpos($dsn, '=') === false) {
             throw new Zend_Tool_Project_Provider_Exception('At least one name value pair is expected, typcially '
                 . 'in the format of "adapter=Mysqli&username=uname&password=mypass&dbname=mydb"'
-                );
+            );
         }
 
         parse_str($dsn, $dsnVars);
@@ -121,13 +122,13 @@ class Zend_Tool_Project_Provider_DbAdapter
         if ($isPretend) {
             $response->appendContent('A db configuration for the ' . $this->_sectionName
                 . ' section would be written to the application config file with the following contents: '
-                );
+            );
             $response->appendContent($applicationConfig->getContents());
         } else {
             $applicationConfig->create();
             $response->appendContent('A db configuration for the ' . $this->_sectionName
                 . ' section has been written to the application config file.'
-                );
+            );
         }
     }
 

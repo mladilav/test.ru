@@ -57,10 +57,10 @@ class Zend_Application_Resource_Navigation
         if (!$this->_container) {
             $options = $this->getOptions();
 
-            if(isset($options['defaultPageType'])) {
+            if (isset($options['defaultPageType'])) {
                 Zend_Navigation_Page::setDefaultPageType($options['defaultPageType']);
             }
-            
+
             $pages = isset($options['pages']) ? $options['pages'] : array();
             $this->_container = new Zend_Navigation($pages);
         }
@@ -78,7 +78,8 @@ class Zend_Application_Resource_Navigation
     {
         $options = $this->getOptions();
         if (isset($options['storage']['registry']) &&
-            $options['storage']['registry'] == true) {
+            $options['storage']['registry'] == true
+        ) {
             $this->_storeRegistry();
         } else {
             $this->_storeHelper();
@@ -93,15 +94,16 @@ class Zend_Application_Resource_Navigation
     protected function _storeRegistry()
     {
         $options = $this->getOptions();
-        if(isset($options['storage']['registry']['key']) &&
-           !is_numeric($options['storage']['registry']['key'])) // see ZF-7461
+        if (isset($options['storage']['registry']['key']) &&
+            !is_numeric($options['storage']['registry']['key'])
+        ) // see ZF-7461
         {
-           $key = $options['storage']['registry']['key'];
+            $key = $options['storage']['registry']['key'];
         } else {
             $key = self::DEFAULT_REGISTRY_KEY;
         }
 
-        Zend_Registry::set($key,$this->getContainer());
+        Zend_Registry::set($key, $this->getContainer());
     }
 
     /**

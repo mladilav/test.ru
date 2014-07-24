@@ -50,7 +50,7 @@ class Zend_Filter_StringToLower implements Zend_Filter_Interface
             $options = $options->toArray();
         } else if (!is_array($options)) {
             $options = func_get_args();
-            $temp    = array();
+            $temp = array();
             if (!empty($options)) {
                 $temp['encoding'] = array_shift($options);
             }
@@ -91,7 +91,7 @@ class Zend_Filter_StringToLower implements Zend_Filter_Interface
                 throw new Zend_Filter_Exception('mbstring is required for this feature');
             }
 
-            $encoding = (string) $encoding;
+            $encoding = (string)$encoding;
             if (!in_array(strtolower($encoding), array_map('strtolower', mb_list_encodings()))) {
                 require_once 'Zend/Filter/Exception.php';
                 throw new Zend_Filter_Exception("The given encoding '$encoding' is not supported by mbstring");
@@ -113,9 +113,9 @@ class Zend_Filter_StringToLower implements Zend_Filter_Interface
     public function filter($value)
     {
         if ($this->_encoding !== null) {
-            return mb_strtolower((string) $value, $this->_encoding);
+            return mb_strtolower((string)$value, $this->_encoding);
         }
 
-        return strtolower((string) $value);
+        return strtolower((string)$value);
     }
 }

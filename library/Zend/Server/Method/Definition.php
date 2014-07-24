@@ -99,7 +99,7 @@ class Zend_Server_Method_Definition
      */
     public function setName($name)
     {
-        $this->_name = (string) $name;
+        $this->_name = (string)$name;
         return $this;
     }
 
@@ -206,7 +206,7 @@ class Zend_Server_Method_Definition
      */
     public function setMethodHelp($methodHelp)
     {
-        $this->_methodHelp = (string) $methodHelp;
+        $this->_methodHelp = (string)$methodHelp;
         return $this;
     }
 
@@ -282,12 +282,12 @@ class Zend_Server_Method_Definition
         }
 
         return array(
-            'name'            => $this->getName(),
-            'callback'        => $this->getCallback()->toArray(),
-            'prototypes'      => $signatures,
-            'methodHelp'      => $this->getMethodHelp(),
+            'name' => $this->getName(),
+            'callback' => $this->getCallback()->toArray(),
+            'prototypes' => $signatures,
+            'methodHelp' => $this->getMethodHelp(),
             'invokeArguments' => $this->getInvokeArguments(),
-            'object'          => $this->getObject(),
+            'object' => $this->getObject(),
         );
     }
 }

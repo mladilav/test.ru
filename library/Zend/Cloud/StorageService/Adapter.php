@@ -45,7 +45,7 @@ interface Zend_Cloud_StorageService_Adapter
      * WARNING: This operation overwrites any item that is located at
      * $destinationPath.
      * @param string $destinationPath
-     * @param mixed  $data
+     * @param mixed $data
      * @param  array $options
      * @return boolean
      */

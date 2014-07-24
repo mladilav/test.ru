@@ -35,7 +35,7 @@ require_once 'Zend/Translate/Adapter.php';
  */
 class Zend_Translate_Adapter_Csv extends Zend_Translate_Adapter
 {
-    private $_data    = array();
+    private $_data = array();
 
     /**
      * Generates the adapter
@@ -45,14 +45,14 @@ class Zend_Translate_Adapter_Csv extends Zend_Translate_Adapter
     public function __construct($options = array())
     {
         $this->_options['delimiter'] = ";";
-        $this->_options['length']    = 0;
+        $this->_options['length'] = 0;
         $this->_options['enclosure'] = '"';
 
         if ($options instanceof Zend_Config) {
             $options = $options->toArray();
         } else if (func_num_args() > 1) {
-            $args               = func_get_args();
-            $options            = array();
+            $args = func_get_args();
+            $options = array();
             $options['content'] = array_shift($args);
 
             if (!empty($args)) {
@@ -60,7 +60,7 @@ class Zend_Translate_Adapter_Csv extends Zend_Translate_Adapter
             }
 
             if (!empty($args)) {
-                $opt     = array_shift($args);
+                $opt = array_shift($args);
                 $options = array_merge($opt, $options);
             }
         } else if (!is_array($options)) {
@@ -73,23 +73,23 @@ class Zend_Translate_Adapter_Csv extends Zend_Translate_Adapter
     /**
      * Load translation data
      *
-     * @param  string|array  $filename  Filename and full path to the translation source
-     * @param  string        $locale    Locale/Language to add data for, identical with locale identifier,
+     * @param  string|array $filename Filename and full path to the translation source
+     * @param  string $locale Locale/Language to add data for, identical with locale identifier,
      *                                  see Zend_Locale for more information
-     * @param  array         $option    OPTIONAL Options to use
+     * @param  array $option OPTIONAL Options to use
      * @return array
      */
     protected function _loadTranslationData($filename, $locale, array $options = array())
     {
         $this->_data = array();
-        $options     = $options + $this->_options;
+        $options = $options + $this->_options;
         $this->_file = @fopen($filename, 'rb');
         if (!$this->_file) {
             require_once 'Zend/Translate/Exception.php';
             throw new Zend_Translate_Exception('Error opening translation file \'' . $filename . '\'.');
         }
 
-        while(($data = fgetcsv($this->_file, $options['length'], $options['delimiter'], $options['enclosure'])) !== false) {
+        while (($data = fgetcsv($this->_file, $options['length'], $options['delimiter'], $options['enclosure'])) !== false) {
             if (substr($data[0], 0, 1) === '#') {
                 continue;
             }

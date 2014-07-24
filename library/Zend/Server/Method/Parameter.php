@@ -116,7 +116,7 @@ class Zend_Server_Method_Parameter
      */
     public function setDescription($description)
     {
-        $this->_description = (string) $description;
+        $this->_description = (string)$description;
         return $this;
     }
 
@@ -138,7 +138,7 @@ class Zend_Server_Method_Parameter
      */
     public function setName($name)
     {
-        $this->_name = (string) $name;
+        $this->_name = (string)$name;
         return $this;
     }
 
@@ -160,7 +160,7 @@ class Zend_Server_Method_Parameter
      */
     public function setOptional($flag)
     {
-        $this->_optional = (bool) $flag;
+        $this->_optional = (bool)$flag;
         return $this;
     }
 
@@ -182,7 +182,7 @@ class Zend_Server_Method_Parameter
      */
     public function setType($type)
     {
-        $this->_type = (string) $type;
+        $this->_type = (string)$type;
         return $this;
     }
 
@@ -204,11 +204,11 @@ class Zend_Server_Method_Parameter
     public function toArray()
     {
         return array(
-            'type'         => $this->getType(),
-            'name'         => $this->getName(),
-            'optional'     => $this->isOptional(),
+            'type' => $this->getType(),
+            'name' => $this->getName(),
+            'optional' => $this->isOptional(),
             'defaultValue' => $this->getDefaultValue(),
-            'description'  => $this->getDescription(),
+            'description' => $this->getDescription(),
         );
     }
 }

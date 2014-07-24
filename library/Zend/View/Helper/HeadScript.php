@@ -38,7 +38,7 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
      * Script type contants
      * @const string
      */
-    const FILE   = 'FILE';
+    const FILE = 'FILE';
     const SCRIPT = 'SCRIPT';
     /**#@-*/
 
@@ -59,7 +59,7 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
      * @var string
      */
     protected $_captureLock;
-    protected $_captureScriptType  = null;
+    protected $_captureScriptType = null;
     protected $_captureScriptAttrs = null;
     protected $_captureType;
     /**#@-*/
@@ -114,7 +114,7 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
     public function headScript($mode = Zend_View_Helper_HeadScript::FILE, $spec = null, $placement = 'APPEND', array $attrs = array(), $type = 'text/javascript')
     {
         if ((null !== $spec) && is_string($spec)) {
-            $action    = ucfirst(strtolower($mode));
+            $action = ucfirst(strtolower($mode));
             $placement = strtolower($placement);
             switch ($placement) {
                 case 'set':
@@ -148,9 +148,9 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
             throw $e;
         }
 
-        $this->_captureLock        = true;
-        $this->_captureType        = $captureType;
-        $this->_captureScriptType  = $type;
+        $this->_captureLock = true;
+        $this->_captureType = $captureType;
+        $this->_captureScriptType = $type;
         $this->_captureScriptAttrs = $attrs;
         ob_start();
     }
@@ -162,12 +162,12 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
      */
     public function captureEnd()
     {
-        $content                   = ob_get_clean();
-        $type                      = $this->_captureScriptType;
-        $attrs                     = $this->_captureScriptAttrs;
-        $this->_captureScriptType  = null;
+        $content = ob_get_clean();
+        $type = $this->_captureScriptType;
+        $attrs = $this->_captureScriptAttrs;
+        $this->_captureScriptType = null;
         $this->_captureScriptAttrs = null;
-        $this->_captureLock        = false;
+        $this->_captureLock = false;
 
         switch ($this->_captureType) {
             case Zend_View_Helper_Placeholder_Container_Abstract::SET:
@@ -210,10 +210,10 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
                 throw $e;
             }
 
-            $action  = $matches['action'];
-            $mode    = strtolower($matches['mode']);
-            $type    = 'text/javascript';
-            $attrs   = array();
+            $action = $matches['action'];
+            $mode = strtolower($matches['mode']);
+            $type = 'text/javascript';
+            $attrs = array();
 
             if ('offsetSet' == $action) {
                 $index = array_shift($args);
@@ -228,10 +228,10 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
             $content = $args[0];
 
             if (isset($args[1])) {
-                $type = (string) $args[1];
+                $type = (string)$args[1];
             }
             if (isset($args[2])) {
-                $attrs = (array) $args[2];
+                $attrs = (array)$args[2];
             }
 
             switch ($mode) {
@@ -245,7 +245,7 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
                     break;
                 case 'file':
                 default:
-                    if (!$this->_isDuplicate($content) || $action=='set') {
+                    if (!$this->_isDuplicate($content) || $action == 'set') {
                         $attrs['src'] = $content;
                         $item = $this->createData($type, $attrs);
                         if ('offsetSet' == $action) {
@@ -274,8 +274,8 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
         foreach ($this->getContainer() as $item) {
             if (($item->source === null)
                 && array_key_exists('src', $item->attributes)
-                && ($file == $item->attributes['src']))
-            {
+                && ($file == $item->attributes['src'])
+            ) {
                 return true;
             }
         }
@@ -293,8 +293,8 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
     {
         if ((!$value instanceof stdClass)
             || !isset($value->type)
-            || (!isset($value->source) && !isset($value->attributes)))
-        {
+            || (!isset($value->source) && !isset($value->attributes))
+        ) {
             return false;
         }
 
@@ -382,7 +382,7 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
      */
     public function setAllowArbitraryAttributes($flag)
     {
-        $this->_arbitraryAttributes = (bool) $flag;
+        $this->_arbitraryAttributes = (bool)$flag;
         return $this;
     }
 
@@ -411,8 +411,8 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
         if (!empty($item->attributes)) {
             foreach ($item->attributes as $key => $value) {
                 if ((!$this->arbitraryAttributesAllowed() && !in_array($key, $this->_optionalAttributes))
-                    || in_array($key, array('conditional', 'noescape')))
-                {
+                    || in_array($key, array('conditional', 'noescape'))
+                ) {
                     continue;
                 }
                 if ('defer' == $key) {
@@ -425,9 +425,9 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
         $addScriptEscape = !(isset($item->attributes['noescape']) && filter_var($item->attributes['noescape'], FILTER_VALIDATE_BOOLEAN));
 
         $type = ($this->_autoEscape) ? $this->_escape($item->type) : $item->type;
-        $html  = '<script type="' . $type . '"' . $attrString . '>';
+        $html = '<script type="' . $type . '"' . $attrString . '>';
         if (!empty($item->source)) {
-            $html .= PHP_EOL ;
+            $html .= PHP_EOL;
 
             if ($addScriptEscape) {
                 $html .= $indent . '    ' . $escapeStart . PHP_EOL;
@@ -445,8 +445,8 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
 
         if (isset($item->attributes['conditional'])
             && !empty($item->attributes['conditional'])
-            && is_string($item->attributes['conditional']))
-        {
+            && is_string($item->attributes['conditional'])
+        ) {
             $html = $indent . '<!--[if ' . $item->attributes['conditional'] . ']> ' . $html . '<![endif]-->';
         } else {
             $html = $indent . $html;
@@ -464,8 +464,8 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
     public function toString($indent = null)
     {
         $indent = (null !== $indent)
-                ? $this->getWhitespace($indent)
-                : $this->getIndent();
+            ? $this->getWhitespace($indent)
+            : $this->getIndent();
 
         if ($this->view) {
             $useCdata = $this->view->doctype()->isXhtml() ? true : false;
@@ -473,7 +473,7 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
             $useCdata = $this->useCdata ? true : false;
         }
         $escapeStart = ($useCdata) ? '//<![CDATA[' : '//<!--';
-        $escapeEnd   = ($useCdata) ? '//]]>'       : '//-->';
+        $escapeEnd = ($useCdata) ? '//]]>' : '//-->';
 
         $items = array();
         $this->getContainer()->ksort();
@@ -499,10 +499,10 @@ class Zend_View_Helper_HeadScript extends Zend_View_Helper_Placeholder_Container
      */
     public function createData($type, array $attributes, $content = null)
     {
-        $data             = new stdClass();
-        $data->type       = $type;
+        $data = new stdClass();
+        $data->type = $type;
         $data->attributes = $attributes;
-        $data->source     = $content;
+        $data->source = $content;
         return $data;
     }
 }

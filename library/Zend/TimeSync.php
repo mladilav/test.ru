@@ -77,7 +77,7 @@ class Zend_TimeSync implements IteratorAggregate
      * Zend_TimeSync constructor
      *
      * @param  string|array $target - OPTIONAL single timeserver, or an array of timeservers.
-     * @param  string       $alias  - OPTIONAL an alias for this timeserver
+     * @param  string $alias - OPTIONAL an alias for this timeserver
      * @return  object
      */
     public function __construct($target = null, $alias = null)
@@ -125,7 +125,7 @@ class Zend_TimeSync implements IteratorAggregate
      * - sntp
      *
      * @param  string|array $target - Single timeserver, or an array of timeservers.
-     * @param  string       $alias  - OPTIONAL an alias for this timeserver
+     * @param  string $alias - OPTIONAL an alias for this timeserver
      * @throws Zend_TimeSync_Exception
      */
     public function addServer($target, $alias = null)
@@ -258,8 +258,8 @@ class Zend_TimeSync implements IteratorAggregate
     /**
      * Adds a timeserver object to the timeserver list
      *
-     * @param  string|array $target   - Single timeserver, or an array of timeservers.
-     * @param  string       $alias    - An alias for this timeserver
+     * @param  string|array $target - Single timeserver, or an array of timeservers.
+     * @param  string $alias - An alias for this timeserver
      */
     protected function _addServer($target, $alias)
     {

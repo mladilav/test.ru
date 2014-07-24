@@ -53,7 +53,7 @@ class Zend_Form_Element_Password extends Zend_Form_Element_Xhtml
      */
     public function setRenderPassword($flag)
     {
-        $this->renderPassword = (bool) $flag;
+        $this->renderPassword = (bool)$flag;
         return $this;
     }
 

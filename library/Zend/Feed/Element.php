@@ -135,7 +135,7 @@ class Zend_Feed_Element implements ArrayAccess
     {
         // Return a complete document including XML prologue.
         $doc = new DOMDocument($this->_element->ownerDocument->version,
-                               $this->_element->ownerDocument->actualEncoding);
+            $this->_element->ownerDocument->actualEncoding);
         $doc->appendChild($doc->importNode($this->_element, true));
         return $doc->saveXML();
     }
@@ -171,7 +171,7 @@ class Zend_Feed_Element implements ArrayAccess
      */
     public function setEncoding($value)
     {
-        $this->_encoding = (string) $value;
+        $this->_encoding = (string)$value;
         return $this;
     }
 
@@ -285,8 +285,8 @@ class Zend_Feed_Element implements ArrayAccess
      * element. If there are multiple elements that match, this will
      * return an array of those objects.
      *
-     * @param  string $var    The element to get the string value of.
-     * @param  mixed  $unused This parameter is not used.
+     * @param  string $var The element to get the string value of.
+     * @param  mixed $unused This parameter is not used.
      * @return mixed The node's value, null, or an array of nodes.
      */
     public function __call($var, $unused)

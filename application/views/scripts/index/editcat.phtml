@@ -1,8 +1,14 @@
 <?php
-
-
-$this->title = "Редактировать категорию";
+if ($this->lang == "ua") $this->title = "Редагувати категорію"; else
+    $this->title = "Редактировать категорию";?>
+<div class="settings">
+    <ul class="breadcrumb">
+        <li><a href="/index/settings/"><?php if($this->lang == "ua") echo 'Управління матеріалами'; else echo 'Управление материалами';?></a>
+            <span class="divider">/</span></li>
+        <li class="active"><?php if($this->lang == "ua") echo 'Редагувати категорію'; else echo 'Редактировать категорию';?></li>
+    </ul>
+<?php
 echo $this->errMessage;
 echo $this->form;
 ?>
-
+</div>

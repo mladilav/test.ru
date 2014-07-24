@@ -63,7 +63,7 @@ class Zend_Service_Amazon_Image
         $xpath = new DOMXPath($dom->ownerDocument);
         $xpath->registerNamespace('az', 'http://webservices.amazon.com/AWSECommerceService/2011-08-01');
         $this->Url = Zend_Uri::factory($xpath->query('./az:URL/text()', $dom)->item(0)->data);
-        $this->Height = (int) $xpath->query('./az:Height/text()', $dom)->item(0)->data;
-        $this->Width = (int) $xpath->query('./az:Width/text()', $dom)->item(0)->data;
+        $this->Height = (int)$xpath->query('./az:Height/text()', $dom)->item(0)->data;
+        $this->Width = (int)$xpath->query('./az:Width/text()', $dom)->item(0)->data;
     }
 }

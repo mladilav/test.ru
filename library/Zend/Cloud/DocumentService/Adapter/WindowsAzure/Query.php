@@ -154,7 +154,7 @@ class Zend_Cloud_DocumentService_Adapter_WindowsAzure_Query
      */
     public function getAzureSelect()
     {
-        return  $this->_azureSelect;
+        return $this->_azureSelect;
     }
 
     /**

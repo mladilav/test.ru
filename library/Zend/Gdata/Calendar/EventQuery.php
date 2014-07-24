@@ -379,8 +379,8 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
                 default:
                     require_once 'Zend/Gdata/App/Exception.php';
                     throw new Zend_Gdata_App_Exception(
-                            'Invalid query param value for futureevents: ' .
-                            $value . ' It must be a boolean.');
+                        'Invalid query param value for futureevents: ' .
+                        $value . ' It must be a boolean.');
             }
         } else {
             return null;
@@ -395,14 +395,14 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     {
         if ($value !== null) {
             if (is_bool($value)) {
-                $this->_params['singleevents'] = ($value?'true':'false');
+                $this->_params['singleevents'] = ($value ? 'true' : 'false');
             } elseif ($value == 'true' | $value == 'false') {
                 $this->_params['singleevents'] = $value;
             } else {
                 require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception(
-                        'Invalid query param value for futureevents: ' .
-                        $value . ' It must be a boolean.');
+                    'Invalid query param value for futureevents: ' .
+                    $value . ' It must be a boolean.');
             }
         } else {
             unset($this->_params['singleevents']);
@@ -427,8 +427,8 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
                 default:
                     require_once 'Zend/Gdata/App/Exception.php';
                     throw new Zend_Gdata_App_Exception(
-                            'Invalid query param value for futureevents: ' .
-                            $value . ' It must be a boolean.');
+                        'Invalid query param value for futureevents: ' .
+                        $value . ' It must be a boolean.');
             }
         } else {
             return null;
@@ -444,14 +444,14 @@ class Zend_Gdata_Calendar_EventQuery extends Zend_Gdata_Query
     {
         if ($value !== null) {
             if (is_bool($value)) {
-                $this->_params['futureevents'] = ($value?'true':'false');
+                $this->_params['futureevents'] = ($value ? 'true' : 'false');
             } elseif ($value == 'true' | $value == 'false') {
                 $this->_params['futureevents'] = $value;
             } else {
                 require_once 'Zend/Gdata/App/Exception.php';
                 throw new Zend_Gdata_App_Exception(
-                        'Invalid query param value for futureevents: ' .
-                        $value . ' It must be a boolean.');
+                    'Invalid query param value for futureevents: ' .
+                    $value . ' It must be a boolean.');
             }
         } else {
             unset($this->_params['futureevents']);

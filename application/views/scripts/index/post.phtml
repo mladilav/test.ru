@@ -1,0 +1,52 @@
+<?php
+$this->headTitle($this->post['title']);
+?>
+
+
+<div class="post"  style="clear: left;">
+
+    <?php if ($this->lang == "ua") { ?>
+    <h1><?php echo$this->post['titleUa'];?></h1>
+    <small class="muted">
+        <b> Дата: </b> <?php echo date('Y-m-d H:i:s',$this->escape($this->post['date'])); ?>
+        <b> Категорія: </b>
+        <?php echo '<a href="/index/category/id/'.$this->escape($this->post['categoryId']).'">'.$this->escape($this->post['categoryUa']).'</a>'; ?>
+        <b> Користувач </b> <?php echo '<a href="/user/profile/id/'.$this->escape($this->post['userId']).'">'.$this->escape($this->post['user']).'</a>'; ?>
+    </small>
+    <?php  if (Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->role == 'admin')  {?>
+        <div class="pull-right">
+            <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'edit', 'id' => $this->post['id'])); ?>">
+
+                <i class="icon-pencil"></i></a>
+            <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'delete', 'id' => $this->post['id'])); ?>">
+                <i class="icon-trash"></i></a>
+        </div>
+    <?php }?>
+    <hr>
+    <?php echo '<img src="'.$this->escape($this->post['icon']).'" style="padding:20px;padding-top:0;float:left;width:300px;">'; ?>
+    <?php echo htmlspecialchars_decode($this->escape($this->post['bodyUa'])); ?>
+    <hr>
+    <?php } else {?>
+        <h2><?php echo$this->post['title'];?></h2>
+        <small class="muted">
+            <b> Дата: </b> <?php echo date('Y-m-d H:i:s',$this->escape($this->post['date'])); ?>
+            <b> Категория: </b>
+            <?php echo '<a href="/index/category/id/'.$this->escape($this->post['categoryId']).'">'.$this->escape($this->post['category']).'</a>'; ?>
+            <b> Пользователь </b> <?php echo '<a href="/user/profile/id/'.$this->escape($this->post['userId']).'">'.$this->escape($this->post['user']).'</a>'; ?>
+        </small>
+        <?php  if (Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->role == 'admin')  {?>
+            <div class="pull-right">
+                <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'edit', 'id' => $this->post['id'])); ?>">
+
+                    <i class="icon-pencil"></i></a>
+                <a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'delete', 'id' => $this->post['id'])); ?>">
+                    <i class="icon-trash"></i></a>
+            </div>
+        <?php }?>
+        <div class="inner">
+        <?php echo '<img src="'.$this->escape($this->post['icon']).'">'; ?>
+        <?php echo htmlspecialchars_decode($this->escape($this->post['body'])); ?>
+        <hr>
+    <?php } ?>
+        </div>
+</div>

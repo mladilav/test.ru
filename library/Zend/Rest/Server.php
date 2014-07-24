@@ -116,7 +116,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
      */
     public function setEncoding($encoding)
     {
-        $this->_encoding = (string) $encoding;
+        $this->_encoding = (string)$encoding;
         return $this;
     }
 
@@ -286,7 +286,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
         }
 
         return $response;
-     }
+    }
 
     /**
      * Implement Zend_Server_Interface::setClass()
@@ -320,13 +320,13 @@ class Zend_Rest_Server implements Zend_Server_Interface
 
         $method = $function->getName();
 
-        $dom    = new DOMDocument('1.0', $this->getEncoding());
+        $dom = new DOMDocument('1.0', $this->getEncoding());
         if ($class) {
-            $root   = $dom->createElement($class);
+            $root = $dom->createElement($class);
             $method = $dom->createElement($method);
             $root->appendChild($method);
         } else {
-            $root   = $dom->createElement($method);
+            $root = $dom->createElement($method);
             $method = $root;
         }
         $root->setAttribute('generator', 'zend');
@@ -335,7 +335,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
 
         $this->_structValue($struct, $dom, $method);
 
-        $struct = (array) $struct;
+        $struct = (array)$struct;
         if (!isset($struct['status'])) {
             $status = $dom->createElement('status', 'success');
             $method->appendChild($status);
@@ -357,7 +357,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
      */
     protected function _structValue($struct, DOMDocument $dom, DOMElement $parent)
     {
-        $struct = (array) $struct;
+        $struct = (array)$struct;
 
         foreach ($struct as $key => $value) {
             if ($value === false) {
@@ -366,7 +366,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
                 $value = 1;
             }
 
-            if (ctype_digit((string) $key)) {
+            if (ctype_digit((string)$key)) {
                 $key = 'key_' . $key;
             }
 
@@ -464,11 +464,11 @@ class Zend_Rest_Server implements Zend_Server_Interface
 
         $dom = new DOMDocument('1.0', $this->getEncoding());
         if ($class) {
-            $xml       = $dom->createElement($class);
+            $xml = $dom->createElement($class);
             $xmlMethod = $dom->createElement($method);
             $xml->appendChild($xmlMethod);
         } else {
-            $xml       = $dom->createElement($method);
+            $xml = $dom->createElement($method);
             $xmlMethod = $xml;
         }
         $xml->setAttribute('generator', 'zend');
@@ -521,7 +521,7 @@ class Zend_Rest_Server implements Zend_Server_Interface
     public function addFunction($function, $namespace = '')
     {
         if (!is_array($function)) {
-            $function = (array) $function;
+            $function = (array)$function;
         }
 
         foreach ($function as $func) {
@@ -600,9 +600,9 @@ class Zend_Rest_Server implements Zend_Server_Interface
         } catch (Exception $e) {
             require_once 'Zend/Rest/Server/Exception.php';
             throw new Zend_Rest_Server_Exception('Error instantiating class ' . $class .
-                                                 ' to invoke method ' . $this->_functions[$this->_method]->getName() .
-                                                 ' (' . $e->getMessage() . ') ',
-                                                 500, $e);
+                ' to invoke method ' . $this->_functions[$this->_method]->getName() .
+                ' (' . $e->getMessage() . ') ',
+                500, $e);
         }
 
         try {

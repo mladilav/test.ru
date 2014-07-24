@@ -54,7 +54,7 @@ class Zend_Tool_Framework_System_Provider_Manifest
     {
 
         $manifestRepository = $this->_registry->getManifestRepository();
-        $response           = $this->_registry->getResponse();
+        $response = $this->_registry->getResponse();
 
         $metadataTree = array();
 
@@ -62,8 +62,8 @@ class Zend_Tool_Framework_System_Provider_Manifest
 
         foreach ($manifestRepository as $metadata) {
 
-            $metadataType  = $metadata->getType();
-            $metadataName  = $metadata->getName();
+            $metadataType = $metadata->getType();
+            $metadataName = $metadata->getName();
             $metadataAttrs = $metadata->getAttributes('attributesParent');
 
             if (!$metadataAttrs) {

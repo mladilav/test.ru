@@ -38,7 +38,8 @@ class Application_Form_Login extends Zend_Form
 
         // создаём кнопку submit
         $submit = new Zend_Form_Element_Submit('login');
-        $submit->setLabel('Войти в систему');
+        $submit->setLabel('Войти в систему')
+                ->setAttrib('class','btn btn-success');
 
         // добавляем элементы в форму
         $this->addElements(array($username, $password, $submit));

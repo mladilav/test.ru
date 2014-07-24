@@ -127,8 +127,8 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
     public function __construct(Zend_Controller_Request_Abstract $request, Zend_Controller_Response_Abstract $response, array $invokeArgs = array())
     {
         $this->setRequest($request)
-             ->setResponse($response)
-             ->_setInvokeArgs($invokeArgs);
+            ->setResponse($response)
+            ->_setInvokeArgs($invokeArgs);
         $this->_helper = new Zend_Controller_Action_HelperBroker($this);
         $this->init();
     }
@@ -172,8 +172,8 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
         }
 
         $request = $this->getRequest();
-        $module  = $request->getModuleName();
-        $dirs    = $this->getFrontController()->getControllerDirectory();
+        $module = $request->getModuleName();
+        $dirs = $this->getFrontController()->getControllerDirectory();
         if (empty($module) || !isset($dirs[$module])) {
             $module = $this->getFrontController()->getDispatcher()->getDefaultModule();
         }
@@ -203,7 +203,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * @see Zend_Controller_Response_Abstract::appendBody()
      * @param  string|null $action Defaults to action registered in request object
      * @param  string|null $name Response object named path segment to use; defaults to null
-     * @param  bool $noController  Defaults to false; i.e. use controller name as subdir in which to search for view script
+     * @param  bool $noController Defaults to false; i.e. use controller name as subdir in which to search for view script
      * @return void
      */
     public function render($action = null, $name = null, $noController = false)
@@ -212,7 +212,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
             return $this->_helper->viewRenderer->render($action, $name, $noController);
         }
 
-        $view   = $this->initView();
+        $view = $this->initView();
         $script = $this->getViewScript($action, $noController);
 
         $this->getResponse()->appendBody(
@@ -256,7 +256,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
      * Used by render() to determine the path to the view script.
      *
      * @param  string $action Defaults to action registered in request object
-     * @param  bool $noController  Defaults to false; i.e. use controller name as subdir in which to search for view script
+     * @param  bool $noController Defaults to false; i.e. use controller name as subdir in which to search for view script
      * @return string
      * @throws Zend_Controller_Exception with bad $action
      */
@@ -282,7 +282,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
             $dispatcher = Zend_Controller_Front::getInstance()->getDispatcher();
             $wordDelimiters = $dispatcher->getWordDelimiter();
             $pathDelimiters = $dispatcher->getPathDelimiter();
-            $this->_delimiters = array_unique(array_merge($wordDelimiters, (array) $pathDelimiters));
+            $this->_delimiters = array_unique(array_merge($wordDelimiters, (array)$pathDelimiters));
         }
 
         $action = str_replace($this->_delimiters, '-', $action);
@@ -600,7 +600,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
     public function getParam($paramName, $default = null)
     {
         $value = $this->getRequest()->getParam($paramName);
-         if ((null === $value || '' === $value) && (null !== $default)) {
+        if ((null === $value || '' === $value) && (null !== $default)) {
             $value = $default;
         }
 
@@ -763,7 +763,7 @@ abstract class Zend_Controller_Action implements Zend_Controller_Action_Interfac
         }
 
         $request->setActionName($action)
-                ->setDispatched(false);
+            ->setDispatched(false);
     }
 
     /**

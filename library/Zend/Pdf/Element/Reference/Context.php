@@ -55,7 +55,7 @@ class Zend_Pdf_Element_Reference_Context
                                 Zend_Pdf_Element_Reference_Table $refTable)
     {
         $this->_stringParser = $parser;
-        $this->_refTable     = $refTable;
+        $this->_refTable = $refTable;
     }
 
 

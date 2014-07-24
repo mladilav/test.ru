@@ -59,12 +59,12 @@ class Zend_Amf_Value_TraitsInfo
      * @param  boolean $properties
      * @return void
      */
-    public function __construct($className, $dynamic=false, $externalizable=false, $properties=null)
+    public function __construct($className, $dynamic = false, $externalizable = false, $properties = null)
     {
-        $this->_className      = $className;
-        $this->_dynamic        = $dynamic;
+        $this->_className = $className;
+        $this->_dynamic = $dynamic;
         $this->_externalizable = $externalizable;
-        $this->_properties     = $properties;
+        $this->_properties = $properties;
     }
 
     /**
@@ -139,7 +139,7 @@ class Zend_Amf_Value_TraitsInfo
      */
     public function getProperty($index)
     {
-        return $this->_properties[(int) $index];
+        return $this->_properties[(int)$index];
     }
 
     /**

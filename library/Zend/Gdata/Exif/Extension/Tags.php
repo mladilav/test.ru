@@ -175,7 +175,7 @@ class Zend_Gdata_Exif_Extension_Tags extends Zend_Gdata_Extension
      *          value to be set in the constructed object.
      * @param Zend_Gdata_Exif_Extension_Flash $flash (optional) The exif:flash
      *          value to be set in the constructed object.
-     * @param Zend_Gdata_Exif_Extension_FocalLength$focalLength (optional) The exif:focallength
+     * @param Zend_Gdata_Exif_Extension_FocalLength $focalLength (optional) The exif:focallength
      *          value to be set in the constructed object.
      * @param Zend_Gdata_Exif_Extension_FStop $fStop (optional) The exif:fstop
      *          value to be set in the constructed object.
@@ -191,9 +191,9 @@ class Zend_Gdata_Exif_Extension_Tags extends Zend_Gdata_Extension
      *          value to be set in the constructed object.
      */
     public function __construct($distance = null, $exposure = null,
-            $flash = null, $focalLength = null, $fStop = null,
-            $imageUniqueId = null, $iso = null, $make = null,
-            $model = null, $time = null)
+                                $flash = null, $focalLength = null, $fStop = null,
+                                $imageUniqueId = null, $iso = null, $make = null,
+                                $model = null, $time = null)
     {
         $this->registerAllNamespaces(Zend_Gdata_Exif::$namespaces);
         parent::__construct();
@@ -477,6 +477,7 @@ class Zend_Gdata_Exif_Extension_Tags extends Zend_Gdata_Extension
         $this->_iso = $value;
         return $this;
     }
+
     /**
      * Get the value for this element's make attribute.
      *

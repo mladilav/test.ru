@@ -53,9 +53,9 @@ class Zend_Cache_Frontend_Class extends Zend_Cache_Core
      * @var array available options
      */
     protected $_specificOptions = array(
-        'cached_entity'      => null,
-        'cache_by_default'   => true,
-        'cached_methods'     => array(),
+        'cached_entity' => null,
+        'cache_by_default' => true,
+        'cached_methods' => array(),
         'non_cached_methods' => array()
     );
 
@@ -82,13 +82,13 @@ class Zend_Cache_Frontend_Class extends Zend_Cache_Core
      */
     protected $_cachedEntity = null;
 
-     /**
-      * The class name of the cached object or cached abstract class
-      *
-      * Used to differentiate between different classes with the same method calls.
-      *
-      * @var string
-      */
+    /**
+     * The class name of the cached object or cached abstract class
+     *
+     * Used to differentiate between different classes with the same method calls.
+     *
+     * @var string
+     */
     protected $_cachedEntityLabel = '';
 
     /**
@@ -142,8 +142,8 @@ class Zend_Cache_Frontend_Class extends Zend_Cache_Core
      *
      * Just a wrapper to get a specific behaviour for cached_entity
      *
-     * @param  string $name  Name of the option
-     * @param  mixed  $value Value of the option
+     * @param  string $name Name of the option
+     * @param  mixed $value Value of the option
      * @throws Zend_Cache_Exception
      * @return void
      */
@@ -172,7 +172,7 @@ class Zend_Cache_Frontend_Class extends Zend_Cache_Core
             );
         }
 
-        $this->_cachedEntity                     = $cachedEntity;
+        $this->_cachedEntity = $cachedEntity;
         $this->_specificOptions['cached_entity'] = $cachedEntity;
 
         if (is_string($this->_cachedEntity)) {
@@ -197,8 +197,8 @@ class Zend_Cache_Frontend_Class extends Zend_Cache_Core
     /**
      * Main method : call the specified method or get the result from cache
      *
-     * @param  string $name       Method name
-     * @param  array  $parameters Method parameters
+     * @param  string $name Method name
+     * @param  array $parameters Method parameters
      * @return mixed Result
      * @throws Exception
      */
@@ -213,7 +213,7 @@ class Zend_Cache_Frontend_Class extends Zend_Cache_Core
         $cacheBool1 = $this->_specificOptions['cache_by_default'];
         $cacheBool2 = in_array($name, $this->_specificOptions['cached_methods']);
         $cacheBool3 = in_array($name, $this->_specificOptions['non_cached_methods']);
-        $cache      = (($cacheBool1 || $cacheBool2) && (!$cacheBool3));
+        $cache = (($cacheBool1 || $cacheBool2) && (!$cacheBool3));
 
         if (!$cache) {
             // We do not have not cache
@@ -235,7 +235,7 @@ class Zend_Cache_Frontend_Class extends Zend_Cache_Core
             try {
                 $return = call_user_func_array($callback, $parameters);
                 $output = ob_get_clean();
-                $data   = array($output, $return);
+                $data = array($output, $return);
 
                 $this->save(
                     $data, $id, $this->_tags, $this->_specificLifetime,
@@ -265,7 +265,7 @@ class Zend_Cache_Frontend_Class extends Zend_Cache_Core
      * Make a cache id from the method name and parameters
      *
      * @param  string $name Method name
-     * @param  array  $args Method parameters
+     * @param  array $args Method parameters
      * @return string Cache id
      */
     public function makeId($name, array $args = array())

@@ -131,7 +131,7 @@ class Zend_Tag_Cloud_Decorator_HtmlTag extends Zend_Tag_Cloud_Decorator_Tag
      */
     public function getEncoding()
     {
-         return $this->_encoding;
+        return $this->_encoding;
     }
 
     /**
@@ -142,7 +142,7 @@ class Zend_Tag_Cloud_Decorator_HtmlTag extends Zend_Tag_Cloud_Decorator_Tag
      */
     public function setEncoding($value)
     {
-        $this->_encoding = (string) $value;
+        $this->_encoding = (string)$value;
         return $this;
     }
 
@@ -162,7 +162,7 @@ class Zend_Tag_Cloud_Decorator_HtmlTag extends Zend_Tag_Cloud_Decorator_Tag
             throw new Zend_Tag_Cloud_Decorator_Exception('Invalid fontsize unit specified');
         }
 
-        $this->_fontSizeUnit = (string) $fontSizeUnit;
+        $this->_fontSizeUnit = (string)$fontSizeUnit;
         $this->setClassList(null);
         return $this;
     }
@@ -176,7 +176,8 @@ class Zend_Tag_Cloud_Decorator_HtmlTag extends Zend_Tag_Cloud_Decorator_Tag
     {
         return $this->_fontSizeUnit;
     }
-     /**
+
+    /**
      * Set the HTML tags surrounding the <a> element
      *
      * @param  array $htmlTags
@@ -212,7 +213,7 @@ class Zend_Tag_Cloud_Decorator_HtmlTag extends Zend_Tag_Cloud_Decorator_Tag
             throw new Zend_Tag_Cloud_Decorator_Exception('Fontsize must be numeric');
         }
 
-        $this->_maxFontSize = (int) $maxFontSize;
+        $this->_maxFontSize = (int)$maxFontSize;
         $this->setClassList(null);
         return $this;
     }
@@ -241,7 +242,7 @@ class Zend_Tag_Cloud_Decorator_HtmlTag extends Zend_Tag_Cloud_Decorator_Tag
             throw new Zend_Tag_Cloud_Decorator_Exception('Fontsize must be numeric');
         }
 
-        $this->_minFontSize = (int) $minFontSize;
+        $this->_minFontSize = (int)$minFontSize;
         $this->setClassList(null);
         return $this;
     }
@@ -284,14 +285,14 @@ class Zend_Tag_Cloud_Decorator_HtmlTag extends Zend_Tag_Cloud_Decorator_Tag
 
             foreach ($this->getHtmlTags() as $key => $data) {
                 if (is_array($data)) {
-                    $htmlTag    = $key;
+                    $htmlTag = $key;
                     $attributes = '';
 
                     foreach ($data as $param => $value) {
                         $attributes .= ' ' . $param . '="' . htmlspecialchars($value, ENT_COMPAT, $enc) . '"';
                     }
                 } else {
-                    $htmlTag    = $data;
+                    $htmlTag = $data;
                     $attributes = '';
                 }
 

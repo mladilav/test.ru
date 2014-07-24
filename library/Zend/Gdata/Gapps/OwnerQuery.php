@@ -131,7 +131,7 @@ class Zend_Gdata_Gapps_OwnerQuery extends Zend_Gdata_Gapps_Query
         } else {
             require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
-                    'groupId must not be null');
+                'groupId must not be null');
         }
 
         $uri .= '/owner';

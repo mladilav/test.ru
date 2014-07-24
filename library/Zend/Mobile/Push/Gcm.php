@@ -137,11 +137,10 @@ class Zend_Mobile_Push_Gcm extends Zend_Mobile_Push_Abstract
         $client->setHeaders('Authorization', 'key=' . $this->getApiKey());
 
         $response = $client->setRawData($message->toJson(), 'application/json')
-                           ->request('POST');
+            ->request('POST');
         $this->close();
 
-        switch ($response->getStatus())
-        {
+        switch ($response->getStatus()) {
             case 500:
                 require_once 'Zend/Mobile/Push/Exception/ServerUnavailable.php';
                 throw new Zend_Mobile_Push_Exception_ServerUnavailable('The server encountered an internal error, try again');

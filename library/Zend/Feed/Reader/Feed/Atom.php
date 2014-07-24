@@ -393,11 +393,12 @@ class Zend_Feed_Reader_Feed_Atom extends Zend_Feed_Reader_FeedAbstract
     protected function _indexEntries()
     {
         if ($this->getType() == Zend_Feed_Reader::TYPE_ATOM_10 ||
-            $this->getType() == Zend_Feed_Reader::TYPE_ATOM_03) {
+            $this->getType() == Zend_Feed_Reader::TYPE_ATOM_03
+        ) {
             $entries = array();
             $entries = $this->_xpath->evaluate('//atom:entry');
 
-            foreach($entries as $index=>$entry) {
+            foreach ($entries as $index => $entry) {
                 $this->_entries[$index] = $entry;
             }
         }

@@ -315,7 +315,7 @@ class Zend_Log_Writer_Mail extends Zend_Log_Writer_Abstract
         if (!$this->_layout) {
             throw new Zend_Log_Exception(
                 'cannot set formatter for layout; ' .
-                    'a Zend_Layout instance is not in use');
+                'a Zend_Layout instance is not in use');
         }
 
         $this->_layoutFormatter = $formatter;
@@ -340,10 +340,10 @@ class Zend_Log_Writer_Mail extends Zend_Log_Writer_Abstract
         if ($this->_mail->getSubject()) {
             throw new Zend_Log_Exception(
                 'subject already set on mail; ' .
-                    'cannot set subject prepend text');
+                'cannot set subject prepend text');
         }
 
-        $this->_subjectPrependText = (string) $subject;
+        $this->_subjectPrependText = (string)$subject;
         return $this;
     }
 
@@ -388,10 +388,10 @@ class Zend_Log_Writer_Mail extends Zend_Log_Writer_Abstract
             } catch (Exception $e) {
                 trigger_error(
                     "exception occurred when rendering layout; " .
-                        "unable to set html body for message; " .
-                        "message = {$e->getMessage()}; " .
-                        "code = {$e->getCode()}; " .
-                        "exception class = " . get_class($e),
+                    "unable to set html body for message; " .
+                    "message = {$e->getMessage()}; " .
+                    "code = {$e->getCode()}; " .
+                    "exception class = " . get_class($e),
                     E_USER_NOTICE);
             }
         }
@@ -404,9 +404,9 @@ class Zend_Log_Writer_Mail extends Zend_Log_Writer_Abstract
         } catch (Exception $e) {
             trigger_error(
                 "unable to send log entries via email; " .
-                    "message = {$e->getMessage()}; " .
-                    "code = {$e->getCode()}; " .
-                        "exception class = " . get_class($e),
+                "message = {$e->getMessage()}; " .
+                "code = {$e->getCode()}; " .
+                "exception class = " . get_class($e),
                 E_USER_WARNING);
         }
     }

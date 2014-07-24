@@ -63,25 +63,25 @@ class Zend_Service_Delicious
 {
     const API_URI = 'https://api.del.icio.us';
 
-    const PATH_UPDATE        = '/v1/posts/update';
-    const PATH_TAGS          = '/v1/tags/get';
-    const PATH_TAG_RENAME    = '/v1/tags/rename';
-    const PATH_BUNDLES       = '/v1/tags/bundles/all';
+    const PATH_UPDATE = '/v1/posts/update';
+    const PATH_TAGS = '/v1/tags/get';
+    const PATH_TAG_RENAME = '/v1/tags/rename';
+    const PATH_BUNDLES = '/v1/tags/bundles/all';
     const PATH_BUNDLE_DELETE = '/v1/tags/bundles/delete';
-    const PATH_BUNDLE_ADD    = '/v1/tags/bundles/set';
-    const PATH_DATES         = '/v1/posts/dates';
-    const PATH_POST_DELETE   = '/v1/posts/delete';
-    const PATH_POSTS_GET     = '/v1/posts/get';
-    const PATH_POSTS_ALL     = '/v1/posts/all';
-    const PATH_POSTS_ADD     = '/v1/posts/add';
-    const PATH_POSTS_RECENT  = '/v1/posts/recent';
+    const PATH_BUNDLE_ADD = '/v1/tags/bundles/set';
+    const PATH_DATES = '/v1/posts/dates';
+    const PATH_POST_DELETE = '/v1/posts/delete';
+    const PATH_POSTS_GET = '/v1/posts/get';
+    const PATH_POSTS_ALL = '/v1/posts/all';
+    const PATH_POSTS_ADD = '/v1/posts/add';
+    const PATH_POSTS_RECENT = '/v1/posts/recent';
 
-    const JSON_URI     = 'http://del.icio.us';
-    const JSON_POSTS   = '/feeds/json/%s/%s';
-    const JSON_TAGS    = '/feeds/json/tags/%s';
+    const JSON_URI = 'http://del.icio.us';
+    const JSON_POSTS = '/feeds/json/%s/%s';
+    const JSON_TAGS = '/feeds/json/tags/%s';
     const JSON_NETWORK = '/feeds/json/network/%s';
-    const JSON_FANS    = '/feeds/json/fans/%s';
-    const JSON_URL     = '/feeds/json/url/data';
+    const JSON_FANS = '/feeds/json/fans/%s';
+    const JSON_URL = '/feeds/json/url/data';
 
     /**
      * Zend_Service_Rest instance
@@ -115,7 +115,7 @@ class Zend_Service_Delicious
      * Constructs a new del.icio.us Web Services Client
      *
      * @param  string $uname Client username
-     * @param  string $pass  Client password
+     * @param  string $pass Client password
      * @return void
      */
     public function __construct($uname = null, $pass = null)
@@ -129,13 +129,13 @@ class Zend_Service_Delicious
      * Set client username and password
      *
      * @param  string $uname Client user name
-     * @param  string $pass  Client password
+     * @param  string $pass Client password
      * @return Zend_Service_Delicious Provides a fluent interface
      */
     public function setAuth($uname, $pass)
     {
         $this->_authUname = $uname;
-        $this->_authPass  = $pass;
+        $this->_authPass = $pass;
 
         return $this;
     }
@@ -213,12 +213,12 @@ class Zend_Service_Delicious
      * Adds a new bundle
      *
      * @param  string $bundle Name of new bundle
-     * @param  array  $tags   Array of tags
+     * @param  array $tags Array of tags
      * @return Zend_Service_Delicious Provides a fluent interface
      */
     public function addBundle($bundle, array $tags)
     {
-        $tags = implode(' ', (array) $tags);
+        $tags = implode(' ', (array)$tags);
         $response = $this->makeRequest(self::PATH_BUNDLE_ADD, array('bundle' => $bundle, 'tags' => $tags));
 
         self::_evalXmlResult($response);
@@ -281,9 +281,9 @@ class Zend_Service_Delicious
      *
      * If no date or url is given, most recent date will be used
      *
-     * @param  string    $tag Optional filtering by tag
-     * @param  Zend_Date $dt  Optional filtering by date
-     * @param  string    $url Optional filtering by url
+     * @param  string $tag Optional filtering by tag
+     * @param  Zend_Date $dt Optional filtering by date
+     * @param  string $url Optional filtering by url
      * @throws Zend_Service_Delicious_Exception
      * @return Zend_Service_Delicious_PostList
      */
@@ -326,7 +326,7 @@ class Zend_Service_Delicious
     /**
      * Get recent posts
      *
-     * @param  string $tag   Optional filtering by tag
+     * @param  string $tag Optional filtering by tag
      * @param  string $count Maximum number of posts to be returned (default 15)
      * @return Zend_Service_Delicious_PostList
      */
@@ -358,9 +358,9 @@ class Zend_Service_Delicious
     /**
      * Get posts of a user
      *
-     * @param  string $user  Owner of the posts
-     * @param  int    $count Number of posts (default 15, max. 100)
-     * @param  string $tag   Optional filtering by tag
+     * @param  string $user Owner of the posts
+     * @param  int $count Number of posts (default 15, max. 100)
+     * @param  string $tag Optional filtering by tag
      * @return Zend_Service_Delicious_PostList
      */
     public function getUserPosts($user, $count = null, $tag = null)
@@ -381,10 +381,10 @@ class Zend_Service_Delicious
      *
      * Returned array has tags as keys and number of posts as values
      *
-     * @param  string $user    Owner of the posts
-     * @param  int    $atleast Include only tags for which there are at least ### number of posts
-     * @param  int    $count   Number of tags to get (default all)
-     * @param  string $sort    Order of returned tags ('alpha' || 'count')
+     * @param  string $user Owner of the posts
+     * @param  int $atleast Include only tags for which there are at least ### number of posts
+     * @param  int $count Number of tags to get (default all)
+     * @param  string $sort Order of returned tags ('alpha' || 'count')
      * @return array
      */
     public function getUserTags($user, $atleast = null, $count = null, $sort = 'alpha')
@@ -449,7 +449,7 @@ class Zend_Service_Delicious
 
         $res = $this->makeRequest(self::JSON_URL, $parms, 'json');
 
-        if(isset($res[0])) {
+        if (isset($res[0])) {
             return $res[0];
         } else {
             return null;
@@ -459,9 +459,9 @@ class Zend_Service_Delicious
     /**
      * Handles all GET requests to a web service
      *
-     * @param   string $path  Path
-     * @param   array  $parms Array of GET parameters
-     * @param   string $type  Type of a request ("xml"|"json")
+     * @param   string $path Path
+     * @param   array $parms Array of GET parameters
+     * @param   string $type Type of a request ("xml"|"json")
      * @return  mixed  decoded response from web service
      * @throws  Zend_Service_Delicious_Exception
      */
@@ -507,8 +507,8 @@ class Zend_Service_Delicious
 
         switch ($type) {
             case 'xml':
-                $dom = new DOMDocument() ;
-    
+                $dom = new DOMDocument();
+
                 if (!$dom = @Zend_Xml_Security::scan($responseBody, $dom)) {
                     /**
                      * @see Zend_Service_Delicious_Exception
@@ -527,10 +527,10 @@ class Zend_Service_Delicious
      * Transform XML string to array
      *
      * @param   DOMDocument $response
-     * @param   string      $root     Name of root tag
-     * @param   string      $child    Name of children tags
-     * @param   string      $attKey   Attribute of child tag to be used as a key
-     * @param   string      $attValue Attribute of child tag to be used as a value
+     * @param   string $root Name of root tag
+     * @param   string $child Name of children tags
+     * @param   string $attKey Attribute of child tag to be used as a key
+     * @param   string $attValue Attribute of child tag to be used as a value
      * @return  array
      * @throws  Zend_Service_Delicious_Exception
      */

@@ -31,14 +31,14 @@ require_once 'Zend/Dojo/View/Helper/DijitContainer.php';
  * @subpackage View
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
-  */
+ */
 class Zend_Dojo_View_Helper_BorderContainer extends Zend_Dojo_View_Helper_DijitContainer
 {
     /**
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.layout.BorderContainer';
+    protected $_dijit = 'dijit.layout.BorderContainer';
 
     /**
      * Dojo module to use
@@ -57,7 +57,7 @@ class Zend_Dojo_View_Helper_BorderContainer extends Zend_Dojo_View_Helper_DijitC
      *
      * @param  string $id
      * @param  string $content
-     * @param  array $params  Parameters to use for dijit creation
+     * @param  array $params Parameters to use for dijit creation
      * @param  array $attribs HTML attributes
      * @return string
      */

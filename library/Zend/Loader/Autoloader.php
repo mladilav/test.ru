@@ -63,7 +63,7 @@ class Zend_Loader_Autoloader
      * @var array Supported namespaces 'Zend' and 'ZendX' by default.
      */
     protected $_namespaces = array(
-        'Zend_'  => true,
+        'Zend_' => true,
         'ZendX_' => true,
     );
 
@@ -190,7 +190,7 @@ class Zend_Loader_Autoloader
      */
     public function getNamespaceAutoloaders($namespace)
     {
-        $namespace = (string) $namespace;
+        $namespace = (string)$namespace;
         if (!array_key_exists($namespace, $this->_namespaceAutoloaders)) {
             return array();
         }
@@ -206,7 +206,7 @@ class Zend_Loader_Autoloader
     public function registerNamespace($namespace)
     {
         if (is_string($namespace)) {
-            $namespace = (array) $namespace;
+            $namespace = (array)$namespace;
         } elseif (!is_array($namespace)) {
             throw new Zend_Loader_Exception('Invalid namespace provided');
         }
@@ -228,7 +228,7 @@ class Zend_Loader_Autoloader
     public function unregisterNamespace($namespace)
     {
         if (is_string($namespace)) {
-            $namespace = (array) $namespace;
+            $namespace = (array)$namespace;
         } elseif (!is_array($namespace)) {
             throw new Zend_Loader_Exception('Invalid namespace provided');
         }
@@ -288,7 +288,7 @@ class Zend_Loader_Autoloader
         if (null === $flag) {
             return $this->_suppressNotFoundWarnings;
         }
-        $this->_suppressNotFoundWarnings = (bool) $flag;
+        $this->_suppressNotFoundWarnings = (bool)$flag;
         return $this;
     }
 
@@ -300,7 +300,7 @@ class Zend_Loader_Autoloader
      */
     public function setFallbackAutoloader($flag)
     {
-        $this->_fallbackAutoloader = (bool) $flag;
+        $this->_fallbackAutoloader = (bool)$flag;
         return $this;
     }
 
@@ -326,7 +326,7 @@ class Zend_Loader_Autoloader
      */
     public function getClassAutoloaders($class)
     {
-        $namespace   = false;
+        $namespace = false;
         $autoloaders = array();
 
         // Add concrete namespaced autoloaders
@@ -345,7 +345,7 @@ class Zend_Loader_Autoloader
         // Add internal namespaced autoloader
         foreach ($this->getRegisteredNamespaces() as $ns) {
             if (0 === strpos($class, $ns)) {
-                $namespace     = $ns;
+                $namespace = $ns;
                 $autoloaders[] = $this->_internalAutoloader;
                 break;
             }
@@ -381,7 +381,7 @@ class Zend_Loader_Autoloader
         array_unshift($autoloaders, $callback);
         $this->setAutoloaders($autoloaders);
 
-        $namespace = (array) $namespace;
+        $namespace = (array)$namespace;
         foreach ($namespace as $ns) {
             $autoloaders = $this->getNamespaceAutoloaders($ns);
             array_unshift($autoloaders, $callback);
@@ -404,7 +404,7 @@ class Zend_Loader_Autoloader
         array_push($autoloaders, $callback);
         $this->setAutoloaders($autoloaders);
 
-        $namespace = (array) $namespace;
+        $namespace = (array)$namespace;
         foreach ($namespace as $ns) {
             $autoloaders = $this->getNamespaceAutoloaders($ns);
             array_push($autoloaders, $callback);
@@ -437,7 +437,7 @@ class Zend_Loader_Autoloader
                 }
             }
         } else {
-            $namespace = (array) $namespace;
+            $namespace = (array)$namespace;
             foreach ($namespace as $ns) {
                 $autoloaders = $this->getNamespaceAutoloaders($ns);
                 if (false !== ($index = array_search($callback, $autoloaders, true))) {
@@ -493,7 +493,7 @@ class Zend_Loader_Autoloader
      */
     protected function _setNamespaceAutoloaders(array $autoloaders, $namespace = '')
     {
-        $namespace = (string) $namespace;
+        $namespace = (string)$namespace;
         $this->_namespaceAutoloaders[$namespace] = $autoloaders;
         return $this;
     }
@@ -562,12 +562,12 @@ class Zend_Loader_Autoloader
             throw new Zend_Loader_Exception('Invalid ZF path provided');
         }
 
-        $path       = rtrim($path, '/');
-        $path       = rtrim($path, '\\');
+        $path = rtrim($path, '/');
+        $path = rtrim($path, '\\');
         $versionLen = strlen($version);
-        $versions   = array();
-        $dirs       = glob("$path/*", GLOB_ONLYDIR);
-        foreach ((array) $dirs as $dir) {
+        $versions = array();
+        $dirs = glob("$path/*", GLOB_ONLYDIR);
+        foreach ((array)$dirs as $dir) {
             $dirName = substr($dir, strlen($path) + 1);
             if (!preg_match('/^(?:ZendFramework-)?(\d+\.\d+\.\d+((a|b|pl|pr|p|rc)\d+)?)(?:-minimal)?$/i', $dirName, $matches)) {
                 continue;

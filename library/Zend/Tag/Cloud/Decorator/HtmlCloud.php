@@ -75,7 +75,7 @@ class Zend_Tag_Cloud_Decorator_HtmlCloud extends Zend_Tag_Cloud_Decorator_Cloud
      */
     public function setEncoding($value)
     {
-        $this->_encoding = (string) $value;
+        $this->_encoding = (string)$value;
         return $this;
     }
 
@@ -136,14 +136,14 @@ class Zend_Tag_Cloud_Decorator_HtmlCloud extends Zend_Tag_Cloud_Decorator_Cloud
         $enc = $this->getEncoding();
         foreach ($this->getHtmlTags() as $key => $data) {
             if (is_array($data)) {
-                $htmlTag    = $key;
+                $htmlTag = $key;
                 $attributes = '';
 
                 foreach ($data as $param => $value) {
                     $attributes .= ' ' . $param . '="' . htmlspecialchars($value, ENT_COMPAT, $enc) . '"';
                 }
             } else {
-                $htmlTag    = $data;
+                $htmlTag = $data;
                 $attributes = '';
             }
 

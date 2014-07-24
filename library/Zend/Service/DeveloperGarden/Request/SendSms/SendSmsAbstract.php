@@ -224,7 +224,7 @@ abstract class Zend_Service_DeveloperGarden_Request_SendSms_SendSmsAbstract
     public function getMessageLength()
     {
         $message = $this->getMessage();
-        $length  = strlen($message);
+        $length = strlen($message);
 
         foreach ($this->_specialChars as $char) {
             $c = (substr_count($message, $char) * 2) - 1;
@@ -258,7 +258,7 @@ abstract class Zend_Service_DeveloperGarden_Request_SendSms_SendSmsAbstract
      */
     public function getNumberCount()
     {
-        $number   = $this->getNumber();
+        $number = $this->getNumber();
         $retValue = 0;
         if (!empty($number)) {
             $retValue = count(explode(',', $number));

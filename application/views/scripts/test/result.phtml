@@ -1,0 +1,24 @@
+<h4>Результат:</h4>
+<table class="table table-condensed">
+    <tr>
+        <th><?php if($this->lang == "ua") echo 'Номер питання'; else echo 'Номер вопроса';?></th>
+        <th><?php if($this->lang == "ua") echo 'Кількість балів'; else echo 'Количество баллов';?></th>
+
+    </tr>
+    <?php
+    if(isset($this->result))
+    {echo $this->partialLoop('/partials/result.phtml', $this->result);}
+    ?>
+</table>
+Ваш результат - <b><?php echo $this->count;?></b>
+<?php if($this->lang == "ua") echo 'за час'; else echo 'за время';?> - <b><?php echo $this->date;?></b>
+<form method="post">
+    <input type="submit" class="btn btn-success" value ="<?php if($this->lang == "ua") echo 'Надіслати результат'; else echo 'Отправить результат';?>"></form>
+
+
+<script type="text/javascript" src="//yandex.st/share/share.js"
+        charset="utf-8"></script>
+<div class="yashare-auto-init" data-yashareL10n="ru"
+     data-yashareQuickServices="vkontakte,facebook" data-yashareTheme="counter"
+
+    ></div>

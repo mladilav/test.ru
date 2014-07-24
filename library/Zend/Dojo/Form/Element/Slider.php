@@ -42,7 +42,7 @@ abstract class Zend_Dojo_Form_Element_Slider extends Zend_Dojo_Form_Element_Diji
      */
     public function setClickSelect($flag)
     {
-        $this->setDijitParam('clickSelect', (bool) $flag);
+        $this->setDijitParam('clickSelect', (bool)$flag);
         return $this;
     }
 
@@ -67,7 +67,7 @@ abstract class Zend_Dojo_Form_Element_Slider extends Zend_Dojo_Form_Element_Diji
      */
     public function setIntermediateChanges($flag)
     {
-        $this->setDijitParam('intermediateChanges', (bool) $flag);
+        $this->setDijitParam('intermediateChanges', (bool)$flag);
         return $this;
     }
 
@@ -92,7 +92,7 @@ abstract class Zend_Dojo_Form_Element_Slider extends Zend_Dojo_Form_Element_Diji
      */
     public function setShowButtons($flag)
     {
-        $this->setDijitParam('showButtons', (bool) $flag);
+        $this->setDijitParam('showButtons', (bool)$flag);
         return $this;
     }
 
@@ -117,7 +117,7 @@ abstract class Zend_Dojo_Form_Element_Slider extends Zend_Dojo_Form_Element_Diji
      */
     public function setDiscreteValues($value)
     {
-        $this->setDijitParam('discreteValues', (int) $value);
+        $this->setDijitParam('discreteValues', (int)$value);
         return $this;
     }
 
@@ -139,7 +139,7 @@ abstract class Zend_Dojo_Form_Element_Slider extends Zend_Dojo_Form_Element_Diji
      */
     public function setMaximum($value)
     {
-        $this->setDijitParam('maximum', (int) $value);
+        $this->setDijitParam('maximum', (int)$value);
         return $this;
     }
 
@@ -161,7 +161,7 @@ abstract class Zend_Dojo_Form_Element_Slider extends Zend_Dojo_Form_Element_Diji
      */
     public function setMinimum($value)
     {
-        $this->setDijitParam('minimum', (int) $value);
+        $this->setDijitParam('minimum', (int)$value);
         return $this;
     }
 
@@ -183,7 +183,7 @@ abstract class Zend_Dojo_Form_Element_Slider extends Zend_Dojo_Form_Element_Diji
      */
     public function setPageIncrement($value)
     {
-        $this->setDijitParam('pageIncrement', (int) $value);
+        $this->setDijitParam('pageIncrement', (int)$value);
         return $this;
     }
 

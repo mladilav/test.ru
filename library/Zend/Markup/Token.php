@@ -33,8 +33,8 @@ require_once 'Zend/Markup/TokenList.php';
  */
 class Zend_Markup_Token
 {
-    const TYPE_NONE    = 'none';
-    const TYPE_TAG     = 'tag';
+    const TYPE_NONE = 'none';
+    const TYPE_TAG = 'tag';
 
     /**
      * Children of this token
@@ -102,12 +102,13 @@ class Zend_Markup_Token
         $name = '',
         array $attributes = array(),
         Zend_Markup_Token $parent = null
-    ) {
-        $this->_tag        = $tag;
-        $this->_type       = $type;
-        $this->_name       = $name;
+    )
+    {
+        $this->_tag = $tag;
+        $this->_type = $type;
+        $this->_name = $name;
         $this->_attributes = $attributes;
-        $this->_parent     = $parent;
+        $this->_parent = $parent;
     }
 
     // accessors
@@ -299,8 +300,8 @@ class Zend_Markup_Token
      */
     public function __clone()
     {
-        $this->_parent   = null;
+        $this->_parent = null;
         $this->_children = null;
-        $this->_tag      = '';
+        $this->_tag = '';
     }
 }

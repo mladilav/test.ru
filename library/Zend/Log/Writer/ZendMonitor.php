@@ -103,13 +103,13 @@ class Zend_Log_Writer_ZendMonitor extends Zend_Log_Writer_Abstract
     /**
      * Write a message to the log.
      *
-     * @param  array  $event log data event
+     * @param  array $event log data event
      * @return void
      */
     protected function _write($event)
     {
         $priority = $event['priority'];
-        $message  = $event['message'];
+        $message = $event['message'];
         unset($event['priority'], $event['message']);
 
         if (!empty($event)) {

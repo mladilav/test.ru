@@ -31,7 +31,7 @@ require_once 'Zend/Dojo/View/Helper/Button.php';
  * @subpackage View
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
-  */
+ */
 class Zend_Dojo_View_Helper_SubmitButton extends Zend_Dojo_View_Helper_Button
 {
     /**
@@ -44,7 +44,7 @@ class Zend_Dojo_View_Helper_SubmitButton extends Zend_Dojo_View_Helper_Button
      *
      * @param  string $id
      * @param  string $value
-     * @param  array $params  Parameters to use for dijit creation
+     * @param  array $params Parameters to use for dijit creation
      * @param  array $attribs HTML attributes
      * @return string
      */

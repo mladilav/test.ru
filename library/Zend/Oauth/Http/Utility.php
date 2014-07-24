@@ -46,13 +46,14 @@ class Zend_Oauth_Http_Utility
         $url,
         Zend_Oauth_Config_ConfigInterface $config,
         array $serviceProviderParams = null
-    ) {
+    )
+    {
         $params = array(
-            'oauth_consumer_key'     => $config->getConsumerKey(),
-            'oauth_nonce'            => $this->generateNonce(),
+            'oauth_consumer_key' => $config->getConsumerKey(),
+            'oauth_nonce' => $this->generateNonce(),
             'oauth_signature_method' => $config->getSignatureMethod(),
-            'oauth_timestamp'        => $this->generateTimestamp(),
-            'oauth_version'          => $config->getVersion(),
+            'oauth_timestamp' => $this->generateTimestamp(),
+            'oauth_version' => $config->getVersion(),
         );
 
         if ($config->getToken()->getToken() != null) {
@@ -88,7 +89,7 @@ class Zend_Oauth_Http_Utility
     public function toEncodedQueryString(array $params, $customParamsOnly = false)
     {
         if ($customParamsOnly) {
-            foreach ($params as $key=>$value) {
+            foreach ($params as $key => $value) {
                 if (preg_match("/^oauth_/", $key)) {
                     unset($params[$key]);
                 }
@@ -97,8 +98,8 @@ class Zend_Oauth_Http_Utility
         $encodedParams = array();
         foreach ($params as $key => $value) {
             $encodedParams[] = self::urlEncode($key)
-                             . '='
-                             . self::urlEncode($value);
+                . '='
+                . self::urlEncode($value);
         }
         return implode('&', $encodedParams);
     }
@@ -124,8 +125,8 @@ class Zend_Oauth_Http_Utility
                 }
             }
             $headerValue[] = self::urlEncode($key)
-                           . '="'
-                           . self::urlEncode($value) . '"';
+                . '="'
+                . self::urlEncode($value) . '"';
         }
         return implode(",", $headerValue);
     }
@@ -143,13 +144,14 @@ class Zend_Oauth_Http_Utility
      */
     public function sign(
         array $params, $signatureMethod, $consumerSecret, $tokenSecret = null, $method = null, $url = null
-    ) {
+    )
+    {
         $className = '';
-        $hashAlgo  = null;
-        $parts     = explode('-', $signatureMethod);
+        $hashAlgo = null;
+        $parts = explode('-', $signatureMethod);
         if (count($parts) > 1) {
             $className = 'Zend_Oauth_Signature_' . ucfirst(strtolower($parts[0]));
-            $hashAlgo  = $parts[1];
+            $hashAlgo = $parts[1];
         } else {
             $className = 'Zend_Oauth_Signature_' . ucfirst(strtolower($signatureMethod));
         }

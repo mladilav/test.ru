@@ -32,37 +32,37 @@ require_once 'Zend/Validate/Abstract.php';
  */
 class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
 {
-    const BOOLEAN       = 1;
-    const INTEGER       = 2;
-    const FLOAT         = 4;
-    const STRING        = 8;
-    const ZERO          = 16;
-    const EMPTY_ARRAY   = 32;
-    const NULL          = 64;
-    const PHP           = 127;
-    const SPACE         = 128;
-    const OBJECT        = 256;
+    const BOOLEAN = 1;
+    const INTEGER = 2;
+    const FLOAT = 4;
+    const STRING = 8;
+    const ZERO = 16;
+    const EMPTY_ARRAY = 32;
+    const NULL = 64;
+    const PHP = 127;
+    const SPACE = 128;
+    const OBJECT = 256;
     const OBJECT_STRING = 512;
-    const OBJECT_COUNT  = 1024;
-    const ALL           = 2047;
+    const OBJECT_COUNT = 1024;
+    const ALL = 2047;
 
-    const INVALID  = 'notEmptyInvalid';
+    const INVALID = 'notEmptyInvalid';
     const IS_EMPTY = 'isEmpty';
 
     protected $_constants = array(
-        self::BOOLEAN       => 'boolean',
-        self::INTEGER       => 'integer',
-        self::FLOAT         => 'float',
-        self::STRING        => 'string',
-        self::ZERO          => 'zero',
-        self::EMPTY_ARRAY   => 'array',
-        self::NULL          => 'null',
-        self::PHP           => 'php',
-        self::SPACE         => 'space',
-        self::OBJECT        => 'object',
+        self::BOOLEAN => 'boolean',
+        self::INTEGER => 'integer',
+        self::FLOAT => 'float',
+        self::STRING => 'string',
+        self::ZERO => 'zero',
+        self::EMPTY_ARRAY => 'array',
+        self::NULL => 'null',
+        self::PHP => 'php',
+        self::SPACE => 'space',
+        self::OBJECT => 'object',
         self::OBJECT_STRING => 'objectstring',
-        self::OBJECT_COUNT  => 'objectcount',
-        self::ALL           => 'all',
+        self::OBJECT_COUNT => 'objectcount',
+        self::ALL => 'all',
     );
 
     /**
@@ -70,7 +70,7 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
      */
     protected $_messageTemplates = array(
         self::IS_EMPTY => "Value is required and can't be empty",
-        self::INVALID  => "Invalid type given. String, integer, float, boolean or array expected",
+        self::INVALID => "Invalid type given. String, integer, float, boolean or array expected",
     );
 
     /**
@@ -91,7 +91,7 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
             $options = $options->toArray();
         } else if (!is_array($options)) {
             $options = func_get_args();
-            $temp    = array();
+            $temp = array();
             if (!empty($options)) {
                 $temp['type'] = array_shift($options);
             }
@@ -125,7 +125,7 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
     {
         if (is_array($type)) {
             $detected = 0;
-            foreach($type as $value) {
+            foreach ($type as $value) {
                 if (is_int($value)) {
                     $detected += $value;
                 } else if (in_array($value, $this->_constants)) {
@@ -158,14 +158,15 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
     public function isValid($value)
     {
         if ($value !== null && !is_string($value) && !is_int($value) && !is_float($value) &&
-            !is_bool($value) && !is_array($value) && !is_object($value)) {
+            !is_bool($value) && !is_array($value) && !is_object($value)
+        ) {
             $this->_error(self::INVALID);
             return false;
         }
 
-        $type    = $this->getType();
+        $type = $this->getType();
         $this->_setValue($value);
-        $object  = false;
+        $object = false;
 
         // OBJECT_COUNT (countable object)
         if ($type >= self::OBJECT_COUNT) {
@@ -184,7 +185,8 @@ class Zend_Validate_NotEmpty extends Zend_Validate_Abstract
             $object = true;
 
             if ((is_object($value) && (!method_exists($value, '__toString'))) ||
-                (is_object($value) && (method_exists($value, '__toString')) && (((string) $value) == ""))) {
+                (is_object($value) && (method_exists($value, '__toString')) && (((string)$value) == ""))
+            ) {
                 $this->_error(self::IS_EMPTY);
                 return false;
             }

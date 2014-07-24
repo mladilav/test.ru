@@ -45,7 +45,7 @@ class Zend_Form_Decorator_Captcha_Word extends Zend_Form_Decorator_Abstract
     public function render($content)
     {
         $element = $this->getElement();
-        $view    = $element->getView();
+        $view = $element->getView();
         if (null === $view) {
             return $content;
         }
@@ -53,18 +53,18 @@ class Zend_Form_Decorator_Captcha_Word extends Zend_Form_Decorator_Abstract
         $name = $element->getFullyQualifiedName();
 
         $hiddenName = $name . '[id]';
-        $textName   = $name . '[input]';
+        $textName = $name . '[input]';
 
         $label = $element->getDecorator("Label");
-        if($label) {
-            $label->setOption("id", $element->getId()."-input");
+        if ($label) {
+            $label->setOption("id", $element->getId() . "-input");
         }
 
         $placement = $this->getPlacement();
         $separator = $this->getSeparator();
 
         $hidden = $view->formHidden($hiddenName, $element->getValue(), $element->getAttribs());
-        $text   = $view->formText($textName, '', $element->getAttribs());
+        $text = $view->formText($textName, '', $element->getAttribs());
         switch ($placement) {
             case 'PREPEND':
                 $content = $hidden . $separator . $text . $separator . $content;

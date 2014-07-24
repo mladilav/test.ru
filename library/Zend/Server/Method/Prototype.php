@@ -97,7 +97,7 @@ class Zend_Server_Method_Prototype
         } else {
             require_once 'Zend/Server/Method/Parameter.php';
             $parameter = new Zend_Server_Method_Parameter(array(
-                'type' => (string) $parameter,
+                'type' => (string)$parameter,
             ));
             $this->_parameters[] = $parameter;
         }
@@ -126,7 +126,7 @@ class Zend_Server_Method_Prototype
      */
     public function setParameters(array $parameters)
     {
-        $this->_parameters       = array();
+        $this->_parameters = array();
         $this->_parameterNameMap = array();
         $this->addParameters($parameters);
         return $this;

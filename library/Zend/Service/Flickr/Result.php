@@ -174,7 +174,7 @@ class Zend_Service_Flickr_Result
     /**
      * Parse the Flickr Result
      *
-     * @param  DOMElement          $image
+     * @param  DOMElement $image
      * @param  Zend_Service_Flickr $flickr Original Zend_Service_Flickr object with which the request was made
      * @return void
      */
@@ -183,7 +183,7 @@ class Zend_Service_Flickr_Result
         $xpath = new DOMXPath($image->ownerDocument);
 
         foreach ($xpath->query('./@*', $image) as $property) {
-            $this->{$property->name} = (string) $property->value;
+            $this->{$property->name} = (string)$property->value;
         }
 
         $this->_flickr = $flickr;

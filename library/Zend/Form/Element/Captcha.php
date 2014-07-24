@@ -121,9 +121,9 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
     {
         parent::__construct($spec, $options);
         $this->setAllowEmpty(true)
-             ->setRequired(true)
-             ->setAutoInsertNotEmptyValidator(false)
-             ->addValidator($this->getCaptcha(), true);
+            ->setRequired(true)
+            ->setAutoInsertNotEmptyValidator(false)
+            ->addValidator($this->getCaptcha(), true);
     }
 
     /**
@@ -136,7 +136,7 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
      */
     public function setOptions(array $options)
     {
-        $captcha        = null;
+        $captcha = null;
         $captchaOptions = array();
 
         if (array_key_exists('captcha', $options)) {
@@ -149,7 +149,7 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
         }
         parent::setOptions($options);
 
-        if(null !== $captcha) {
+        if (null !== $captcha) {
             $this->setCaptcha($captcha, $captchaOptions);
         }
         return $this;
@@ -163,20 +163,20 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
      */
     public function render(Zend_View_Interface $view = null)
     {
-        $captcha    = $this->getCaptcha();
+        $captcha = $this->getCaptcha();
         $captcha->setName($this->getFullyQualifiedName());
 
         if (!$this->loadDefaultDecoratorsIsDisabled()) {
             $decorators = $this->getDecorators();
-            $decorator  = $captcha->getDecorator();
-            $key        = get_class($this->_getDecorator($decorator, null));
+            $decorator = $captcha->getDecorator();
+            $key = get_class($this->_getDecorator($decorator, null));
 
             if (!empty($decorator) && !array_key_exists($key, $decorators)) {
                 array_unshift($decorators, $decorator);
             }
 
             $decorator = array('Captcha', array('captcha' => $captcha));
-            $key       = get_class($this->_getDecorator($decorator[0], $decorator[1]));
+            $key = get_class($this->_getDecorator($decorator[0], $decorator[1]));
 
             if ($captcha instanceof Zend_Captcha_Word && !array_key_exists($key, $decorators)) {
                 array_unshift($decorators, $decorator);
@@ -232,9 +232,9 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
         switch ($type) {
             case null:
                 $loader = $this->getPluginLoader(self::CAPTCHA);
-                $nsSeparator = (false !== strpos($prefix, '\\'))?'\\':'_';
+                $nsSeparator = (false !== strpos($prefix, '\\')) ? '\\' : '_';
                 $cPrefix = rtrim($prefix, $nsSeparator) . $nsSeparator . 'Captcha';
-                $cPath   = rtrim($path, '/\\') . '/Captcha';
+                $cPath = rtrim($path, '/\\') . '/Captcha';
                 $loader->addPrefixPath($cPrefix, $cPath);
                 return parent::addPrefixPath($prefix, $path);
             case self::CAPTCHA:
@@ -260,9 +260,9 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
         $decorators = $this->getDecorators();
         if (empty($decorators)) {
             $this->addDecorator('Errors')
-                 ->addDecorator('Description', array('tag' => 'p', 'class' => 'description'))
-                 ->addDecorator('HtmlTag', array('tag' => 'dd', 'id' => $this->getName() . '-element'))
-                 ->addDecorator('Label', array('tag' => 'dt'));
+                ->addDecorator('Description', array('tag' => 'p', 'class' => 'description'))
+                ->addDecorator('HtmlTag', array('tag' => 'dd', 'id' => $this->getName() . '-element'))
+                ->addDecorator('Label', array('tag' => 'dt'));
         }
         return $this;
     }
@@ -282,8 +282,8 @@ class Zend_Form_Element_Captcha extends Zend_Form_Element_Xhtml
             return parent::isValid($value, $context);
         }
 
-        $name     = $this->getFullyQualifiedName();
-        $root     = substr($name, 0, strpos($name, '['));
+        $name = $this->getFullyQualifiedName();
+        $root = substr($name, 0, strpos($name, '['));
         $segments = substr($name, strpos($name, '['));
         $segments = ltrim($segments, '[');
         $segments = rtrim($segments, ']');

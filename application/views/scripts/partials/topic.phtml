@@ -1,0 +1,13 @@
+<tr>
+    <td><?php echo $this->escape($this->id); ?></td>
+    <td><?php echo $this->escape($this->name); ?></td>
+    <td >
+        <?php  if (Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->role == 'admin')  {?>
+            <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'edittopic', 'id' => $this->id)); ?>">
+                <i class="icon-pencil"></i></a>
+            <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'deletetopic', 'id' => $this->id)); ?>">
+                <i class="icon-trash"></i></a>
+        <?php }?>
+    </td>
+
+</tr>

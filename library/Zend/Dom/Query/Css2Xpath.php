@@ -37,9 +37,9 @@ class Zend_Dom_Query_Css2Xpath
      */
     public static function transform($path)
     {
-        $path = (string) $path;
+        $path = (string)$path;
         if (strstr($path, ',')) {
-            $paths       = explode(',', $path);
+            $paths = explode(',', $path);
             $expressions = array();
             foreach ($paths as $path) {
                 $xpath = self::transform(trim($path));
@@ -52,8 +52,8 @@ class Zend_Dom_Query_Css2Xpath
             return implode('|', $expressions);
         }
 
-        $paths    = array('//');
-        $path     = preg_replace('|\s+>\s+|', '>', $path);
+        $paths = array('//');
+        $path = preg_replace('|\s+>\s+|', '>', $path);
         $segments = preg_split('/\s+/', $path);
         foreach ($segments as $key => $segment) {
             $pathSegment = self::_tokenize($segment);
@@ -68,7 +68,7 @@ class Zend_Dom_Query_Css2Xpath
             if (0 === strpos($pathSegment, '[contains(')) {
                 foreach ($paths as $key => $xpath) {
                     $paths[$key] .= '//*' . ltrim($pathSegment, '*');
-                    $paths[]      = $xpath . $pathSegment;
+                    $paths[] = $xpath . $pathSegment;
                 }
             } else {
                 foreach ($paths as $key => $xpath) {
@@ -152,7 +152,7 @@ class Zend_Dom_Query_Css2Xpath
     protected static function _normalizeSpaceAttribute($matches)
     {
         return "[contains(concat(' ', normalize-space(@" . strtolower($matches[1]) . "), ' '), ' "
-             . $matches[2] . " ')]";
+        . $matches[2] . " ')]";
     }
 
     /**
@@ -164,6 +164,6 @@ class Zend_Dom_Query_Css2Xpath
     protected static function _createContainsExpression($matches)
     {
         return "[contains(@" . strtolower($matches[1]) . ", '"
-             . $matches[2] . "')]";
+        . $matches[2] . "')]";
     }
 }

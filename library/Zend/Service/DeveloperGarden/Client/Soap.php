@@ -101,7 +101,7 @@ class Zend_Service_DeveloperGarden_Client_Soap extends Zend_Soap_Client
      * Perform a SOAP call but first check for adding STS Token or fetch one
      *
      * @param string $name
-     * @param array  $arguments
+     * @param array $arguments
      * @return mixed
      */
     public function __call($name, $arguments)
@@ -242,7 +242,8 @@ class Zend_Service_DeveloperGarden_Client_Soap extends Zend_Soap_Client
      */
     public function getWsseTokenHeader(
         Zend_Service_DeveloperGarden_Response_SecurityTokenServer_SecurityTokenResponse $token
-    ) {
+    )
+    {
         $format = '<wsse:%s xmlns:wsse="%s" SOAP-ENV:mustUnderstand="1">%s</wsse:%s>';
         $securityHeader = sprintf(
             $format,
@@ -277,7 +278,8 @@ class Zend_Service_DeveloperGarden_Client_Soap extends Zend_Soap_Client
      */
     public function getWsseSecurityTokenHeader(
         Zend_Service_DeveloperGarden_Response_SecurityTokenServer_GetTokensResponse $token
-    ) {
+    )
+    {
         $format = '<wsse:%s xmlns:wsse="%s" SOAP-ENV:mustUnderstand="1">%s</wsse:%s>';
         $securityHeader = sprintf(
             $format,
@@ -322,7 +324,8 @@ class Zend_Service_DeveloperGarden_Client_Soap extends Zend_Soap_Client
      */
     public function addWsseTokenHeader(
         Zend_Service_DeveloperGarden_Response_SecurityTokenServer_SecurityTokenResponse $token
-    ) {
+    )
+    {
         return $this->addSoapInputHeader($this->getWsseTokenHeader($token));
     }
 
@@ -334,7 +337,8 @@ class Zend_Service_DeveloperGarden_Client_Soap extends Zend_Soap_Client
      */
     public function addWsseSecurityTokenHeader(
         Zend_Service_DeveloperGarden_Response_SecurityTokenServer_GetTokensResponse $token
-    ) {
+    )
+    {
         return $this->addSoapInputHeader($this->getWsseSecurityTokenHeader($token));
     }
 }

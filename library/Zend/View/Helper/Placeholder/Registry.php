@@ -83,7 +83,7 @@ class Zend_View_Helper_Placeholder_Registry
      */
     public function createContainer($key, array $value = array())
     {
-        $key = (string) $key;
+        $key = (string)$key;
 
         $this->_items[$key] = new $this->_containerClass($value);
         return $this->_items[$key];
@@ -97,7 +97,7 @@ class Zend_View_Helper_Placeholder_Registry
      */
     public function getContainer($key)
     {
-        $key = (string) $key;
+        $key = (string)$key;
         if (isset($this->_items[$key])) {
             return $this->_items[$key];
         }
@@ -115,8 +115,8 @@ class Zend_View_Helper_Placeholder_Registry
      */
     public function containerExists($key)
     {
-        $key = (string) $key;
-        $return =  array_key_exists($key, $this->_items);
+        $key = (string)$key;
+        $return = array_key_exists($key, $this->_items);
         return $return;
     }
 
@@ -129,7 +129,7 @@ class Zend_View_Helper_Placeholder_Registry
      */
     public function setContainer($key, Zend_View_Helper_Placeholder_Container_Abstract $container)
     {
-        $key = (string) $key;
+        $key = (string)$key;
         $this->_items[$key] = $container;
         return $this;
     }
@@ -142,7 +142,7 @@ class Zend_View_Helper_Placeholder_Registry
      */
     public function deleteContainer($key)
     {
-        $key = (string) $key;
+        $key = (string)$key;
         if (isset($this->_items[$key])) {
             unset($this->_items[$key]);
             return true;

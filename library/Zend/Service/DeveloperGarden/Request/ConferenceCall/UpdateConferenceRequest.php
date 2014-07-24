@@ -82,16 +82,17 @@ class Zend_Service_DeveloperGarden_Request_ConferenceCall_UpdateConferenceReques
      * @param integer $account
      */
     public function __construct($environment, $conferenceId, $ownerId = null,
-        Zend_Service_DeveloperGarden_ConferenceCall_ConferenceDetail $conferenceDetails = null,
-        Zend_Service_DeveloperGarden_ConferenceCall_ConferenceSchedule $conferenceSchedule = null,
-        $account = null
-    ) {
+                                Zend_Service_DeveloperGarden_ConferenceCall_ConferenceDetail $conferenceDetails = null,
+                                Zend_Service_DeveloperGarden_ConferenceCall_ConferenceSchedule $conferenceSchedule = null,
+                                $account = null
+    )
+    {
         parent::__construct($environment);
         $this->setConferenceId($conferenceId)
-             ->setOwnerId($ownerId)
-             ->setDetail($conferenceDetails)
-             ->setSchedule($conferenceSchedule)
-             ->setAccount($account);
+            ->setOwnerId($ownerId)
+            ->setDetail($conferenceDetails)
+            ->setSchedule($conferenceSchedule)
+            ->setAccount($account);
     }
 
     /**
@@ -102,7 +103,7 @@ class Zend_Service_DeveloperGarden_Request_ConferenceCall_UpdateConferenceReques
      */
     public function setConferenceId($conferenceId)
     {
-        $this->conferenceId= $conferenceId;
+        $this->conferenceId = $conferenceId;
         return $this;
     }
 
@@ -114,7 +115,8 @@ class Zend_Service_DeveloperGarden_Request_ConferenceCall_UpdateConferenceReques
      */
     public function setSchedule(
         Zend_Service_DeveloperGarden_ConferenceCall_ConferenceSchedule $schedule = null
-    ) {
+    )
+    {
         $this->schedule = $schedule;
         return $this;
     }
@@ -127,7 +129,8 @@ class Zend_Service_DeveloperGarden_Request_ConferenceCall_UpdateConferenceReques
      */
     public function setDetail(
         Zend_Service_DeveloperGarden_ConferenceCall_ConferenceDetail $detail = null
-    ) {
+    )
+    {
         $this->detail = $detail;
         return $this;
     }

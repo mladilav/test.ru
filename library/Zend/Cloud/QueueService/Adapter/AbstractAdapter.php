@@ -36,12 +36,12 @@ abstract class Zend_Cloud_QueueService_Adapter_AbstractAdapter
     implements Zend_Cloud_QueueService_Adapter
 {
     /**@+ option keys */
-    const MESSAGE_CLASS    = 'message_class';
+    const MESSAGE_CLASS = 'message_class';
     const MESSAGESET_CLASS = 'messageset_class';
     /**@-*/
 
     /** @var string Class to use for queue messages */
-    protected $_messageClass    = 'Zend_Cloud_QueueService_Message';
+    protected $_messageClass = 'Zend_Cloud_QueueService_Message';
 
     /** @var string Class to use for collections of queue messages */
     protected $_messageSetClass = 'Zend_Cloud_QueueService_MessageSet';
@@ -54,7 +54,7 @@ abstract class Zend_Cloud_QueueService_Adapter_AbstractAdapter
      */
     public function setMessageClass($class)
     {
-        $this->_messageClass = (string) $class;
+        $this->_messageClass = (string)$class;
         return $this;
     }
 
@@ -76,7 +76,7 @@ abstract class Zend_Cloud_QueueService_Adapter_AbstractAdapter
      */
     public function setMessageSetClass($class)
     {
-        $this->_messageSetClass = (string) $class;
+        $this->_messageSetClass = (string)$class;
         return $this;
     }
 

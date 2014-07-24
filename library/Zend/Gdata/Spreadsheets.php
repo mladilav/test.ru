@@ -295,7 +295,7 @@ class Zend_Gdata_Spreadsheets extends Zend_Gdata
      */
     public function updateCell($row, $col, $inputValue, $key, $wkshtId = 'default')
     {
-        $cell = 'R'.$row.'C'.$col;
+        $cell = 'R' . $row . 'C' . $col;
 
         $query = new Zend_Gdata_Spreadsheets_CellQuery();
         $query->setSpreadsheetKey($key);

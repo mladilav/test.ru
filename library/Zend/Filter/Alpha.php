@@ -83,7 +83,7 @@ class Zend_Filter_Alpha implements Zend_Filter_Interface
             }
         }
 
-        $this->allowWhiteSpace = (boolean) $allowWhiteSpace;
+        $this->allowWhiteSpace = (boolean)$allowWhiteSpace;
         if (null === self::$_unicodeEnabled) {
             self::$_unicodeEnabled = (@preg_match('/\pL/u', 'a')) ? true : false;
         }
@@ -91,8 +91,8 @@ class Zend_Filter_Alpha implements Zend_Filter_Interface
         if (null === self::$_meansEnglishAlphabet) {
             $this->_locale = new Zend_Locale('auto');
             self::$_meansEnglishAlphabet = in_array($this->_locale->getLanguage(),
-                                                    array('ja', 'ko', 'zh')
-                                                    );
+                array('ja', 'ko', 'zh')
+            );
         }
 
     }
@@ -115,7 +115,7 @@ class Zend_Filter_Alpha implements Zend_Filter_Interface
      */
     public function setAllowWhiteSpace($allowWhiteSpace)
     {
-        $this->allowWhiteSpace = (boolean) $allowWhiteSpace;
+        $this->allowWhiteSpace = (boolean)$allowWhiteSpace;
         return $this;
     }
 
@@ -135,12 +135,12 @@ class Zend_Filter_Alpha implements Zend_Filter_Interface
             $pattern = '/[^a-zA-Z' . $whiteSpace . ']/';
         } else if (self::$_meansEnglishAlphabet) {
             //The Alphabet means english alphabet.
-            $pattern = '/[^a-zA-Z'  . $whiteSpace . ']/u';
+            $pattern = '/[^a-zA-Z' . $whiteSpace . ']/u';
         } else {
             //The Alphabet means each language's alphabet.
             $pattern = '/[^\p{L}' . $whiteSpace . ']/u';
         }
 
-        return preg_replace($pattern, '', (string) $value);
+        return preg_replace($pattern, '', (string)$value);
     }
 }

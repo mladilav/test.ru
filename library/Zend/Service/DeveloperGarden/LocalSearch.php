@@ -90,7 +90,8 @@ class Zend_Service_DeveloperGarden_LocalSearch
     public function localSearch(
         Zend_Service_DeveloperGarden_LocalSearch_SearchParameters $searchParameters,
         $account = null
-    ) {
+    )
+    {
         $request = new Zend_Service_DeveloperGarden_Request_LocalSearch_LocalSearchRequest(
             $this->getEnvironment(),
             $searchParameters,

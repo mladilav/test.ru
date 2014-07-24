@@ -73,22 +73,22 @@ class Zend_Gdata_Docs extends Zend_Gdata
      * @var array
      */
     protected static $SUPPORTED_FILETYPES = array(
-        'TXT'  => 'text/plain',
-        'CSV'  => 'text/csv',
-        'TSV'  => 'text/tab-separated-values',
-        'TAB'  => 'text/tab-separated-values',
+        'TXT' => 'text/plain',
+        'CSV' => 'text/csv',
+        'TSV' => 'text/tab-separated-values',
+        'TAB' => 'text/tab-separated-values',
         'HTML' => 'text/html',
-        'HTM'  => 'text/html',
-        'DOC'  => 'application/msword',
+        'HTM' => 'text/html',
+        'DOC' => 'application/msword',
         'DOCX' => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-        'ODS'  => 'application/vnd.oasis.opendocument.spreadsheet',
-        'ODT'  => 'application/vnd.oasis.opendocument.text',
-        'RTF'  => 'application/rtf',
-        'SXW'  => 'application/vnd.sun.xml.writer',
-        'XLS'  => 'application/vnd.ms-excel',
+        'ODS' => 'application/vnd.oasis.opendocument.spreadsheet',
+        'ODT' => 'application/vnd.oasis.opendocument.text',
+        'RTF' => 'application/rtf',
+        'SXW' => 'application/vnd.sun.xml.writer',
+        'XLS' => 'application/vnd.ms-excel',
         'XLSX' => 'application/vnd.ms-excel',
-        'PPT'  => 'application/vnd.ms-powerpoint',
-        'PPS'  => 'application/vnd.ms-powerpoint'
+        'PPT' => 'application/vnd.ms-powerpoint',
+        'PPS' => 'application/vnd.ms-powerpoint'
     );
 
     /**
@@ -150,7 +150,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
         if ($location === null) {
             require_once 'Zend/Gdata/App/InvalidArgumentException.php';
             throw new Zend_Gdata_App_InvalidArgumentException(
-                    'Location must not be null'
+                'Location must not be null'
             );
         } else if ($location instanceof Zend_Gdata_Query) {
             $uri = $location->getQueryUrl();
@@ -235,7 +235,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      *         created Google Document.
      */
     public function uploadFile($fileLocation, $title = null, $mimeType = null,
-        $uri = null
+                               $uri = null
     )
     {
         // Set the URI to which the file will be uploaded.
@@ -258,9 +258,9 @@ class Zend_Gdata_Docs extends Zend_Gdata
 
         // Set the mime type of the data.
         if ($mimeType === null) {
-          $filenameParts = explode('.', $fileLocation);
-          $fileExtension = end($filenameParts);
-          $mimeType = self::lookupMimeType($fileExtension);
+            $filenameParts = explode('.', $fileLocation);
+            $fileExtension = end($filenameParts);
+            $mimeType = self::lookupMimeType($fileExtension);
         }
 
         // Set the mime type for the upload request.
@@ -286,8 +286,8 @@ class Zend_Gdata_Docs extends Zend_Gdata
             self::DOCUMENTS_CATEGORY_TERM,
             self::DOCUMENTS_CATEGORY_SCHEMA
         );
-        $title    = new Zend_Gdata_App_Extension_Title($folderName);
-        $entry    = new Zend_Gdata_Entry();
+        $title = new Zend_Gdata_App_Extension_Title($folderName);
+        $entry = new Zend_Gdata_Entry();
 
         $entry->setCategory(array($category));
         $entry->setTitle($title);
@@ -303,7 +303,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
     /**
      * Inserts an entry to a given URI and returns the response as an Entry.
      *
-     * @param mixed  $data The Zend_Gdata_Docs_DocumentListEntry or media
+     * @param mixed $data The Zend_Gdata_Docs_DocumentListEntry or media
      *         source to post. If it is a DocumentListEntry, the mediaSource
      *         should already have been set. If $data is a mediaSource, it
      *         should have the correct slug header and mime type.
@@ -314,7 +314,7 @@ class Zend_Gdata_Docs extends Zend_Gdata
      *     service after insertion.
      */
     public function insertDocument($data, $uri,
-        $className = 'Zend_Gdata_Docs_DocumentListEntry')
+                                   $className = 'Zend_Gdata_Docs_DocumentListEntry')
     {
         return $this->insertEntry($data, $uri, $className);
     }

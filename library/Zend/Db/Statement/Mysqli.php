@@ -82,10 +82,10 @@ class Zend_Db_Statement_Mysqli extends Zend_Db_Statement
      * Binds a parameter to the specified variable name.
      *
      * @param mixed $parameter Name the parameter, either integer or string.
-     * @param mixed $variable  Reference to PHP variable containing the value.
-     * @param mixed $type      OPTIONAL Datatype of SQL parameter.
-     * @param mixed $length    OPTIONAL Length of SQL parameter.
-     * @param mixed $options   OPTIONAL Other options.
+     * @param mixed $variable Reference to PHP variable containing the value.
+     * @param mixed $type OPTIONAL Datatype of SQL parameter.
+     * @param mixed $length OPTIONAL Length of SQL parameter.
+     * @param mixed $options OPTIONAL Other options.
      * @return bool
      * @throws Zend_Db_Statement_Mysqli_Exception
      */
@@ -196,12 +196,12 @@ class Zend_Db_Statement_Mysqli extends Zend_Db_Statement
             array_unshift($params, str_repeat('s', count($params)));
             $stmtParams = array();
             foreach ($params as $k => &$value) {
-                $stmtParams[$k] = &$value;
+                $stmtParams[$k] = & $value;
             }
             call_user_func_array(
                 array($this->_stmt, 'bind_param'),
                 $stmtParams
-                );
+            );
         }
 
         // execute the statement
@@ -244,7 +244,7 @@ class Zend_Db_Statement_Mysqli extends Zend_Db_Statement
             // below won't work, you need references.
             $refs = array();
             foreach ($this->_values as $i => &$f) {
-                $refs[$i] = &$f;
+                $refs[$i] = & $f;
             }
 
             $this->_stmt->store_result();
@@ -261,7 +261,7 @@ class Zend_Db_Statement_Mysqli extends Zend_Db_Statement
     /**
      * Fetches a row from the result set.
      *
-     * @param int $style  OPTIONAL Fetch mode for this fetch operation.
+     * @param int $style OPTIONAL Fetch mode for this fetch operation.
      * @param int $cursor OPTIONAL Absolute, relative, or other.
      * @param int $offset OPTIONAL Number for absolute or relative cursors.
      * @return mixed Array, object, or scalar depending on fetch mode.
@@ -308,7 +308,7 @@ class Zend_Db_Statement_Mysqli extends Zend_Db_Statement
                 $row = array_merge($values, $assoc);
                 break;
             case Zend_Db::FETCH_OBJ:
-                $row = (object) array_combine($this->_keys, $values);
+                $row = (object)array_combine($this->_keys, $values);
                 break;
             case Zend_Db::FETCH_BOUND:
                 $assoc = array_combine($this->_keys, $values);
@@ -340,7 +340,7 @@ class Zend_Db_Statement_Mysqli extends Zend_Db_Statement
          * @see Zend_Db_Statement_Mysqli_Exception
          */
         require_once 'Zend/Db/Statement/Mysqli/Exception.php';
-        throw new Zend_Db_Statement_Mysqli_Exception(__FUNCTION__.'() is not implemented');
+        throw new Zend_Db_Statement_Mysqli_Exception(__FUNCTION__ . '() is not implemented');
     }
 
     /**

@@ -1,7 +1,15 @@
 <tr>
-    <td><a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'question', 'id' => $this->int)); ?>">
-        <?php echo $this->escape($this->name); ?></a></td>
+    <td>
+        <a href="
+        <?php echo $this->url(array('controller' => 'test', 'action' => 'question','test' => $this->int, 'question' => 1)); ?>">
+            <?php echo $this->escape($this->name); ?></a></td>
     <td><?php echo $this->escape($this->type); ?></td>
     <td><?php echo $this->escape($this->author); ?></td>
+    <td >
+        <?php  if (Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->role == 'admin')  {?>
+            <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'edittest', 'id' => $this->int)); ?>"><i class="icon-pencil"></i></a>
+            <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'deletetest', 'id' => $this->int)); ?>"><i class="icon-trash"></i></a>
+        <?php }?>
+    </td>
 
 </tr>

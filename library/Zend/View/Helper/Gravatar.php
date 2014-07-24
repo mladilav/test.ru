@@ -47,19 +47,19 @@ class Zend_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
     /**
      * Gravatar rating
      */
-    const RATING_G  = 'g';
+    const RATING_G = 'g';
     const RATING_PG = 'pg';
-    const RATING_R  = 'r';
-    const RATING_X  = 'x';
+    const RATING_R = 'r';
+    const RATING_X = 'x';
 
     /**
      * Default gravatar image value constants
      */
-    const DEFAULT_404       = '404';
-    const DEFAULT_MM        = 'mm';
+    const DEFAULT_404 = '404';
+    const DEFAULT_MM = 'mm';
     const DEFAULT_IDENTICON = 'identicon';
     const DEFAULT_MONSTERID = 'monsterid';
-    const DEFAULT_WAVATAR   = 'wavatar';
+    const DEFAULT_WAVATAR = 'wavatar';
 
     /**
      * Options
@@ -67,10 +67,10 @@ class Zend_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
      * @var array
      */
     protected $_options = array(
-        'img_size'    => 80,
+        'img_size' => 80,
         'default_img' => self::DEFAULT_MM,
-        'rating'      => self::RATING_G,
-        'secure'      => null,
+        'rating' => self::RATING_G,
+        'secure' => null,
     );
 
     /**
@@ -146,7 +146,7 @@ class Zend_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
      */
     public function setImgSize($imgSize)
     {
-        $this->_options['img_size'] = (int) $imgSize;
+        $this->_options['img_size'] = (int)$imgSize;
         return $this;
     }
 
@@ -219,7 +219,7 @@ class Zend_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
      * @param string $email
      * @return Zend_View_Helper_Gravatar
      */
-    public function setEmail( $email )
+    public function setEmail($email)
     {
         $this->_email = $email;
         return $this;
@@ -243,7 +243,7 @@ class Zend_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
      */
     public function setSecure($flag)
     {
-        $this->_options['secure'] = ($flag === null) ? null : (bool) $flag;
+        $this->_options['secure'] = ($flag === null) ? null : (bool)$flag;
         return $this;
     }
 
@@ -281,7 +281,6 @@ class Zend_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
      * Warning! You shouldn't set src attrib for image tag.
      * This attrib is overwritten in protected method _setSrcAttribForImg().
      * This method(_setSrcAttribForImg) is called in public method getImgTag().
-
      * @param array $attribs
      * @return Zend_View_Helper_Gravatar
      */
@@ -309,14 +308,14 @@ class Zend_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
     protected function _getAvatarUrl()
     {
         $src = $this->_getGravatarUrl()
-             . '/'
-             . md5($this->getEmail())
-             . '?s='
-             . $this->getImgSize()
-             . '&d='
-             . $this->getDefaultImg()
-             . '&r='
-             . $this->getRating();
+            . '/'
+            . md5($this->getEmail())
+            . '?s='
+            . $this->getImgSize()
+            . '&d='
+            . $this->getDefaultImg()
+            . '&r='
+            . $this->getRating();
         return $src;
     }
 
@@ -330,7 +329,7 @@ class Zend_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
      */
     protected function _setSrcAttribForImg()
     {
-        $attribs        = $this->getAttribs();
+        $attribs = $this->getAttribs();
         $attribs['src'] = $this->_getAvatarUrl();
         $this->setAttribs($attribs);
     }
@@ -344,8 +343,8 @@ class Zend_View_Helper_Gravatar extends Zend_View_Helper_HtmlElement
     {
         $this->_setSrcAttribForImg();
         $html = '<img'
-              . $this->_htmlAttribs($this->getAttribs())
-              . $this->getClosingBracket();
+            . $this->_htmlAttribs($this->getAttribs())
+            . $this->getClosingBracket();
 
         return $html;
     }

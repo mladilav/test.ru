@@ -43,7 +43,7 @@ require_once 'Zend/Application/Bootstrap/ResourceBootstrapper.php';
  */
 abstract class Zend_Application_Bootstrap_BootstrapAbstract
     implements Zend_Application_Bootstrap_Bootstrapper,
-               Zend_Application_Bootstrap_ResourceBootstrapper
+    Zend_Application_Bootstrap_ResourceBootstrapper
 {
     /**
      * @var Zend_Application|Zend_Application_Bootstrap_Bootstrapper
@@ -204,8 +204,8 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
             foreach ($array2 as $key => $val) {
                 if (is_array($array2[$key])) {
                     $array1[$key] = (array_key_exists($key, $array1) && is_array($array1[$key]))
-                                  ? $this->mergeOptions($array1[$key], $array2[$key])
-                                  : $array2[$key];
+                        ? $this->mergeOptions($array1[$key], $array2[$key])
+                        : $array2[$key];
                 } else {
                     $array1[$key] = $val;
                 }
@@ -226,9 +226,9 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
     {
         if (null === $this->_classResources) {
             if (version_compare(PHP_VERSION, '5.2.6') === -1) {
-                $class        = new ReflectionObject($this);
+                $class = new ReflectionObject($this);
                 $classMethods = $class->getMethods();
-                $methodNames  = array();
+                $methodNames = array();
 
                 foreach ($classMethods as $method) {
                     $methodNames[] = $method->getName();
@@ -263,7 +263,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
      * Register a new resource plugin
      *
      * @param  string|Zend_Application_Resource_Resource $resource
-     * @param  mixed  $options
+     * @param  mixed $options
      * @return Zend_Application_Bootstrap_BootstrapAbstract
      * @throws Zend_Application_Bootstrap_Exception When invalid resource is provided
      */
@@ -363,9 +363,9 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
             }
 
             if (class_exists($plugin)
-            && is_subclass_of($plugin, 'Zend_Application_Resource_Resource')
+                && is_subclass_of($plugin, 'Zend_Application_Resource_Resource')
             ) { //@SEE ZF-7550
-                $spec = (array) $spec;
+                $spec = (array)$spec;
                 $spec['bootstrap'] = $this;
                 $instance = new $plugin($spec);
                 $pluginName = $this->_resolvePluginResourceName($instance);
@@ -426,7 +426,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
     {
         if ($this->_pluginLoader === null) {
             $options = array(
-                'Zend_Application_Resource'  => 'Zend/Application/Resource',
+                'Zend_Application_Resource' => 'Zend/Application/Resource',
                 'ZendX_Application_Resource' => 'ZendX/Application/Resource'
             );
 
@@ -528,7 +528,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
      */
     public function hasResource($name)
     {
-        $resource  = strtolower($name);
+        $resource = strtolower($name);
         $container = $this->getContainer();
         return isset($container->{$resource});
     }
@@ -547,7 +547,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
      */
     public function getResource($name)
     {
-        $resource  = strtolower($name);
+        $resource = strtolower($name);
         $container = $this->getContainer();
         if ($this->hasResource($resource)) {
             return $container->{$resource};
@@ -603,7 +603,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
      * Overloading: intercept calls to bootstrap<resourcename>() methods
      *
      * @param  string $method
-     * @param  array  $args
+     * @param  array $args
      * @return Zend_Application_Bootstrap_BootstrapAbstract
      * @throws Zend_Application_Bootstrap_Exception On invalid method name
      */
@@ -715,7 +715,7 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
      */
     protected function _loadPluginResource($resource, $options)
     {
-        $options   = (array) $options;
+        $options = (array)$options;
         $options['bootstrap'] = $this;
         $className = $this->getPluginLoader()->load(strtolower($resource), false);
 
@@ -766,10 +766,10 @@ abstract class Zend_Application_Bootstrap_BootstrapAbstract
     {
         if (isset($resource->_explicitType)) {
             $pluginName = $resource->_explicitType;
-        } else  {
-            $className  = get_class($resource);
+        } else {
+            $className = get_class($resource);
             $pluginName = $className;
-            $loader     = $this->getPluginLoader();
+            $loader = $this->getPluginLoader();
             foreach ($loader->getPaths() as $prefix => $paths) {
                 if (0 === strpos($className, $prefix)) {
                     $pluginName = substr($className, strlen($prefix));

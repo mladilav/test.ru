@@ -127,7 +127,7 @@ abstract class Zend_Mail_Protocol_Abstract
     /**
      * Constructor.
      *
-     * @param  string  $host OPTIONAL Hostname of remote connection (default: 127.0.0.1)
+     * @param  string $host OPTIONAL Hostname of remote connection (default: 127.0.0.1)
      * @param  integer $port OPTIONAL Port number (default: null)
      * @throws Zend_Mail_Protocol_Exception
      * @return void
@@ -168,7 +168,7 @@ abstract class Zend_Mail_Protocol_Abstract
      */
     public function setMaximumLog($maximumLog)
     {
-        $this->_maximumLog = (int) $maximumLog;
+        $this->_maximumLog = (int)$maximumLog;
     }
 
 
@@ -402,9 +402,9 @@ abstract class Zend_Mail_Protocol_Abstract
     protected function _expect($code, $timeout = null)
     {
         $this->_response = array();
-        $cmd  = '';
+        $cmd = '';
         $more = '';
-        $msg  = '';
+        $msg = '';
         $errMsg = '';
 
         if (!is_array($code)) {
@@ -418,7 +418,7 @@ abstract class Zend_Mail_Protocol_Abstract
             if ($errMsg !== '') {
                 $errMsg .= ' ' . $msg;
             } elseif ($cmd === null || !in_array($cmd, $code)) {
-                $errMsg =  $msg;
+                $errMsg = $msg;
             }
 
         } while (strpos($more, '-') === 0); // The '-' message prefix indicates an information string instead of a response string.
@@ -442,6 +442,6 @@ abstract class Zend_Mail_Protocol_Abstract
      */
     protected function _setStreamTimeout($timeout)
     {
-       return stream_set_timeout($this->_socket, $timeout);
+        return stream_set_timeout($this->_socket, $timeout);
     }
 }

@@ -39,8 +39,8 @@ class Zend_View_Helper_HtmlObject extends Zend_View_Helper_HtmlElement
      *
      * @param string $data The data file
      * @param string $type Data file type
-     * @param array  $attribs Attribs for the object tag
-     * @param array  $params Params for in the object tag
+     * @param array $attribs Attribs for the object tag
+     * @param array $params Params for in the object tag
      * @param string $content Alternative content for object
      * @return string
      */
@@ -48,7 +48,7 @@ class Zend_View_Helper_HtmlObject extends Zend_View_Helper_HtmlElement
     {
         // Merge data and type
         $attribs = array_merge(array('data' => $data,
-                                     'type' => $type), $attribs);
+            'type' => $type), $attribs);
 
         // Params
         $paramHtml = array();
@@ -71,9 +71,9 @@ class Zend_View_Helper_HtmlObject extends Zend_View_Helper_HtmlElement
 
         // Object header
         $xhtml = '<object' . $this->_htmlAttribs($attribs) . '>' . self::EOL
-                 . implode(self::EOL, $paramHtml) . self::EOL
-                 . ($content ? $content . self::EOL : '')
-                 . '</object>';
+            . implode(self::EOL, $paramHtml) . self::EOL
+            . ($content ? $content . self::EOL : '')
+            . '</object>';
 
         return $xhtml;
     }

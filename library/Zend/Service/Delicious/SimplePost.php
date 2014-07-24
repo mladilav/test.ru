@@ -70,7 +70,7 @@ class Zend_Service_Delicious_SimplePost
             throw new Zend_Service_Delicious_Exception('Title and URL not set.');
         }
 
-        $this->_url   = $post['u'];
+        $this->_url = $post['u'];
         $this->_title = $post['d'];
 
         if (isset($post['t'])) {

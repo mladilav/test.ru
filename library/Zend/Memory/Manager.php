@@ -168,15 +168,15 @@ class Zend_Memory_Manager
         $this->_generateMemManagerId();
 
         $memoryLimitStr = trim(ini_get('memory_limit'));
-        if ($memoryLimitStr != ''  &&  $memoryLimitStr != -1) {
+        if ($memoryLimitStr != '' && $memoryLimitStr != -1) {
             $this->_memoryLimit = (integer)$memoryLimitStr;
-            switch (strtolower($memoryLimitStr[strlen($memoryLimitStr)-1])) {
+            switch (strtolower($memoryLimitStr[strlen($memoryLimitStr) - 1])) {
                 case 'g':
                     $this->_memoryLimit *= 1024;
-                    // Break intentionally omitted
+                // Break intentionally omitted
                 case 'm':
                     $this->_memoryLimit *= 1024;
-                    // Break intentionally omitted
+                // Break intentionally omitted
                 case 'k':
                     $this->_memoryLimit *= 1024;
                     break;
@@ -185,7 +185,7 @@ class Zend_Memory_Manager
                     break;
             }
 
-            $this->_memoryLimit = (int)($this->_memoryLimit*2/3);
+            $this->_memoryLimit = (int)($this->_memoryLimit * 2 / 3);
         } // No limit otherwise
     }
 
@@ -253,7 +253,7 @@ class Zend_Memory_Manager
      */
     public function create($value = '')
     {
-        return $this->_create($value,  false);
+        return $this->_create($value, false);
     }
 
     /**
@@ -281,7 +281,7 @@ class Zend_Memory_Manager
     {
         $id = $this->_nextId++;
 
-        if ($locked  ||  ($this->_backend === null) /* Use only memory locked objects if backend is not specified */) {
+        if ($locked || ($this->_backend === null) /* Use only memory locked objects if backend is not specified */) {
             return new Zend_Memory_Container_Locked($value);
         }
 
@@ -344,7 +344,7 @@ class Zend_Memory_Manager
         }
 
         // Remove just updated object from list of candidates to unload
-        if( isset($this->_unloadCandidates[$id])) {
+        if (isset($this->_unloadCandidates[$id])) {
             unset($this->_unloadCandidates[$id]);
         }
 
@@ -390,7 +390,7 @@ class Zend_Memory_Manager
      */
     private function _swapCheck()
     {
-        if ($this->_memoryLimit < 0  ||  $this->_memorySize < $this->_memoryLimit) {
+        if ($this->_memoryLimit < 0 || $this->_memorySize < $this->_memoryLimit) {
             // Memory limit is not reached
             // Do nothing
             return;

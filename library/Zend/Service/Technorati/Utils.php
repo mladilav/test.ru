@@ -56,9 +56,8 @@ class Zend_Service_Technorati_Utils
             $uri = $input;
         } else {
             try {
-                $uri = Zend_Uri::factory((string) $input);
-            }
-            // wrap exception under Zend_Service_Technorati_Exception object
+                $uri = Zend_Uri::factory((string)$input);
+            } // wrap exception under Zend_Service_Technorati_Exception object
             catch (Exception $e) {
                 /**
                  * @see Zend_Service_Technorati_Exception
@@ -80,6 +79,7 @@ class Zend_Service_Technorati_Utils
 
         return $uri;
     }
+
     /**
      * Parses, validates and returns a valid Zend_Date object
      * from given $input.

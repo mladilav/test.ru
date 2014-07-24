@@ -51,7 +51,8 @@ class Zend_Service_DeveloperGarden_Response_IpLocation_LocateIPResponse
      */
     public function __construct(
         Zend_Service_DeveloperGarden_Response_IpLocation_LocateIPResponseType $response
-    ) {
+    )
+    {
         if ($response->ipAddressLocation instanceof Zend_Service_DeveloperGarden_Response_IpLocation_IPAddressLocationType) {
             if (is_array($response->ipAddressLocation)) {
                 foreach ($response->ipAddressLocation as $location) {
@@ -65,9 +66,9 @@ class Zend_Service_DeveloperGarden_Response_IpLocation_LocateIPResponse
             $this->ipAddressLocation = $response->ipAddressLocation;
         }
 
-        $this->errorCode     = $response->getErrorCode();
-        $this->errorMessage  = $response->getErrorMessage();
-        $this->statusCode    = $response->getStatusCode();
+        $this->errorCode = $response->getErrorCode();
+        $this->errorMessage = $response->getErrorMessage();
+        $this->statusCode = $response->getStatusCode();
         $this->statusMessage = $response->getStatusMessage();
     }
 

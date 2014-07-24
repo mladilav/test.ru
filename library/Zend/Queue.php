@@ -162,7 +162,7 @@ class Zend_Queue implements Countable
      */
     public function setOption($name, $value)
     {
-        $this->_options[(string) $name] = $value;
+        $this->_options[(string)$name] = $value;
         return $this;
     }
 
@@ -270,7 +270,7 @@ class Zend_Queue implements Countable
      */
     public function setMessageClass($className)
     {
-        $this->_messageClass = (string) $className;
+        $this->_messageClass = (string)$className;
         return $this;
     }
 
@@ -288,7 +288,7 @@ class Zend_Queue implements Countable
      */
     public function setMessageSetClass($className)
     {
-        $this->_messageSetClass = (string) $className;
+        $this->_messageSetClass = (string)$className;
         return $this;
     }
 
@@ -316,8 +316,8 @@ class Zend_Queue implements Countable
     /**
      * Create a new queue
      *
-     * @param  string           $name    queue name
-     * @param  integer          $timeout default visibility timeout
+     * @param  string $name queue name
+     * @param  integer $timeout default visibility timeout
      * @return Zend_Queue|false
      * @throws Zend_Queue_Exception
      */
@@ -351,8 +351,8 @@ class Zend_Queue implements Countable
         }
 
         $options = array(
-            self::NAME  => $name,
-            'timeout'   => $timeout
+            self::NAME => $name,
+            'timeout' => $timeout
         );
 
         return new self($this->getAdapter(), $options);
@@ -370,8 +370,7 @@ class Zend_Queue implements Countable
     {
         if ($this->isSupported('delete')) {
             $deleted = $this->getAdapter()->delete($this->getName());
-        }
-        else {
+        } else {
             $deleted = true;
         }
 
@@ -436,7 +435,7 @@ class Zend_Queue implements Countable
      * @param  integer $timeout
      * @return Zend_Queue_Message_Iterator
      */
-    public function receive($maxMessages=null, $timeout=null)
+    public function receive($maxMessages = null, $timeout = null)
     {
         if (($maxMessages !== null) && !is_integer($maxMessages)) {
             require_once 'Zend/Queue/Exception.php';
@@ -504,7 +503,7 @@ class Zend_Queue implements Countable
     public function getQueues()
     {
         if (!$this->isSupported('getQueues')) {
-            throw new Zend_Queue_Exception( __FUNCTION__ . '() is not supported by ' . get_class($this->getAdapter()));
+            throw new Zend_Queue_Exception(__FUNCTION__ . '() is not supported by ' . get_class($this->getAdapter()));
         }
 
         return $this->getAdapter()->getQueues();
@@ -515,7 +514,7 @@ class Zend_Queue implements Countable
      *
      * This is AN UNSUPPORTED FUNCTION
      *
-     * @param  string           $name
+     * @param  string $name
      * @return Zend_Queue|false Provides a fluent interface
      */
     protected function _setName($name)
@@ -553,16 +552,16 @@ class Zend_Queue implements Countable
     public function debugInfo()
     {
         $info = array();
-        $info['self']                     = get_class($this);
-        $info['adapter']                  = get_class($this->getAdapter());
+        $info['self'] = get_class($this);
+        $info['adapter'] = get_class($this->getAdapter());
         foreach ($this->getAdapter()->getCapabilities() as $feature => $supported) {
-            $info['adapter-' . $feature]  = ($supported) ? 'yes' : 'no';
+            $info['adapter-' . $feature] = ($supported) ? 'yes' : 'no';
         }
-        $info['options']                  = $this->getOptions();
+        $info['options'] = $this->getOptions();
         $info['options']['driverOptions'] = '[hidden]';
-        $info['currentQueue']             = $this->getName();
-        $info['messageClass']             = $this->getMessageClass();
-        $info['messageSetClass']          = $this->getMessageSetClass();
+        $info['currentQueue'] = $this->getName();
+        $info['messageClass'] = $this->getMessageClass();
+        $info['messageSetClass'] = $this->getMessageSetClass();
 
         return $info;
     }

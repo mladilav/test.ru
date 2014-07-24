@@ -135,7 +135,7 @@ class Zend_Tool_Framework_Loader_BasicLoader
     {
         return (
             $reflectionClass->implementsInterface('Zend_Tool_Framework_Manifest_Interface')
-                && !$reflectionClass->isAbstract()
+            && !$reflectionClass->isAbstract()
         );
     }
 
@@ -149,8 +149,8 @@ class Zend_Tool_Framework_Loader_BasicLoader
 
         return (
             $reflectionClass->implementsInterface('Zend_Tool_Framework_Provider_Interface')
-                && !$reflectionClass->isAbstract()
-                && !$providerRegistry->hasProvider($reflectionClass->getName(), false)
+            && !$reflectionClass->isAbstract()
+            && !$providerRegistry->hasProvider($reflectionClass->getName(), false)
         );
     }
 

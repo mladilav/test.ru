@@ -36,10 +36,10 @@ require_once 'Zend/Ldap/Node/Abstract.php';
  */
 class Zend_Ldap_Node_Schema extends Zend_Ldap_Node_Abstract
 {
-    const OBJECTCLASS_TYPE_UNKNOWN    = 0;
+    const OBJECTCLASS_TYPE_UNKNOWN = 0;
     const OBJECTCLASS_TYPE_STRUCTURAL = 1;
-    const OBJECTCLASS_TYPE_ABSTRACT   = 3;
-    const OBJECTCLASS_TYPE_AUXILIARY  = 4;
+    const OBJECTCLASS_TYPE_ABSTRACT = 3;
+    const OBJECTCLASS_TYPE_AUXILIARY = 4;
 
     /**
      * Factory method to create the Schema node.
@@ -77,8 +77,8 @@ class Zend_Ldap_Node_Schema extends Zend_Ldap_Node_Abstract
      * Constructor is protected to enforce the use of factory methods.
      *
      * @param  Zend_Ldap_Dn $dn
-     * @param  array        $data
-     * @param  Zend_Ldap    $ldap
+     * @param  array $data
+     * @param  Zend_Ldap $ldap
      */
     protected function __construct(Zend_Ldap_Dn $dn, array $data, Zend_Ldap $ldap)
     {
@@ -90,7 +90,7 @@ class Zend_Ldap_Node_Schema extends Zend_Ldap_Node_Abstract
      * Parses the schema
      *
      * @param  Zend_Ldap_Dn $dn
-     * @param  Zend_Ldap    $ldap
+     * @param  Zend_Ldap $ldap
      * @return Zend_Ldap_Node_Schema Provides a fluid interface
      */
     protected function _parseSchema(Zend_Ldap_Dn $dn, Zend_Ldap $ldap)

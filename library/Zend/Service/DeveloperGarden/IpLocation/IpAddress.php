@@ -67,7 +67,7 @@ class Zend_Service_DeveloperGarden_IpLocation_IpAddress
     public function __construct($ip, $version = 4)
     {
         $this->setIp($ip)
-             ->setVersion($version);
+            ->setVersion($version);
     }
 
     /**

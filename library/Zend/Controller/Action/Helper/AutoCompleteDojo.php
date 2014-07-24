@@ -53,7 +53,7 @@ class Zend_Controller_Action_Helper_AutoCompleteDojo extends Zend_Controller_Act
     /**
      * Prepare data for autocompletion
      *
-     * @param  mixed   $data
+     * @param  mixed $data
      * @param  boolean $keepLayouts
      * @return string
      */

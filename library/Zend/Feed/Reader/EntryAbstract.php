@@ -72,15 +72,15 @@ abstract class Zend_Feed_Reader_EntryAbstract
     /**
      * Constructor
      *
-     * @param  DOMElement  $entry
-     * @param  int         $entryKey
+     * @param  DOMElement $entry
+     * @param  int $entryKey
      * @param  string|null $type
      * @return void
      */
     public function __construct(DOMElement $entry, $entryKey, $type = null)
     {
-        $this->_entry       = $entry;
-        $this->_entryKey    = $entryKey;
+        $this->_entry = $entry;
+        $this->_entryKey = $entryKey;
         $this->_domDocument = $entry->ownerDocument;
         if ($type !== null) {
             $this->_data['type'] = $type;

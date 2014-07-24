@@ -89,7 +89,7 @@ class Zend_Application_Bootstrap_Bootstrap
      */
     public function run()
     {
-        $front   = $this->getResource('FrontController');
+        $front = $this->getResource('FrontController');
         $default = $front->getDefaultModule();
         if (null === $front->getControllerDirectory($default)) {
             throw new Zend_Application_Bootstrap_Exception(
@@ -126,11 +126,11 @@ class Zend_Application_Bootstrap_Bootstrap
         if ((null === $this->_resourceLoader)
             && (false !== ($namespace = $this->getAppNamespace()))
         ) {
-            $r    = new ReflectionClass($this);
+            $r = new ReflectionClass($this);
             $path = $r->getFileName();
             $this->setResourceLoader(new Zend_Application_Module_Autoloader(array(
                 'namespace' => $namespace,
-                'basePath'  => dirname($path),
+                'basePath' => dirname($path),
             )));
         }
         return $this->_resourceLoader;
@@ -154,7 +154,7 @@ class Zend_Application_Bootstrap_Bootstrap
      */
     public function setAppNamespace($value)
     {
-        $this->_appNamespace = (string) $value;
+        $this->_appNamespace = (string)$value;
         return $this;
     }
 }

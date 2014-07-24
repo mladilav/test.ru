@@ -183,12 +183,13 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
     }
 
     /**
-    * Read from the Socket Server
-    * 
-    * @param int $length
-    * @return string
-    */
-    protected function _read($length) {
+     * Read from the Socket Server
+     *
+     * @param int $length
+     * @return string
+     */
+    protected function _read($length)
+    {
         $data = false;
         if (!feof($this->_socket)) {
             $data = fread($this->_socket, $length);
@@ -197,12 +198,13 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
     }
 
     /**
-    * Write to the Socket Server
-    * 
-    * @param string $payload
-    * @return int
-    */
-    protected function _write($payload) {
+     * Write to the Socket Server
+     *
+     * @param string $payload
+     * @return int
+     */
+    protected function _write($payload)
+    {
         return @fwrite($this->_socket, $payload);
     }
 
@@ -239,7 +241,6 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
     }
 
 
-
     /**
      * Feedback
      *
@@ -251,7 +252,8 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
     {
         if (!$this->_isConnected ||
             !in_array($this->_currentEnv,
-                array(self::SERVER_FEEDBACK_SANDBOX_URI, self::SERVER_FEEDBACK_PRODUCTION_URI))) {
+                array(self::SERVER_FEEDBACK_SANDBOX_URI, self::SERVER_FEEDBACK_PRODUCTION_URI))
+        ) {
             $this->connect(self::SERVER_FEEDBACK_PRODUCTION_URI);
         }
 
@@ -286,8 +288,9 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
         }
 
         if (!$this->_isConnected || !in_array($this->_currentEnv, array(
-            self::SERVER_SANDBOX_URI,
-            self::SERVER_PRODUCTION_URI))) {
+                self::SERVER_SANDBOX_URI,
+                self::SERVER_PRODUCTION_URI))
+        ) {
             $this->connect(self::SERVER_PRODUCTION_URI);
         }
 
@@ -307,10 +310,10 @@ class Zend_Mobile_Push_Apns extends Zend_Mobile_Push_Abstract
         }
         $payload['aps']['sound'] = $message->getSound();
 
-        foreach($message->getCustomData() as $k => $v) {
+        foreach ($message->getCustomData() as $k => $v) {
             $payload[$k] = $v;
         }
-        
+
         if (version_compare(PHP_VERSION, '5.4.0') >= 0) {
             $payload = json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         } else {

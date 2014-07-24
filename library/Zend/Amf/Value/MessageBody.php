@@ -114,7 +114,7 @@ class Zend_Amf_Value_MessageBody
         if (null === $targetUri) {
             $targetUri = '';
         }
-        $this->_targetUri = (string) $targetUri;
+        $this->_targetUri = (string)$targetUri;
         return $this;
     }
 

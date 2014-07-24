@@ -45,6 +45,6 @@ class Zend_Filter_Int implements Zend_Filter_Interface
      */
     public function filter($value)
     {
-        return (int) ((string) $value);
+        return (int)((string)$value);
     }
 }

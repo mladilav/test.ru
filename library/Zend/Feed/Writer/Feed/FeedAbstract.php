@@ -147,7 +147,7 @@ class Zend_Feed_Writer_Feed_FeedAbstract
      */
     public function addAuthors(array $authors)
     {
-        foreach($authors as $author) {
+        foreach ($authors as $author) {
             $this->addAuthor($author);
         }
     }
@@ -303,8 +303,9 @@ class Zend_Feed_Writer_Feed_FeedAbstract
     public function setId($id)
     {
         if ((empty($id) || !is_string($id) || !Zend_Uri::check($id)) &&
-        !preg_match("#^urn:[a-zA-Z0-9][a-zA-Z0-9\-]{1,31}:([a-zA-Z0-9\(\)\+\,\.\:\=\@\;\$\_\!\*\-]|%[0-9a-fA-F]{2})*#", $id)
-        && !$this->_validateTagUri($id)) {
+            !preg_match("#^urn:[a-zA-Z0-9][a-zA-Z0-9\-]{1,31}:([a-zA-Z0-9\(\)\+\,\.\:\=\@\;\$\_\!\*\-]|%[0-9a-fA-F]{2})*#", $id)
+            && !$this->_validateTagUri($id)
+        ) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Invalid parameter: parameter must be a non-empty string and valid URI/IRI');
         }
@@ -354,10 +355,11 @@ class Zend_Feed_Writer_Feed_FeedAbstract
     public function setImage(array $data)
     {
         if (empty($data['uri']) || !is_string($data['uri'])
-        || !Zend_Uri::check($data['uri'])) {
+            || !Zend_Uri::check($data['uri'])
+        ) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Invalid parameter: parameter \'uri\''
-            . ' must be a non-empty string and valid URI/IRI');
+                . ' must be a non-empty string and valid URI/IRI');
         }
         $this->_data['image'] = $data;
     }
@@ -372,10 +374,11 @@ class Zend_Feed_Writer_Feed_FeedAbstract
     public function setIcon(array $data)
     {
         if (empty($data['uri']) || !is_string($data['uri'])
-        || !Zend_Uri::check($data['uri'])) {
+            || !Zend_Uri::check($data['uri'])
+        ) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Invalid parameter: parameter \'uri\''
-            . ' must be a non-empty string and valid URI/IRI');
+                . ' must be a non-empty string and valid URI/IRI');
         }
         $this->_data['icon'] = $data;
     }
@@ -464,7 +467,7 @@ class Zend_Feed_Writer_Feed_FeedAbstract
         if (empty($url) || !is_string($url) || !Zend_Uri::check($url)) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Invalid parameter: "url" array value'
-            . ' must be a non-empty string and valid URI/IRI');
+                . ' must be a non-empty string and valid URI/IRI');
         }
         $this->_data['baseUrl'] = $url;
     }
@@ -479,7 +482,7 @@ class Zend_Feed_Writer_Feed_FeedAbstract
         if (empty($url) || !is_string($url) || !Zend_Uri::check($url)) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Invalid parameter: "url" array value'
-            . ' must be a non-empty string and valid URI/IRI');
+                . ' must be a non-empty string and valid URI/IRI');
         }
         if (!isset($this->_data['hubs'])) {
             $this->_data['hubs'] = array();
@@ -509,8 +512,8 @@ class Zend_Feed_Writer_Feed_FeedAbstract
         if (!isset($category['term'])) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Each category must be an array and '
-            . 'contain at least a "term" element containing the machine '
-            . ' readable category name');
+                . 'contain at least a "term" element containing the machine '
+                . ' readable category name');
         }
         if (isset($category['scheme'])) {
             if (empty($category['scheme'])
@@ -519,7 +522,7 @@ class Zend_Feed_Writer_Feed_FeedAbstract
             ) {
                 require_once 'Zend/Feed/Exception.php';
                 throw new Zend_Feed_Exception('The Atom scheme or RSS domain of'
-                . ' a category must be a valid URI');
+                    . ' a category must be a valid URI');
             }
         }
         if (!isset($this->_data['categories'])) {

@@ -1,6 +1,8 @@
 <?php
-
-$this->title = "Редактирование профайла";
+if($this->lang == "ua")  $this->title = "Редагування профілю"; else
+    $this->title = "Редактирование профиля"; ?>
+<div class="settings">
+<?php
 echo $this->errMessage;
 echo $this->form;
-?>
+?></div>

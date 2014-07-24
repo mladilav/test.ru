@@ -33,7 +33,7 @@ require_once 'Zend/Captcha/Word.php';
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  * @version    $Id$
-*/
+ */
 class Zend_Captcha_Dumb extends Zend_Captcha_Word
 {
     /**
@@ -41,7 +41,7 @@ class Zend_Captcha_Dumb extends Zend_Captcha_Word
      * @type string
      */
     protected $_label = 'Please type this word backwards';
-    
+
     /**
      * Set the label for the CAPTCHA
      * @param string $label
@@ -50,7 +50,7 @@ class Zend_Captcha_Dumb extends Zend_Captcha_Word
     {
         $this->_label = $label;
     }
-    
+
     /**
      * Retrieve the label for the CAPTCHA
      * @return string
@@ -59,6 +59,7 @@ class Zend_Captcha_Dumb extends Zend_Captcha_Word
     {
         return $this->_label;
     }
+
     /**
      * Render the captcha
      *
@@ -69,7 +70,7 @@ class Zend_Captcha_Dumb extends Zend_Captcha_Word
     public function render(Zend_View_Interface $view = null, $element = null)
     {
         return $this->getLabel() . ': <b>'
-             . strrev($this->getWord())
-             . '</b>';
+        . strrev($this->getWord())
+        . '</b>';
     }
 }

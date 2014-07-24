@@ -45,12 +45,12 @@ class Zend_Rest_Client extends Zend_Service_Abstract
      */
     protected $_data = array();
 
-     /**
+    /**
      * Zend_Uri of this web service
      * @var Zend_Uri_Http
      */
     protected $_uri = null;
-    
+
     /**
      * Flag indicating the Zend_Http_Client is fresh and needs no reset.
      * Must be set explicitly if you want to keep preset parameters.
@@ -101,7 +101,7 @@ class Zend_Rest_Client extends Zend_Service_Abstract
     /**
      * Call a remote REST web service URI and return the Zend_Http_Response object
      *
-     * @param  string $path            The path to append to the URI
+     * @param  string $path The path to append to the URI
      * @throws Zend_Rest_Client_Exception
      * @return void
      */
@@ -115,7 +115,7 @@ class Zend_Rest_Client extends Zend_Service_Abstract
 
         $uri = $this->_uri->getUri();
 
-        if ($path[0] != '/' && $uri[strlen($uri)-1] != '/') {
+        if ($path[0] != '/' && $uri[strlen($uri) - 1] != '/') {
             $path = '/' . $path;
         }
 
@@ -132,12 +132,12 @@ class Zend_Rest_Client extends Zend_Service_Abstract
         } else {
             self::getHttpClient()->resetParameters();
         }
-        
+
         self::getHttpClient()->setUri($this->_uri);
     }
-    
+
     /**
-     * Tells Zend_Rest_Client not to reset all parameters on it's 
+     * Tells Zend_Rest_Client not to reset all parameters on it's
      * Zend_Http_Client. If you want no reset, this must be called explicitly
      * before every request for which you do not want to reset the parameters.
      * Parameters will accumulate between requests, but as soon as you do not
@@ -154,7 +154,7 @@ class Zend_Rest_Client extends Zend_Service_Abstract
      * Performs an HTTP GET request to the $path.
      *
      * @param string $path
-     * @param array  $query Array of GET parameters
+     * @param array $query Array of GET parameters
      * @throws Zend_Http_Client_Exception
      * @return Zend_Http_Response
      */
@@ -183,7 +183,7 @@ class Zend_Rest_Client extends Zend_Service_Abstract
         if (is_string($data)) {
             $client->setRawData($data);
         } elseif (is_array($data) || is_object($data)) {
-            $client->setParameterPost((array) $data);
+            $client->setParameterPost((array)$data);
         }
         return $client->request($method);
     }
@@ -261,7 +261,7 @@ class Zend_Rest_Client extends Zend_Service_Abstract
             $this->_data['rest'] = 1;
             $data = array_slice($args, 1) + $this->_data;
             $response = $this->{'rest' . $method}($args[0], $data);
-            $this->_data = array();//Initializes for next Rest method.
+            $this->_data = array(); //Initializes for next Rest method.
             return new Zend_Rest_Client_Result($response->getBody());
         } else {
             // More than one arg means it's definitely a Zend_Rest_Server
@@ -269,9 +269,9 @@ class Zend_Rest_Client extends Zend_Service_Abstract
                 // Uses first called function name as method name
                 if (!isset($this->_data['method'])) {
                     $this->_data['method'] = $method;
-                    $this->_data['arg1']  = $args[0];
+                    $this->_data['arg1'] = $args[0];
                 }
-                $this->_data[$method]  = $args[0];
+                $this->_data[$method] = $args[0];
             } else {
                 $this->_data['method'] = $method;
                 if (sizeof($args) > 0) {

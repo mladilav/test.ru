@@ -192,7 +192,7 @@ class Zend_Tool_Framework_Client_Response
      */
     public function __toString()
     {
-        return (string) implode('', $this->_content);
+        return (string)implode('', $this->_content);
     }
 
     /**

@@ -50,7 +50,7 @@ class Zend_Service_Delicious_PostList implements Countable, Iterator, ArrayAcces
 
     /**
      * @param  Zend_Service_Delicious $service Service that has downloaded the post
-     * @param  DOMNodeList|array      $posts
+     * @param  DOMNodeList|array $posts
      * @return void
      */
     public function __construct(Zend_Service_Delicious $service, $posts = null)
@@ -73,7 +73,7 @@ class Zend_Service_Delicious_PostList implements Countable, Iterator, ArrayAcces
     {
         for ($i = 0; $i < $nodeList->length; $i++) {
             $curentNode = $nodeList->item($i);
-            if($curentNode->nodeName == 'post') {
+            if ($curentNode->nodeName == 'post') {
                 $this->_addPost(new Zend_Service_Delicious_Post($this->_service, $curentNode));
             }
         }
@@ -237,7 +237,7 @@ class Zend_Service_Delicious_PostList implements Countable, Iterator, ArrayAcces
      *
      * Implement ArrayAccess::offsetExists()
      *
-     * @param   int     $offset
+     * @param   int $offset
      * @return  bool
      */
     public function offsetExists($offset)
@@ -250,7 +250,7 @@ class Zend_Service_Delicious_PostList implements Countable, Iterator, ArrayAcces
      *
      * Implement ArrayAccess::offsetGet()
      *
-     * @param   int     $offset
+     * @param   int $offset
      * @throws  OutOfBoundsException
      * @return  Zend_Service_Delicious_SimplePost
      */
@@ -268,8 +268,8 @@ class Zend_Service_Delicious_PostList implements Countable, Iterator, ArrayAcces
      *
      * Implement ArrayAccess::offsetSet()
      *
-     * @param   int     $offset
-     * @param   string  $value
+     * @param   int $offset
+     * @param   string $value
      * @throws  Zend_Service_Delicious_Exception
      */
     public function offsetSet($offset, $value)
@@ -286,7 +286,7 @@ class Zend_Service_Delicious_PostList implements Countable, Iterator, ArrayAcces
      *
      * Implement ArrayAccess::offsetUnset()
      *
-     * @param   int     $offset
+     * @param   int $offset
      * @throws  Zend_Service_Delicious_Exception
      */
     public function offsetUnset($offset)

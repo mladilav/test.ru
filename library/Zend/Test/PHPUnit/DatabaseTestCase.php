@@ -108,10 +108,10 @@ abstract class Zend_Test_PHPUnit_DatabaseTestCase extends PHPUnit_Extensions_Dat
      * @param  array $tables
      * @return Zend_Test_PHPUnit_Db_DataSet_DbTableDataSet
      */
-    protected function createDbTableDataSet(array $tables=array())
+    protected function createDbTableDataSet(array $tables = array())
     {
         $dataSet = new Zend_Test_PHPUnit_Db_DataSet_DbTableDataSet();
-        foreach($tables AS $table) {
+        foreach ($tables AS $table) {
             $dataSet->addTable($table);
         }
         return $dataSet;
@@ -127,7 +127,7 @@ abstract class Zend_Test_PHPUnit_DatabaseTestCase extends PHPUnit_Extensions_Dat
      * @param string $offset
      * @return Zend_Test_PHPUnit_Db_DataSet_DbTable
      */
-    protected function createDbTable(Zend_Db_Table_Abstract $table, $where=null, $order=null, $count=null, $offset=null)
+    protected function createDbTable(Zend_Db_Table_Abstract $table, $where = null, $order = null, $count = null, $offset = null)
     {
         return new Zend_Test_PHPUnit_Db_DataSet_DbTable($table, $where, $order, $count, $offset);
     }

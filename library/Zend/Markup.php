@@ -33,7 +33,7 @@ require_once 'Zend/Loader/PluginLoader.php';
 class Zend_Markup
 {
     const CALLBACK = 'callback';
-    const REPLACE  = 'replace';
+    const REPLACE = 'replace';
 
 
     /**
@@ -54,7 +54,9 @@ class Zend_Markup
     /**
      * Disable instantiation of Zend_Markup
      */
-    private function __construct() { }
+    private function __construct()
+    {
+    }
 
     /**
      * Get the parser loader
@@ -122,12 +124,12 @@ class Zend_Markup
      */
     public static function factory($parser, $renderer = 'Html', array $options = array())
     {
-        $parserClass   = self::getParserLoader()->load($parser);
+        $parserClass = self::getParserLoader()->load($parser);
         $rendererClass = self::getRendererLoader()->load($renderer);
 
-        $parser            = new $parserClass();
+        $parser = new $parserClass();
         $options['parser'] = $parser;
-        $renderer          = new $rendererClass($options);
+        $renderer = new $rendererClass($options);
 
         return $renderer;
     }

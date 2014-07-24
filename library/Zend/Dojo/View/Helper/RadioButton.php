@@ -31,14 +31,14 @@ require_once 'Zend/Dojo/View/Helper/Dijit.php';
  * @subpackage View
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
-  */
+ */
 class Zend_Dojo_View_Helper_RadioButton extends Zend_Dojo_View_Helper_Dijit
 {
     /**
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.RadioButton';
+    protected $_dijit = 'dijit.form.RadioButton';
 
     /**
      * Dojo module to use
@@ -51,7 +51,7 @@ class Zend_Dojo_View_Helper_RadioButton extends Zend_Dojo_View_Helper_Dijit
      *
      * @param  string $id
      * @param  string $value
-     * @param  array $params  Parameters to use for dijit creation
+     * @param  array $params Parameters to use for dijit creation
      * @param  array $attribs HTML attributes
      * @param  array $options Array of radio options
      * @param  string $listsep String with which to separate options
@@ -64,7 +64,8 @@ class Zend_Dojo_View_Helper_RadioButton extends Zend_Dojo_View_Helper_Dijit
         array $attribs = array(),
         array $options = null,
         $listsep = "<br />\n"
-    ) {
+    )
+    {
         $attribs['name'] = $id;
         if (!array_key_exists('id', $attribs)) {
             $attribs['id'] = $id;

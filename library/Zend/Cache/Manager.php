@@ -60,13 +60,13 @@ class Zend_Cache_Manager
         // Simple Common Default
         'default' => array(
             'frontend' => array(
-                'name'    => 'Core',
+                'name' => 'Core',
                 'options' => array(
                     'automatic_serialization' => true,
                 ),
             ),
             'backend' => array(
-                'name'    => 'File',
+                'name' => 'File',
                 'options' => array(
                     // use system temp dir by default of file backend
                     // 'cache_dir' => '../cache',
@@ -77,13 +77,13 @@ class Zend_Cache_Manager
         // Static Page HTML Cache
         'page' => array(
             'frontend' => array(
-                'name'    => 'Capture',
+                'name' => 'Capture',
                 'options' => array(
                     'ignore_user_abort' => true,
                 ),
             ),
             'backend' => array(
-                'name'    => 'Static',
+                'name' => 'Static',
                 'options' => array(
                     'public_dir' => '../public',
                 ),
@@ -93,14 +93,14 @@ class Zend_Cache_Manager
         // Tag Cache
         'pagetag' => array(
             'frontend' => array(
-                'name'    => 'Core',
+                'name' => 'Core',
                 'options' => array(
                     'automatic_serialization' => true,
                     'lifetime' => null
                 ),
             ),
             'backend' => array(
-                'name'    => 'File',
+                'name' => 'File',
                 'options' => array(
                     // use system temp dir by default of file backend
                     // 'cache_dir' => '../cache',
@@ -156,7 +156,7 @@ class Zend_Cache_Manager
         if (isset($this->_optionTemplates[$name])) {
             if ($name == self::PAGECACHE
                 && (!isset($this->_optionTemplates[$name]['backend']['options']['tag_cache'])
-                || !$this->_optionTemplates[$name]['backend']['options']['tag_cache'] instanceof Zend_Cache_Core)
+                    || !$this->_optionTemplates[$name]['backend']['options']['tag_cache'] instanceof Zend_Cache_Core)
             ) {
                 $this->_optionTemplates[$name]['backend']['options']['tag_cache']
                     = $this->getCache(self::PAGETAGCACHE);
@@ -197,7 +197,7 @@ class Zend_Cache_Manager
      * be lazy loaded
      *
      * @param  string $name
-     * @param  array  $options
+     * @param  array $options
      * @return Zend_Cache_Manager
      * @throws Zend_Cache_Exception
      */

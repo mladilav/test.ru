@@ -54,41 +54,22 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
 
 
     // Метод для обновления записи
-    public function updateUser($id, $username, $password, $password_rep, $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw)
+    public function updateUser($data)
     {
-        if ($password != $password_rep) {
-            echo 'Пароли не совпадают!';
-            exit;
+        if (!$data) {
+            return false;
         }
-
-        // Формируем массив значений
-        $data = array(
-            'username' => $username,
-            'password' => $password,
-            'email' => $email,
-            'photo' => $photo,
-            'gender' => $gender,
-            'date_reg' => $date_reg,
-            'role' => $gender,
-            'vk' => $vk,
-            'fc' => $fc,
-            'tw' => $tw,
-        );
-
-
         // Используем метод update для обновления записи
         // В скобках указываем условие обновления (привычное для вас where)
-        $this->update($data, 'id = ' . (int)$id);
+        $this->update($data, 'id = ' . (int)$data['id']);
     }
-    /*
 
-    // Метод для удаления записи
-    public function deleteMovie($id)
+    public function deleteUser($id)
     {
         // В скобках указываем условие удаления (привычное для вас where)
         $this->delete('id = ' . (int)$id);
     }
 
-*/
+
 }
 

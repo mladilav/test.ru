@@ -107,7 +107,7 @@ abstract class Zend_Service_DeveloperGarden_Response_VoiceButler_VoiceButlerAbst
     public function isValid()
     {
         return ($this->return === null
-                || $this->return->status == '0000');
+            || $this->return->status == '0000');
     }
 
     /**

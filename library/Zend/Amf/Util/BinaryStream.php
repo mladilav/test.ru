@@ -72,11 +72,11 @@ class Zend_Amf_Util_BinaryStream
             throw new Zend_Amf_Exception('Inputdata is not of type String');
         }
 
-        $this->_stream       = $stream;
-        $this->_needle       = 0;
+        $this->_stream = $stream;
+        $this->_needle = 0;
         $this->_mbStringFunctionsOverloaded = function_exists('mb_strlen') && (ini_get('mbstring.func_overload') !== '') && ((int)ini_get('mbstring.func_overload') & 2);
         $this->_streamLength = $this->_mbStringFunctionsOverloaded ? mb_strlen($stream, '8bit') : strlen($stream);
-        $this->_bigEndian    = (pack('l', 1) === "\x00\x00\x00\x01");
+        $this->_bigEndian = (pack('l', 1) === "\x00\x00\x00\x01");
     }
 
     /**
@@ -104,7 +104,7 @@ class Zend_Amf_Util_BinaryStream
             throw new Zend_Amf_Exception('Buffer underrun at needle position: ' . $this->_needle . ' while requesting length: ' . $length);
         }
         $bytes = $this->_mbStringFunctionsOverloaded ? mb_substr($this->_stream, $this->_needle, $length, '8bit') : substr($this->_stream, $this->_needle, $length);
-        $this->_needle+= $length;
+        $this->_needle += $length;
         return $bytes;
     }
 
@@ -118,7 +118,7 @@ class Zend_Amf_Util_BinaryStream
      */
     public function writeBytes($bytes)
     {
-        $this->_stream.= $bytes;
+        $this->_stream .= $bytes;
         return $this;
     }
 
@@ -151,7 +151,7 @@ class Zend_Amf_Util_BinaryStream
      */
     public function writeByte($stream)
     {
-        $this->_stream.= pack('c', $stream);
+        $this->_stream .= pack('c', $stream);
         return $this;
     }
 
@@ -173,7 +173,7 @@ class Zend_Amf_Util_BinaryStream
      */
     public function writeInt($stream)
     {
-        $this->_stream.= pack('n', $stream);
+        $this->_stream .= pack('n', $stream);
         return $this;
     }
 
@@ -197,7 +197,7 @@ class Zend_Amf_Util_BinaryStream
     public function writeUtf($stream)
     {
         $this->writeInt($this->_mbStringFunctionsOverloaded ? mb_strlen($stream, '8bit') : strlen($stream));
-        $this->_stream.= $stream;
+        $this->_stream .= $stream;
         return $this;
     }
 
@@ -222,7 +222,7 @@ class Zend_Amf_Util_BinaryStream
     public function writeLongUtf($stream)
     {
         $this->writeLong($this->_mbStringFunctionsOverloaded ? mb_strlen($stream, '8bit') : strlen($stream));
-        $this->_stream.= $stream;
+        $this->_stream .= $stream;
     }
 
     /**
@@ -243,7 +243,7 @@ class Zend_Amf_Util_BinaryStream
      */
     public function writeLong($stream)
     {
-        $this->_stream.= pack('N', $stream);
+        $this->_stream .= pack('N', $stream);
         return $this;
     }
 
@@ -268,7 +268,7 @@ class Zend_Amf_Util_BinaryStream
     public function readDouble()
     {
         $bytes = $this->_mbStringFunctionsOverloaded ? mb_substr($this->_stream, $this->_needle, 8, '8bit') : substr($this->_stream, $this->_needle, 8);
-        $this->_needle+= 8;
+        $this->_needle += 8;
 
         if (!$this->_bigEndian) {
             $bytes = strrev($bytes);
@@ -290,7 +290,7 @@ class Zend_Amf_Util_BinaryStream
         if (!$this->_bigEndian) {
             $stream = strrev($stream);
         }
-        $this->_stream.= $stream;
+        $this->_stream .= $stream;
         return $this;
     }
 

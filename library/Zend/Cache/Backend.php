@@ -43,8 +43,8 @@ class Zend_Cache_Backend
      */
     protected $_directives = array(
         'lifetime' => 3600,
-        'logging'  => false,
-        'logger'   => null
+        'logging' => false,
+        'logger' => null
     );
 
     /**
@@ -96,7 +96,7 @@ class Zend_Cache_Backend
      * Set an option
      *
      * @param  string $name
-     * @param  mixed  $value
+     * @param  mixed $value
      * @throws Zend_Cache_Exception
      * @return void
      */

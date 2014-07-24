@@ -106,7 +106,7 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
     /**
      * Test if a cache is available for the given id and (if yes) return it (false else)
      *
-     * @param  string  $id                     Cache id
+     * @param  string $id Cache id
      * @param  boolean $doNotTestCacheValidity If set to true, the cache validity won't be tested
      * @return string|false Cached datas
      */
@@ -138,7 +138,7 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
         $result = $this->_query($sql);
         $row = @sqlite_fetch_array($result);
         if ($row) {
-            return ((int) $row['lastModified']);
+            return ((int)$row['lastModified']);
         }
         return false;
     }
@@ -149,10 +149,10 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
      * Note : $data is always "string" (serialization is done by the
      * core not by the backend)
      *
-     * @param  string $data             Datas to cache
-     * @param  string $id               Cache id
-     * @param  array  $tags             Array of strings, the cache record will be tagged by each string entry
-     * @param  int    $specificLifetime If != false, set a specific lifetime for this cache record (null => infinite lifetime)
+     * @param  string $data Datas to cache
+     * @param  string $id Cache id
+     * @param  array $tags Array of strings, the cache record will be tagged by each string entry
+     * @param  int $specificLifetime If != false, set a specific lifetime for this cache record (null => infinite lifetime)
      * @throws Zend_Cache_Exception
      * @return boolean True if no problem
      */
@@ -212,7 +212,7 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
      *                                               ($tags can be an array of strings or a single string)
      *
      * @param  string $mode Clean mode
-     * @param  array  $tags Array of tags
+     * @param  array $tags Array of tags
      * @return boolean True if no problem
      */
     public function clean($mode = Zend_Cache::CLEANING_MODE_ALL, $tags = array())
@@ -312,7 +312,7 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
                 if (!$res) {
                     return array();
                 }
-                $nbr = (int) @sqlite_fetch_single($res);
+                $nbr = (int)@sqlite_fetch_single($res);
                 if ($nbr > 0) {
                     $matching = true;
                 }
@@ -377,7 +377,7 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
             if ($free >= $total) {
                 return 100;
             }
-            return ((int) (100. * ($total - $free) / $total));
+            return ((int)(100. * ($total - $free) / $total));
         }
     }
 
@@ -537,11 +537,12 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
     /**
      * Register a cache id with the given tag
      *
-     * @param  string $id  Cache id
+     * @param  string $id Cache id
      * @param  string $tag Tag
      * @return boolean True if no problem
      */
-    private function _registerTag($id, $tag) {
+    private function _registerTag($id, $tag)
+    {
         $res = $this->_query("DELETE FROM TAG WHERE name='$tag' AND id='$id'");
         $res = $this->_query("INSERT INTO tag (name, id) VALUES ('$tag', '$id')");
         if (!$res) {
@@ -586,7 +587,7 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
         if (!$row) {
             return false;
         }
-        if (((int) $row['num']) != 1) {
+        if (((int)$row['num']) != 1) {
             // old cache structure
             $this->_log('Zend_Cache_Backend_Sqlite::_checkStructureVersion() : old cache structure version detected => the cache is going to be dropped');
             return false;
@@ -608,7 +609,7 @@ class Zend_Cache_Backend_Sqlite extends Zend_Cache_Backend implements Zend_Cache
      *                                               ($tags can be an array of strings or a single string)
      *
      * @param  string $mode Clean mode
-     * @param  array  $tags Array of tags
+     * @param  array $tags Array of tags
      * @return boolean True if no problem
      */
     private function _clean($mode = Zend_Cache::CLEANING_MODE_ALL, $tags = array())

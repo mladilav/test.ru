@@ -14,7 +14,7 @@ class Application_Model_DbTable_Test extends Zend_Db_Table_Abstract
 
         // Используем метод fetchRow для получения записи из базы.
         // В скобках указываем условие выборки (привычное для вас where)
-        $row = $this->fetchRow('id = ' . $id);
+        $row = $this->fetchRow('`int` = ' . $id);
 
         // Если результат пустой, выкидываем исключение
         if (!$row) {
@@ -24,66 +24,79 @@ class Application_Model_DbTable_Test extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
-    public function addTest($name,$type,$author, $userId)
+    public function addTest($data)
     {
-
-        $data = array(
-            'name' => $name,
-            'author'=> $author,
-            'userId' => $userId,
-            'type' => $type,
-
-        );
+        if(!$data)
+        {return false;}
 
         // Используем метод insert для вставки записи в базу
         $this->insert($data);
+        return true;
 
     }
 
-    public function updateTest($id, $name,$type,$author, $userId)
+    public function updateTest($data)
     {
-        // Формируем массив значений
-        $data = array(
-            'name' => $name,
-            'author'=> $author,
-            'userId' => $userId,
-            'type' => $type,
-        );
-
-        // Используем метод update для обновления записи
-        // В скобках указываем условие обновления (привычное для вас where)
-        $this->update($data, 'id = ' . (int)$id);
+        if(!$data)
+        {return false;}
+        $this->update($data, '`int` = ' . (int)$data['int']);
+        return true;
 
     }
 
     public function deleteTest($id)
     {
         // В скобках указываем условие удаления (привычное для вас where)
-        $this->delete('id = ' . (int)$id);
+        $this->delete('`int` = ' . (int)$id);
     }
+
     public function arrayTest()
     {
-        $array_tests = $this->fetchAll($this->select()->from('test','name'));
+        $array_tests = $this->fetchAll($this->select()->from('test', 'name'));
+        foreach ($array_tests->toArray() as $array) {
+            foreach ($array as $arg) {
+                $result[] = $arg;
+
+            }
+        }
+
+        $array_testss = $this->fetchAll($this->select()->from('test', 'int'));
+
+        foreach ($array_testss->toArray() as $array) {
+            foreach ($array as $arg) {
+                $results[] = $arg;
+            }
+        }
+
+        return array_combine($results, $result);
+    }
+
+    public function arrayObjectsTest($type)
+    {
+        $result = array();
+        $data = $this->fetchAll($this->select()
+            ->from('test')
+            ->where('type = ?', (int)$type));
+        foreach ($data as $row) {
+            $user = new Application_Model_Tests($row);
+            $result[] = $user;
+        }
+        return $result;
+    }
+
+    public function currentTest()
+    {
+        $array_tests = $this->fetchAll($this->select()->from('test', 'int'));
         $i = 0;
-        foreach ($array_tests->toArray() as $array){
-            foreach($array as $arg){
+        foreach ($array_tests->toArray() as $array) {
+            foreach ($array as $arg) {
                 $result[$i] = $arg;
                 $i++;
             }
         }
-
-        $array_testss = $this->fetchAll($this->select()->from('test','int'));
-        $i = 0;
-        foreach ($array_testss->toArray() as $array){
-            foreach($array as $arg){
-                $results[$i] = $arg;
-                $i++;
-            }
-        }
-
-
-        return array_combine($results, $result);
+        return $result[$i - 1];
     }
 }
+
 
 ?>

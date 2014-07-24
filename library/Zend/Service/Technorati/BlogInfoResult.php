@@ -104,7 +104,7 @@ class Zend_Service_Technorati_BlogInfoResult
                 // fetched URL often doens't include schema
                 // and this issue causes the following line to fail
                 $this->_url = Zend_Service_Technorati_Utils::normalizeUriHttp($result->item(0)->data);
-            } catch(Zend_Service_Technorati_Exception $e) {
+            } catch (Zend_Service_Technorati_Exception $e) {
                 if ($this->getWeblog() instanceof Zend_Service_Technorati_Weblog) {
                     $this->_url = $this->getWeblog()->getUrl();
                 }
@@ -112,10 +112,10 @@ class Zend_Service_Technorati_BlogInfoResult
         }
 
         $result = $xpath->query('//result/inboundblogs/text()');
-        if ($result->length == 1) $this->_inboundBlogs = (int) $result->item(0)->data;
+        if ($result->length == 1) $this->_inboundBlogs = (int)$result->item(0)->data;
 
         $result = $xpath->query('//result/inboundlinks/text()');
-        if ($result->length == 1) $this->_inboundLinks = (int) $result->item(0)->data;
+        if ($result->length == 1) $this->_inboundLinks = (int)$result->item(0)->data;
 
     }
 
@@ -125,7 +125,8 @@ class Zend_Service_Technorati_BlogInfoResult
      *
      * @return  Zend_Uri_Http
      */
-    public function getUrl() {
+    public function getUrl()
+    {
         return $this->_url;
     }
 
@@ -134,7 +135,8 @@ class Zend_Service_Technorati_BlogInfoResult
      *
      * @return  Zend_Service_Technorati_Weblog
      */
-    public function getWeblog() {
+    public function getWeblog()
+    {
         return $this->_weblog;
     }
 
@@ -145,7 +147,7 @@ class Zend_Service_Technorati_BlogInfoResult
      */
     public function getInboundBlogs()
     {
-        return (int) $this->_inboundBlogs;
+        return (int)$this->_inboundBlogs;
     }
 
     /**
@@ -155,7 +157,7 @@ class Zend_Service_Technorati_BlogInfoResult
      */
     public function getInboundLinks()
     {
-        return (int) $this->_inboundLinks;
+        return (int)$this->_inboundLinks;
     }
 
 }

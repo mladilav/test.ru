@@ -59,7 +59,7 @@ class Zend_Dojo_Form_Element_NumberTextBox extends Zend_Dojo_Form_Element_Valida
      */
     public function setLocale($locale)
     {
-        $this->setConstraint('locale', (string) $locale);
+        $this->setConstraint('locale', (string)$locale);
         return $this;
     }
 
@@ -81,7 +81,7 @@ class Zend_Dojo_Form_Element_NumberTextBox extends Zend_Dojo_Form_Element_Valida
      */
     public function setPattern($pattern)
     {
-        $this->setConstraint('pattern', (string) $pattern);
+        $this->setConstraint('pattern', (string)$pattern);
         return $this;
     }
 
@@ -132,7 +132,7 @@ class Zend_Dojo_Form_Element_NumberTextBox extends Zend_Dojo_Form_Element_Valida
      */
     public function setPlaces($places)
     {
-        $this->setConstraint('places', (int) $places);
+        $this->setConstraint('places', (int)$places);
         return $this;
     }
 
@@ -154,7 +154,7 @@ class Zend_Dojo_Form_Element_NumberTextBox extends Zend_Dojo_Form_Element_Valida
      */
     public function setStrict($flag)
     {
-        $this->setConstraint('strict', (bool) $flag);
+        $this->setConstraint('strict', (bool)$flag);
         return $this;
     }
 

@@ -65,9 +65,9 @@ class Zend_Db
     /**
      * Use the INT_TYPE, BIGINT_TYPE, and FLOAT_TYPE with the quote() method.
      */
-    const INT_TYPE    = 0;
+    const INT_TYPE = 0;
     const BIGINT_TYPE = 1;
-    const FLOAT_TYPE  = 2;
+    const FLOAT_TYPE = 2;
 
     /**
      * PDO constant values discovered by this script result:
@@ -192,7 +192,7 @@ class Zend_Db
      * all parameters, and the second argument is ignored.
      *
      * @param  mixed $adapter String name of base adapter class, or Zend_Config object.
-     * @param  mixed $config  OPTIONAL; an array or Zend_Config object with adapter parameters.
+     * @param  mixed $config OPTIONAL; an array or Zend_Config object with adapter parameters.
      * @return Zend_Db_Adapter_Abstract
      * @throws Zend_Db_Exception
      */
@@ -211,7 +211,7 @@ class Zend_Db
                 $config = $adapter->params->toArray();
             }
             if (isset($adapter->adapter)) {
-                $adapter = (string) $adapter->adapter;
+                $adapter = (string)$adapter->adapter;
             } else {
                 $adapter = null;
             }
@@ -272,7 +272,7 @@ class Zend_Db
         /*
          * Verify that the object created is a descendent of the abstract adapter type.
          */
-        if (! $dbAdapter instanceof Zend_Db_Adapter_Abstract) {
+        if (!$dbAdapter instanceof Zend_Db_Adapter_Abstract) {
             /**
              * @see Zend_Db_Exception
              */

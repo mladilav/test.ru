@@ -114,8 +114,8 @@ class Zend_Layout_Controller_Plugin_Layout extends Zend_Controller_Plugin_Abstra
         if (!$request->isDispatched()
             || $this->getResponse()->isRedirect()
             || ($layout->getMvcSuccessfulActionOnly()
-                && (!empty($helper) && !$helper->isActionControllerSuccessful())))
-        {
+                && (!empty($helper) && !$helper->isActionControllerSuccessful()))
+        ) {
             return;
         }
 
@@ -124,8 +124,8 @@ class Zend_Layout_Controller_Plugin_Layout extends Zend_Controller_Plugin_Abstra
             return;
         }
 
-        $response   = $this->getResponse();
-        $content    = $response->getBody(true);
+        $response = $this->getResponse();
+        $content = $response->getBody(true);
         $contentKey = $layout->getContentKey();
 
         if (isset($content['default'])) {

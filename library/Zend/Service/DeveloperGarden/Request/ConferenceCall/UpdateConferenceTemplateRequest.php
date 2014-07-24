@@ -66,12 +66,13 @@ class Zend_Service_DeveloperGarden_Request_ConferenceCall_UpdateConferenceTempla
      * @param Zend_Service_DeveloperGarden_ConferenceCall_ConferenceDetail $conferenceDetails
      */
     public function __construct($environment, $templateId, $initiatorId = null,
-        Zend_Service_DeveloperGarden_ConferenceCall_ConferenceDetail $conferenceDetails = null
-    ) {
+                                Zend_Service_DeveloperGarden_ConferenceCall_ConferenceDetail $conferenceDetails = null
+    )
+    {
         parent::__construct($environment);
         $this->setTemplateId($templateId)
-             ->setInitiatorId($initiatorId)
-             ->setDetail($conferenceDetails);
+            ->setInitiatorId($initiatorId)
+            ->setDetail($conferenceDetails);
     }
 
     /**
@@ -106,7 +107,8 @@ class Zend_Service_DeveloperGarden_Request_ConferenceCall_UpdateConferenceTempla
      */
     public function setDetail(
         Zend_Service_DeveloperGarden_ConferenceCall_ConferenceDetail $detail = null
-    ) {
+    )
+    {
         $this->detail = $detail;
         return $this;
     }

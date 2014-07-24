@@ -43,14 +43,14 @@ class Zend_Log_Writer_Syslog extends Zend_Log_Writer_Abstract
      * @var array
      */
     protected $_priorities = array(
-        Zend_Log::EMERG  => LOG_EMERG,
-        Zend_Log::ALERT  => LOG_ALERT,
-        Zend_Log::CRIT   => LOG_CRIT,
-        Zend_Log::ERR    => LOG_ERR,
-        Zend_Log::WARN   => LOG_WARNING,
+        Zend_Log::EMERG => LOG_EMERG,
+        Zend_Log::ALERT => LOG_ALERT,
+        Zend_Log::CRIT => LOG_CRIT,
+        Zend_Log::ERR => LOG_ERR,
+        Zend_Log::WARN => LOG_WARNING,
         Zend_Log::NOTICE => LOG_NOTICE,
-        Zend_Log::INFO   => LOG_INFO,
-        Zend_Log::DEBUG  => LOG_DEBUG,
+        Zend_Log::INFO => LOG_INFO,
+        Zend_Log::DEBUG => LOG_DEBUG,
     );
 
     /**
@@ -173,7 +173,7 @@ class Zend_Log_Writer_Syslog extends Zend_Log_Writer_Abstract
     protected function _initializeSyslog()
     {
         self::$_lastApplication = $this->_application;
-        self::$_lastFacility    = $this->_facility;
+        self::$_lastFacility = $this->_facility;
         openlog($this->_application, LOG_PID, $this->_facility);
     }
 
@@ -252,8 +252,8 @@ class Zend_Log_Writer_Syslog extends Zend_Log_Writer_Abstract
         }
 
         if ($this->_application !== self::$_lastApplication
-            || $this->_facility !== self::$_lastFacility)
-        {
+            || $this->_facility !== self::$_lastFacility
+        ) {
             $this->_initializeSyslog();
         }
 

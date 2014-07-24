@@ -48,7 +48,7 @@ class Zend_Dojo_Form_Element_NumberSpinner extends Zend_Dojo_Form_Element_Valida
      */
     public function setDefaultTimeout($timeout)
     {
-        $this->setDijitParam('defaultTimeout', (int) $timeout);
+        $this->setDijitParam('defaultTimeout', (int)$timeout);
         return $this;
     }
 
@@ -70,7 +70,7 @@ class Zend_Dojo_Form_Element_NumberSpinner extends Zend_Dojo_Form_Element_Valida
      */
     public function setTimeoutChangeRate($rate)
     {
-        $this->setDijitParam('timeoutChangeRate', (int) $rate);
+        $this->setDijitParam('timeoutChangeRate', (int)$rate);
         return $this;
     }
 
@@ -92,7 +92,7 @@ class Zend_Dojo_Form_Element_NumberSpinner extends Zend_Dojo_Form_Element_Valida
      */
     public function setLargeDelta($delta)
     {
-        $this->setDijitParam('largeDelta', (float) $delta);
+        $this->setDijitParam('largeDelta', (float)$delta);
         return $this;
     }
 
@@ -114,7 +114,7 @@ class Zend_Dojo_Form_Element_NumberSpinner extends Zend_Dojo_Form_Element_Valida
      */
     public function setSmallDelta($delta)
     {
-        $this->setDijitParam('smallDelta', (float) $delta);
+        $this->setDijitParam('smallDelta', (float)$delta);
         return $this;
     }
 
@@ -136,7 +136,7 @@ class Zend_Dojo_Form_Element_NumberSpinner extends Zend_Dojo_Form_Element_Valida
      */
     public function setIntermediateChanges($flag)
     {
-        $this->setDijitParam('intermediateChanges', (bool) $flag);
+        $this->setDijitParam('intermediateChanges', (bool)$flag);
         return $this;
     }
 
@@ -161,7 +161,7 @@ class Zend_Dojo_Form_Element_NumberSpinner extends Zend_Dojo_Form_Element_Valida
      */
     public function setRangeMessage($message)
     {
-        $this->setDijitParam('rangeMessage', (string) $message);
+        $this->setDijitParam('rangeMessage', (string)$message);
         return $this;
     }
 
@@ -187,7 +187,7 @@ class Zend_Dojo_Form_Element_NumberSpinner extends Zend_Dojo_Form_Element_Valida
         if ($this->hasDijitParam('constraints')) {
             $constraints = $this->getDijitParam('constraints');
         }
-        $constraints['min'] = (float) $value;
+        $constraints['min'] = (float)$value;
         $this->setDijitParam('constraints', $constraints);
         return $this;
     }
@@ -221,7 +221,7 @@ class Zend_Dojo_Form_Element_NumberSpinner extends Zend_Dojo_Form_Element_Valida
         if ($this->hasDijitParam('constraints')) {
             $constraints = $this->getDijitParam('constraints');
         }
-        $constraints['max'] = (float) $value;
+        $constraints['max'] = (float)$value;
         $this->setDijitParam('constraints', $constraints);
         return $this;
     }

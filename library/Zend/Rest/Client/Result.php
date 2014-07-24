@@ -29,7 +29,8 @@ require_once 'Zend/Xml/Security.php';
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Rest_Client_Result implements IteratorAggregate {
+class Zend_Rest_Client_Result implements IteratorAggregate
+{
     /**
      * @var SimpleXMLElement
      */
@@ -50,9 +51,9 @@ class Zend_Rest_Client_Result implements IteratorAggregate {
     public function __construct($data)
     {
         set_error_handler(array($this, 'handleXmlErrors'));
-        $this->_sxml = Zend_Xml_Security::scan($data); 
+        $this->_sxml = Zend_Xml_Security::scan($data);
         restore_error_handler();
-        if($this->_sxml === false) {
+        if ($this->_sxml === false) {
             if ($this->_errstr === null) {
                 $message = "An error occured while parsing the REST response with simplexml.";
             } else {
@@ -67,11 +68,11 @@ class Zend_Rest_Client_Result implements IteratorAggregate {
     /**
      * Temporary error handler for parsing REST responses.
      *
-     * @param int    $errno
+     * @param int $errno
      * @param string $errstr
      * @param string $errfile
      * @param string $errline
-     * @param array  $errcontext
+     * @param array $errcontext
      * @return true
      */
     public function handleXmlErrors($errno, $errstr, $errfile = null, $errline = null, array $errcontext = null)
@@ -105,7 +106,7 @@ class Zend_Rest_Client_Result implements IteratorAggregate {
         }
 
         $result = $this->_sxml->xpath("//$name");
-        $count  = count($result);
+        $count = count($result);
 
         if ($count == 0) {
             return null;
@@ -182,8 +183,8 @@ class Zend_Rest_Client_Result implements IteratorAggregate {
     public function getStatus()
     {
         $status = $this->_sxml->xpath('//status/text()');
-        if ( !isset($status[0]) ) return false;
-        
+        if (!isset($status[0])) return false;
+
         $status = strtolower($status[0]);
 
         if (ctype_alpha($status) && $status == 'success') {
@@ -191,7 +192,7 @@ class Zend_Rest_Client_Result implements IteratorAggregate {
         } elseif (ctype_alpha($status) && $status != 'success') {
             return false;
         } else {
-            return (bool) $status;
+            return (bool)$status;
         }
     }
 
@@ -226,13 +227,13 @@ class Zend_Rest_Client_Result implements IteratorAggregate {
     {
         if (!$this->getStatus()) {
             $message = $this->_sxml->xpath('//message');
-            return (string) $message[0];
+            return (string)$message[0];
         } else {
             $result = $this->_sxml->xpath('//response');
             if (sizeof($result) > 1) {
-                return (string) "An error occured.";
+                return (string)"An error occured.";
             } else {
-                return (string) $result[0];
+                return (string)$result[0];
             }
         }
     }

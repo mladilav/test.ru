@@ -2,7 +2,6 @@
 Copyright (c) 2003-2012, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
-
 @import url("reset.css");
 @import url("mainui.css");
 @import url("panel.css");
@@ -14,12 +13,10 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 @import url("presets.css");
 
 /* Restore the container visibility */
-html .cke_skin_v2
-{
-	visibility: inherit;
+html .cke_skin_v2 {
+    visibility: inherit;
 }
 
-html.cke_skin_v2_container
-{
-	visibility: visible;
+html.cke_skin_v2_container {
+    visibility: visible;
 }

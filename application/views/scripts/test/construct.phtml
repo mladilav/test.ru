@@ -1,0 +1,51 @@
+<?php
+// Создаём заголовок страницы, который загрузится в layout
+if ($this->lang == "ua") $this->title = "Конструктор тестів"; else
+    $this->title = "Конструктор тестов";
+$this->headTitle($this->title);
+?>
+<div class="settings">
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'addtest')); ?>" class="btn btn-success">
+        <i class="icon-plus icon-white"></i>
+        <?php if ($this->lang == "ua") echo 'Додати тест'; else echo 'Добавить тест'; ?></a>
+
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'typequestion')); ?>" class="btn btn-success">
+        <i class="icon-plus icon-white"></i>
+        <?php if ($this->lang == "ua") echo 'Додати питання'; else echo 'Добавить вопрос'; ?></a>
+
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'uploadtest')); ?>" class="btn btn-success">
+        <i class="icon-arrow-down icon-white"></i>
+        <?php if ($this->lang == "ua") echo 'Завантажити питання'; else echo 'Загрузить вопросы'; ?></a>
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'addtopic')); ?>" class="btn btn-success"
+       style="color: #FFFFFF"> <i class="icon-plus icon-white"></i>
+        <?php if ($this->lang == "ua") echo 'Додати тему'; else echo 'Добавить тему'; ?> </a>
+    <hr>
+    <h4><?php if ($this->lang == "ua") echo 'Теми'; else echo 'Темы'; ?>:</h4>
+    <table class="table table-condensed">
+        <?php
+        // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+        echo $this->partialLoop('/partials/topic.phtml', $this->topic);
+        ?>
+    </table>
+    <hr>
+    <div class="row-fluid">
+        <div class="span4">
+            <h4><?php if ($this->lang == "ua") echo 'Тести'; else echo 'Тесты'; ?>:</h4>
+            <table class="table table-condensed">
+                <?php
+                // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+                echo $this->partialLoop('/partials/tests.phtml', $this->tests);
+                ?>
+            </table>
+        </div>
+        <div class="span8">
+            <h4><?php if ($this->lang == "ua") echo 'Питання'; else echo 'Вопросы'; ?>:</h4>
+            <table class="table table-condensed">
+                <?php
+                if ($this->lang == "ua") echo $this->partialLoop('/partials/questionUa.phtml', $this->question); else
+                    echo $this->partialLoop('/partials/question.phtml', $this->question);
+                ?>
+            </table>
+        </div>
+    </div>
+</div>

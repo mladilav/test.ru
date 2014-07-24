@@ -48,7 +48,7 @@ class Zend_Dojo_Form_Element_CurrencyTextBox extends Zend_Dojo_Form_Element_Numb
      */
     public function setCurrency($currency)
     {
-        $this->setDijitParam('currency', (string) $currency);
+        $this->setDijitParam('currency', (string)$currency);
         return $this;
     }
 
@@ -72,7 +72,7 @@ class Zend_Dojo_Form_Element_CurrencyTextBox extends Zend_Dojo_Form_Element_Numb
      */
     public function setSymbol($symbol)
     {
-        $symbol = strtoupper((string) $symbol);
+        $symbol = strtoupper((string)$symbol);
         $length = strlen($symbol);
         if (3 > $length) {
             require_once 'Zend/Form/Element/Exception.php';
@@ -104,7 +104,7 @@ class Zend_Dojo_Form_Element_CurrencyTextBox extends Zend_Dojo_Form_Element_Numb
      */
     public function setFractional($flag)
     {
-        $this->setConstraint('fractional', (bool) $flag);
+        $this->setConstraint('fractional', (bool)$flag);
         return $this;
     }
 

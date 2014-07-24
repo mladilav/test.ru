@@ -105,7 +105,7 @@ class Zend_Auth_Adapter_Http_Resolver_File implements Zend_Auth_Adapter_Http_Res
      * colons.
      *
      * @param  string $username Username
-     * @param  string $realm    Authentication Realm
+     * @param  string $realm Authentication Realm
      * @throws Zend_Auth_Adapter_Http_Resolver_Exception
      * @return string|false User's shared secret, if the user is found in the
      *         realm, false otherwise.
@@ -124,7 +124,7 @@ class Zend_Auth_Adapter_Http_Resolver_File implements Zend_Auth_Adapter_Http_Res
              */
             require_once 'Zend/Auth/Adapter/Http/Resolver/Exception.php';
             throw new Zend_Auth_Adapter_Http_Resolver_Exception('Username must consist only of printable characters, '
-                                                              . 'excluding the colon');
+                . 'excluding the colon');
         }
         if (empty($realm)) {
             /**
@@ -138,7 +138,7 @@ class Zend_Auth_Adapter_Http_Resolver_File implements Zend_Auth_Adapter_Http_Res
              */
             require_once 'Zend/Auth/Adapter/Http/Resolver/Exception.php';
             throw new Zend_Auth_Adapter_Http_Resolver_Exception('Realm must consist only of printable characters, '
-                                                              . 'excluding the colon.');
+                . 'excluding the colon.');
         }
 
         // Open file, read through looking for matching credentials

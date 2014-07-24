@@ -135,7 +135,7 @@ class Zend_Db_Profiler
      */
     public function setEnabled($enable)
     {
-        $this->_enabled = (boolean) $enable;
+        $this->_enabled = (boolean)$enable;
 
         return $this;
     }
@@ -165,7 +165,7 @@ class Zend_Db_Profiler
         if (null === $minimumSeconds) {
             $this->_filterElapsedSecs = null;
         } else {
-            $this->_filterElapsedSecs = (integer) $minimumSeconds;
+            $this->_filterElapsedSecs = (integer)$minimumSeconds;
         }
 
         return $this;
@@ -246,8 +246,8 @@ class Zend_Db_Profiler
      * record the time.  If the profiler is not enabled, this takes no
      * action and immediately returns null.
      *
-     * @param  string  $queryText   SQL statement
-     * @param  integer $queryType   OPTIONAL Type of query, one of the Zend_Db_Profiler::* constants
+     * @param  string $queryText SQL statement
+     * @param  integer $queryType OPTIONAL Type of query, one of the Zend_Db_Profiler::* constants
      * @return integer|null
      */
     public function queryStart($queryText, $queryType = null)

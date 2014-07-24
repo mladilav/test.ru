@@ -155,7 +155,7 @@ class Zend_CodeGenerator_Php_Docblock extends Zend_CodeGenerator_Php_Abstract
             throw new Zend_CodeGenerator_Php_Exception(
                 'setTag() expects either an array of method options or an '
                 . 'instance of Zend_CodeGenerator_Php_Docblock_Tag'
-                );
+            );
         }
 
         $this->_tags[] = $tag;
@@ -183,7 +183,7 @@ class Zend_CodeGenerator_Php_Docblock extends Zend_CodeGenerator_Php_Abstract
             return $this->_docCommentize($this->getSourceContent());
         }
 
-        $output  = '';
+        $output = '';
         if (null !== ($sd = $this->getShortDescription())) {
             $output .= $sd . self::LINE_FEED . self::LINE_FEED;
         }
@@ -206,10 +206,10 @@ class Zend_CodeGenerator_Php_Docblock extends Zend_CodeGenerator_Php_Abstract
      */
     protected function _docCommentize($content)
     {
-        $indent  = $this->getIndentation();
-        $output  = $indent . '/**' . self::LINE_FEED;
+        $indent = $this->getIndentation();
+        $output = $indent . '/**' . self::LINE_FEED;
         $content = wordwrap($content, 80, self::LINE_FEED);
-        $lines   = explode(self::LINE_FEED, $content);
+        $lines = explode(self::LINE_FEED, $content);
 
         foreach ($lines as $line) {
             $output .= $indent . ' *';

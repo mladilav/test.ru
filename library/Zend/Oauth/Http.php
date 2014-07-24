@@ -83,7 +83,8 @@ class Zend_Oauth_Http
         Zend_Oauth_Consumer $consumer,
         array $parameters = null,
         Zend_Oauth_Http_Utility $utility = null
-    ) {
+    )
+    {
         $this->_consumer = $consumer;
         $this->_preferredRequestScheme = $this->_consumer->getRequestScheme();
         if ($parameters !== null) {
@@ -169,8 +170,8 @@ class Zend_Oauth_Http
     public function startRequestCycle(array $params)
     {
         $response = null;
-        $body     = null;
-        $status   = null;
+        $body = null;
+        $status = null;
         try {
             $response = $this->_attemptRequest($params);
         } catch (Zend_Http_Client_Exception $e) {
@@ -178,14 +179,14 @@ class Zend_Oauth_Http
             throw new Zend_Oauth_Exception('Error in HTTP request', null, $e);
         }
         if ($response !== null) {
-            $body   = $response->getBody();
+            $body = $response->getBody();
             $status = $response->getStatus();
         }
         if ($response === null // Request failure/exception
-            || $status == 500  // Internal Server Error
-            || $status == 400  // Bad Request
-            || $status == 401  // Unauthorized
-            || empty($body)    // Missing token
+            || $status == 500 // Internal Server Error
+            || $status == 400 // Bad Request
+            || $status == 401 // Unauthorized
+            || empty($body) // Missing token
         ) {
             $this->_assessRequestAttempt($response);
             $response = $this->startRequestCycle($params);
@@ -257,9 +258,9 @@ class Zend_Oauth_Http
                 continue;
             }
             $headerValue[] = Zend_Oauth_Http_Utility::urlEncode($key)
-                           . '="'
-                           . Zend_Oauth_Http_Utility::urlEncode($value)
-                           . '"';
+                . '="'
+                . Zend_Oauth_Http_Utility::urlEncode($value)
+                . '"';
         }
         return implode(",", $headerValue);
     }

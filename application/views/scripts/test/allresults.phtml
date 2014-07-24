@@ -1,0 +1,15 @@
+<h4 class="text-info"><img src="/img/profile-result.png">
+    <?php if($this->lang == "ua") echo 'Результати:'; else echo 'Результаты:';?> </h4>
+<table class="table table-condensed">
+    <tr>
+        <th><?php if($this->lang == "ua") echo 'Користувач:'; else echo 'Пользователь:';?></th>
+        <th><?php if($this->lang == "ua") echo 'Група:'; else echo 'Группа:';?></th>
+        <th><?php if($this->lang == "ua") echo 'Тест:'; else echo 'Тест:';?></th>
+        <th>Дата</th>
+        <th><?php if($this->lang == "ua") echo 'Кількість балів:'; else echo 'Количество баллов:';?></th>
+        <th><?php if($this->lang == "ua") echo 'Витрачений час:'; else echo 'Затраченное время:';?></th>
+    </tr>
+    <?php
+    // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+    echo $this->partialLoop('/partials/results.phtml', $this->results);
+    ?></table>

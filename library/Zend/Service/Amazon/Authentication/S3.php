@@ -49,7 +49,7 @@ class Zend_Service_Amazon_Authentication_S3 extends Zend_Service_Amazon_Authenti
      */
     public function generateSignature($method, $path, &$headers)
     {
-        if (! is_array($headers)) {
+        if (!is_array($headers)) {
             $headers = array($headers);
         }
 
@@ -93,7 +93,7 @@ class Zend_Service_Amazon_Authentication_S3 extends Zend_Service_Amazon_Authenti
             }
         }
 
-        $sig_str .= '/'.parse_url($path, PHP_URL_PATH);
+        $sig_str .= '/' . parse_url($path, PHP_URL_PATH);
         if (strpos($path, '?location') !== false) {
             $sig_str .= '?location';
         } else

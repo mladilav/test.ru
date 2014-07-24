@@ -288,7 +288,7 @@ abstract class Zend_Tool_Framework_Client_Abstract implements Zend_Tool_Framewor
         }
 
         // get the actual method and param information
-        $methodName       = $actionableMethod['methodName'];
+        $methodName = $actionableMethod['methodName'];
         $methodParameters = $actionableMethod['parameterInfo'];
 
         // get the provider params

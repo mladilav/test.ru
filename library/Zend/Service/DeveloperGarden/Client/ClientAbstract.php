@@ -49,12 +49,12 @@ abstract class Zend_Service_DeveloperGarden_Client_ClientAbstract
      * constants for using with the odg api
      */
     const ENV_PRODUCTION = 1; // Production Environment
-    const ENV_SANDBOX    = 2; // Sandbox Environment, limited access to the api
-    const ENV_MOCK       = 3; // Api calls are without any functionality
+    const ENV_SANDBOX = 2; // Sandbox Environment, limited access to the api
+    const ENV_MOCK = 3; // Api calls are without any functionality
 
     const PARTICIPANT_MUTE_OFF = 0; // removes mute from participant in a conference
-    const PARTICIPANT_MUTE_ON  = 1; // mute participant in a conference
-    const PARTICIPANT_RECALL   = 2; // recalls the participant in a conference
+    const PARTICIPANT_MUTE_ON = 1; // mute participant in a conference
+    const PARTICIPANT_RECALL = 2; // recalls the participant in a conference
 
     /**
      * array of all possible env types
@@ -225,10 +225,10 @@ abstract class Zend_Service_DeveloperGarden_Client_ClientAbstract
             $this->_soapClient->setCredential($this->_credential);
             $tokenService = new Zend_Service_DeveloperGarden_SecurityTokenServer(
                 array(
-                    'username'    => $this->_credential->getUsername(),
-                    'password'    => $this->_credential->getPassword(),
+                    'username' => $this->_credential->getUsername(),
+                    'password' => $this->_credential->getPassword(),
                     'environment' => $this->getEnvironment(),
-                    'realm'       => $this->_credential->getRealm(),
+                    'realm' => $this->_credential->getRealm(),
                 )
             );
             $this->_soapClient->setTokenService($tokenService);
@@ -284,7 +284,7 @@ abstract class Zend_Service_DeveloperGarden_Client_ClientAbstract
      */
     public function setUseLocalWsdl($use = true)
     {
-        $this->_useLocalWsdl = (boolean) $use;
+        $this->_useLocalWsdl = (boolean)$use;
         return $this;
     }
 

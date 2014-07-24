@@ -24,31 +24,26 @@ class Application_Model_DbTable_Part extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
-    public function addPart($name, $userId)
+    public function addPart( $data)
     {
 
-        $data = array(
-            'name' => $name,
-            'userId' => $userId,
-
-        );
-
+        if (!$data) {
+            return false;
+        }
         // Используем метод insert для вставки записи в базу
         $this->insert($data);
+        return true;
 
     }
 
-    public function updatePart($id, $name, $userId)
+    public function updatePart($data)
     {
-        // Формируем массив значений
-        $data = array(
-            'name' => $name,
-            'userId' => $userId,
-        );
-
+        if (!$data) {
+            return false;
+        }
         // Используем метод update для обновления записи
         // В скобках указываем условие обновления (привычное для вас where)
-        $this->update($data, 'id = ' . (int)$id);
+        $this->update($data, 'id = ' . (int)$data['id']);
 
     }
 
@@ -56,6 +51,29 @@ class Application_Model_DbTable_Part extends Zend_Db_Table_Abstract
     {
         // В скобках указываем условие удаления (привычное для вас where)
         $this->delete('id = ' . (int)$id);
+    }
+    public function arrayParts()
+    {
+        $array_tests = $this->fetchAll($this->select()->from('part', 'name'));
+        $i = 0;
+        foreach ($array_tests->toArray() as $array) {
+            foreach ($array as $arg) {
+                $result[$i] = $arg;
+                $i++;
+            }
+        }
+
+        $array_testss = $this->fetchAll($this->select()->from('part', 'id'));
+        $i = 0;
+        foreach ($array_testss->toArray() as $array) {
+            foreach ($array as $arg) {
+                $results[$i] = $arg;
+                $i++;
+            }
+        }
+
+
+        return array_combine($results, $result);
     }
 }
 

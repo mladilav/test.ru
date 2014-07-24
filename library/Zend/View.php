@@ -58,7 +58,7 @@ class Zend_View extends Zend_View_Abstract
      */
     public function __construct($config = array())
     {
-        $this->_useViewStream = (bool) ini_get('short_open_tag') ? false : true;
+        $this->_useViewStream = (bool)ini_get('short_open_tag') ? false : true;
         if ($this->_useViewStream) {
             if (!in_array('zend.view', stream_get_wrappers())) {
                 require_once 'Zend/View/Stream.php';
@@ -81,7 +81,7 @@ class Zend_View extends Zend_View_Abstract
      */
     public function setUseStreamWrapper($flag)
     {
-        $this->_useStreamWrapper = (bool) $flag;
+        $this->_useStreamWrapper = (bool)$flag;
         return $this;
     }
 

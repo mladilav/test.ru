@@ -271,7 +271,7 @@ class Zend_Layout
                 Zend_Loader::loadClass($pluginClass);
             }
             $front->registerPlugin(
-                // register to run last | BUT before the ErrorHandler (if its available)
+            // register to run last | BUT before the ErrorHandler (if its available)
                 new $pluginClass($this),
                 99
             );
@@ -334,7 +334,7 @@ class Zend_Layout
      */
     public function setLayout($name, $enabled = true)
     {
-        $this->_layout = (string) $name;
+        $this->_layout = (string)$name;
         if ($enabled) {
             $this->enableLayout();
         }
@@ -438,7 +438,7 @@ class Zend_Layout
      */
     public function setContentKey($contentKey)
     {
-        $this->_contentKey = (string) $contentKey;
+        $this->_contentKey = (string)$contentKey;
         return $this;
     }
 
@@ -526,7 +526,7 @@ class Zend_Layout
      */
     public function setHelperClass($helperClass)
     {
-        $this->_helperClass = (string) $helperClass;
+        $this->_helperClass = (string)$helperClass;
         return $this;
     }
 
@@ -548,7 +548,7 @@ class Zend_Layout
      */
     public function setPluginClass($pluginClass)
     {
-        $this->_pluginClass = (string) $pluginClass;
+        $this->_pluginClass = (string)$pluginClass;
         return $this;
     }
 
@@ -581,7 +581,7 @@ class Zend_Layout
      */
     public function setViewSuffix($viewSuffix)
     {
-        $this->_viewSuffix = (string) $viewSuffix;
+        $this->_viewSuffix = (string)$viewSuffix;
         return $this;
     }
 
@@ -613,7 +613,7 @@ class Zend_Layout
      */
     public function setInflectorTarget($inflectorTarget)
     {
-        $this->_inflectorTarget = (string) $inflectorTarget;
+        $this->_inflectorTarget = (string)$inflectorTarget;
         return $this;
     }
 
@@ -640,8 +640,8 @@ class Zend_Layout
             require_once 'Zend/Filter/Inflector.php';
             $inflector = new Zend_Filter_Inflector();
             $inflector->setTargetReference($this->_inflectorTarget)
-                      ->addRules(array(':script' => array('Word_CamelCaseToDash', 'StringToLower')))
-                      ->setStaticRuleReference('suffix', $this->_viewSuffix);
+                ->addRules(array(':script' => array('Word_CamelCaseToDash', 'StringToLower')))
+                ->setStaticRuleReference('suffix', $this->_viewSuffix);
             $this->setInflector($inflector);
         }
 
@@ -776,8 +776,7 @@ class Zend_Layout
             $name = $this->getLayout();
         }
 
-        if ($this->inflectorEnabled() && (null !== ($inflector = $this->getInflector())))
-        {
+        if ($this->inflectorEnabled() && (null !== ($inflector = $this->getInflector()))) {
             $name = $this->_inflector->filter(array('script' => $name));
         }
 

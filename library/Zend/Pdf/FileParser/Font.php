@@ -41,7 +41,7 @@ require_once 'Zend/Pdf/FileParser.php';
  */
 abstract class Zend_Pdf_FileParser_Font extends Zend_Pdf_FileParser
 {
-  /**** Instance Variables ****/
+    /**** Instance Variables ****/
 
 
     /**
@@ -59,10 +59,10 @@ abstract class Zend_Pdf_FileParser_Font extends Zend_Pdf_FileParser
 
 
 
-  /**** Public Interface ****/
+    /**** Public Interface ****/
 
 
-  /* Object Lifecycle */
+    /* Object Lifecycle */
 
     /**
      * Object constructor.
@@ -79,7 +79,7 @@ abstract class Zend_Pdf_FileParser_Font extends Zend_Pdf_FileParser
     }
 
 
-  /* Accessors */
+    /* Accessors */
 
     /**
      * Get handler
@@ -99,7 +99,7 @@ abstract class Zend_Pdf_FileParser_Font extends Zend_Pdf_FileParser
     /* NOTE: The set handler is defined below in the internal methods group. */
 
 
-  /* Parser Methods */
+    /* Parser Methods */
 
     /**
      * Reads the Unicode UTF-16-encoded string from the binary file at the
@@ -152,7 +152,7 @@ abstract class Zend_Pdf_FileParser_Font extends Zend_Pdf_FileParser
     }
 
 
-  /* Utility Methods */
+    /* Utility Methods */
 
     /**
      * Writes the entire font properties array to STDOUT. Used only for debugging.
@@ -164,10 +164,10 @@ abstract class Zend_Pdf_FileParser_Font extends Zend_Pdf_FileParser
 
 
 
-  /**** Internal Methods ****/
+    /**** Internal Methods ****/
 
 
-  /* Internal Accessors */
+    /* Internal Accessors */
 
     /**
      * Set handler
@@ -188,7 +188,7 @@ abstract class Zend_Pdf_FileParser_Font extends Zend_Pdf_FileParser
     }
 
 
-  /* Internal Utility Methods */
+    /* Internal Utility Methods */
 
     /**
      * If debug logging is enabled, writes the log message.
@@ -201,7 +201,7 @@ abstract class Zend_Pdf_FileParser_Font extends Zend_Pdf_FileParser
      */
     protected function _debugLog($message)
     {
-        if (! $this->_debug) {
+        if (!$this->_debug) {
             return;
         }
         if (func_num_args() > 1) {

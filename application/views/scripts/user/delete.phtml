@@ -1,0 +1,30 @@
+<?php
+if($this->lang == "ua"){
+$this->title = "Видалення користувача";
+$this->headTitle($this->title);
+?>
+<p>Ви дійсно хочете видалити користувача
+    '<?php echo $this->escape($this->user['username']); ?>'?
+</p>
+<form action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo $this->user['id']; ?>"/>
+        <input type="submit" name="del" value="Так"/>
+        <input type="submit" name="del" value="Ні"/>
+    </div>
+</form>
+<?php } else {
+    $this->title = "Удаление пользователя";
+    $this->headTitle($this->title);
+    ?>
+    <p>Вы действительно хотите удалить пользователя
+        '<?php echo $this->escape($this->user['username']); ?>'?
+    </p>
+    <form action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
+        <div>
+            <input type="hidden" name="id" value="<?php echo $this->user['id']; ?>"/>
+            <input type="submit" name="del" value="Да"/>
+            <input type="submit" name="del" value="Нет"/>
+        </div>
+    </form>
+<?php } ?>

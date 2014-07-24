@@ -81,7 +81,7 @@ class Zend_Queue_Stomp_Client_Connection
         if (!isset($options['timeout_sec'])) {
             $options['timeout_sec'] = self::READ_TIMEOUT_DEFAULT_SEC;
         }
-        if (! isset($options['timeout_usec'])) {
+        if (!isset($options['timeout_usec'])) {
             $options['timeout_usec'] = self::READ_TIMEOUT_DEFAULT_USEC;
         }
 
@@ -171,8 +171,8 @@ class Zend_Queue_Stomp_Client_Connection
      */
     public function canRead()
     {
-        $read   = array($this->_socket);
-        $write  = null;
+        $read = array($this->_socket);
+        $write = null;
         $except = null;
 
         return stream_select(
@@ -196,7 +196,7 @@ class Zend_Queue_Stomp_Client_Connection
         $this->ping();
 
         $response = '';
-        $prev     = '';
+        $prev = '';
 
         // while not end of file.
         while (!feof($this->_socket)) {

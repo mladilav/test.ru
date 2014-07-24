@@ -168,7 +168,7 @@ class Zend_Filter_Compress implements Zend_Filter_Interface
     /**
      * Calls adapter methods
      *
-     * @param string       $method  Method to call
+     * @param string $method Method to call
      * @param string|array $options Options for this method
      */
     public function __call($method, $options)

@@ -38,7 +38,6 @@ require_once 'Zend/Cache/Backend.php';
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-
 class Zend_Cache_Backend_TwoLevels extends Zend_Cache_Backend implements Zend_Cache_Backend_ExtendedInterface
 {
     /**
@@ -180,11 +179,11 @@ class Zend_Cache_Backend_TwoLevels extends Zend_Cache_Backend implements Zend_Ca
      * Note : $data is always "string" (serialization is done by the
      * core not by the backend)
      *
-     * @param  string $data            Datas to cache
-     * @param  string $id              Cache id
-     * @param  array $tags             Array of strings, the cache record will be tagged by each string entry
-     * @param  int   $specificLifetime If != false, set a specific lifetime for this cache record (null => infinite lifetime)
-     * @param  int   $priority         integer between 0 (very low priority) and 10 (maximum priority) used by some particular backends
+     * @param  string $data Datas to cache
+     * @param  string $id Cache id
+     * @param  array $tags Array of strings, the cache record will be tagged by each string entry
+     * @param  int $specificLifetime If != false, set a specific lifetime for this cache record (null => infinite lifetime)
+     * @param  int $priority integer between 0 (very low priority) and 10 (maximum priority) used by some particular backends
      * @return boolean true if no problem
      */
     public function save($data, $id, $tags = array(), $specificLifetime = false, $priority = 8)
@@ -217,7 +216,7 @@ class Zend_Cache_Backend_TwoLevels extends Zend_Cache_Backend implements Zend_Ca
      *
      * Note : return value is always "string" (unserialization is done by the core not by the backend)
      *
-     * @param  string  $id                     Cache id
+     * @param  string $id Cache id
      * @param  boolean $doNotTestCacheValidity If set to true, the cache validity won't be tested
      * @return string|false cached datas
      */
@@ -277,13 +276,13 @@ class Zend_Cache_Backend_TwoLevels extends Zend_Cache_Backend implements Zend_Ca
      *                                               ($tags can be an array of strings or a single string)
      *
      * @param  string $mode Clean mode
-     * @param  array  $tags Array of tags
+     * @param  array $tags Array of tags
      * @throws Zend_Cache_Exception
      * @return boolean true if no problem
      */
     public function clean($mode = Zend_Cache::CLEANING_MODE_ALL, $tags = array())
     {
-        switch($mode) {
+        switch ($mode) {
             case Zend_Cache::CLEANING_MODE_ALL:
                 $boolFast = $this->_fastBackend->clean(Zend_Cache::CLEANING_MODE_ALL);
                 $boolSlow = $this->_slowBackend->clean(Zend_Cache::CLEANING_MODE_ALL);
@@ -483,10 +482,10 @@ class Zend_Cache_Backend_TwoLevels extends Zend_Cache_Backend implements Zend_Ca
         if ($lifetime <= 0) {
             // if no lifetime, we have an infinite lifetime
             // we need to use arbitrary lifetimes
-            $fastLifetime = (int) (2592000 / (11 - $priority));
+            $fastLifetime = (int)(2592000 / (11 - $priority));
         } else {
             // prevent computed infinite lifetime (0) by ceil
-            $fastLifetime = (int) ceil($lifetime / (11 - $priority));
+            $fastLifetime = (int)ceil($lifetime / (11 - $priority));
         }
 
         if ($maxLifetime >= 0 && $fastLifetime > $maxLifetime) {

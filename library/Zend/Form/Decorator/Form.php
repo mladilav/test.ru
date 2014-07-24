@@ -57,7 +57,7 @@ class Zend_Form_Decorator_Form extends Zend_Form_Decorator_Abstract
      */
     public function setHelper($helper)
     {
-        $this->_helper = (string) $helper;
+        $this->_helper = (string)$helper;
         return $this;
     }
 
@@ -119,15 +119,15 @@ class Zend_Form_Decorator_Form extends Zend_Form_Decorator_Abstract
      */
     public function render($content)
     {
-        $form    = $this->getElement();
-        $view    = $form->getView();
+        $form = $this->getElement();
+        $view = $form->getView();
         if (null === $view) {
             return $content;
         }
 
-        $helper        = $this->getHelper();
-        $attribs       = $this->getOptions();
-        $name          = $form->getFullyQualifiedName();
+        $helper = $this->getHelper();
+        $attribs = $this->getOptions();
+        $name = $form->getFullyQualifiedName();
         $attribs['id'] = $form->getId();
         return $view->$helper($name, $attribs, $content);
     }

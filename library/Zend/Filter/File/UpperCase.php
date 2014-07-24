@@ -72,7 +72,7 @@ class Zend_Filter_File_UpperCase extends Zend_Filter_StringToUpper
         }
 
         $content = parent::filter($content);
-        $result  = file_put_contents($value, $content);
+        $result = file_put_contents($value, $content);
 
         if (!$result) {
             require_once 'Zend/Filter/Exception.php';

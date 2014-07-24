@@ -72,7 +72,7 @@ class Zend_Feed_Reader_Extension_DublinCore_Feed
         }
 
         $authors = array();
-        $list    = $this->_xpath->query('//dc11:creator');
+        $list = $this->_xpath->query('//dc11:creator');
 
         if (!$list->length) {
             $list = $this->_xpath->query('//dc10:creator');

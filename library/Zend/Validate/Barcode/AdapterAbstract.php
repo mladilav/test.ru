@@ -69,8 +69,8 @@ abstract class Zend_Validate_Barcode_AdapterAbstract
             return false;
         }
 
-        $fixum  = strlen($value);
-        $found  = false;
+        $fixum = strlen($value);
+        $found = false;
         $length = $this->getLength();
         if (is_array($length)) {
             foreach ($length as $value) {
@@ -193,7 +193,7 @@ abstract class Zend_Validate_Barcode_AdapterAbstract
      */
     public function setCheck($check)
     {
-        $this->_hasChecksum = (boolean) $check;
+        $this->_hasChecksum = (boolean)$check;
         return $this;
     }
 
@@ -207,8 +207,8 @@ abstract class Zend_Validate_Barcode_AdapterAbstract
     protected function _gtin($value)
     {
         $barcode = substr($value, 0, -1);
-        $sum     = 0;
-        $length  = strlen($barcode) - 1;
+        $sum = 0;
+        $length = strlen($barcode) - 1;
 
         for ($i = 0; $i <= $length; $i++) {
             if (($i % 2) === 0) {
@@ -218,7 +218,7 @@ abstract class Zend_Validate_Barcode_AdapterAbstract
             }
         }
 
-        $calc     = $sum % 10;
+        $calc = $sum % 10;
         $checksum = ($calc === 0) ? 0 : (10 - $calc);
         if ($value[$length + 1] != $checksum) {
             return false;
@@ -237,8 +237,8 @@ abstract class Zend_Validate_Barcode_AdapterAbstract
     protected function _identcode($value)
     {
         $barcode = substr($value, 0, -1);
-        $sum     = 0;
-        $length  = strlen($value) - 2;
+        $sum = 0;
+        $length = strlen($value) - 2;
 
         for ($i = 0; $i <= $length; $i++) {
             if (($i % 2) === 0) {
@@ -248,7 +248,7 @@ abstract class Zend_Validate_Barcode_AdapterAbstract
             }
         }
 
-        $calc     = $sum % 10;
+        $calc = $sum % 10;
         $checksum = ($calc === 0) ? 0 : (10 - $calc);
         if ($value[$length + 1] != $checksum) {
             return false;
@@ -267,8 +267,8 @@ abstract class Zend_Validate_Barcode_AdapterAbstract
     protected function _code25($value)
     {
         $barcode = substr($value, 0, -1);
-        $sum     = 0;
-        $length  = strlen($barcode) - 1;
+        $sum = 0;
+        $length = strlen($barcode) - 1;
 
         for ($i = 0; $i <= $length; $i++) {
             if (($i % 2) === 0) {
@@ -278,7 +278,7 @@ abstract class Zend_Validate_Barcode_AdapterAbstract
             }
         }
 
-        $calc     = $sum % 10;
+        $calc = $sum % 10;
         $checksum = ($calc === 0) ? 0 : (10 - $calc);
         if ($value[$length + 1] != $checksum) {
             return false;
@@ -297,10 +297,10 @@ abstract class Zend_Validate_Barcode_AdapterAbstract
     protected function _postnet($value)
     {
         $checksum = substr($value, -1, 1);
-        $values   = str_split(substr($value, 0, -1));
+        $values = str_split(substr($value, 0, -1));
 
         $check = 0;
-        foreach($values as $row) {
+        foreach ($values as $row) {
             $check += $row;
         }
 

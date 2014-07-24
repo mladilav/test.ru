@@ -37,7 +37,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
     /**
      * @const Error type constants
      */
-    const FALSE_TYPE   = 'fileMimeTypeFalse';
+    const FALSE_TYPE = 'fileMimeTypeFalse';
     const NOT_DETECTED = 'fileMimeTypeNotDetected';
     const NOT_READABLE = 'fileMimeTypeNotReadable';
 
@@ -45,7 +45,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
      * @var array Error message templates
      */
     protected $_messageTemplates = array(
-        self::FALSE_TYPE   => "File '%value%' has a false mimetype of '%type%'",
+        self::FALSE_TYPE => "File '%value%' has a false mimetype of '%type%'",
         self::NOT_DETECTED => "The mimetype of file '%value%' could not be detected",
         self::NOT_READABLE => "File '%value%' is not readable or does not exist",
     );
@@ -165,7 +165,8 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
     public function getMagicFile()
     {
         if (version_compare(PHP_VERSION, '5.3.0', '<')
-            && null === $this->_magicfile) {
+            && null === $this->_magicfile
+        ) {
             if (!empty($_ENV['MAGIC'])) {
                 $this->setMagicFile($_ENV['MAGIC']);
             } elseif (
@@ -245,7 +246,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
      */
     public function setTryCommonMagicFilesFlag($flag = true)
     {
-        $this->_tryCommonMagicFiles = (boolean) $flag;
+        $this->_tryCommonMagicFiles = (boolean)$flag;
 
         return $this;
     }
@@ -280,7 +281,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
      */
     public function enableHeaderCheck($headerCheck = true)
     {
-        $this->_headerCheck = (boolean) $headerCheck;
+        $this->_headerCheck = (boolean)$headerCheck;
         return $this;
     }
 
@@ -292,8 +293,8 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
      */
     public function getMimeType($asArray = false)
     {
-        $asArray   = (bool) $asArray;
-        $mimetype = (string) $this->_mimetype;
+        $asArray = (bool)$asArray;
+        $mimetype = (string)$this->_mimetype;
         if ($asArray) {
             $mimetype = explode(',', $mimetype);
         }
@@ -363,7 +364,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
      * mime types will be accepted like "image/gif", "image/jpeg" and so on.
      *
      * @param  string $value Real file to check for mimetype
-     * @param  array  $file  File data from Zend_File_Transfer
+     * @param  array $file File data from Zend_File_Transfer
      * @return boolean
      */
     public function isValid($value, $file = null)
@@ -399,7 +400,7 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
         $types = explode('/', $this->_type);
         $types = array_merge($types, explode('-', $this->_type));
         $types = array_merge($types, explode(';', $this->_type));
-        foreach($mimetype as $mime) {
+        foreach ($mimetype as $mime) {
             if (in_array($mime, $types)) {
                 return true;
             }
@@ -453,8 +454,9 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
         }
 
         if (empty($type) &&
-            (function_exists('mime_content_type') && ini_get('mime_magic.magicfile'))) {
-                $type = mime_content_type($file);
+            (function_exists('mime_content_type') && ini_get('mime_magic.magicfile'))
+        ) {
+            $type = mime_content_type($file);
         }
 
         return $type;
@@ -464,10 +466,10 @@ class Zend_Validate_File_MimeType extends Zend_Validate_Abstract
      * Saves the provided error information by finfo_open to this instance
      *
      * @param  integer $errno
-     * @param  string  $errstr
-     * @param  string  $errfile
+     * @param  string $errstr
+     * @param  string $errfile
      * @param  integer $errline
-     * @param  array   $errcontext
+     * @param  array $errcontext
      * @return void
      */
     protected function _errorHandler($errno, $errstr, $errfile, $errline)

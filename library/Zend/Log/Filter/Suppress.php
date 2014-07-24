@@ -44,18 +44,18 @@ class Zend_Log_Filter_Suppress extends Zend_Log_Filter_Abstract
      * Call suppress(true) to suppress all log events.
      * Call suppress(false) to accept all log events.
      *
-     * @param  boolean  $suppress  Should all log events be suppressed?
+     * @param  boolean $suppress Should all log events be suppressed?
      * @return  void
      */
     public function suppress($suppress)
     {
-        $this->_accept = (! $suppress);
+        $this->_accept = (!$suppress);
     }
 
     /**
      * Returns TRUE to accept the message, FALSE to block it.
      *
-     * @param  array    $event    event data
+     * @param  array $event event data
      * @return boolean            accepted?
      */
     public function accept($event)

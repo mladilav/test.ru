@@ -24,7 +24,7 @@
  */
 require_once 'Zend/Feed/Writer/Extension/RendererInterface.php';
 
- /**
+/**
  * @category   Zend
  * @package    Zend_Feed_Writer
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
@@ -112,7 +112,7 @@ abstract class Zend_Feed_Writer_Extension_RendererAbstract
      */
     public function setDomDocument(DOMDocument $dom, DOMElement $base)
     {
-        $this->_dom  = $dom;
+        $this->_dom = $dom;
         $this->_base = $base;
         return $this;
     }

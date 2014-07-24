@@ -82,7 +82,7 @@ class Application_Form_Registration extends Zend_Form
 
         // создаём кнопку submit
         $submit = new Zend_Form_Element_Submit('registration');
-        $submit->setLabel('Зарегистрироваться ');
+        $submit->setLabel('Зарегистрироваться ')->setAttrib('class','btn btn-success');
 
         // добавляем элементы в форму
         $this->addElements(array($username, $password, $password_rep, $email, $photo, $gender, $submit));

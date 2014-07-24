@@ -33,10 +33,10 @@ require_once 'Zend/Tool/Project/Provider/Abstract.php';
  */
 class Zend_Tool_Project_Provider_Layout extends Zend_Tool_Project_Provider_Abstract implements Zend_Tool_Framework_Provider_Pretendable
 {
-       /**
-        * @var string Layout path
-        */
-       protected $_layoutPath = 'APPLICATION_PATH "/layouts/scripts/"';
+    /**
+     * @var string Layout path
+     */
+    protected $_layoutPath = 'APPLICATION_PATH "/layouts/scripts/"';
 
     public static function createResource(Zend_Tool_Project_Profile $profile, $layoutName = 'layout')
     {
@@ -86,14 +86,14 @@ class Zend_Tool_Project_Provider_Layout extends Zend_Tool_Project_Provider_Abstr
             $applicationConfigResource->create();
 
             $this->_registry->getResponse()->appendContent('A layout entry has been added to the application config file.');
-            
+
             $layoutScriptFile = self::createResource($profile);
             if (!$layoutScriptFile->exists()) {
                 $layoutScriptFile->create();
                 $this->_registry->getResponse()->appendContent(
                     'A default layout has been created at '
                     . $layoutScriptFile->getPath()
-                    );
+                );
 
             }
 
@@ -126,7 +126,7 @@ class Zend_Tool_Project_Provider_Layout extends Zend_Tool_Project_Provider_Abstr
 
             $this->_storeProfile();
         }
-     }
+    }
 
     protected function _getApplicationConfigResource(Zend_Tool_Project_Profile $profile)
     {

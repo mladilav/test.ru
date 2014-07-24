@@ -96,7 +96,7 @@ class Zend_Controller_Request_HttpTestCase extends Zend_Controller_Request_Http
      */
     public function setRawBody($content)
     {
-        $this->_rawBody = (string) $content;
+        $this->_rawBody = (string)$content;
         return $this;
     }
 
@@ -130,7 +130,7 @@ class Zend_Controller_Request_HttpTestCase extends Zend_Controller_Request_Http
      */
     public function setCookie($key, $value)
     {
-        $_COOKIE[(string) $key] = $value;
+        $_COOKIE[(string)$key] = $value;
         return $this;
     }
 
@@ -167,7 +167,7 @@ class Zend_Controller_Request_HttpTestCase extends Zend_Controller_Request_Http
      */
     public function setMethod($type)
     {
-        $type = strtoupper(trim((string) $type));
+        $type = strtoupper(trim((string)$type));
         if (!in_array($type, $this->_validMethodTypes)) {
             require_once 'Zend/Controller/Exception.php';
             throw new Zend_Controller_Exception('Invalid request method specified');
@@ -196,7 +196,7 @@ class Zend_Controller_Request_HttpTestCase extends Zend_Controller_Request_Http
     public function setHeader($key, $value)
     {
         $key = $this->_normalizeHeaderName($key);
-        $this->_headers[$key] = (string) $value;
+        $this->_headers[$key] = (string)$value;
         return $this;
     }
 
@@ -269,7 +269,7 @@ class Zend_Controller_Request_HttpTestCase extends Zend_Controller_Request_Http
      */
     protected function _normalizeHeaderName($name)
     {
-        $name = strtoupper((string) $name);
+        $name = strtoupper((string)$name);
         $name = str_replace('-', '_', $name);
         return $name;
     }

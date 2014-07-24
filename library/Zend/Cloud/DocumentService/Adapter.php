@@ -43,7 +43,7 @@ interface Zend_Cloud_DocumentService_Adapter
      * Create collection.
      *
      * @param  string $name
-     * @param  array  $options
+     * @param  array $options
      * @return array
      */
     public function createCollection($name, $options = null);
@@ -52,15 +52,15 @@ interface Zend_Cloud_DocumentService_Adapter
      * Delete collection.
      *
      * @param  string $name
-     * @param  array  $options
+     * @param  array $options
      * @return void
      */
     public function deleteCollection($name, $options = null);
 
-       /**
+    /**
      * List collections.
      *
-     * @param  array  $options
+     * @param  array $options
      * @return array List of collection names
      */
     public function listCollections($options = null);
@@ -102,7 +102,7 @@ interface Zend_Cloud_DocumentService_Adapter
      * @param  string $collectionName
      * @param  mixed|Zend_Cloud_DocumentService_Document $documentID Document ID, adapter-dependent, or document containing updates
      * @param  array|Zend_Cloud_DocumentService_Document $fieldset Set of fields to update
-     * @param  array                   $options
+     * @param  array $options
      * @return boolean
      */
     public function updateDocument($collectionName, $documentID, $fieldset = null, $options = null);
@@ -111,8 +111,8 @@ interface Zend_Cloud_DocumentService_Adapter
      * Delete document
      *
      * @param string $collectionName Collection name
-     * @param mixed  $documentID Document ID, adapter-dependent
-     * @param array  $options
+     * @param mixed $documentID Document ID, adapter-dependent
+     * @param array $options
      * @return void
      */
     public function deleteDocument($collectionName, $documentID, $options = null);

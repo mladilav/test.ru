@@ -31,14 +31,14 @@ require_once 'Zend/Dojo/View/Helper/Dijit.php';
  * @subpackage View
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
-  */
+ */
 class Zend_Dojo_View_Helper_CheckBox extends Zend_Dojo_View_Helper_Dijit
 {
     /**
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.CheckBox';
+    protected $_dijit = 'dijit.form.CheckBox';
 
     /**
      * Element type
@@ -57,7 +57,7 @@ class Zend_Dojo_View_Helper_CheckBox extends Zend_Dojo_View_Helper_Dijit
      *
      * @param  int $id
      * @param  string $content
-     * @param  array $params  Parameters to use for dijit creation
+     * @param  array $params Parameters to use for dijit creation
      * @param  array $attribs HTML attributes
      * @param  array $checkedOptions Should contain either two items, or the keys checkedValue and uncheckedValue
      * @return string

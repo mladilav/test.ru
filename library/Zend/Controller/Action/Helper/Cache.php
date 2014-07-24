@@ -138,7 +138,7 @@ class Zend_Controller_Action_Helper_Cache
                 && method_exists($backend, 'removeRecursively')
             ) {
                 $result = $backend->removeRecursively($encodedCacheId);
-                if (is_null($result) ) {
+                if (is_null($result)) {
                     $result = $backend->removeRecursively($relativeUrl);
                 }
                 return $result;
@@ -146,7 +146,7 @@ class Zend_Controller_Action_Helper_Cache
         }
 
         $result = $cache->remove($encodedCacheId);
-        if (is_null($result) ) {
+        if (is_null($result)) {
             $result = $cache->remove($relativeUrl);
         }
         return $result;
@@ -179,16 +179,19 @@ class Zend_Controller_Action_Helper_Cache
         $stats = ob_get_status(true);
         foreach ($stats as $status) {
             if ($status['name'] == 'Zend_Cache_Frontend_Page::_flush'
-            || $status['name'] == 'Zend_Cache_Frontend_Capture::_flush') {
+                || $status['name'] == 'Zend_Cache_Frontend_Capture::_flush'
+            ) {
                 $obStarted = true;
             }
         }
         if (!isset($obStarted) && isset($this->_caching[$controller]) &&
-        in_array($action, $this->_caching[$controller])) {
+            in_array($action, $this->_caching[$controller])
+        ) {
             $reqUri = $this->getRequest()->getRequestUri();
             $tags = array();
             if (isset($this->_tags[$controller][$action])
-            && !empty($this->_tags[$controller][$action])) {
+                && !empty($this->_tags[$controller][$action])
+            ) {
                 $tags = array_unique($this->_tags[$controller][$action]);
             }
             $extension = null;
@@ -238,7 +241,8 @@ class Zend_Controller_Action_Helper_Cache
         }
         $front = Zend_Controller_Front::getInstance();
         if ($front->getParam('bootstrap')
-        && $front->getParam('bootstrap')->getResource('CacheManager')) {
+            && $front->getParam('bootstrap')->getResource('CacheManager')
+        ) {
             return $front->getParam('bootstrap')
                 ->getResource('CacheManager');
         }

@@ -6,19 +6,63 @@ class IndexController extends Zend_Controller_Action
     public function init()
     {
 
+        $array = array();
+        $category = new Application_Model_Category($array);
+        $menu= new Application_Model_Menu();
+        $test= new Application_Model_Tests($array);
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        $this->view->lang = $lang;
+
+        if($lang == "ua"){
+            $this->view->layout()->category = $category->getUaCategory();
+            $this->view->layout()->auth = $menu->getAuthUa();
+            $this->view->layout()->menu = $menu->getUaMenu();
+            $this->view->layout()->test = $test->getUaTests();
+        }
+        else {
+            $this->view->layout()->category = $category->getCategory();
+            $this->view->layout()->auth = $menu->getAuth();
+            $this->view->layout()->menu = $menu->getMenu();
+            $this->view->layout()->test = $test->getTests();
+        }
     }
 
     public function indexAction()
     {
+        $post = new Application_Model_DbTable_Posts();
+        $page = (int) $this->getRequest()->getParam('page');
+        if ($page > 0) {
+            $this->view->paginator = $post->getPaginatorRows($page);
+        } else {
+            $this->view->paginator = $post->getPaginatorRows(1);
+        }
+    }
 
-        $post = new Application_Model_DbTable_Blog();
-        $this->view->posts = $post->fetchAll();
-
+    public function postAction()
+    {
+        $id = $this->_getParam('id', 0);
+        if ($id > 0) {
+            $post = new Application_Model_DbTable_Posts();
+            $this->view->post= $post->getPost($id);
+        }
     }
 
     public function addAction()
     {
         $form = new Application_Form_Add();
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $form->title->setLabel("Назва російською:");
+            $form->titleUa->setLabel("Назва українською:");
+            $form->description->setLabel("Короткий опис російською:");
+            $form->descriptionUa->setLabel("Короткий опис українською:");
+            $form->bodyUa->setLabel("Текст українською:");
+            $form->body->setLabel("Текст російською:");
+            $form->add->setLabel("Додати статтю:");
+        }
+
         $this->view->form = $form;
         if ($this->getRequest()->isPost()) {
             // Принимаем его
@@ -26,21 +70,28 @@ class IndexController extends Zend_Controller_Action
 
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
-
-                $title = $form->getValue('title');
-                $icon = $form->getValue('icon');
-                $text = $form->getValue('text');
-                $category = $form->getValue('category');
-                $description = $form->getValue('description');
-                $author = Zend_Auth::getInstance()->getIdentity()->id;
-
+                $categories = new Application_Model_DbTable_Category();
+                $categories_ar = $categories->getCategory($form->getValue('category'));
+                $data = array(
+                    'title' => $form->getValue('title'),
+                    'titleUa' => $form->getValue('titleUa'),
+                    'description' => $form->getValue('description'),
+                    'descriptionUa' => $form->getValue('descriptionUa'),
+                    'body' => $form->getValue('body'),
+                    'bodyUa' => $form->getValue('bodyUa'),
+                    'categoryId' => $form->getValue('category'),
+                    'category' => $categories_ar['name'],
+                    'categoryUa' => $categories_ar['nameUa'],
+                    'userId' => Zend_Auth::getInstance()->getIdentity()->id,
+                    'user' => Zend_Auth::getInstance()->getIdentity()->username,
+                    'date' => time(),
+                    'icon' => $form->getValue('icon'),
+                );
                 // Создаём объект модели
-
-                $post = new Application_Model_DbTable_Blog();
-
+                $post = new Application_Model_DbTable_Posts();
 
                 // Вызываем метод модели addMovie для вставки новой записи
-                $post->addPost($title, $icon, $description, $text, $category, $author);
+                $post->addPost($data);
                 $this->_helper->redirector('index', 'index');
 
             } else {
@@ -56,28 +107,51 @@ class IndexController extends Zend_Controller_Action
     public function editAction()
     {
         $form = new Application_Form_Add();
+
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        $form->add->setLabel("Сохранить");
+        if($lang == "ua"){
+            $form->title->setLabel("Назва російською:");
+            $form->titleUa->setLabel("Назва українською:");
+            $form->description->setLabel("Короткий опис російською:");
+            $form->descriptionUa->setLabel("Короткий опис українською:");
+            $form->bodyUa->setLabel("Текст українською:");
+            $form->body->setLabel("Текст російською:");
+            $form->add->setLabel("Зберегти");
+        }
+
         $this->view->form = $form;
         if ($this->getRequest()->isPost()) {
             // Принимаем его
             $formData = $this->getRequest()->getPost();
-
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
-
-                $title = $form->getValue('title');
-                $text = $form->getValue('text');
-                $icon = $form->getValue('icon');
-                $category = $form->getValue('category');
-                $description = $form->getValue('description');
-                $author = Zend_Auth::getInstance()->getIdentity()->id;
-                $id = (int)$form->getValue('id');
+                $categories = new Application_Model_DbTable_Category();
+                $categories_ar = $categories->getCategory($form->getValue('category'));
+                $data = array(
+                    'id' => (int)$form->getValue('id'),
+                    'title' => $form->getValue('title'),
+                    'titleUa' => $form->getValue('titleUa'),
+                    'description' => $form->getValue('description'),
+                    'descriptionUa' => $form->getValue('descriptionUa'),
+                    'body' => $form->getValue('body'),
+                    'bodyUa' => $form->getValue('bodyUa'),
+                    'categoryId' => $form->getValue('category'),
+                    'category' => $categories_ar['name'],
+                    'categoryUa' => $categories_ar['nameUa'],
+                    'userId' => Zend_Auth::getInstance()->getIdentity()->id,
+                    'user' => Zend_Auth::getInstance()->getIdentity()->username,
+                    'date' => time(),
+                    'icon' => $form->getValue('icon'),
+                );
 
 
                 // Создаём объект модели
-                $post = new Application_Model_DbTable_Blog();
+                $post = new Application_Model_DbTable_Posts();
 
                 // Вызываем метод модели addMovie для вставки новой записи
-                $post->updatePost($id, $title, $icon, $description, $text, $category, $author);
+                $post->updatePost($data);
                 $this->_helper->redirector('index', 'index');
 
             } else {
@@ -91,10 +165,10 @@ class IndexController extends Zend_Controller_Action
             $id = $this->_getParam('id', 0);
             if ($id > 0) {
                 // Создаём объект модели
-                $posts = new Application_Model_DbTable_Blog();
-
+                $posts = new Application_Model_DbTable_Posts();
                 // Заполняем форму информацией при помощи метода populate
                 $form->populate($posts->getPost($id));
+
             }
         }
     }
@@ -112,7 +186,7 @@ class IndexController extends Zend_Controller_Action
                 $id = $this->getRequest()->getPost('id');
 
                 // Создаём объект модели
-                $post = new Application_Model_DbTable_Blog();
+                $post = new Application_Model_DbTable_Posts();
 
                 // Вызываем метод модели deleteMovie для удаления записи
                 $post->deletePost($id);
@@ -126,26 +200,25 @@ class IndexController extends Zend_Controller_Action
             $id = $this->_getParam('id');
 
             // Создаём объект модели
-            $post = new Application_Model_DbTable_Blog();
+            $post = new Application_Model_DbTable_Posts();
 
             // Достаём запись и передаём в view
-            $form->populate($post->getPost($id));
+            $this->view->posts = $post->getPost($id);
         }
     }
 
-    public function partAction()
-    {
-
-        $part = new Application_Model_DbTable_Part();
-        $this->view->parts = $part->fetchAll();
-
-    }
 
     public function addpartAction()
     {
 
         $form = new Application_Form_Posts_Addpart();
-
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $form->name->setLabel("Назва російською:");
+            $form->nameUa->setLabel("Назва українською:");
+            $form->add->setLabel("Додати розділ");
+        }
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
@@ -155,8 +228,11 @@ class IndexController extends Zend_Controller_Action
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
 
-                $name = $form->getValue('name');
-                $userId = Zend_Auth::getInstance()->getIdentity()->id;
+                $data = array(
+                    'name' => $form->getValue('name'),
+                    'nameUa' => $form->getValue('nameUa'),
+                    'userId' => Zend_Auth::getInstance()->getIdentity()->id,
+                );
 
                 // Создаём объект модели
 
@@ -164,8 +240,8 @@ class IndexController extends Zend_Controller_Action
 
 
                 // Вызываем метод модели addMovie для вставки новой записи
-                $post->addPart($name, $userId);
-                $this->_helper->redirector('part', 'index');
+                $post->addPart($data);
+                $this->_helper->redirector('settings', 'index');
 
 
             } else {
@@ -181,7 +257,14 @@ class IndexController extends Zend_Controller_Action
     {
 
         $form = new Application_Form_Posts_Addpart();
-
+        $form->add->setLabel('Сохранить');
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $form->name->setLabel("Назва російською:");
+            $form->nameUa->setLabel("Назва українською:");
+            $form->add->setLabel("Зберегти");
+        }
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
@@ -191,9 +274,12 @@ class IndexController extends Zend_Controller_Action
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
 
-                $name = $form->getValue('name');
-                $userId = Zend_Auth::getInstance()->getIdentity()->id;
-                $id = (int)$form->getValue('id');
+                $data = array(
+                    'id' => (int)$form->getValue('id'),
+                    'name' => $form->getValue('name'),
+                    'nameUa' => $form->getValue('nameUa'),
+                    'userId' => Zend_Auth::getInstance()->getIdentity()->id,
+                );
 
                 // Создаём объект модели
 
@@ -201,8 +287,8 @@ class IndexController extends Zend_Controller_Action
 
 
                 // Вызываем метод модели addMovie для вставки новой записи
-                $post->updatePart($id, $name, $userId);
-                $this->_helper->redirector('part', 'index');
+                $post->updatePart( $data);
+                $this->_helper->redirector('settings', 'index');
 
 
             } else {
@@ -235,7 +321,7 @@ class IndexController extends Zend_Controller_Action
             $del = $this->getRequest()->getPost('del');
 
             // Если пользователь подтвердил своё желание удалить запись
-            if ($del == 'Да') {
+            if ($del == 'Да' || $del == 'Так' ) {
                 // Принимаем id записи, которую хотим удалить
                 $id = $this->getRequest()->getPost('id');
 
@@ -247,7 +333,7 @@ class IndexController extends Zend_Controller_Action
             }
 
             // Используем библиотечный helper для редиректа на action = index
-            $this->_helper->redirector('part', 'index');
+            $this->_helper->redirector('settings', 'index');
         } else {
             // Если запрос не Post, выводим сообщение для подтверждения
             // Получаем id записи, которую хотим удалить
@@ -263,9 +349,16 @@ class IndexController extends Zend_Controller_Action
 
     public function categoryAction()
     {
+        $id = $this->_getParam('id', 0);
+        if ($id > 0) {
 
-        $category = new Application_Model_DbTable_Category();
-        $this->view->categories = $category->fetchAll();
+            $post = new Application_Model_DbTable_Posts();
+            $this->view->post = $post->fetchAll($post->select()->from('posts')
+                ->where('categoryId = ?', $id));
+
+        }
+       /* $category = new Application_Model_DbTable_Category();
+        $this->view->categories = $category->fetchAll();*/
 
     }
 
@@ -273,7 +366,13 @@ class IndexController extends Zend_Controller_Action
     {
 
         $form = new Application_Form_Addcat();
-
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $form->name->setLabel("Назва російською:");
+            $form->nameUa->setLabel("Назва українською:");
+            $form->add->setLabel("Додати категорію");
+        }
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
@@ -283,9 +382,12 @@ class IndexController extends Zend_Controller_Action
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
 
-                $name = $form->getValue('name');
-                $partId = $form->getValue('partId');
-                $userId = Zend_Auth::getInstance()->getIdentity()->id;
+                $data = array(
+                    'name' => $form->getValue('name'),
+                    'nameUa' => $form->getValue('nameUa'),
+                    'partId' => $form->getValue('partId'),
+                    'userId' => Zend_Auth::getInstance()->getIdentity()->id,
+                );
 
                 // Создаём объект модели
 
@@ -293,8 +395,8 @@ class IndexController extends Zend_Controller_Action
 
 
                 // Вызываем метод модели addMovie для вставки новой записи
-                $category->addCategory($name, $userId, $partId);
-                $this->_helper->redirector('category', 'index');
+                $category->addCategory($data);
+                $this->_helper->redirector('settings', 'index');
 
             } else {
                 // Если форма заполнена неверно,
@@ -310,7 +412,14 @@ class IndexController extends Zend_Controller_Action
     {
 
         $form = new Application_Form_Addcat();
-
+        $form->add->setLabel('Сохранить');
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $form->name->setLabel("Назва російською:");
+            $form->nameUa->setLabel("Назва українською:");
+            $form->add->setLabel("Зберегти");
+        }
         $this->view->form = $form;
 
         if ($this->getRequest()->isPost()) {
@@ -320,10 +429,13 @@ class IndexController extends Zend_Controller_Action
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
 
-                $name = $form->getValue('name');
-                $partId = $form->getValue('partId');
-                $userId = Zend_Auth::getInstance()->getIdentity()->id;
-                $id = (int)$form->getValue('id');
+                $data = array(
+                    'id' => (int)$form->getValue('id'),
+                    'name' => $form->getValue('name'),
+                    'nameUa' => $form->getValue('nameUa'),
+                    'partId' => $form->getValue('partId'),
+                    'userId' => Zend_Auth::getInstance()->getIdentity()->id,
+                );
 
                 // Создаём объект модели
 
@@ -331,8 +443,8 @@ class IndexController extends Zend_Controller_Action
 
 
                 // Вызываем метод модели addMovie для вставки новой записи
-                $category->updateCategory($id, $name, $userId, $partId);
-                $this->_helper->redirector('category', 'index');
+                $category->updateCategory($data);
+                $this->_helper->redirector('settings', 'index');
 
 
             } else {
@@ -366,7 +478,7 @@ class IndexController extends Zend_Controller_Action
             $del = $this->getRequest()->getPost('del');
 
             // Если пользователь подтвердил своё желание удалить запись
-            if ($del == 'Да') {
+            if ($del == 'Да' ||$del == 'Так' ) {
                 // Принимаем id записи, которую хотим удалить
                 $id = $this->getRequest()->getPost('id');
 
@@ -378,7 +490,7 @@ class IndexController extends Zend_Controller_Action
             }
 
             // Используем библиотечный helper для редиректа на action = index
-            $this->_helper->redirector('category', 'index');
+            $this->_helper->redirector('settings', 'index');
         } else {
             // Если запрос не Post, выводим сообщение для подтверждения
             // Получаем id записи, которую хотим удалить
@@ -392,4 +504,27 @@ class IndexController extends Zend_Controller_Action
         }
     }
 
+    public function settingsAction()
+    {
+        $part = new Application_Model_DbTable_Part();
+        $this->view->part = $part->fetchAll();
+
+        $category = new Application_Model_DbTable_Category();
+        $this->view->category = $category->fetchAll();
+
+    }
+    public function analyticAction()
+    {
+
+    }
+
+    public function langAction()
+    {
+        $lang = $this->_getParam('lang');
+
+        $this->getResponse()->setRawHeader(new Zend_Http_Header_SetCookie(
+            'lang', $lang, NULL, '/', 'test.ru', false, true
+        ));
+        $this->_helper->redirector('index', 'index');
+    }
 }

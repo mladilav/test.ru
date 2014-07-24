@@ -1,9 +1,24 @@
+<style>
+    #description,#descriptionUa {
+        width: 98%;
+        height: 100px;
+        resize: none;
+    }
+    #title,#titleUa,#icon,#category{
+        width: 98%;
+    }
+</style>
 <script type="text/javascript" src="/ckeditor/ckeditor.js"></script>
 <?php
-$this->title = "Редактировать пост";
+if ($this->lang == "ua") $this->title = "Редагувати статтю"; else
+    $this->title = "Редактировать статью  ";?>
+<div class="settings">
+    <?php
 echo $this->errMessage;
 echo $this->form;
 ?>
+    </div>
 <script type="text/javascript">
-    CKEDITOR.replace('text');
+    CKEDITOR.replace('body');
+    CKEDITOR.replace('bodyUa');
 </script>

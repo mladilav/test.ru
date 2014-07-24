@@ -146,10 +146,10 @@ class Zend_Oauth_Config implements Zend_Oauth_Config_ConfigInterface
      * @var Zend_Oauth_Token
      */
     protected $_token = null;
-    
+
     /**
      * Define the OAuth realm
-     * 
+     *
      * @var string
      */
     protected $_realm = null;
@@ -294,8 +294,8 @@ class Zend_Oauth_Config implements Zend_Oauth_Config_ConfigInterface
     {
         $method = strtoupper($method);
         if (!in_array($method, array(
-                'HMAC-SHA1', 'HMAC-SHA256', 'RSA-SHA1', 'PLAINTEXT'
-            ))
+            'HMAC-SHA1', 'HMAC-SHA256', 'RSA-SHA1', 'PLAINTEXT'
+        ))
         ) {
             require_once 'Zend/Oauth/Exception.php';
             throw new Zend_Oauth_Exception('Unsupported signature method: '
@@ -327,10 +327,10 @@ class Zend_Oauth_Config implements Zend_Oauth_Config_ConfigInterface
     {
         $scheme = strtolower($scheme);
         if (!in_array($scheme, array(
-                Zend_Oauth::REQUEST_SCHEME_HEADER,
-                Zend_Oauth::REQUEST_SCHEME_POSTBODY,
-                Zend_Oauth::REQUEST_SCHEME_QUERYSTRING,
-            ))
+            Zend_Oauth::REQUEST_SCHEME_HEADER,
+            Zend_Oauth::REQUEST_SCHEME_POSTBODY,
+            Zend_Oauth::REQUEST_SCHEME_QUERYSTRING,
+        ))
         ) {
             require_once 'Zend/Oauth/Exception.php';
             throw new Zend_Oauth_Exception(
@@ -577,12 +577,12 @@ class Zend_Oauth_Config implements Zend_Oauth_Config_ConfigInterface
     {
         $method = strtoupper($method);
         if (!in_array($method, array(
-                Zend_Oauth::GET,
-                Zend_Oauth::POST,
-                Zend_Oauth::PUT,
-                Zend_Oauth::DELETE,
-                Zend_Oauth::OPTIONS,
-            ))
+            Zend_Oauth::GET,
+            Zend_Oauth::POST,
+            Zend_Oauth::PUT,
+            Zend_Oauth::DELETE,
+            Zend_Oauth::OPTIONS,
+        ))
         ) {
             require_once 'Zend/Oauth/Exception.php';
             throw new Zend_Oauth_Exception('Invalid method: ' . $method);

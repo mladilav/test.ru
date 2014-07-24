@@ -1,0 +1,22 @@
+<?php  $_SESSION['group'] = $this->id; ?>
+<h3><?php if($this->lang == "ua") echo 'Додати користувача'; else echo 'Добавить пользователя';?></h3>
+<ul class="breadcrumb">
+    <li><a href="/user/settings/"><?php if($this->lang == "ua") echo 'Користувачі'; else echo 'Пользователи';?></a>
+        <span class="divider">/</span></li>
+    <li><a href="/user/group/id/2"><?php if($this->lang == "ua") echo $this->group['nameUa']; else echo $this->group['name'];?></a>
+        <span class="divider">/</span></li>
+    <li class="active"><?php if($this->lang == "ua") echo 'Додати користувача у групу'; else echo 'Добавить пользователя в группу';?></li>
+</ul>
+<table class="table table-condensed">
+    <tr>
+        <th>ID</th>
+        <th><?php if($this->lang == "ua") echo 'Нік'; else echo 'Ник';?></th>
+        <th><?php if($this->lang == "ua") echo 'Пошта'; else echo 'Почта';?></th>
+        <th>Роль</th>
+        <th></th>
+    </tr>
+    <?php
+    // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+    echo $this->partialLoop('/partials/usersAddGroup.phtml', $this->users);
+    ?>
+</table>

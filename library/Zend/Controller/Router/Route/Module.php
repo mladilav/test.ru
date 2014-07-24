@@ -42,17 +42,17 @@ class Zend_Controller_Router_Route_Module extends Zend_Controller_Router_Route_A
      */
     protected $_defaults;
 
-    protected $_values      = array();
+    protected $_values = array();
     protected $_moduleValid = false;
-    protected $_keysSet     = false;
+    protected $_keysSet = false;
 
     /**#@+
      * Array keys to use for module, controller, and action. Should be taken out of request.
      * @var string
      */
-    protected $_moduleKey     = 'module';
+    protected $_moduleKey = 'module';
     protected $_controllerKey = 'controller';
-    protected $_actionKey     = 'action';
+    protected $_actionKey = 'action';
     /**#@-*/
 
     /**
@@ -65,7 +65,8 @@ class Zend_Controller_Router_Route_Module extends Zend_Controller_Router_Route_A
      */
     protected $_request;
 
-    public function getVersion() {
+    public function getVersion()
+    {
         return 1;
     }
 
@@ -76,9 +77,9 @@ class Zend_Controller_Router_Route_Module extends Zend_Controller_Router_Route_A
     {
         $frontController = Zend_Controller_Front::getInstance();
 
-        $defs       = ($config->defaults instanceof Zend_Config) ? $config->defaults->toArray() : array();
+        $defs = ($config->defaults instanceof Zend_Config) ? $config->defaults->toArray() : array();
         $dispatcher = $frontController->getDispatcher();
-        $request    = $frontController->getRequest();
+        $request = $frontController->getRequest();
 
         return new self($defs, $dispatcher, $request);
     }
@@ -91,8 +92,8 @@ class Zend_Controller_Router_Route_Module extends Zend_Controller_Router_Route_A
      * @param Zend_Controller_Request_Abstract $request Request object
      */
     public function __construct(array $defaults = array(),
-                Zend_Controller_Dispatcher_Interface $dispatcher = null,
-                Zend_Controller_Request_Abstract $request = null)
+                                Zend_Controller_Dispatcher_Interface $dispatcher = null,
+                                Zend_Controller_Request_Abstract $request = null)
     {
         $this->_defaults = $defaults;
 
@@ -113,16 +114,16 @@ class Zend_Controller_Router_Route_Module extends Zend_Controller_Router_Route_A
     protected function _setRequestKeys()
     {
         if (null !== $this->_request) {
-            $this->_moduleKey     = $this->_request->getModuleKey();
+            $this->_moduleKey = $this->_request->getModuleKey();
             $this->_controllerKey = $this->_request->getControllerKey();
-            $this->_actionKey     = $this->_request->getActionKey();
+            $this->_actionKey = $this->_request->getActionKey();
         }
 
         if (null !== $this->_dispatcher) {
             $this->_defaults += array(
                 $this->_controllerKey => $this->_dispatcher->getDefaultControllerName(),
-                $this->_actionKey     => $this->_dispatcher->getDefaultAction(),
-                $this->_moduleKey     => $this->_dispatcher->getDefaultModule()
+                $this->_actionKey => $this->_dispatcher->getDefaultAction(),
+                $this->_moduleKey => $this->_dispatcher->getDefaultModule()
             );
         }
 
@@ -173,7 +174,7 @@ class Zend_Controller_Router_Route_Module extends Zend_Controller_Router_Route_A
                 for ($i = 0; $i < $numSegs; $i = $i + 2) {
                     $key = urldecode($path[$i]);
                     $val = isset($path[$i + 1]) ? urldecode($path[$i + 1]) : null;
-                    $params[$key] = (isset($params[$key]) ? (array_merge((array) $params[$key], array($val))): $val);
+                    $params[$key] = (isset($params[$key]) ? (array_merge((array)$params[$key], array($val))) : $val);
                 }
             }
         }
@@ -266,7 +267,8 @@ class Zend_Controller_Router_Route_Module extends Zend_Controller_Router_Route_A
      * @param string $name Array key of the parameter
      * @return string Previously set default
      */
-    public function getDefault($name) {
+    public function getDefault($name)
+    {
         if (isset($this->_defaults[$name])) {
             return $this->_defaults[$name];
         }
@@ -277,7 +279,8 @@ class Zend_Controller_Router_Route_Module extends Zend_Controller_Router_Route_A
      *
      * @return array Route defaults
      */
-    public function getDefaults() {
+    public function getDefaults()
+    {
         return $this->_defaults;
     }
 

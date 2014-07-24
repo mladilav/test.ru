@@ -49,6 +49,7 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
      * @var Zend_Service_Rackspace_Servers
      */
     protected $service;
+
     /**
      * Construct
      *
@@ -56,15 +57,16 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
      * @param  array $list
      * @return void
      */
-    public function __construct($service,$list = array())
+    public function __construct($service, $list = array())
     {
         if (!($service instanceof Zend_Service_Rackspace_Servers) || !is_array($list)) {
             require_once 'Zend/Service/Rackspace/Servers/Exception.php';
             throw new Zend_Service_Rackspace_Servers_Exception("You must pass a Zend_Service_Rackspace_Servers object and an array");
         }
-        $this->service= $service;
+        $this->service = $service;
         $this->constructFromArray($list);
     }
+
     /**
      * Transforms the array to array of Server
      *
@@ -74,33 +76,36 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
     private function constructFromArray(array $list)
     {
         foreach ($list as $image) {
-            $this->addImage(new Zend_Service_Rackspace_Servers_Image($this->service,$image));
+            $this->addImage(new Zend_Service_Rackspace_Servers_Image($this->service, $image));
         }
     }
+
     /**
      * Add an image
      *
      * @param  Zend_Service_Rackspace_Servers_Image $image
      * @return Zend_Service_Rackspace_Servers_ImageList
      */
-    protected function addImage (Zend_Service_Rackspace_Servers_Image $image)
+    protected function addImage(Zend_Service_Rackspace_Servers_Image $image)
     {
         $this->images[] = $image;
         return $this;
     }
+
     /**
      * To Array
-     * 
-     * @return array 
+     *
+     * @return array
      */
     public function toArray()
     {
-        $array= array();
+        $array = array();
         foreach ($this->images as $image) {
-            $array[]= $image->toArray();
+            $array[] = $image->toArray();
         }
         return $array;
     }
+
     /**
      * Return number of images
      *
@@ -112,6 +117,7 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
     {
         return count($this->images);
     }
+
     /**
      * Return the current element
      *
@@ -123,6 +129,7 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
     {
         return $this->images[$this->iteratorKey];
     }
+
     /**
      * Return the key of the current element
      *
@@ -134,6 +141,7 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
     {
         return $this->iteratorKey;
     }
+
     /**
      * Move forward to next element
      *
@@ -145,6 +153,7 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
     {
         $this->iteratorKey += 1;
     }
+
     /**
      * Rewind the Iterator to the first element
      *
@@ -156,6 +165,7 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
     {
         $this->iteratorKey = 0;
     }
+
     /**
      * Check if there is a current element after calls to rewind() or next()
      *
@@ -172,24 +182,26 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
             return false;
         }
     }
+
     /**
      * Whether the offset exists
      *
      * Implement ArrayAccess::offsetExists()
      *
-     * @param   int     $offset
+     * @param   int $offset
      * @return  bool
      */
     public function offsetExists($offset)
     {
         return ($offset < $this->count());
     }
+
     /**
      * Return value at given offset
      *
      * Implement ArrayAccess::offsetGet()
      *
-     * @param   int     $offset
+     * @param   int $offset
      * @throws  Zend_Service_Rackspace_Servers_Exception
      * @return  Zend_Service_Rackspace_Servers_Image
      */
@@ -208,8 +220,8 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
      *
      * Implement ArrayAccess::offsetSet()
      *
-     * @param   int     $offset
-     * @param   string  $value
+     * @param   int $offset
+     * @param   string $value
      * @throws  Zend_Service_Rackspace_Servers_Exception
      */
     public function offsetSet($offset, $value)
@@ -223,7 +235,7 @@ class Zend_Service_Rackspace_Servers_ImageList implements Countable, Iterator, A
      *
      * Implement ArrayAccess::offsetUnset()
      *
-     * @param   int     $offset
+     * @param   int $offset
      * @throws  Zend_Service_Rackspace_Servers_Exception
      */
     public function offsetUnset($offset)

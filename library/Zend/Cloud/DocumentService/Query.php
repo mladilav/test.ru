@@ -37,12 +37,12 @@ class Zend_Cloud_DocumentService_Query
     /**
      * Known query types
      */
-    const QUERY_SELECT  = 'select';
-    const QUERY_FROM    = 'from';
-    const QUERY_WHERE   = 'where';
+    const QUERY_SELECT = 'select';
+    const QUERY_FROM = 'from';
+    const QUERY_WHERE = 'where';
     const QUERY_WHEREID = 'whereid'; // request element by ID
-    const QUERY_LIMIT   = 'limit';
-    const QUERY_ORDER   = 'order';
+    const QUERY_LIMIT = 'limit';
+    const QUERY_ORDER = 'order';
 
     /**
      * Clause list
@@ -96,7 +96,7 @@ class Zend_Cloud_DocumentService_Query
      */
     public function from($name)
     {
-        if(!is_string($name)) {
+        if (!is_string($name)) {
             require_once 'Zend/Cloud/DocumentService/Exception.php';
             throw new Zend_Cloud_DocumentService_Exception("FROM argument must be a string");
         }
@@ -146,7 +146,7 @@ class Zend_Cloud_DocumentService_Query
      */
     public function limit($limit)
     {
-        if ($limit != (int) $limit) {
+        if ($limit != (int)$limit) {
             require_once 'Zend/Cloud/DocumentService/Exception.php';
             throw new Zend_Cloud_DocumentService_Exception("LIMIT argument must be an integer");
         }
@@ -186,6 +186,6 @@ class Zend_Cloud_DocumentService_Query
      */
     public function getClauses()
     {
-         return $this->_clauses;
+        return $this->_clauses;
     }
 }

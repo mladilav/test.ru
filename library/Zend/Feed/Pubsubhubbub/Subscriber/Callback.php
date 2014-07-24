@@ -113,10 +113,10 @@ class Zend_Feed_Pubsubhubbub_Subscriber_Callback
         ) {
             $this->setFeedUpdate($this->_getRawBody());
             $this->getHttpResponse()
-                 ->setHeader('X-Hub-On-Behalf-Of', $this->getSubscriberCount());
-        /**
-         * Handle any (un)subscribe confirmation requests
-         */
+                ->setHeader('X-Hub-On-Behalf-Of', $this->getSubscriberCount());
+            /**
+             * Handle any (un)subscribe confirmation requests
+             */
         } elseif ($this->isValidHubVerification($httpGetData)) {
             $data = $this->_currentSubscriptionData;
             $this->getHttpResponse()->setBody($httpGetData['hub_challenge']);
@@ -125,9 +125,9 @@ class Zend_Feed_Pubsubhubbub_Subscriber_Callback
                 $data['lease_seconds'] = $httpGetData['hub_lease_seconds'];
             }
             $this->getStorage()->setSubscription($data);
-        /**
-         * Hey, C'mon! We tried everything else!
-         */
+            /**
+             * Hey, C'mon! We tried everything else!
+             */
         } else {
             $this->getHttpResponse()->setHttpResponseCode(404);
         }
@@ -302,7 +302,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber_Callback
      */
     protected function _parseQueryString()
     {
-        $params      = array();
+        $params = array();
         $queryString = '';
         if (isset($_SERVER['QUERY_STRING'])) {
             $queryString = $_SERVER['QUERY_STRING'];
@@ -312,8 +312,8 @@ class Zend_Feed_Pubsubhubbub_Subscriber_Callback
         }
         $parts = explode('&', $queryString);
         foreach ($parts as $kvpair) {
-            $pair  = explode('=', $kvpair);
-            $key   = rawurldecode($pair[0]);
+            $pair = explode('=', $kvpair);
+            $key = rawurldecode($pair[0]);
             $value = rawurldecode($pair[1]);
             if (isset($params[$key])) {
                 if (is_array($params[$key])) {

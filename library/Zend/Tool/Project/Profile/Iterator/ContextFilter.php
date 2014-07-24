@@ -39,7 +39,7 @@ class Zend_Tool_Project_Profile_Iterator_ContextFilter extends RecursiveFilterIt
     /**
      * @var array
      */
-    protected $_denyTypes   = array();
+    protected $_denyTypes = array();
 
     /**
      * @var array
@@ -49,7 +49,7 @@ class Zend_Tool_Project_Profile_Iterator_ContextFilter extends RecursiveFilterIt
     /**
      * @var array
      */
-    protected $_denyNames   = array();
+    protected $_denyNames = array();
 
     /**
      * @var array

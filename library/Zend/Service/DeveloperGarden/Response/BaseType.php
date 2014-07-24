@@ -96,7 +96,7 @@ class Zend_Service_DeveloperGarden_Response_BaseType
     public function isValid()
     {
         return ($this->statusCode === null
-             || $this->statusCode == '0000');
+            || $this->statusCode == '0000');
     }
 
     /**
@@ -107,7 +107,7 @@ class Zend_Service_DeveloperGarden_Response_BaseType
     public function hasError()
     {
         return ($this->statusCode !== null
-             && $this->statusCode != '0000');
+            && $this->statusCode != '0000');
     }
 
     /**

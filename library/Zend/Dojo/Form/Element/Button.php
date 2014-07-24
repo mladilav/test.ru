@@ -115,7 +115,7 @@ class Zend_Dojo_Form_Element_Button extends Zend_Dojo_Form_Element_Dijit
         $decorators = $this->getDecorators();
         if (empty($decorators)) {
             $this->addDecorator('DijitElement')
-                 ->addDecorator('DtDdWrapper');
+                ->addDecorator('DtDdWrapper');
         }
     }
 }

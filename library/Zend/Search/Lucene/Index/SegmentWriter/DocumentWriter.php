@@ -58,7 +58,7 @@ class Zend_Search_Lucene_Index_SegmentWriter_DocumentWriter extends Zend_Search_
     {
         parent::__construct($directory, $name);
 
-        $this->_termDocs       = array();
+        $this->_termDocs = array();
         $this->_termDictionary = array();
     }
 
@@ -75,8 +75,8 @@ class Zend_Search_Lucene_Index_SegmentWriter_DocumentWriter extends Zend_Search_
         require_once 'Zend/Search/Lucene/Search/Similarity.php';
 
         $storedFields = array();
-        $docNorms     = array();
-        $similarity   = Zend_Search_Lucene_Search_Similarity::getDefault();
+        $docNorms = array();
+        $similarity = Zend_Search_Lucene_Search_Similarity::getDefault();
 
         foreach ($document->getFieldNames() as $fieldName) {
             $field = $document->getField($fieldName);
@@ -97,7 +97,7 @@ class Zend_Search_Lucene_Index_SegmentWriter_DocumentWriter extends Zend_Search_
                     $analyzer = Zend_Search_Lucene_Analysis_Analyzer::getDefault();
                     $analyzer->setInput($field->value, $field->encoding);
 
-                    $position     = 0;
+                    $position = 0;
                     $tokenCounter = 0;
                     while (($token = $analyzer->nextToken()) !== null) {
                         $tokenCounter++;
@@ -123,10 +123,10 @@ class Zend_Search_Lucene_Index_SegmentWriter_DocumentWriter extends Zend_Search_
                         $field = clone($field);
                         $field->isIndexed = $field->isTokenized = false;
                     } else {
-                        $docNorms[$field->name] = chr($similarity->encodeNorm( $similarity->lengthNorm($field->name,
-                                                                                                       $tokenCounter)*
-                                                                               $document->boost*
-                                                                               $field->boost ));
+                        $docNorms[$field->name] = chr($similarity->encodeNorm($similarity->lengthNorm($field->name,
+                                $tokenCounter) *
+                            $document->boost *
+                            $field->boost));
                     }
                 } else if (($fieldUtf8Value = $field->getUtf8Value()) == '') {
                     // Field contains empty value. Treat it as non-indexed and non-tokenized
@@ -147,9 +147,9 @@ class Zend_Search_Lucene_Index_SegmentWriter_DocumentWriter extends Zend_Search_
                     }
                     $this->_termDocs[$termKey][$this->_docCount][] = 0; // position
 
-                    $docNorms[$field->name] = chr($similarity->encodeNorm( $similarity->lengthNorm($field->name, 1)*
-                                                                           $document->boost*
-                                                                           $field->boost ));
+                    $docNorms[$field->name] = chr($similarity->encodeNorm($similarity->lengthNorm($field->name, 1) *
+                        $document->boost *
+                        $field->boost));
                 }
             }
 
@@ -166,14 +166,14 @@ class Zend_Search_Lucene_Index_SegmentWriter_DocumentWriter extends Zend_Search_
             }
 
             if (!isset($this->_norms[$fieldName])) {
-                $this->_norms[$fieldName] = str_repeat(chr($similarity->encodeNorm( $similarity->lengthNorm($fieldName, 0) )),
-                                                       $this->_docCount);
+                $this->_norms[$fieldName] = str_repeat(chr($similarity->encodeNorm($similarity->lengthNorm($fieldName, 0))),
+                    $this->_docCount);
             }
 
-            if (isset($docNorms[$fieldName])){
+            if (isset($docNorms[$fieldName])) {
                 $this->_norms[$fieldName] .= $docNorms[$fieldName];
             } else {
-                $this->_norms[$fieldName] .= chr($similarity->encodeNorm( $similarity->lengthNorm($fieldName, 0) ));
+                $this->_norms[$fieldName] .= chr($similarity->encodeNorm($similarity->lengthNorm($fieldName, 0)));
             }
         }
 
@@ -218,12 +218,12 @@ class Zend_Search_Lucene_Index_SegmentWriter_DocumentWriter extends Zend_Search_
         require_once 'Zend/Search/Lucene/Index/SegmentInfo.php';
 
         return new Zend_Search_Lucene_Index_SegmentInfo($this->_directory,
-                                                        $this->_name,
-                                                        $this->_docCount,
-                                                        -1,
-                                                        null,
-                                                        true,
-                                                        true);
+            $this->_name,
+            $this->_docCount,
+            -1,
+            null,
+            true,
+            true);
     }
 
 }

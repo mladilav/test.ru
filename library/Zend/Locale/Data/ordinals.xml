@@ -9,7 +9,8 @@ For terms of use, see http://www.unicode.org/copyright.html
     <version number="$Revision: 8268 $"/>
     <generation date="$Date: 2013-03-01 08:26:02 -0600 (Fri, 01 Mar 2013) $"/>
     <plurals type="ordinal">
-        <pluralRules locales="af am ar bg cs da de el es et eu fa fi gl hr id is he ja kn ko lt lv ml nb nl pl pt ru sk sl sr sw ta te th tr uk ur zh"/> 
+        <pluralRules
+                locales="af am ar bg cs da de el es et eu fa fi gl hr id is he ja kn ko lt lv ml nb nl pl pt ru sk sl sr sw ta te th tr uk ur zh"/>
         <pluralRules locales="fil fr ms ro vi">
             <pluralRule count="one">n is 1</pluralRule>
         </pluralRules>
@@ -50,11 +51,11 @@ For terms of use, see http://www.unicode.org/copyright.html
             <pluralRule count="few">n is 4</pluralRule>
             <pluralRule count="many">n is 6</pluralRule>
         </pluralRules>
-	    <pluralRules locales="zu">
-	        <pluralRule count="one">n is 1</pluralRule>
-	        <pluralRule count="few">n in 2..9</pluralRule>
-	        <!-- n starts with a 1 and n > 1 -->
-	        <pluralRule count="many">n in 10..19,100..199,1000..1999</pluralRule>
-	    </pluralRules>
+        <pluralRules locales="zu">
+            <pluralRule count="one">n is 1</pluralRule>
+            <pluralRule count="few">n in 2..9</pluralRule>
+            <!-- n starts with a 1 and n > 1 -->
+            <pluralRule count="many">n in 10..19,100..199,1000..1999</pluralRule>
+        </pluralRules>
     </plurals>
 </supplementalData>

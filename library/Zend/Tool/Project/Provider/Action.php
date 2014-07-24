@@ -121,10 +121,10 @@ class Zend_Tool_Project_Provider_Action
     /**
      * create()
      *
-     * @param string $name           Action name for controller, in camelCase format.
+     * @param string $name Action name for controller, in camelCase format.
      * @param string $controllerName Controller name action should be applied to.
-     * @param bool $viewIncluded     Whether the view should the view be included.
-     * @param string $module         Module name action should be applied to.
+     * @param bool $viewIncluded Whether the view should the view be included.
+     * @param string $module Module name action should be applied to.
      */
     public function create($name, $controllerName = 'Index', $viewIncluded = true, $module = null)
     {
@@ -144,7 +144,7 @@ class Zend_Tool_Project_Provider_Action
             $response->appendContent(
                 'Note: PHPUnit is required in order to generate controller test stubs.',
                 array('color' => array('yellow'))
-                );
+            );
         }
 
         // Check that there is not a dash or underscore, return if doesnt match regex
@@ -178,19 +178,19 @@ class Zend_Tool_Project_Provider_Action
         if ($name !== $originalName) {
             $response->appendContent(
                 'Note: The canonical action name that ' . $tense
-                    . ' used with other providers is "' . $name . '";'
-                    . ' not "' . $originalName . '" as supplied',
+                . ' used with other providers is "' . $name . '";'
+                . ' not "' . $originalName . '" as supplied',
                 array('color' => array('yellow'))
-                );
+            );
         }
 
         if ($controllerName !== $originalControllerName) {
             $response->appendContent(
                 'Note: The canonical controller name that ' . $tense
-                    . ' used with other providers is "' . $controllerName . '";'
-                    . ' not "' . $originalControllerName . '" as supplied',
+                . ' used with other providers is "' . $controllerName . '";'
+                . ' not "' . $originalControllerName . '" as supplied',
                 array('color' => array('yellow'))
-                );
+            );
         }
 
         unset($tense);
@@ -199,7 +199,7 @@ class Zend_Tool_Project_Provider_Action
             $response->appendContent(
                 'Would create an action named ' . $name .
                 ' inside controller at ' . $actionMethodResource->getParentResource()->getContext()->getPath()
-                );
+            );
 
             if ($testActionMethodResource) {
                 $response->appendContent('Would create an action test in ' . $testActionMethodResource->getParentResource()->getContext()->getPath());
@@ -209,7 +209,7 @@ class Zend_Tool_Project_Provider_Action
             $response->appendContent(
                 'Creating an action named ' . $name .
                 ' inside controller at ' . $actionMethodResource->getParentResource()->getContext()->getPath()
-                );
+            );
             $actionMethodResource->create();
 
             if ($testActionMethodResource) {
@@ -226,11 +226,11 @@ class Zend_Tool_Project_Provider_Action
             if ($this->_registry->getRequest()->isPretend()) {
                 $response->appendContent(
                     'Would create a view script for the ' . $name . ' action method at ' . $viewResource->getContext()->getPath()
-                    );
+                );
             } else {
                 $response->appendContent(
                     'Creating a view script for the ' . $name . ' action method at ' . $viewResource->getContext()->getPath()
-                    );
+                );
                 $viewResource->create();
                 $this->_storeProfile();
             }

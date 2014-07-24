@@ -62,7 +62,7 @@ class Zend_Service_ShortUrl_JdemCz extends Zend_Service_ShortUrl_AbstractShorten
         return $response->getBody();
     }
 
-   /**
+    /**
      * Reveals target for short URL
      *
      * @param string $shortenedUrl URL to reveal target of

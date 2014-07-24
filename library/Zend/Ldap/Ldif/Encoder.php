@@ -37,9 +37,9 @@ class Zend_Ldap_Ldif_Encoder
      * @var array
      */
     protected $_options = array(
-        'sort'    => true,
+        'sort' => true,
         'version' => 1,
-        'wrap'    => 78
+        'wrap' => 78
     );
 
     /**
@@ -111,7 +111,7 @@ class Zend_Ldap_Ldif_Encoder
             $this->_pushAttribute($last, $item);
         }
         $items[] = $item;
-        return (count($items)>1) ? $items : $items[0];
+        return (count($items) > 1) ? $items : $items[0];
     }
 
     /**
@@ -140,7 +140,7 @@ class Zend_Ldap_Ldif_Encoder
     /**
      * Encode $value into a LDIF representation
      *
-     * @param  mixed $value   The value to be encoded
+     * @param  mixed $value The value to be encoded
      * @param  array $options Additional options used during encoding
      * @return string The encoded value
      */
@@ -199,7 +199,7 @@ class Zend_Ldap_Ldif_Encoder
          *                ; any value <= 127 decimal except NUL, LF,
          *                ; and CR
          */
-        $unsafe_char      = array(0, 10, 13);
+        $unsafe_char = array(0, 10, 13);
 
         $base64 = false;
         for ($i = 0; $i < strlen($string); $i++) {
@@ -232,7 +232,7 @@ class Zend_Ldap_Ldif_Encoder
      *
      * @link http://www.faqs.org/rfcs/rfc2849.html
      *
-     * @param  string       $name
+     * @param  string $name
      * @param  array|string $value
      * @return string
      */
@@ -278,7 +278,8 @@ class Zend_Ldap_Ldif_Encoder
         $string = '';
         $attributes = array_change_key_case($attributes, CASE_LOWER);
         if (!$this->_versionWritten && array_key_exists('dn', $attributes) && isset($this->_options['version'])
-                && array_key_exists('objectclass', $attributes)) {
+            && array_key_exists('objectclass', $attributes)
+        ) {
             $string .= sprintf('version: %d', $this->_options['version']) . PHP_EOL;
             $this->_versionWritten = true;
         }

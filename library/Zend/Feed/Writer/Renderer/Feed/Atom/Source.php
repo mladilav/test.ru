@@ -38,7 +38,7 @@ class Zend_Feed_Writer_Renderer_Feed_Atom_Source
      * @param  Zend_Feed_Writer_Feed_Source $container
      * @return void
      */
-    public function __construct (Zend_Feed_Writer_Source $container)
+    public function __construct(Zend_Feed_Writer_Source $container)
     {
         parent::__construct($container);
     }
@@ -90,7 +90,7 @@ class Zend_Feed_Writer_Renderer_Feed_Atom_Source
      */
     protected function _setGenerator(DOMDocument $dom, DOMElement $root)
     {
-        if(!$this->getDataContainer()->getGenerator()) {
+        if (!$this->getDataContainer()->getGenerator()) {
             return;
         }
 

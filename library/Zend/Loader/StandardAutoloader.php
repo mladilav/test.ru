@@ -34,12 +34,12 @@ require_once dirname(__FILE__) . '/SplAutoloader.php';
  */
 class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
 {
-    const NS_SEPARATOR     = '\\';
+    const NS_SEPARATOR = '\\';
     const PREFIX_SEPARATOR = '_';
-    const LOAD_NS          = 'namespaces';
-    const LOAD_PREFIX      = 'prefixes';
-    const ACT_AS_FALLBACK  = 'fallback_autoloader';
-    const AUTOREGISTER_ZF  = 'autoregister_zf';
+    const LOAD_NS = 'namespaces';
+    const LOAD_PREFIX = 'prefixes';
+    const ACT_AS_FALLBACK = 'fallback_autoloader';
+    const AUTOREGISTER_ZF = 'autoregister_zf';
 
     /**
      * @var array Namespace/directory pairs to search; ZF library added by default
@@ -137,7 +137,7 @@ class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
      */
     public function setFallbackAutoloader($flag)
     {
-        $this->fallbackAutoloaderFlag = (bool) $flag;
+        $this->fallbackAutoloaderFlag = (bool)$flag;
         return $this;
     }
 
@@ -160,7 +160,7 @@ class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
      */
     public function registerNamespace($namespace, $directory)
     {
-        $namespace = rtrim($namespace, self::NS_SEPARATOR). self::NS_SEPARATOR;
+        $namespace = rtrim($namespace, self::NS_SEPARATOR) . self::NS_SEPARATOR;
         $this->namespaces[$namespace] = $this->normalizeDirectory($directory);
         return $this;
     }
@@ -193,7 +193,7 @@ class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
      */
     public function registerPrefix($prefix, $directory)
     {
-        $prefix = rtrim($prefix, self::PREFIX_SEPARATOR). self::PREFIX_SEPARATOR;
+        $prefix = rtrim($prefix, self::PREFIX_SEPARATOR) . self::PREFIX_SEPARATOR;
         $this->prefixes[$prefix] = $this->normalizeDirectory($directory);
         return $this;
     }
@@ -263,9 +263,9 @@ class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
      *
      * Used by {@link loadClass} during fallback autoloading in PHP versions
      * prior to 5.3.0.
-     * 
-     * @param mixed $errno 
-     * @param mixed $errstr 
+     *
+     * @param mixed $errno
+     * @param mixed $errstr
      * @return void
      */
     public function handleError($errno, $errstr)
@@ -287,13 +287,13 @@ class Zend_Loader_StandardAutoloader implements Zend_Loader_SplAutoloader
         $matches = array();
         preg_match('/(?P<namespace>.+\\\)?(?P<class>[^\\\]+$)/', $class, $matches);
 
-        $class     = (isset($matches['class'])) ? $matches['class'] : '';
+        $class = (isset($matches['class'])) ? $matches['class'] : '';
         $namespace = (isset($matches['namespace'])) ? $matches['namespace'] : '';
 
         return $directory
-             . str_replace(self::NS_SEPARATOR, '/', $namespace)
-             . str_replace(self::PREFIX_SEPARATOR, '/', $class)
-             . '.php';
+        . str_replace(self::NS_SEPARATOR, '/', $namespace)
+        . str_replace(self::PREFIX_SEPARATOR, '/', $class)
+        . '.php';
     }
 
     /**

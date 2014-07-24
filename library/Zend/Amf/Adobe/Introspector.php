@@ -88,7 +88,7 @@ class Zend_Amf_Adobe_Introspector
         }
 
         // Transform com.foo.Bar into com_foo_Bar
-        $serviceClass = str_replace('.' , '_', $serviceClass);
+        $serviceClass = str_replace('.', '_', $serviceClass);
 
         // Introspect!
         if (!class_exists($serviceClass)) {
@@ -100,7 +100,7 @@ class Zend_Amf_Adobe_Introspector
         $serv->setAttribute('xmlns', 'http://ns.adobe.com/flex/service-description/2008');
 
         $this->_types = $this->_xml->createElement('types');
-        $this->_ops   = $this->_xml->createElement('operations');
+        $this->_ops = $this->_xml->createElement('operations');
 
         $r = Zend_Server_Reflection::reflectClass($serviceClass);
         $this->_addService($r, $this->_ops);
@@ -190,7 +190,7 @@ class Zend_Amf_Adobe_Introspector
                     $ptype = $this->_registerType($type);
                     $arg->setAttribute('type', $ptype);
 
-                    if($param->isDefaultValueAvailable()) {
+                    if ($param->isDefaultValueAvailable()) {
                         $arg->setAttribute('defaultvalue', $param->getDefaultValue());
                     }
 
@@ -305,7 +305,7 @@ class Zend_Amf_Adobe_Introspector
         return $asTypeName;
     }
 
-   /**
+    /**
      * Return error with error message
      *
      * @param  string $msg Error message

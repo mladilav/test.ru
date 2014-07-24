@@ -323,7 +323,7 @@ class Zend_Tag_Cloud
     public function getPluginLoader()
     {
         if ($this->_pluginLoader === null) {
-            $prefix     = 'Zend_Tag_Cloud_Decorator_';
+            $prefix = 'Zend_Tag_Cloud_Decorator_';
             $pathPrefix = 'Zend/Tag/Cloud/Decorator/';
 
             require_once 'Zend/Loader/PluginLoader.php';
@@ -384,7 +384,7 @@ class Zend_Tag_Cloud
             return '';
         }
 
-        $tagsResult  = $this->getTagDecorator()->render($tags);
+        $tagsResult = $this->getTagDecorator()->render($tags);
         $cloudResult = $this->getCloudDecorator()->render($tagsResult);
 
         return $cloudResult;
@@ -402,7 +402,7 @@ class Zend_Tag_Cloud
             return $result;
         } catch (Exception $e) {
             $message = "Exception caught by tag cloud: " . $e->getMessage()
-                     . "\nStack Trace:\n" . $e->getTraceAsString();
+                . "\nStack Trace:\n" . $e->getTraceAsString();
             trigger_error($message, E_USER_WARNING);
             return '';
         }

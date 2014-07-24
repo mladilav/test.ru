@@ -63,7 +63,7 @@ class Zend_Service_ShortUrl_IsGd extends Zend_Service_ShortUrl_AbstractShortener
         return $response->getBody();
     }
 
-   /**
+    /**
      * Reveals target for short URL
      *
      * @param string $shortenedUrl URL to reveal target of

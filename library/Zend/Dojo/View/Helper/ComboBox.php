@@ -31,14 +31,14 @@ require_once 'Zend/Dojo/View/Helper/Dijit.php';
  * @subpackage View
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
-  */
+ */
 class Zend_Dojo_View_Helper_ComboBox extends Zend_Dojo_View_Helper_Dijit
 {
     /**
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.ComboBox';
+    protected $_dijit = 'dijit.form.ComboBox';
 
     /**
      * HTML element type
@@ -57,7 +57,7 @@ class Zend_Dojo_View_Helper_ComboBox extends Zend_Dojo_View_Helper_Dijit
      *
      * @param  int $id
      * @param  mixed $value
-     * @param  array $params  Parameters to use for dijit creation
+     * @param  array $params Parameters to use for dijit creation
      * @param  array $attribs HTML attributes
      * @param  array|null $options Select options
      * @return string
@@ -83,7 +83,7 @@ class Zend_Dojo_View_Helper_ComboBox extends Zend_Dojo_View_Helper_Dijit
             if (array_key_exists('storeType', $params)) {
                 $storeParams = array(
                     'store' => $params['store'],
-                    'type'  => $params['storeType'],
+                    'type' => $params['storeType'],
                 );
                 unset($params['storeType']);
                 if (array_key_exists('storeParams', $params)) {
@@ -128,7 +128,7 @@ class Zend_Dojo_View_Helper_ComboBox extends Zend_Dojo_View_Helper_Dijit
         $extraParams = array();
         $storeParams = array(
             'dojoType' => $params['type'],
-            'jsId'     => $params['store'],
+            'jsId' => $params['store'],
         );
 
         if (array_key_exists('params', $params)) {
@@ -142,7 +142,7 @@ class Zend_Dojo_View_Helper_ComboBox extends Zend_Dojo_View_Helper_Dijit
                 $this->dojo->addJavascript('var ' . $storeParams['jsId'] . ";\n");
                 $js = $storeParams['jsId'] . ' = '
                     . 'new ' . $storeParams['dojoType'] . '('
-                    .     Zend_Json::encode($extraParams)
+                    . Zend_Json::encode($extraParams)
                     . ");\n";
                 $js = "function() {\n$js\n}";
                 $this->dojo->_addZendLoad($js);

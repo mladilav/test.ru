@@ -80,8 +80,8 @@ class Zend_Service_ShortUrl_TinyUrlCom extends Zend_Service_ShortUrl_AbstractSho
         $this->setHttpClient(new Zend_Http_Client());
 
         $this->getHttpClient()
-             ->setCookie('preview', 1)
-             ->setUri($shortenedUrl);
+            ->setCookie('preview', 1)
+            ->setUri($shortenedUrl);
 
         //get response
         $response = $this->getHttpClient()->request();

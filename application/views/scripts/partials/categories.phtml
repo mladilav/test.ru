@@ -1,9 +1,10 @@
 <tr>
+    <td><?php echo $this->escape($this->id); ?></td>
     <td><?php echo $this->escape($this->name); ?></td>
-    <td><?php echo $this->escape($this->userId); ?></td>
-    <td><?php echo $this->escape($this->partId); ?></td>
-    <td><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'editcat', 'id' => $this->id)); ?>">Редактировать</a>
+    <td><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'editcat', 'id' => $this->id)); ?>">
+            <i class="icon-pencil"></i></a>
     </td>
-    <td><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'deletecat', 'id' => $this->id)); ?>">Удалить</a>
+    <td><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'deletecat', 'id' => $this->id)); ?>">
+            <i class="icon-trash"></i></a>
     </td>
 </tr>

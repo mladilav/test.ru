@@ -97,7 +97,7 @@ class Zend_Controller_Action_HelperBroker
     static public function addPrefix($prefix)
     {
         $prefix = rtrim($prefix, '_');
-        $path   = str_replace('_', DIRECTORY_SEPARATOR, $prefix);
+        $path = str_replace('_', DIRECTORY_SEPARATOR, $prefix);
         self::getPluginLoader()->addPrefixPath($prefix, $path);
     }
 
@@ -148,7 +148,7 @@ class Zend_Controller_Action_HelperBroker
      */
     public static function getStaticHelper($name)
     {
-        $name  = self::_normalizeHelperName($name);
+        $name = self::_normalizeHelperName($name);
         $stack = self::getStack();
 
         if (!isset($stack->{$name})) {
@@ -175,7 +175,7 @@ class Zend_Controller_Action_HelperBroker
      */
     public static function getExistingHelper($name)
     {
-        $name  = self::_normalizeHelperName($name);
+        $name = self::_normalizeHelperName($name);
         $stack = self::getStack();
 
         if (!isset($stack->{$name})) {
@@ -286,7 +286,7 @@ class Zend_Controller_Action_HelperBroker
      */
     public function getHelper($name)
     {
-        $name  = self::_normalizeHelperName($name);
+        $name = self::_normalizeHelperName($name);
         $stack = self::getStack();
 
         if (!isset($stack->{$name})) {
@@ -304,7 +304,7 @@ class Zend_Controller_Action_HelperBroker
 
         if ($initialize) {
             $helper->setActionController($this->_actionController)
-                   ->init();
+                ->init();
         }
 
         return $helper;

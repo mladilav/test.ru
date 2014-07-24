@@ -1,0 +1,31 @@
+<h2><?php if($this->lang == "ua") echo 'Домашня робота'; else echo 'Домашняя работа';?></h2>
+<div class="settings">
+<ul class="nav nav-pills">
+    <li class="active">
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'allresults')); ?>">
+        <?php if($this->lang == "ua") echo 'Результати'; else echo 'Результаты';?></a>
+    </li>
+    <li>
+    <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'addhomework')); ?>">
+        <?php if($this->lang == "ua") echo 'Додати домашнє завдання'; else echo 'Добавить домашнее задание';?></a>
+    </li>
+</ul>
+
+
+
+<table class="table table-condensed">
+    <tr>
+        <th>ID</th>
+        <th><?php if($this->lang == "ua") echo 'Назва'; else echo 'Название';?></th>
+        <th>Файл</th>
+        <th>Тест</th>
+        <th>Дата</th>
+        <th></th>
+    </tr>
+    <?php
+    // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+    echo $this->partialLoop('/partials/homework.phtml', $this->paginator);
+    ?>
+
+</table></div>
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'paginator_homework.phtml'); ?>

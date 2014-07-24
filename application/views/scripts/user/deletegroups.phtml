@@ -1,0 +1,30 @@
+<?php
+if($this->lang == "ua"){
+$this->title = "Видалення групи";
+$this->headTitle($this->title);
+?>
+<p>Ви дійсно хочете видалити групу
+    '<?php echo $this->escape($this->groups['name']); ?>'?
+</p>
+<form action="<?php echo $this->url(array('action' => 'deletegroups')); ?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo $this->groups['id']; ?>"/>
+        <input type="submit" name="del" value="Так"/>
+        <input type="submit" name="del" value="Ні"/>
+    </div>
+</form>
+<?php } else {
+    $this->title = "Удаление группы";
+    $this->headTitle($this->title);
+    ?>
+    <p>Вы действительно хотите удалить группу
+        '<?php echo $this->escape($this->groups['name']); ?>'?
+    </p>
+    <form action="<?php echo $this->url(array('action' => 'deletegroups')); ?>" method="post">
+        <div>
+            <input type="hidden" name="id" value="<?php echo $this->groups['id']; ?>"/>
+            <input type="submit" name="del" value="Да"/>
+            <input type="submit" name="del" value="Нет"/>
+        </div>
+    </form>
+<?php }?>

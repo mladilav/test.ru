@@ -94,11 +94,11 @@ class Zend_Feed_Atom extends Zend_Feed_Abstract
                  */
                 require_once 'Zend/Feed/Exception.php';
                 throw new Zend_Feed_Exception('No root <feed> or <' . $this->_entryElementName
-                                              . '> element found, cannot parse feed.');
+                    . '> element found, cannot parse feed.');
             }
 
             $doc = new DOMDocument($this->_element->version,
-                                   $this->_element->actualEncoding);
+                $this->_element->actualEncoding);
             $feed = $doc->appendChild($doc->createElement('feed'));
             $feed->appendChild($doc->importNode($element, true));
             $element = $feed;
@@ -262,8 +262,8 @@ class Zend_Feed_Atom extends Zend_Feed_Abstract
      *    <content>long version, can contain html</content>
      * </entry>
      *
-     * @param  array      $array the data to use
-     * @param  DOMElement $root  the root node to use
+     * @param  array $array the data to use
+     * @param  DOMElement $root the root node to use
      * @return void
      */
     protected function _mapFeedEntries(DOMElement $root, $array)
@@ -336,14 +336,14 @@ class Zend_Feed_Atom extends Zend_Feed_Abstract
 
             if (isset($dataentry->comments)) {
                 $comments = $this->_element->createElementNS('http://wellformedweb.org/CommentAPI/',
-                                                             'wfw:comment',
-                                                             $dataentry->comments);
+                    'wfw:comment',
+                    $dataentry->comments);
                 $entry->appendChild($comments);
             }
             if (isset($dataentry->commentRss)) {
                 $comments = $this->_element->createElementNS('http://wellformedweb.org/CommentAPI/',
-                                                             'wfw:commentRss',
-                                                             $dataentry->commentRss);
+                    'wfw:commentRss',
+                    $dataentry->commentRss);
                 $entry->appendChild($comments);
             }
 
@@ -360,7 +360,7 @@ class Zend_Feed_Atom extends Zend_Feed_Abstract
     {
         // Return a complete document including XML prologue.
         $doc = new DOMDocument($this->_element->ownerDocument->version,
-                               $this->_element->ownerDocument->actualEncoding);
+            $this->_element->ownerDocument->actualEncoding);
         $doc->appendChild($doc->importNode($this->_element, true));
         $doc->formatOutput = true;
 

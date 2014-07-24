@@ -144,9 +144,9 @@ abstract class Zend_Service_Ebay_Finding_Abstract
     {
         // find values
         $values = array();
-        $nodes  = $this->_xPath->query($path, $this->_dom);
+        $nodes = $this->_xPath->query($path, $this->_dom);
         foreach ($nodes as $node) {
-            $value    = (string) $node->nodeValue;
+            $value = (string)$node->nodeValue;
             $values[] = Zend_Service_Ebay_Abstract::toPhpValue($value, $type);
             if (!$array) {
                 break;

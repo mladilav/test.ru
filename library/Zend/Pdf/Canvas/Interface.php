@@ -236,8 +236,8 @@ interface Zend_Pdf_Canvas_Interface
     /**
      * Intersect current clipping area with a polygon.
      *
-     * @param array $x  - array of float (the X co-ordinates of the vertices)
-     * @param array $y  - array of float (the Y co-ordinates of the vertices)
+     * @param array $x - array of float (the X co-ordinates of the vertices)
+     * @param array $y - array of float (the Y co-ordinates of the vertices)
      * @param integer $fillMethod
      * @return Zend_Pdf_Canvas_Interface
      */
@@ -345,8 +345,8 @@ interface Zend_Pdf_Canvas_Interface
      * See detailed description of these methods in a PDF documentation
      * (section 4.4.2 Path painting Operators, Filling)
      *
-     * @param array $x  - array of float (the X co-ordinates of the vertices)
-     * @param array $y  - array of float (the Y co-ordinates of the vertices)
+     * @param array $x - array of float (the X co-ordinates of the vertices)
+     * @param array $y - array of float (the Y co-ordinates of the vertices)
      * @param integer $fillType
      * @param integer $fillMethod
      * @return Zend_Pdf_Canvas_Interface
@@ -354,6 +354,7 @@ interface Zend_Pdf_Canvas_Interface
     public function drawPolygon($x, $y,
                                 $fillType = Zend_Pdf_Page::SHAPE_DRAW_FILL_AND_STROKE,
                                 $fillMethod = Zend_Pdf_Page::FILL_METHOD_NON_ZERO_WINDING);
+
     /**
      * Draw a rectangle.
      *
@@ -407,7 +408,7 @@ interface Zend_Pdf_Canvas_Interface
      */
     public function drawText($text, $x, $y, $charEncoding = '');
 
-     /**
+    /**
      * Close the path by drawing a straight line back to it's beginning.
      *
      * @internal (needs implementation)
@@ -422,8 +423,8 @@ interface Zend_Pdf_Canvas_Interface
      *
      * @internal (needs implementation)
      *
-     * @param float $x  - the X co-ordinate to move to
-     * @param float $y  - the Y co-ordinate to move to
+     * @param float $x - the X co-ordinate to move to
+     * @param float $y - the Y co-ordinate to move to
      * @return Zend_Pdf_Canvas_Interface
      */
     public function pathLine($x, $y);
@@ -434,8 +435,8 @@ interface Zend_Pdf_Canvas_Interface
      *
      * @internal (needs implementation)
      *
-     * @param float $x  - the X co-ordinate to move to
-     * @param float $y  - the Y co-ordinate to move to
+     * @param float $x - the X co-ordinate to move to
+     * @param float $y - the Y co-ordinate to move to
      * @return Zend_Pdf_Canvas_Interface
      */
     public function pathMove($x, $y);
@@ -443,8 +444,8 @@ interface Zend_Pdf_Canvas_Interface
     /**
      * Rotate the page.
      *
-     * @param float $x  - the X co-ordinate of rotation point
-     * @param float $y  - the Y co-ordinate of rotation point
+     * @param float $x - the X co-ordinate of rotation point
+     * @param float $y - the Y co-ordinate of rotation point
      * @param float $angle - rotation angle
      * @return Zend_Pdf_Canvas_Interface
      */
@@ -471,8 +472,8 @@ interface Zend_Pdf_Canvas_Interface
     /**
      * Translate coordination system.
      *
-     * @param float $x  - the X co-ordinate of axis skew point
-     * @param float $y  - the Y co-ordinate of axis skew point
+     * @param float $x - the X co-ordinate of axis skew point
+     * @param float $y - the Y co-ordinate of axis skew point
      * @param float $xAngle - X axis skew angle
      * @param float $yAngle - Y axis skew angle
      * @return Zend_Pdf_Canvas_Interface

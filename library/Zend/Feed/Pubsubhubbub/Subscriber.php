@@ -214,8 +214,8 @@ class Zend_Feed_Pubsubhubbub_Subscriber
         if (empty($url) || !is_string($url) || !Zend_Uri::check($url)) {
             require_once 'Zend/Feed/Pubsubhubbub/Exception.php';
             throw new Zend_Feed_Pubsubhubbub_Exception('Invalid parameter "url"'
-                .' of "' . $url . '" must be a non-empty string and a valid'
-                .' URL');
+                . ' of "' . $url . '" must be a non-empty string and a valid'
+                . ' URL');
         }
         $this->_topicUrl = $url;
         return $this;
@@ -314,7 +314,8 @@ class Zend_Feed_Pubsubhubbub_Subscriber
     public function setPreferredVerificationMode($mode)
     {
         if ($mode !== Zend_Feed_Pubsubhubbub::VERIFICATION_MODE_SYNC
-        && $mode !== Zend_Feed_Pubsubhubbub::VERIFICATION_MODE_ASYNC) {
+            && $mode !== Zend_Feed_Pubsubhubbub::VERIFICATION_MODE_ASYNC
+        ) {
             require_once 'Zend/Feed/Pubsubhubbub/Exception.php';
             throw new Zend_Feed_Pubsubhubbub_Exception('Invalid preferred'
                 . ' mode specified: "' . $mode . '" but should be one of'
@@ -624,7 +625,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber
     protected function _doRequest($mode)
     {
         $client = $this->_getHttpClient();
-        $hubs   = $this->getHubUrls();
+        $hubs = $this->getHubUrls();
         if (empty($hubs)) {
             require_once 'Zend/Feed/Pubsubhubbub/Exception.php';
             throw new Zend_Feed_Pubsubhubbub_Exception('No Hub Server URLs'
@@ -648,19 +649,19 @@ class Zend_Feed_Pubsubhubbub_Subscriber
             ) {
                 $this->_errors[] = array(
                     'response' => $response,
-                    'hubUrl'   => $url,
+                    'hubUrl' => $url,
                 );
-            /**
-             * At first I thought it was needed, but the backend storage will
-             * allow tracking async without any user interference. It's left
-             * here in case the user is interested in knowing what Hubs
-             * are using async verification modes so they may update Models and
-             * move these to asynchronous processes.
-             */
+                /**
+                 * At first I thought it was needed, but the backend storage will
+                 * allow tracking async without any user interference. It's left
+                 * here in case the user is interested in knowing what Hubs
+                 * are using async verification modes so they may update Models and
+                 * move these to asynchronous processes.
+                 */
             } elseif ($response->getStatus() == 202) {
                 $this->_asyncHubs[] = array(
                     'response' => $response,
-                    'hubUrl'   => $url,
+                    'hubUrl' => $url,
                 );
             }
         }
@@ -698,12 +699,12 @@ class Zend_Feed_Pubsubhubbub_Subscriber
         }
 
         $params = array(
-            'hub.mode'  => $mode,
+            'hub.mode' => $mode,
             'hub.topic' => $this->getTopicUrl(),
         );
 
         if ($this->getPreferredVerificationMode()
-                == Zend_Feed_Pubsubhubbub::VERIFICATION_MODE_SYNC
+            == Zend_Feed_Pubsubhubbub::VERIFICATION_MODE_SYNC
         ) {
             $vmodes = array(
                 Zend_Feed_Pubsubhubbub::VERIFICATION_MODE_SYNC,
@@ -716,7 +717,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber
             );
         }
         $params['hub.verify'] = array();
-        foreach($vmodes as $vmode) {
+        foreach ($vmodes as $vmode) {
             $params['hub.verify'][] = $vmode;
         }
 
@@ -724,7 +725,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber
          * Establish a persistent verify_token and attach key to callback
          * URL's path/querystring
          */
-        $key   = $this->_generateSubscriptionKey($params, $hubUrl);
+        $key = $this->_generateSubscriptionKey($params, $hubUrl);
         $token = $this->_generateVerifyToken();
         $params['hub.verify_token'] = $token;
 
@@ -754,14 +755,14 @@ class Zend_Feed_Pubsubhubbub_Subscriber
                 ->get('yyyy-MM-dd HH:mm:ss');
         }
         $data = array(
-            'id'                 => $key,
-            'topic_url'          => $params['hub.topic'],
-            'hub_url'            => $hubUrl,
-            'created_time'       => $now->get('yyyy-MM-dd HH:mm:ss'),
-            'lease_seconds'      => $expires,
-            'verify_token'       => hash('sha256', $params['hub.verify_token']),
-            'secret'             => null,
-            'expiration_time'    => $expires,
+            'id' => $key,
+            'topic_url' => $params['hub.topic'],
+            'hub_url' => $hubUrl,
+            'created_time' => $now->get('yyyy-MM-dd HH:mm:ss'),
+            'lease_seconds' => $expires,
+            'verify_token' => hash('sha256', $params['hub.verify_token']),
+            'secret' => null,
+            'expiration_time' => $expires,
             'subscription_state' => Zend_Feed_Pubsubhubbub::SUBSCRIPTION_NOTVERIFIED,
         );
         $this->getStorage()->setSubscription($data);
@@ -797,7 +798,7 @@ class Zend_Feed_Pubsubhubbub_Subscriber
     protected function _generateSubscriptionKey(array $params, $hubUrl)
     {
         $keyBase = $params['hub.topic'] . $hubUrl;
-        $key     = md5($keyBase);
+        $key = md5($keyBase);
         return $key;
     }
 
@@ -855,6 +856,6 @@ class Zend_Feed_Pubsubhubbub_Subscriber
 
     final public function setTestStaticToken($token)
     {
-        $this->_testStaticToken = (string) $token;
+        $this->_testStaticToken = (string)$token;
     }
 }

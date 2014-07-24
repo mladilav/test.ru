@@ -36,7 +36,7 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
     /**
      * Placement constants
      */
-    const APPEND  = 'APPEND';
+    const APPEND = 'APPEND';
     const PREPEND = 'PREPEND';
 
     /**
@@ -109,7 +109,7 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
      */
     public function setOption($key, $value)
     {
-        $this->_options[(string) $key] = $value;
+        $this->_options[(string)$key] = $value;
         return $this;
     }
 
@@ -121,7 +121,7 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
      */
     public function getOption($key)
     {
-        $key = (string) $key;
+        $key = (string)$key;
         if (isset($this->_options[$key])) {
             return $this->_options[$key];
         }
@@ -177,8 +177,8 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
     {
         if ((!$element instanceof Zend_Form_Element)
             && (!$element instanceof Zend_Form)
-            && (!$element instanceof Zend_Form_DisplayGroup))
-        {
+            && (!$element instanceof Zend_Form_DisplayGroup)
+        ) {
             require_once 'Zend/Form/Decorator/Exception.php';
             throw new Zend_Form_Decorator_Exception('Invalid element type passed to decorator');
         }
@@ -233,7 +233,7 @@ abstract class Zend_Form_Decorator_Abstract implements Zend_Form_Decorator_Inter
     {
         $separator = $this->_separator;
         if (null !== ($separatorOpt = $this->getOption('separator'))) {
-            $separator = $this->_separator = (string) $separatorOpt;
+            $separator = $this->_separator = (string)$separatorOpt;
             $this->removeOption('separator');
         }
         return $separator;

@@ -41,7 +41,7 @@ abstract class Zend_Cache
      * @var array
      */
     public static $standardBackends = array('File', 'Sqlite', 'Memcached', 'Libmemcached', 'Apc', 'ZendPlatform',
-                                            'Xcache', 'TwoLevels', 'WinCache', 'ZendServer_Disk', 'ZendServer_ShMem');
+        'Xcache', 'TwoLevels', 'WinCache', 'ZendServer_Disk', 'ZendServer_ShMem');
 
     /**
      * Standard backends which implement the ExtendedInterface
@@ -69,19 +69,19 @@ abstract class Zend_Cache
     /**
      * Consts for clean() method
      */
-    const CLEANING_MODE_ALL              = 'all';
-    const CLEANING_MODE_OLD              = 'old';
-    const CLEANING_MODE_MATCHING_TAG     = 'matchingTag';
+    const CLEANING_MODE_ALL = 'all';
+    const CLEANING_MODE_OLD = 'old';
+    const CLEANING_MODE_MATCHING_TAG = 'matchingTag';
     const CLEANING_MODE_NOT_MATCHING_TAG = 'notMatchingTag';
     const CLEANING_MODE_MATCHING_ANY_TAG = 'matchingAnyTag';
 
     /**
      * Factory
      *
-     * @param mixed  $frontend        frontend name (string) or Zend_Cache_Frontend_ object
-     * @param mixed  $backend         backend name (string) or Zend_Cache_Backend_ object
-     * @param array  $frontendOptions associative array of options for the corresponding frontend constructor
-     * @param array  $backendOptions  associative array of options for the corresponding backend constructor
+     * @param mixed $frontend frontend name (string) or Zend_Cache_Frontend_ object
+     * @param mixed $backend backend name (string) or Zend_Cache_Backend_ object
+     * @param array $frontendOptions associative array of options for the corresponding frontend constructor
+     * @param array $backendOptions associative array of options for the corresponding backend constructor
      * @param boolean $customFrontendNaming if true, the frontend argument is used as a complete class name ; if false, the frontend argument is used as the end of "Zend_Cache_Frontend_[...]" class name
      * @param boolean $customBackendNaming if true, the backend argument is used as a complete class name ; if false, the backend argument is used as the end of "Zend_Cache_Backend_[...]" class name
      * @param boolean $autoload if true, there will no require_once for backend and frontend (useful only for custom backends/frontends)
@@ -115,8 +115,8 @@ abstract class Zend_Cache
     /**
      * Backend Constructor
      *
-     * @param string  $backend
-     * @param array   $backendOptions
+     * @param string $backend
+     * @param array $backendOptions
      * @param boolean $customBackendNaming
      * @param boolean $autoload
      * @return Zend_Cache_Backend
@@ -124,7 +124,7 @@ abstract class Zend_Cache
     public static function _makeBackend($backend, $backendOptions, $customBackendNaming = false, $autoload = false)
     {
         if (!$customBackendNaming) {
-            $backend  = self::_normalizeName($backend);
+            $backend = self::_normalizeName($backend);
         }
         if (in_array($backend, Zend_Cache::$standardBackends)) {
             // we use a standard backend
@@ -156,8 +156,8 @@ abstract class Zend_Cache
     /**
      * Frontend Constructor
      *
-     * @param string  $frontend
-     * @param array   $frontendOptions
+     * @param string $frontend
+     * @param array $frontendOptions
      * @param boolean $customFrontendNaming
      * @param boolean $autoload
      * @return Zend_Cache_Core|Zend_Cache_Frontend
@@ -199,7 +199,7 @@ abstract class Zend_Cache
      * Throw an exception
      *
      * Note : for perf reasons, the "load" of Zend/Cache/Exception is dynamic
-     * @param  string $msg  Message for the exception
+     * @param  string $msg Message for the exception
      * @throws Zend_Cache_Exception
      */
     public static function throwException($msg, Exception $e = null)
@@ -212,7 +212,7 @@ abstract class Zend_Cache
     /**
      * Normalize frontend and backend names to allow multiple words TitleCased
      *
-     * @param  string $name  Name to normalize
+     * @param  string $name Name to normalize
      * @return string
      */
     protected static function _normalizeName($name)
@@ -235,7 +235,7 @@ abstract class Zend_Cache
      *
      * Note : this method comes from Zend_Loader (see #ZF-2891 for details)
      *
-     * @param string   $filename
+     * @param string $filename
      * @return boolean
      */
     private static function _isReadable($filename)

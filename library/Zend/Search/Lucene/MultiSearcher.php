@@ -25,7 +25,7 @@ require_once 'Zend/Search/Lucene/Interface.php';
 
 /**
  * Import Zend_Search_Lucene_Interface_MultiSearcher for BC (see ZF-12067)
- * @see Zend_Search_Lucene_Interface_MultiSearcher 
+ * @see Zend_Search_Lucene_Interface_MultiSearcher
  */
 require_once 'Zend/Search/Lucene/Interface/MultiSearcher.php';
 
@@ -50,7 +50,7 @@ class Zend_Search_Lucene_MultiSearcher implements Zend_Search_Lucene_Interface
     /**
      * Object constructor.
      *
-     * @param array $indices   Arrays of indices for search
+     * @param array $indices Arrays of indices for search
      * @throws Zend_Search_Lucene_Exception
      */
     public function __construct($indices = array())
@@ -804,7 +804,7 @@ class Zend_Search_Lucene_MultiSearcher implements Zend_Search_Lucene_Interface
      */
     public function setDocumentDistributorCallback($callback)
     {
-        if ($callback !== null  &&  !is_callable($callback)) {
+        if ($callback !== null && !is_callable($callback)) {
             require_once 'Zend/Search/Lucene/Exception.php';
             throw new Zend_Search_Lucene_Exception('$callback parameter must be a valid callback.');
         }

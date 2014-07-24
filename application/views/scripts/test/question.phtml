@@ -1,0 +1,58 @@
+<?php
+echo $this->errMessage;
+echo '<h3>';
+if($this->lang == "ua") echo 'Питання'; else echo 'Вопрос';
+echo ' №'.$this->questionNumber.'</h3>';
+echo '<h4>'.$this->question.'</h4>';
+echo $this->capture; ?>
+
+<?php if ($this->type == 0) {?>
+<table class="table table-bordered">
+    <tr><td> А: <?php echo $this->answer['0'];?> </td></tr>
+    <tr><td> Б: <?php echo $this->answer['1'];?> </td></tr>
+    <tr><td> В: <?php echo $this->answer['2'];?> </td></tr>
+    <tr><td> Г: <?php echo $this->answer['3'];?> </td></tr>
+</table>
+<?php } ?>
+
+
+<?php if ($this->type == 2) {?>
+ <table class="table table-bordered">
+     <tr>
+         <td>1: <?php echo $this->answer['1'];?></td>
+         <td>A: <?php echo $this->answer['A'];?></td>
+     </tr>
+     <tr>
+         <td>2: <?php echo $this->answer['2'];?></td>
+         <td>Б: <?php echo $this->answer['B'];?></td>
+     </tr>
+     <tr>
+         <td>3: <?php echo $this->answer['3'];?></td>
+         <td>В: <?php echo $this->answer['C'];?></td>
+     </tr>
+     <tr>
+         <td>4: <?php echo $this->answer['4'];?></td>
+         <td>Г: <?php echo $this->answer['D'];?></td>
+     </tr>
+     <tr>
+         <td></td>
+         <td>Д: <?php echo $this->answer['E'];?></td>
+     </tr>
+     </table>
+<?php } ?>
+
+<?php if ($this->type == 3) {?>
+    <table class="table table-bordered">
+
+        <tr><td> 1: <?php echo $this->answer['1'];?> </td></tr>
+        <tr><td> 2: <?php echo $this->answer['2'];?> </td></tr>
+        <tr><td> 3: <?php echo $this->answer['3'];?> </td></tr>
+        <tr><td> 4: <?php echo $this->answer['4'];?> </td></tr>
+        <tr><td> 5: <?php echo $this->answer['5'];?> </td></tr>
+        <tr><td> 6: <?php echo $this->answer['6'];?> </td></tr>
+    </table>
+<?php } ?>
+
+
+<?php echo $this->form; ?>
+

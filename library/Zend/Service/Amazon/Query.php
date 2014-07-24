@@ -55,7 +55,7 @@ class Zend_Service_Amazon_Query extends Zend_Service_Amazon
      * Prepares query parameters
      *
      * @param  string $method
-     * @param  array  $args
+     * @param  array $args
      * @throws Zend_Service_Exception
      * @return Zend_Service_Amazon_Query Provides a fluent interface
      */

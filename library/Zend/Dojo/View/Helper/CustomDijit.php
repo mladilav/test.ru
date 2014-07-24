@@ -31,7 +31,7 @@ require_once 'Zend/Dojo/View/Helper/DijitContainer.php';
  * @subpackage View
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
-  */
+ */
 class Zend_Dojo_View_Helper_CustomDijit extends Zend_Dojo_View_Helper_DijitContainer
 {
     /**
@@ -64,11 +64,11 @@ class Zend_Dojo_View_Helper_CustomDijit extends Zend_Dojo_View_Helper_DijitConta
             require_once 'Zend/Dojo/View/Exception.php';
             throw new Zend_Dojo_View_Exception('No dojoType specified; cannot create dijit');
         } elseif (array_key_exists('dojoType', $params)) {
-            $this->_dijit  = $params['dojoType'];
+            $this->_dijit = $params['dojoType'];
             $this->_module = $params['dojoType'];
             unset($params['dojoType']);
         } else {
-            $this->_dijit  = $this->_defaultDojoType;
+            $this->_dijit = $this->_defaultDojoType;
             $this->_module = $this->_defaultDojoType;
         }
 
@@ -99,11 +99,11 @@ class Zend_Dojo_View_Helper_CustomDijit extends Zend_Dojo_View_Helper_DijitConta
             require_once 'Zend/Dojo/View/Exception.php';
             throw new Zend_Dojo_View_Exception('No dojoType specified; cannot create dijit');
         } elseif (array_key_exists('dojoType', $params)) {
-            $this->_dijit  = $params['dojoType'];
+            $this->_dijit = $params['dojoType'];
             $this->_module = $params['dojoType'];
             unset($params['dojoType']);
         } else {
-            $this->_dijit  = $this->_defaultDojoType;
+            $this->_dijit = $this->_defaultDojoType;
             $this->_module = $this->_defaultDojoType;
         }
 

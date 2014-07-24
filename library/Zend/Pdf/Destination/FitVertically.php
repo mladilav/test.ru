@@ -49,8 +49,8 @@ class Zend_Pdf_Destination_FitVertically extends Zend_Pdf_Destination_Explicit
     /**
      * Create destination object
      *
-     * @param Zend_Pdf_Page|integer $page  Page object or page number
-     * @param float $left  Left edge of displayed page
+     * @param Zend_Pdf_Page|integer $page Page object or page number
+     * @param float $left Left edge of displayed page
      * @return Zend_Pdf_Destination_FitVertically
      * @throws Zend_Pdf_Exception
      */

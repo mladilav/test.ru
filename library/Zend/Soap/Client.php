@@ -71,24 +71,24 @@ class Zend_Soap_Client
     protected $_soapVersion = SOAP_1_2;
 
     /** Set of other SoapClient options */
-    protected $_uri                 = null;
-    protected $_location            = null;
-    protected $_style               = null;
-    protected $_use                 = null;
-    protected $_login               = null;
-    protected $_password            = null;
-    protected $_proxy_host          = null;
-    protected $_proxy_port          = null;
-    protected $_proxy_login         = null;
-    protected $_proxy_password      = null;
-    protected $_local_cert          = null;
-    protected $_passphrase          = null;
-    protected $_compression         = null;
-    protected $_connection_timeout  = null;
-    protected $_stream_context      = null;
-    protected $_features            = null;
-    protected $_cache_wsdl          = null;
-    protected $_user_agent          = null;
+    protected $_uri = null;
+    protected $_location = null;
+    protected $_style = null;
+    protected $_use = null;
+    protected $_login = null;
+    protected $_password = null;
+    protected $_proxy_host = null;
+    protected $_proxy_port = null;
+    protected $_proxy_login = null;
+    protected $_proxy_password = null;
+    protected $_local_cert = null;
+    protected $_passphrase = null;
+    protected $_compression = null;
+    protected $_connection_timeout = null;
+    protected $_stream_context = null;
+    protected $_features = null;
+    protected $_cache_wsdl = null;
+    protected $_user_agent = null;
 
     /**
      * WSDL used to access server
@@ -195,7 +195,7 @@ class Zend_Soap_Client
      */
     public function setOptions($options)
     {
-        if($options instanceof Zend_Config) {
+        if ($options instanceof Zend_Config) {
             $options = $options->toArray();
         }
 
@@ -293,28 +293,28 @@ class Zend_Soap_Client
     {
         $options = array();
 
-        $options['classmap']       = $this->getClassmap();
-        $options['encoding']       = $this->getEncoding();
-        $options['soap_version']   = $this->getSoapVersion();
-        $options['wsdl']           = $this->getWsdl();
-        $options['uri']            = $this->getUri();
-        $options['location']       = $this->getLocation();
-        $options['style']          = $this->getStyle();
-        $options['use']            = $this->getEncodingMethod();
-        $options['login']          = $this->getHttpLogin();
-        $options['password']       = $this->getHttpPassword();
-        $options['proxy_host']     = $this->getProxyHost();
-        $options['proxy_port']     = $this->getProxyPort();
-        $options['proxy_login']    = $this->getProxyLogin();
+        $options['classmap'] = $this->getClassmap();
+        $options['encoding'] = $this->getEncoding();
+        $options['soap_version'] = $this->getSoapVersion();
+        $options['wsdl'] = $this->getWsdl();
+        $options['uri'] = $this->getUri();
+        $options['location'] = $this->getLocation();
+        $options['style'] = $this->getStyle();
+        $options['use'] = $this->getEncodingMethod();
+        $options['login'] = $this->getHttpLogin();
+        $options['password'] = $this->getHttpPassword();
+        $options['proxy_host'] = $this->getProxyHost();
+        $options['proxy_port'] = $this->getProxyPort();
+        $options['proxy_login'] = $this->getProxyLogin();
         $options['proxy_password'] = $this->getProxyPassword();
-        $options['local_cert']     = $this->getHttpsCertificate();
-        $options['passphrase']     = $this->getHttpsCertPassphrase();
-        $options['compression']    = $this->getCompressionOptions();
+        $options['local_cert'] = $this->getHttpsCertificate();
+        $options['passphrase'] = $this->getHttpsCertPassphrase();
+        $options['compression'] = $this->getCompressionOptions();
         //$options['connection_timeout'] = $this->_connection_timeout;
         $options['stream_context'] = $this->getStreamContext();
-        $options['cache_wsdl']     = $this->getWsdlCache();
-        $options['features']       = $this->getSoapFeatures();
-        $options['user_agent']     = $this->getUserAgent();
+        $options['cache_wsdl'] = $this->getWsdlCache();
+        $options['features'] = $this->getSoapFeatures();
+        $options['user_agent'] = $this->getUserAgent();
 
         foreach ($options as $key => $value) {
             /*
@@ -808,7 +808,7 @@ class Zend_Soap_Client
      */
     public function setStreamContext($context)
     {
-        if(!is_resource($context) || get_resource_type($context) !== "stream-context") {
+        if (!is_resource($context) || get_resource_type($context) !== "stream-context") {
             /**
              * @see Zend_Soap_Client_Exception
              */
@@ -984,17 +984,17 @@ class Zend_Soap_Client
      * @param string $request
      * @param string $location
      * @param string $action
-     * @param int    $version
-     * @param int    $one_way
+     * @param int $version
+     * @param int $one_way
      * @return mixed
      */
     public function _doRequest(Zend_Soap_Client_Common $client, $request, $location, $action, $version, $one_way = null)
     {
         // Perform request as is
         if ($one_way == null) {
-            return call_user_func(array($client,'SoapClient::__doRequest'), $request, $location, $action, $version);
+            return call_user_func(array($client, 'SoapClient::__doRequest'), $request, $location, $action, $version);
         } else {
-            return call_user_func(array($client,'SoapClient::__doRequest'), $request, $location, $action, $version, $one_way);
+            return call_user_func(array($client, 'SoapClient::__doRequest'), $request, $location, $action, $version, $one_way);
         }
     }
 
@@ -1104,7 +1104,7 @@ class Zend_Soap_Client
      * Perform a SOAP call
      *
      * @param string $name
-     * @param array  $arguments
+     * @param array $arguments
      * @return mixed
      */
     public function __call($name, $arguments)
@@ -1115,10 +1115,10 @@ class Zend_Soap_Client
 
         $soapHeaders = array_merge($this->_permanentSoapInputHeaders, $this->_soapInputHeaders);
         $result = $soapClient->__soapCall($name,
-                                                 $this->_preProcessArguments($arguments),
-                                                 null, /* Options are already set to the SOAP client object */
-                                                 (count($soapHeaders) > 0)? $soapHeaders : null,
-                                                 $this->_soapOutputHeaders);
+            $this->_preProcessArguments($arguments),
+            null, /* Options are already set to the SOAP client object */
+            (count($soapHeaders) > 0) ? $soapHeaders : null,
+            $this->_soapOutputHeaders);
 
         // Reset non-permanent input headers
         $this->_soapInputHeaders = array();
@@ -1195,7 +1195,7 @@ class Zend_Soap_Client
      * @param string $value
      * @return Zend_Soap_Client
      */
-    public function setCookie($cookieName, $cookieValue=null)
+    public function setCookie($cookieName, $cookieValue = null)
     {
         $soapClient = $this->getSoapClient();
         $soapClient->__setCookie($cookieName, $cookieValue);

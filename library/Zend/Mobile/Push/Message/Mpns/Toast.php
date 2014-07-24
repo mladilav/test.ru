@@ -167,7 +167,8 @@ class Zend_Mobile_Push_Message_Mpns_Toast extends Zend_Mobile_Push_Message_Mpns
             self::DELAY_IMMEDIATE,
             self::DELAY_450S,
             self::DELAY_900S
-        ))) {
+        ))
+        ) {
             throw new Zend_Mobile_Push_Message_Exception('$delay must be one of the DELAY_* constants');
         }
         $this->_delay = $delay;

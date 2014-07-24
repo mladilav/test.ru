@@ -1,19 +1,16 @@
 <?php
 // Создаём заголовок страницы, который загрузится в layout
+if($this->lang == "ua") $this->title = "Категорії"; else
 $this->title = "Категории";
 $this->headTitle($this->title);
 ?>
-<p><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'addcat')); ?>">Добавить категорию</a></p>
-<table>
-    <tr>
-        <th>Название</th>
-        <th>UserId</th>
-        <th>PartId</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <?php
-    // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
-    echo $this->partialLoop('/partials/categories.phtml', $this->categories);
-    ?>
-</table>
+
+<?php
+if($this->lang == "ua")
+    echo $this->partialLoop('/partials/postsUa.phtml', $this->post);
+else
+echo $this->partialLoop('/partials/posts.phtml', $this->post);
+?>
+
+
+

@@ -1,18 +1,46 @@
-<h1> Пользователь:
-    <?= Zend_Auth::getInstance()->getIdentity()->username; ?></h1>
-<img src="<?= Zend_Auth::getInstance()->getIdentity()->photo; ?>" width="150px" height="150px">
+
+
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="/user/profile"><?php if($this->lang == "ua") echo 'Особистий кабінет'; else echo 'Личный кабинет';?></a>
+    </li>
+    <li><a href="/user/messege"><?php if($this->lang == "ua") echo 'Повідомлення'; else echo 'Сообщения';?></a></li>
+    <li><a href="/user/messegesend"><?php if($this->lang == "ua") echo 'Надіслати повідомлення'; else echo 'Отправить сообщение';?></a></li>
+</ul><div class="profile">
+<h4 class="text-success"><?php if($this->lang == "ua") echo 'Коротка інформація:'; else echo 'Краткая информация:';?> </h4>
+<img src="<?php  if($this->user['photo'] == NULL)
+                    echo "/img/profile.png";
+                else echo $this->user['photo']?>" width="120px" height="120px" align="left" style="padding: 20px;">
 <ul>
-    <li><b>Email:</b><?= Zend_Auth::getInstance()->getIdentity()->email; ?></li>
-    <li><b>Gender: </b><?= Zend_Auth::getInstance()->getIdentity()->gender; ?></li>
-    <li><b>Group: </b><?= Zend_Auth::getInstance()->getIdentity()->group; ?></li>
-    <li><b>Role: </b><?= Zend_Auth::getInstance()->getIdentity()->role; ?></li>
-    <li><b>VK: </b><?php if (Zend_Auth::getInstance()->getIdentity()->vk != 0) echo 'yes'; else { ?>
-            <a href="/regauth/vk">bind</a>
+    <li><b>Email:</b><?= $this->user['email']; ?></li>
+    <li><b>Gender: </b><?= $this->user['gender']; ?></li>
+    <li><b>Group: </b><?= $this->user['group']; ?></li>
+    <li><b>Role: </b><?= $this->user['role']; ?></li>
+    <li><b>VK: </b><?php if ($this->user['vk'] != 0) echo 'yes'; else { ?>
+            <a href="/auth/regvk">bind</a>
         <?php }; ?></li>
-    <li><b>FC: </b><?php if (Zend_Auth::getInstance()->getIdentity()->fc != 0) echo 'yes'; else { ?>
+    <li><b>FC: </b><?php if ($this->user['fc'] != 0) echo 'yes'; else { ?>
             <a href="/auth/regfc">bind</a>
         <?php }; ?></li>
-    <li><b>TW: </b><?php if (Zend_Auth::getInstance()->getIdentity()->tw != 0) echo 'yes'; else { ?>
+    <li><b>TW: </b><?php if ($this->user['tw'] != 0) echo 'yes'; else { ?>
             <a href="/auth/regtw">bind</a>
         <?php }; ?></li>
-</ul>
+</ul><hr>
+<?php if (Zend_Auth::getInstance()->getIdentity()->id == $this->user['id']){ ?>
+    <h4 class="text-success"><img src="/img/profile-result.png">
+        <?php if($this->lang == "ua") echo 'Мої результати:'; else echo 'Мои результаты:';?> </h4>
+<table class="table table-condensed">
+    <tr>
+        <th><?php if($this->lang == "ua") echo 'Користувач:'; else echo 'Пользователь:';?></th>
+        <th><?php if($this->lang == "ua") echo 'Група:'; else echo 'Группа:';?></th>
+        <th><?php if($this->lang == "ua") echo 'Тест:'; else echo 'Тест:';?></th>
+        <th>Дата</th>
+        <th><?php if($this->lang == "ua") echo 'Кількість балів:'; else echo 'Количество баллов:';?></th>
+        <th><?php if($this->lang == "ua") echo 'Витрачений час:'; else echo 'Затраченное время:';?></th>
+    </tr>
+<?php
+// Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+echo $this->partialLoop('/partials/results.phtml', $this->results);
+?></table>
+<?php }?>
+</div>

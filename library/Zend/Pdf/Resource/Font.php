@@ -49,7 +49,7 @@ require_once 'Zend/Pdf/Font.php';
  */
 abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
 {
-  /**** Instance Variables ****/
+    /**** Instance Variables ****/
 
 
     /**
@@ -132,10 +132,10 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
 
 
 
-  /**** Public Interface ****/
+    /**** Public Interface ****/
 
 
-  /* Object Lifecycle */
+    /* Object Lifecycle */
 
     /**
      * Object constructor.
@@ -148,7 +148,7 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
     }
 
 
-  /* Object Magic Methods */
+    /* Object Magic Methods */
 
     /**
      * Returns the full name of the font in the encoding method of the current
@@ -163,7 +163,7 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
     }
 
 
-  /* Accessors */
+    /* Accessors */
 
     /**
      * Returns the type of font.
@@ -223,7 +223,7 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
      */
     public function getFontName($nameType, $language, $characterSet = null)
     {
-        if (! isset($this->_fontNames[$nameType])) {
+        if (!isset($this->_fontNames[$nameType])) {
             return null;
         }
         $name = null;
@@ -243,7 +243,7 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
          */
         if ($name === null) {
             $names = $this->_fontNames[$nameType];
-            $name  = reset($names);
+            $name = reset($names);
         }
         /* Convert the character set if requested.
          */
@@ -411,7 +411,7 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
     }
 
 
-  /* Information and Conversion Methods */
+    /* Information and Conversion Methods */
 
     /**
      * Returns an array of glyph numbers corresponding to the Unicode characters.
@@ -509,7 +509,7 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
 
 
 
-  /**** Internal Methods ****/
+    /**** Internal Methods ****/
 
 
     /**
@@ -524,7 +524,7 @@ abstract class Zend_Pdf_Resource_Font extends Zend_Pdf_Resource
         if ($this->_unitsPerEm == 1000) {
             return $value;
         }
-        return ceil(($value / $this->_unitsPerEm) * 1000);    // always round up
+        return ceil(($value / $this->_unitsPerEm) * 1000); // always round up
     }
 }
 

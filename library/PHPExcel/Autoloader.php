@@ -49,30 +49,32 @@ class PHPExcel_Autoloader
      * Register the Autoloader with SPL
      *
      */
-    public static function Register() {
+    public static function Register()
+    {
         if (function_exists('__autoload')) {
             //    Register any existing autoloader function with SPL, so we don't get any clashes
             spl_autoload_register('__autoload');
         }
         //    Register ourselves with SPL
         return spl_autoload_register(array('PHPExcel_Autoloader', 'Load'));
-    }   //    function Register()
+    } //    function Register()
 
 
     /**
      * Autoload a class identified by name
      *
-     * @param    string    $pClassName        Name of the object to load
+     * @param    string $pClassName Name of the object to load
      */
-    public static function Load($pClassName){
-        if ((class_exists($pClassName,FALSE)) || (strpos($pClassName, 'PHPExcel') !== 0)) {
+    public static function Load($pClassName)
+    {
+        if ((class_exists($pClassName, FALSE)) || (strpos($pClassName, 'PHPExcel') !== 0)) {
             //    Either already loaded, or not a PHPExcel class request
             return FALSE;
         }
 
         $pClassFilePath = PHPEXCEL_ROOT .
-                          str_replace('_',DIRECTORY_SEPARATOR,$pClassName) .
-                          '.php';
+            str_replace('_', DIRECTORY_SEPARATOR, $pClassName) .
+            '.php';
 
         if ((file_exists($pClassFilePath) === FALSE) || (is_readable($pClassFilePath) === FALSE)) {
             //    Can't load
@@ -80,6 +82,6 @@ class PHPExcel_Autoloader
         }
 
         require($pClassFilePath);
-    }   //    function Load()
+    } //    function Load()
 
 }

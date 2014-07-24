@@ -51,10 +51,10 @@ class Zend_Pdf_Destination_Zoom extends Zend_Pdf_Destination_Explicit
     /**
      * Create destination object
      *
-     * @param Zend_Pdf_Page|integer $page  Page object or page number
-     * @param float $left  Left edge of displayed page
-     * @param float $top   Top edge of displayed page
-     * @param float $zoom  Zoom factor
+     * @param Zend_Pdf_Page|integer $page Page object or page number
+     * @param float $left Left edge of displayed page
+     * @param float $top Top edge of displayed page
+     * @param float $zoom Zoom factor
      * @return Zend_Pdf_Destination_Zoom
      * @throws Zend_Pdf_Exception
      */

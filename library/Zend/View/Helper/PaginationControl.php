@@ -119,7 +119,7 @@ class Zend_View_Helper_PaginationControl
         $pages = get_object_vars($paginator->getPages($scrollingStyle));
 
         if ($params !== null) {
-            $pages = array_merge($pages, (array) $params);
+            $pages = array_merge($pages, (array)$params);
         }
 
         if (is_array($partial)) {

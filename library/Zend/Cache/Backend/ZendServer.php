@@ -51,9 +51,9 @@ abstract class Zend_Cache_Backend_ZendServer extends Zend_Cache_Backend implemen
     /**
      * Store data
      *
-     * @param mixed  $data        Object to store
-     * @param string $id          Cache id
-     * @param int    $timeToLive  Time to live in seconds
+     * @param mixed $data Object to store
+     * @param string $id Cache id
+     * @param int $timeToLive Time to live in seconds
      * @throws Zend_Cache_Exception
      */
     abstract protected function _store($data, $id, $timeToLive);
@@ -61,7 +61,7 @@ abstract class Zend_Cache_Backend_ZendServer extends Zend_Cache_Backend implemen
     /**
      * Fetch data
      *
-     * @param string $id          Cache id
+     * @param string $id Cache id
      * @throws Zend_Cache_Exception
      */
     abstract protected function _fetch($id);
@@ -69,7 +69,7 @@ abstract class Zend_Cache_Backend_ZendServer extends Zend_Cache_Backend implemen
     /**
      * Unset data
      *
-     * @param string $id          Cache id
+     * @param string $id Cache id
      */
     abstract protected function _unset($id);
 
@@ -81,7 +81,7 @@ abstract class Zend_Cache_Backend_ZendServer extends Zend_Cache_Backend implemen
     /**
      * Test if a cache is available for the given id and (if yes) return it (false else)
      *
-     * @param  string  $id                     cache id
+     * @param  string $id cache id
      * @param  boolean $doNotTestCacheValidity if set to true, the cache validity won't be tested
      * @return string cached datas (or false)
      */
@@ -106,7 +106,7 @@ abstract class Zend_Cache_Backend_ZendServer extends Zend_Cache_Backend implemen
         $tmp = $this->_fetch('internal-metadatas---' . $id);
         if ($tmp !== false) {
             if (!is_array($tmp) || !isset($tmp['mtime'])) {
-                Zend_Cache::throwException('Cache metadata for \'' . $id . '\' id is corrupted' );
+                Zend_Cache::throwException('Cache metadata for \'' . $id . '\' id is corrupted');
             }
             return $tmp['mtime'];
         }
@@ -150,8 +150,8 @@ abstract class Zend_Cache_Backend_ZendServer extends Zend_Cache_Backend implemen
             $this->_log('Zend_Cache_Backend_ZendServer::save() : tags are unsupported by the ZendServer backends');
         }
 
-        return  $this->_store($data, $id, $lifetime) &&
-                $this->_store($metadatas, 'internal-metadatas---' . $id, $lifetime);
+        return $this->_store($data, $id, $lifetime) &&
+        $this->_store($metadatas, 'internal-metadatas---' . $id, $lifetime);
     }
 
     /**
@@ -179,7 +179,7 @@ abstract class Zend_Cache_Backend_ZendServer extends Zend_Cache_Backend implemen
      * 'matchingAnyTag' => unsupported
      *
      * @param  string $mode clean mode
-     * @param  array  $tags array of tags
+     * @param  array $tags array of tags
      * @throws Zend_Cache_Exception
      * @return boolean true if no problem
      */

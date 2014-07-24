@@ -114,9 +114,9 @@ class Zend_Mail_Protocol_Smtp extends Zend_Mail_Protocol_Abstract
     /**
      * Constructor.
      *
-     * @param  string  $host
+     * @param  string $host
      * @param  integer $port
-     * @param  array   $config
+     * @param  array $config
      * @return void
      * @throws Zend_Mail_Protocol_Exception
      */
@@ -164,7 +164,7 @@ class Zend_Mail_Protocol_Smtp extends Zend_Mail_Protocol_Abstract
      */
     public function connect()
     {
-        return $this->_connect($this->_transport . '://' . $this->_host . ':'. $this->_port);
+        return $this->_connect($this->_transport . '://' . $this->_host . ':' . $this->_port);
     }
 
 

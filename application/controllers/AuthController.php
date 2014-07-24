@@ -5,7 +5,27 @@ class AuthController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+        $array = array();
+        $category = new Application_Model_Category($array);
+        $menu= new Application_Model_Menu();
+        $test= new Application_Model_Tests($array);
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if(!$lang){
+            $lang = "ru";
+        }
+        if($lang == "ua"){
+            $this->view->layout()->category = $category->getUaCategory();
+            $this->view->layout()->auth = $menu->getAuthUa();
+            $this->view->layout()->menu = $menu->getUaMenu();
+            $this->view->layout()->test = $test->getUaTests();
+        }
+        else {
+            $this->view->layout()->category = $category->getCategory();
+            $this->view->layout()->auth = $menu->getAuth();
+            $this->view->layout()->menu = $menu->getMenu();
+            $this->view->layout()->test = $test->getTests();
+        }
     }
 
     public function indexAction()
@@ -23,6 +43,12 @@ class AuthController extends Zend_Controller_Action
 
         // создаём форму и передаём её во view
         $form = new Application_Form_Login();
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $form->username->setLabel("Логін:");
+            $form->login->setLabel("Увійти в систему");
+        }
         $this->view->form = $form;
 
         // Если к нам идёт Post запрос
@@ -100,6 +126,14 @@ class AuthController extends Zend_Controller_Action
 
         // создаём форму и передаём её во view
         $form = new Application_Form_Registration();
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if ($lang == "ua") {
+            $form->username->setLabel("Логін:");
+            $form->password_rep->setLabel("Повторіть пароль:");
+            $form->gender->setLabel("Стать:");
+            $form->registration->setLabel("Зареєструватися");
+        }
         $this->view->form = $form;
 
 
@@ -218,10 +252,10 @@ class AuthController extends Zend_Controller_Action
 
 
                 // Вызываем метод модели addMovie для вставки новой записи
-                $user->addUsers($username, $password, $password_rep, $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw);
+                $user->addUsers($username, md5($password), md5($password_rep), $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw);
 
                 // Используем библиотечный helper для редиректа на action = index
-                $this->authreg($username, $password);
+                $this->authreg($username, md5($password));
 
             } else {
                 // Если форма заполнена неверно,

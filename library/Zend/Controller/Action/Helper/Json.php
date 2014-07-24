@@ -50,7 +50,7 @@ class Zend_Controller_Action_Helper_Json extends Zend_Controller_Action_Helper_A
      * 'application/json', and disables layouts and viewRenderer (if being
      * used).
      *
-     * @param  mixed   $data
+     * @param  mixed $data
      * @param  boolean $keepLayouts
      * @param  boolean|array $keepLayouts
      * @param  boolean $encodeData Provided data is already JSON
@@ -86,7 +86,7 @@ class Zend_Controller_Action_Helper_Json extends Zend_Controller_Action_Helper_A
     /**
      * Encode JSON response and immediately send
      *
-     * @param  mixed   $data
+     * @param  mixed $data
      * @param  boolean|array $keepLayouts
      * @param  $encodeData Encode $data as JSON?
      * NOTE:   if boolean, establish $keepLayouts to true|false
@@ -117,7 +117,7 @@ class Zend_Controller_Action_Helper_Json extends Zend_Controller_Action_Helper_A
      * Allows encoding JSON. If $sendNow is true, immediately sends JSON
      * response.
      *
-     * @param  mixed   $data
+     * @param  mixed $data
      * @param  boolean $sendNow
      * @param  boolean $keepLayouts
      * @param  boolean $encodeData Encode $data as JSON?

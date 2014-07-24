@@ -96,7 +96,7 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
                 $response = $client->request('DELETE');
             }
             $httpStatus = $response->getStatus();
-            switch ((int) $httpStatus / 100) {
+            switch ((int)$httpStatus / 100) {
                 // Success
                 case 2:
                     return true;
@@ -189,7 +189,7 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
                  */
                 require_once 'Zend/Feed/Exception.php';
                 throw new Zend_Feed_Exception('Expected response code 201, got '
-                                              . $response->getStatus());
+                    . $response->getStatus());
             }
         }
 
@@ -223,7 +223,7 @@ class Zend_Feed_Entry_Atom extends Zend_Feed_Entry_Abstract
              */
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('No root <feed> element found in server response:'
-                                          . "\n\n" . $client->responseBody);
+                . "\n\n" . $client->responseBody);
         }
 
         if ($this->_element->parentNode) {

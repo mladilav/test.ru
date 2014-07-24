@@ -39,8 +39,8 @@ class Zend_Filter_Word_SeparatorToSeparator extends Zend_Filter_PregReplace
     /**
      * Constructor
      *
-     * @param  string  $searchSeparator      Seperator to search for
-     * @param  string  $replacementSeperator Seperator to replace with
+     * @param  string $searchSeparator Seperator to search for
+     * @param  string $replacementSeperator Seperator to replace with
      * @return void
      */
     public function __construct($searchSeparator = ' ', $replacementSeparator = '-')
@@ -52,7 +52,7 @@ class Zend_Filter_Word_SeparatorToSeparator extends Zend_Filter_PregReplace
     /**
      * Sets a new seperator to search for
      *
-     * @param  string  $separator  Seperator to search for
+     * @param  string $separator Seperator to search for
      * @return $this
      */
     public function setSearchSeparator($separator)
@@ -74,7 +74,7 @@ class Zend_Filter_Word_SeparatorToSeparator extends Zend_Filter_PregReplace
     /**
      * Sets a new seperator which replaces the searched one
      *
-     * @param  string  $separator  Seperator which replaces the searched one
+     * @param  string $separator Seperator which replaces the searched one
      * @return $this
      */
     public function setReplacementSeparator($separator)

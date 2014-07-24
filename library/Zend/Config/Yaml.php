@@ -67,7 +67,7 @@ class Zend_Config_Yaml extends Zend_Config
      */
     public static function setIgnoreConstants($flag)
     {
-        self::$_ignoreConstants = (bool) $flag;
+        self::$_ignoreConstants = (bool)$flag;
     }
 
     /**
@@ -124,8 +124,8 @@ class Zend_Config_Yaml extends Zend_Config
      * - skip_extends: whether or not to skip processing of parent configuration
      * - yaml_decoder: a callback to use to decode the Yaml source
      *
-     * @param  string        $yaml     YAML file to process
-     * @param  mixed         $section  Section to process
+     * @param  string $yaml YAML file to process
+     * @param  mixed $section Section to process
      * @param  array|boolean $options
      */
     public function __construct($yaml, $section = null, $options = false)
@@ -135,7 +135,7 @@ class Zend_Config_Yaml extends Zend_Config
             throw new Zend_Config_Exception('Filename is not set');
         }
 
-        $ignoreConstants    = $staticIgnoreConstants = self::ignoreConstants();
+        $ignoreConstants = $staticIgnoreConstants = self::ignoreConstants();
         $allowModifications = false;
         if (is_bool($options)) {
             $allowModifications = $options;
@@ -144,15 +144,15 @@ class Zend_Config_Yaml extends Zend_Config
                 switch (strtolower($key)) {
                     case 'allow_modifications':
                     case 'allowmodifications':
-                        $allowModifications = (bool) $value;
+                        $allowModifications = (bool)$value;
                         break;
                     case 'skip_extends':
                     case 'skipextends':
-                        $this->_skipExtends = (bool) $value;
+                        $this->_skipExtends = (bool)$value;
                         break;
                     case 'ignore_constants':
                     case 'ignoreconstants':
-                        $ignoreConstants = (bool) $value;
+                        $ignoreConstants = (bool)$value;
                         break;
                     case 'yaml_decoder':
                     case 'yamldecoder':
@@ -202,7 +202,7 @@ class Zend_Config_Yaml extends Zend_Config
                 if (!isset($config[$sectionName])) {
                     require_once 'Zend/Config/Exception.php';
                     throw new Zend_Config_Exception(sprintf(
-                        'Section "%s" cannot be found', 
+                        'Section "%s" cannot be found',
                         implode(' ', (array)$section)
                     ));
                 }
@@ -214,7 +214,7 @@ class Zend_Config_Yaml extends Zend_Config
             if (!isset($config[$section])) {
                 require_once 'Zend/Config/Exception.php';
                 throw new Zend_Config_Exception(sprintf(
-                    'Section "%s" cannot be found', 
+                    'Section "%s" cannot be found',
                     implode(' ', (array)$section)
                 ));
             }
@@ -234,9 +234,9 @@ class Zend_Config_Yaml extends Zend_Config
      * Helper function to process each element in the section and handle
      * the "_extends" inheritance attribute.
      *
-     * @param  array            $data Data array to process
-     * @param  string           $section Section to process
-     * @param  array            $config  Configuration which was parsed yet
+     * @param  array $data Data array to process
+     * @param  string $section Section to process
+     * @param  array $config Configuration which was parsed yet
      * @return array
      * @throws Zend_Config_Exception When $section cannot be found
      */
@@ -247,7 +247,7 @@ class Zend_Config_Yaml extends Zend_Config
             throw new Zend_Config_Exception(sprintf('Section "%s" cannot be found', $section));
         }
 
-        $thisSection  = $data[$section];
+        $thisSection = $data[$section];
 
         if (is_array($thisSection) && isset($thisSection[self::EXTENDS_NAME])) {
             $this->_assertValidExtend($section, $thisSection[self::EXTENDS_NAME]);
@@ -282,12 +282,12 @@ class Zend_Config_Yaml extends Zend_Config
      * Service function to decode YAML
      *
      * @param  int $currentIndent Current indent level
-     * @param  array $lines  YAML lines
+     * @param  array $lines YAML lines
      * @return array|string
      */
     protected static function _decodeYaml($currentIndent, &$lines)
     {
-        $config   = array();
+        $config = array();
         $inIndent = false;
         while (list($n, $line) = each($lines)) {
             $lineno = $n + 1;
@@ -313,7 +313,7 @@ class Zend_Config_Yaml extends Zend_Config
 
             if (!$inIndent) {
                 $currentIndent = $indent;
-                $inIndent      = true;
+                $inIndent = true;
             }
 
             if (preg_match("/(?!-)([\w\-]+):\s*(.*)/", $line, $m)) {
@@ -363,10 +363,10 @@ class Zend_Config_Yaml extends Zend_Config
 
         // remove quotes from string.
         if ('"' == $value['0']) {
-            if ('"' == $value[count($value) -1]) {
+            if ('"' == $value[count($value) - 1]) {
                 $value = substr($value, 1, -1);
             }
-        } elseif ('\'' == $value['0'] && '\'' == $value[count($value) -1]) {
+        } elseif ('\'' == $value['0'] && '\'' == $value[count($value) - 1]) {
             $value = strtr($value, array("''" => "'", "'" => ''));
         }
 

@@ -87,9 +87,9 @@ abstract class Zend_Session_Abstract
         }
 
         if ($name === null) {
-            return ( isset($_SESSION[$namespace]) || isset(self::$_expiringData[$namespace]) );
+            return (isset($_SESSION[$namespace]) || isset(self::$_expiringData[$namespace]));
         } else {
-            return ( isset($_SESSION[$namespace][$name]) || isset(self::$_expiringData[$namespace][$name]) );
+            return (isset($_SESSION[$namespace][$name]) || isset(self::$_expiringData[$namespace][$name]));
         }
     }
 
@@ -112,7 +112,7 @@ abstract class Zend_Session_Abstract
             throw new Zend_Session_Exception(self::_THROW_NOT_WRITABLE_MSG);
         }
 
-        $name = (string) $name;
+        $name = (string)$name;
 
         // check to see if the api wanted to remove a var from a namespace or a namespace
         if ($name === '') {
@@ -176,7 +176,7 @@ abstract class Zend_Session_Abstract
      */
     protected static function _namespaceGetAll($namespace)
     {
-        $currentData  = (isset($_SESSION[$namespace]) && is_array($_SESSION[$namespace])) ?
+        $currentData = (isset($_SESSION[$namespace]) && is_array($_SESSION[$namespace])) ?
             $_SESSION[$namespace] : array();
         $expiringData = (isset(self::$_expiringData[$namespace]) && is_array(self::$_expiringData[$namespace])) ?
             self::$_expiringData[$namespace] : array();

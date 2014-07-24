@@ -30,7 +30,7 @@ class Zend_Tool_Framework_Loader_IncludePathLoader_RecursiveFilterIterator exten
 {
 
     protected $_denyDirectoryPattern = null;
-    protected $_acceptFilePattern    = null;
+    protected $_acceptFilePattern = null;
 
     /**
      * constructor
@@ -42,7 +42,7 @@ class Zend_Tool_Framework_Loader_IncludePathLoader_RecursiveFilterIterator exten
     public function __construct(RecursiveIterator $iterator, $denyDirectoryPattern = null, $acceptFilePattern = null)
     {
         $this->_denyDirectoryPattern = $denyDirectoryPattern;
-        $this->_acceptFilePattern    = $acceptFilePattern;
+        $this->_acceptFilePattern = $acceptFilePattern;
         parent::__construct($iterator);
     }
 
@@ -58,7 +58,8 @@ class Zend_Tool_Framework_Loader_IncludePathLoader_RecursiveFilterIterator exten
 
         // if the current node is a directory AND doesn't match the denyDirectory pattern, accept
         if ($currentNode->isDir()
-            && !preg_match('#' . $this->_denyDirectoryPattern . '#', $currentNodeRealPath)) {
+            && !preg_match('#' . $this->_denyDirectoryPattern . '#', $currentNodeRealPath)
+        ) {
             return true;
         }
 
@@ -84,7 +85,7 @@ class Zend_Tool_Framework_Loader_IncludePathLoader_RecursiveFilterIterator exten
             $this->getInnerIterator()->getChildren(),
             $this->_denyDirectoryPattern,
             $this->_acceptFilePattern
-            );
+        );
     }
 
 }

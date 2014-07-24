@@ -94,7 +94,7 @@ class Zend_Filter_File_Decrypt extends Zend_Filter_Decrypt
         }
 
         $decrypted = parent::filter($content);
-        $result    = file_put_contents($this->_filename, $decrypted);
+        $result = file_put_contents($this->_filename, $decrypted);
 
         if (!$result) {
             require_once 'Zend/Filter/Exception.php';

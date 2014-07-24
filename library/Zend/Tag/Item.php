@@ -144,7 +144,7 @@ class Zend_Tag_Item implements Zend_Tag_Taggable
             throw new Zend_Tag_Exception('Title must be a string');
         }
 
-        $this->_title = (string) $title;
+        $this->_title = (string)$title;
         return $this;
     }
 
@@ -172,7 +172,7 @@ class Zend_Tag_Item implements Zend_Tag_Taggable
             throw new Zend_Tag_Exception('Weight must be numeric');
         }
 
-        $this->_weight = (float) $weight;
+        $this->_weight = (float)$weight;
         return $this;
     }
 
@@ -195,7 +195,7 @@ class Zend_Tag_Item implements Zend_Tag_Taggable
      * Defined by Zend_Tag_Taggable
      *
      * @param  string $name
-     * @param  mixed  $value
+     * @param  mixed $value
      * @return Zend_Tag_Item
      */
     public function setParam($name, $value)

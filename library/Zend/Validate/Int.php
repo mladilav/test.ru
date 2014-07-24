@@ -122,7 +122,7 @@ class Zend_Validate_Int extends Zend_Validate_Abstract
 
         $this->_setValue($value);
         if ($this->_locale === null) {
-            $locale        = localeconv();
+            $locale = localeconv();
             $valueFiltered = str_replace($locale['decimal_point'], '.', $value);
             $valueFiltered = str_replace($locale['thousands_sep'], '', $valueFiltered);
 

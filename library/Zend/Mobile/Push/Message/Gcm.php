@@ -46,7 +46,7 @@ class Zend_Mobile_Push_Message_Gcm extends Zend_Mobile_Push_Message_Abstract
 
     /**
      * Data key value pairs
-     * 
+     *
      * @var array
      */
     protected $_data = array();
@@ -60,7 +60,7 @@ class Zend_Mobile_Push_Message_Gcm extends Zend_Mobile_Push_Message_Abstract
 
     /**
      * Time to live in seconds
-     * 
+     *
      * @var int
      */
     protected $_ttl = 2419200;
@@ -78,7 +78,7 @@ class Zend_Mobile_Push_Message_Gcm extends Zend_Mobile_Push_Message_Abstract
             throw new Zend_Mobile_Push_Message_Exception('$token must be a string');
         }
         if (!in_array($token, $this->_token)) {
-           $this->_token[] = $token;
+            $this->_token[] = $token;
         }
         return $this;
     }
@@ -209,7 +209,7 @@ class Zend_Mobile_Push_Message_Gcm extends Zend_Mobile_Push_Message_Abstract
         if (!is_numeric($secs)) {
             throw new Zend_Mobile_Push_Message_Exception('$secs must be numeric');
         }
-        $this->_ttl = (int) $secs;
+        $this->_ttl = (int)$secs;
         return $this;
     }
 
@@ -236,7 +236,8 @@ class Zend_Mobile_Push_Message_Gcm extends Zend_Mobile_Push_Message_Abstract
         }
         if ($this->_ttl !== 2419200 &&
             (!is_scalar($this->_id) ||
-            strlen($this->_id) === 0)) {
+                strlen($this->_id) === 0)
+        ) {
             return false;
         }
         return true;
@@ -256,7 +257,7 @@ class Zend_Mobile_Push_Message_Gcm extends Zend_Mobile_Push_Message_Abstract
             $json['registration_ids'] = $this->_token;
         }
         if ($this->_id) {
-            $json['collapse_key'] = (string) $this->_id;
+            $json['collapse_key'] = (string)$this->_id;
         }
         if ($this->_data) {
             $json['data'] = $this->_data;

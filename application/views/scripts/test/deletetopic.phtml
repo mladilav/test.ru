@@ -1,0 +1,14 @@
+<?php
+$this->title = "Удаление темы";
+$this->headTitle($this->title);
+?>
+<p>Вы действительно хотите удалить
+    '<?php echo $this->escape($this->topic['name']); ?>'
+</p>
+<form action="<?php echo $this->url(array('action' => 'deletetopic')); ?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo $this->topic['id']; ?>"/>
+        <input type="submit" name="del" value="Да"/>
+        <input type="submit" name="del" value="Нет"/>
+    </div>
+</form>

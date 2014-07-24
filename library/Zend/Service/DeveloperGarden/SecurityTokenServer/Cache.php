@@ -100,8 +100,9 @@ class Zend_Service_DeveloperGarden_SecurityTokenServer_Cache
      * @return void
      */
     public static function setTokenToCache($tokenId,
-        Zend_Service_DeveloperGarden_Response_SecurityTokenServer_Interface $tokenValue
-    ) {
+                                           Zend_Service_DeveloperGarden_Response_SecurityTokenServer_Interface $tokenValue
+    )
+    {
         if (!array_key_exists($tokenId, self::$_storedToken)) {
             require_once 'Zend/Service/DeveloperGarden/Exception.php';
             throw new Zend_Service_DeveloperGarden_Exception(

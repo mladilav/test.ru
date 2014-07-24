@@ -287,9 +287,9 @@ class Zend_Feed_Builder implements Zend_Feed_Builder_Interface
                 }
             }
             $this->_header->setTextInput($data['textInput']['title'],
-                                         $data['textInput']['description'],
-                                         $data['textInput']['name'],
-                                         $data['textInput']['link']);
+                $data['textInput']['description'],
+                $data['textInput']['name'],
+                $data['textInput']['link']);
         }
         if (isset($data['skipHours'])) {
             $this->_header->setSkipHours($data['skipHours']);

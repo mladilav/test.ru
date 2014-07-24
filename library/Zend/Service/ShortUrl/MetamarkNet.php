@@ -62,7 +62,7 @@ class Zend_Service_ShortUrl_MetamarkNet extends Zend_Service_ShortUrl_AbstractSh
         return $response->getBody();
     }
 
-   /**
+    /**
      * Reveals target for short URL
      *
      * @param string $shortenedUrl URL to reveal target of

@@ -92,7 +92,7 @@ class Zend_Mail_Storage_Mbox extends Zend_Mail_Storage_Abstract
     /**
      * Get a list of messages with number and size
      *
-     * @param  int|null $id  number of message or null for all messages
+     * @param  int|null $id number of message or null for all messages
      * @return int|array size of given message of list with all messages as array(num => size)
      */
     public function getSize($id = 0)
@@ -146,7 +146,7 @@ class Zend_Mail_Storage_Mbox extends Zend_Mail_Storage_Abstract
             // TODO top/body lines
             $messagePos = $this->_getPos($id);
             return new $this->_messageClass(array('file' => $this->_fh, 'startPos' => $messagePos['start'],
-                                                  'endPos' => $messagePos['end']));
+                'endPos' => $messagePos['end']));
         }
 
         $bodyLines = 0; // TODO: need a way to change that
@@ -234,7 +234,7 @@ class Zend_Mail_Storage_Mbox extends Zend_Mail_Storage_Abstract
         }
 
         $this->_openMboxFile($params->filename);
-        $this->_has['top']      = true;
+        $this->_has['top'] = true;
         $this->_has['uniqueid'] = false;
     }
 

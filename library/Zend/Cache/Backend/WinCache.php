@@ -44,7 +44,7 @@ class Zend_Cache_Backend_WinCache extends Zend_Cache_Backend implements Zend_Cac
      * Log message
      */
     const TAGS_UNSUPPORTED_BY_CLEAN_OF_WINCACHE_BACKEND = 'Zend_Cache_Backend_WinCache::clean() : tags are unsupported by the WinCache backend';
-    const TAGS_UNSUPPORTED_BY_SAVE_OF_WINCACHE_BACKEND =  'Zend_Cache_Backend_WinCache::save() : tags are unsupported by the WinCache backend';
+    const TAGS_UNSUPPORTED_BY_SAVE_OF_WINCACHE_BACKEND = 'Zend_Cache_Backend_WinCache::save() : tags are unsupported by the WinCache backend';
 
     /**
      * Constructor
@@ -66,7 +66,7 @@ class Zend_Cache_Backend_WinCache extends Zend_Cache_Backend implements Zend_Cac
      *
      * WARNING $doNotTestCacheValidity=true is unsupported by the WinCache backend
      *
-     * @param  string  $id                     cache id
+     * @param  string $id cache id
      * @param  boolean $doNotTestCacheValidity if set to true, the cache validity won't be tested
      * @return string cached datas (or false)
      */
@@ -138,7 +138,7 @@ class Zend_Cache_Backend_WinCache extends Zend_Cache_Backend implements Zend_Cac
      * 'matchingAnyTag' => unsupported
      *
      * @param  string $mode clean mode
-     * @param  array  $tags array of tags
+     * @param  array $tags array of tags
      * @throws Zend_Cache_Exception
      * @return boolean true if no problem
      */
@@ -192,7 +192,7 @@ class Zend_Cache_Backend_WinCache extends Zend_Cache_Backend implements Zend_Cac
         if ($memUsed > $memSize) {
             return 100;
         }
-        return ((int) (100. * ($memUsed / $memSize)));
+        return ((int)(100. * ($memUsed / $memSize)));
     }
 
     /**
@@ -312,7 +312,7 @@ class Zend_Cache_Backend_WinCache extends Zend_Cache_Backend implements Zend_Cac
             }
             $lifetime = $tmp[2];
             $newLifetime = $lifetime - (time() - $mtime) + $extraLifetime;
-            if ($newLifetime <=0) {
+            if ($newLifetime <= 0) {
                 return false;
             }
             return wincache_ucache_set($id, array($data, time(), $newLifetime), $newLifetime);

@@ -1,0 +1,40 @@
+<h2><?php if($this->lang == "ua") echo 'Управління матеріалами'; else echo 'Управление материалами';?></h2>
+<div class="settings">
+<div class="row-fluid">
+    <div class="span6">
+        <h3> <?php if($this->lang == "ua") echo 'Розділи:'; else echo 'Разделы:';?></h3>
+        <p><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'addpart')); ?>">
+                <?php if($this->lang == "ua") echo 'Додати розділ'; else echo 'Добавить раздел';?></a></p>
+        <table class="table table-condensed">
+            <tr>
+                <th>ID</th>
+                <th width="100%"> <?php if($this->lang == "ua") echo 'Назва'; else echo 'Название';?></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <?php
+            // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+            echo $this->partialLoop('/partials/parts.phtml', $this->part);
+            ?>
+        </table>
+    </div>
+    <div class="span6">
+        <h3><?php if($this->lang == "ua") echo 'Категорії:'; else echo 'Категории:';?></h3>
+        <p><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'addcat')); ?>">
+                <?php if($this->lang == "ua") echo 'Додати категорію'; else echo 'Добавить категорию';?></a></p>
+        <table class="table table-condensed">
+            <tr>
+                <th>ID</th>
+                <th width="100%"><?php if($this->lang == "ua") echo 'Назва'; else echo 'Название';?></th>
+                <th></th>
+                <th></th>
+            </tr>
+            <?php
+            // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+            echo $this->partialLoop('/partials/categories.phtml', $this->category);
+            ?>
+        </table>
+
+    </div>
+</div>
+</div>

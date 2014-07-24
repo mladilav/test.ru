@@ -72,13 +72,13 @@ class Zend_Test_PHPUnit_Db_DataSet_DbTable extends PHPUnit_Extensions_Database_D
     /**
      * Construct Dataset Table from Zend_Db_Table object
      *
-     * @param Zend_Db_Table_Abstract        $table
-     * @param string|Zend_Db_Select|null    $where
-     * @param string|null                   $order
-     * @param int                           $count
-     * @param int                           $offset
+     * @param Zend_Db_Table_Abstract $table
+     * @param string|Zend_Db_Select|null $where
+     * @param string|null $order
+     * @param int $count
+     * @param int $offset
      */
-    public function __construct(Zend_Db_Table_Abstract $table, $where=null, $order=null, $count=null, $offset=null)
+    public function __construct(Zend_Db_Table_Abstract $table, $where = null, $order = null, $count = null, $offset = null)
     {
         $this->tableName = $table->info('name');
         $this->_columns = $table->info('cols');
@@ -101,7 +101,7 @@ class Zend_Test_PHPUnit_Db_DataSet_DbTable extends PHPUnit_Extensions_Database_D
             $this->data = $this->_table->fetchAll(
                 $this->_where, $this->_order, $this->_count, $this->_offset
             );
-            if($this->data instanceof Zend_Db_Table_Rowset_Abstract) {
+            if ($this->data instanceof Zend_Db_Table_Rowset_Abstract) {
                 $this->data = $this->data->toArray();
             }
         }

@@ -52,7 +52,7 @@ class Zend_Paginator_ScrollingStyle_Sliding implements Zend_Paginator_ScrollingS
         }
 
         $pageNumber = $paginator->getCurrentPageNumber();
-        $pageCount  = count($paginator);
+        $pageCount = count($paginator);
 
         if ($pageRange > $pageCount) {
             $pageRange = $pageCount;
@@ -68,7 +68,7 @@ class Zend_Paginator_ScrollingStyle_Sliding implements Zend_Paginator_ScrollingS
                 $delta = $pageNumber;
             }
 
-            $offset     = $pageNumber - $delta;
+            $offset = $pageNumber - $delta;
             $lowerBound = $offset + 1;
             $upperBound = $offset + $pageRange;
         }

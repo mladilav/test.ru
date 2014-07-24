@@ -33,7 +33,7 @@ require_once 'Zend/Serializer/Adapter/AdapterAbstract.php';
 class Zend_Serializer_Adapter_PhpSerialize extends Zend_Serializer_Adapter_AdapterAbstract
 {
     /**
-     *  @var null|string Serialized boolean false value
+     * @var null|string Serialized boolean false value
      */
     private static $_serializedFalse = null;
 

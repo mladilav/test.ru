@@ -1,5 +1,6 @@
 <?php
 
+
 class Application_Model_DbTable_Question extends Zend_Db_Table_Abstract
 {
 
@@ -10,49 +11,45 @@ class Application_Model_DbTable_Question extends Zend_Db_Table_Abstract
     public function getQuestion($id)
     {
         // Получаем id как параметр
-        $id = (int)$id;
 
+        $id = (int)$id;
         // Используем метод fetchRow для получения записи из базы.
         // В скобках указываем условие выборки (привычное для вас where)
         $row = $this->fetchRow('id = ' . $id);
 
         // Если результат пустой, выкидываем исключение
         if (!$row) {
-            throw new Exception("Нет записи с id - $id");
+            return false;
         }
         // Возвращаем результат, упакованный в массив
         return $row->toArray();
     }
 
-    public function addQuestion($name, $type, $topicId, $testId)
+    public function addQuestion($data)
     {
 
-        $data = array(
-            'name' => $name,
-            'type' => $type,
-            'topicId' => $topicId,
-            'testId' => $testId,
-
-        );
+        if(!$data){
+            return false;
+        }
 
         // Используем метод insert для вставки записи в базу
         $this->insert($data);
+        return true;
 
     }
 
-    public function updateQuestion($id, $name, $type, $topicId, $testId)
+    public function updateQuestion($data)
     {
         // Формируем массив значений
-        $data = array(
-            'name' => $name,
-            'type' => $type,
-            'topicId' => $topicId,
-            'testId' => $testId,
-        );
+        if(!$data)
+        {
+            return false;
+        }
 
         // Используем метод update для обновления записи
         // В скобках указываем условие обновления (привычное для вас where)
-        $this->update($data, 'id = ' . (int)$id);
+        $this->update($data, 'id = ' . (int)$data['id']);
+        return true;
 
     }
 
@@ -62,15 +59,15 @@ class Application_Model_DbTable_Question extends Zend_Db_Table_Abstract
         $this->delete('id = ' . (int)$id);
     }
 
-    public function arrayQuestion()
+    public function arrayQuestion($search)
     {
-        $array_tests = $this->fetchAll($this->select()->from('question', 'name'));
-        $i = 0;
-        foreach ($array_tests->toArray() as $array) {
-            foreach ($array as $arg) {
-                $result[$i] = $arg;
-                $i++;
-            }
+        $result = array();
+        $data = $this->fetchAll($this->select()
+            ->from('question')
+            ->where('name LIKE ?', '%'.$search.'%'));
+        foreach ($data as $row) {
+            $user = new Application_Model_Question($row);
+            $result[] = $user;
         }
         return $result;
     }
@@ -86,8 +83,10 @@ class Application_Model_DbTable_Question extends Zend_Db_Table_Abstract
                 $i++;
             }
         }
-        return $result[$i-1];
+        return $result[$i - 1];
     }
+
+
 }
 
 ?>

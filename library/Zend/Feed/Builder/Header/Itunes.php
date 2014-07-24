@@ -104,7 +104,7 @@ class Zend_Feed_Builder_Header_Itunes extends ArrayObject
     /**
      * Sets the owner of the postcast
      *
-     * @param  string $name  default to the feed's author value
+     * @param  string $name default to the feed's author value
      * @param  string $email default to the feed's email value
      * @return Zend_Feed_Builder_Header_Itunes
      * @throws Zend_Feed_Builder_Exception
@@ -252,8 +252,8 @@ class Zend_Feed_Builder_Header_Itunes extends ArrayObject
     /**
      * Write properties accessor
      *
-     * @param  string $name  name of the property to set
-     * @param  mixed  $value value to set
+     * @param  string $name name of the property to set
+     * @param  mixed $value value to set
      * @return void
      */
     public function __set($name, $value)

@@ -101,10 +101,11 @@ class Zend_Oauth_Consumer extends Zend_Oauth
         array $customServiceParameters = null,
         $httpMethod = null,
         Zend_Oauth_Http_RequestToken $request = null
-    ) {
+    )
+    {
         if ($request === null) {
             $request = new Zend_Oauth_Http_RequestToken($this, $customServiceParameters);
-        } elseif($customServiceParameters !== null) {
+        } elseif ($customServiceParameters !== null) {
             $request->setParameters($customServiceParameters);
         }
         if ($httpMethod !== null) {
@@ -133,10 +134,11 @@ class Zend_Oauth_Consumer extends Zend_Oauth
         array $customServiceParameters = null,
         Zend_Oauth_Token_Request $token = null,
         Zend_Oauth_Http_UserAuthorization $redirect = null
-    ) {
+    )
+    {
         if ($redirect === null) {
             $redirect = new Zend_Oauth_Http_UserAuthorization($this, $customServiceParameters);
-        } elseif($customServiceParameters !== null) {
+        } elseif ($customServiceParameters !== null) {
             $redirect->setParameters($customServiceParameters);
         }
         if ($token !== null) {
@@ -160,7 +162,8 @@ class Zend_Oauth_Consumer extends Zend_Oauth
         array $customServiceParameters = null,
         Zend_Oauth_Token_Request $token = null,
         Zend_Oauth_Http_UserAuthorization $request = null
-    ) {
+    )
+    {
         if ($token instanceof Zend_Oauth_Http_UserAuthorization) {
             $request = $token;
             $token = null;
@@ -186,7 +189,8 @@ class Zend_Oauth_Consumer extends Zend_Oauth
         Zend_Oauth_Token_Request $token,
         $httpMethod = null,
         Zend_Oauth_Http_AccessToken $request = null
-    ) {
+    )
+    {
         $authorizedToken = new Zend_Oauth_Token_AuthorizedRequest($queryData);
         if (!$authorizedToken->isValid()) {
             require_once 'Zend/Oauth/Exception.php';
@@ -272,8 +276,8 @@ class Zend_Oauth_Consumer extends Zend_Oauth
     {
         if (!method_exists($this->_config, $method)) {
             require_once 'Zend/Oauth/Exception.php';
-            throw new Zend_Oauth_Exception('Method does not exist: '.$method);
+            throw new Zend_Oauth_Exception('Method does not exist: ' . $method);
         }
-        return call_user_func_array(array($this->_config,$method), $args);
+        return call_user_func_array(array($this->_config, $method), $args);
     }
 }

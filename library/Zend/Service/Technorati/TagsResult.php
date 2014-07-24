@@ -64,13 +64,13 @@ class Zend_Service_Technorati_TagsResult extends Zend_Service_Technorati_Result
      */
     public function __construct(DomElement $dom)
     {
-        $this->_fields = array( '_tag'   => 'tag',
-                                '_posts' => 'posts');
+        $this->_fields = array('_tag' => 'tag',
+            '_posts' => 'posts');
         parent::__construct($dom);
 
         // filter fields
-        $this->_tag   = (string) $this->_tag;
-        $this->_posts = (int) $this->_posts;
+        $this->_tag = (string)$this->_tag;
+        $this->_posts = (int)$this->_posts;
     }
 
     /**
@@ -78,7 +78,8 @@ class Zend_Service_Technorati_TagsResult extends Zend_Service_Technorati_Result
      *
      * @return  string
      */
-    public function getTag() {
+    public function getTag()
+    {
         return $this->_tag;
     }
 
@@ -87,7 +88,8 @@ class Zend_Service_Technorati_TagsResult extends Zend_Service_Technorati_Result
      *
      * @return  int
      */
-    public function getPosts() {
+    public function getPosts()
+    {
         return $this->_posts;
     }
 }

@@ -92,7 +92,7 @@ class Zend_Dojo_Form_Decorator_DijitElement extends Zend_Form_Decorator_ViewHelp
      */
     public function setDijitParam($key, $value)
     {
-        $this->_dijitParams[(string) $key] = $value;
+        $this->_dijitParams[(string)$key] = $value;
         return $this;
     }
 
@@ -117,7 +117,7 @@ class Zend_Dojo_Form_Decorator_DijitElement extends Zend_Form_Decorator_ViewHelp
     public function getDijitParam($key)
     {
         $this->getElementAttribs();
-        $key = (string) $key;
+        $key = (string)$key;
         if (array_key_exists($key, $this->_dijitParams)) {
             return $this->_dijitParams[$key];
         }
@@ -157,11 +157,11 @@ class Zend_Dojo_Form_Decorator_DijitElement extends Zend_Form_Decorator_ViewHelp
         }
 
         $options = null;
-        $helper    = $this->getHelper();
+        $helper = $this->getHelper();
         $separator = $this->getSeparator();
-        $value     = $this->getValue($element);
-        $attribs   = $this->getElementAttribs();
-        $name      = $element->getFullyQualifiedName();
+        $value = $this->getValue($element);
+        $attribs = $this->getElementAttribs();
+        $name = $element->getFullyQualifiedName();
 
         $dijitParams = $this->getDijitParams();
         $dijitParams['required'] = $element->isRequired();
@@ -177,7 +177,7 @@ class Zend_Dojo_Form_Decorator_DijitElement extends Zend_Form_Decorator_ViewHelp
         $attribs['id'] = $id;
 
         if (array_key_exists('options', $attribs)) {
-               $options = $attribs['options'];
+            $options = $attribs['options'];
         }
 
         $elementContent = $view->$helper($name, $value, $dijitParams, $attribs, $options);

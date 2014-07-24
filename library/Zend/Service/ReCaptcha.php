@@ -103,8 +103,8 @@ class Zend_Service_ReCaptcha extends Zend_Service_Abstract
      * @var array
      */
     protected $_options = array(
-        'theme'               => 'red',
-        'lang'                => 'en',
+        'theme' => 'red',
+        'lang' => 'en',
         'custom_translations' => array(),
     );
 
@@ -389,14 +389,14 @@ class Zend_Service_ReCaptcha extends Zend_Service_Abstract
 
         $host = self::API_SERVER;
 
-        if ((bool) $this->_params['ssl'] === true) {
+        if ((bool)$this->_params['ssl'] === true) {
             $host = self::API_SECURE_SERVER;
         }
 
         $htmlBreak = '<br>';
         $htmlInputClosing = '>';
 
-        if ((bool) $this->_params['xhtml'] === true) {
+        if ((bool)$this->_params['xhtml'] === true) {
             $htmlBreak = '<br />';
             $htmlInputClosing = '/>';
         }
@@ -418,10 +418,10 @@ class Zend_Service_ReCaptcha extends Zend_Service_Abstract
 SCRIPT;
         }
         $challengeField = 'recaptcha_challenge_field';
-        $responseField  = 'recaptcha_response_field';
+        $responseField = 'recaptcha_response_field';
         if (!empty($name)) {
             $challengeField = $name . '[' . $challengeField . ']';
-            $responseField  = $name . '[' . $responseField . ']';
+            $responseField = $name . '[' . $responseField . ']';
         }
 
         $return = $reCaptchaOptions;
@@ -473,14 +473,14 @@ HTML;
         $httpClient->resetParameters(true);
 
         $postParams = array('privatekey' => $this->_privateKey,
-                            'remoteip'   => $this->_ip,
-                            'challenge'  => $challengeField,
-                            'response'   => $responseField);
+            'remoteip' => $this->_ip,
+            'challenge' => $challengeField,
+            'response' => $responseField);
 
         /* Make the POST and return the response */
         return $httpClient->setUri(self::VERIFY_SERVER)
-                          ->setParameterPost($postParams)
-                          ->request(Zend_Http_Client::POST);
+            ->setParameterPost($postParams)
+            ->request(Zend_Http_Client::POST);
     }
 
     /**

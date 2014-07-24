@@ -74,12 +74,12 @@ class Zend_Feed_Writer_Extension_ITunes_Entry
         if (!ctype_alpha($value) && strlen($value) > 0) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('invalid parameter: "block" may only'
-            . ' contain alphabetic characters');
+                . ' contain alphabetic characters');
         }
         if (iconv_strlen($value, $this->getEncoding()) > 255) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('invalid parameter: "block" may only'
-            . ' contain a maximum of 255 characters');
+                . ' contain a maximum of 255 characters');
         }
         $this->_data['block'] = $value;
     }
@@ -109,7 +109,7 @@ class Zend_Feed_Writer_Extension_ITunes_Entry
         if (iconv_strlen($value, $this->getEncoding()) > 255) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('invalid parameter: any "author" may only'
-            . ' contain a maximum of 255 characters each');
+                . ' contain a maximum of 255 characters each');
         }
         if (!isset($this->_data['authors'])) {
             $this->_data['authors'] = array();
@@ -126,14 +126,14 @@ class Zend_Feed_Writer_Extension_ITunes_Entry
      */
     public function setItunesDuration($value)
     {
-        $value = (string) $value;
+        $value = (string)$value;
         if (!ctype_digit($value)
             && !preg_match("/^\d+:[0-5]{1}[0-9]{1}$/", $value)
             && !preg_match("/^\d+:[0-5]{1}[0-9]{1}:[0-5]{1}[0-9]{1}$/", $value)
         ) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('invalid parameter: "duration" may only'
-            . ' be of a specified [[HH:]MM:]SS format');
+                . ' be of a specified [[HH:]MM:]SS format');
         }
         $this->_data['duration'] = $value;
         return $this;
@@ -147,10 +147,10 @@ class Zend_Feed_Writer_Extension_ITunes_Entry
      */
     public function setItunesExplicit($value)
     {
-        if (!in_array($value, array('yes','no','clean'))) {
+        if (!in_array($value, array('yes', 'no', 'clean'))) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('invalid parameter: "explicit" may only'
-            . ' be one of "yes", "no" or "clean"');
+                . ' be one of "yes", "no" or "clean"');
         }
         $this->_data['explicit'] = $value;
         return $this;
@@ -167,14 +167,14 @@ class Zend_Feed_Writer_Extension_ITunes_Entry
         if (count($value) > 12) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('invalid parameter: "keywords" may only'
-            . ' contain a maximum of 12 terms');
+                . ' contain a maximum of 12 terms');
         }
         $concat = implode(',', $value);
         if (iconv_strlen($concat, $this->getEncoding()) > 255) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('invalid parameter: "keywords" may only'
-            . ' have a concatenated length of 255 chars where terms are delimited'
-            . ' by a comma');
+                . ' have a concatenated length of 255 chars where terms are delimited'
+                . ' by a comma');
         }
         $this->_data['keywords'] = $value;
         return $this;
@@ -191,7 +191,7 @@ class Zend_Feed_Writer_Extension_ITunes_Entry
         if (iconv_strlen($value, $this->getEncoding()) > 255) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('invalid parameter: "subtitle" may only'
-            . ' contain a maximum of 255 characters');
+                . ' contain a maximum of 255 characters');
         }
         $this->_data['subtitle'] = $value;
         return $this;
@@ -208,7 +208,7 @@ class Zend_Feed_Writer_Extension_ITunes_Entry
         if (iconv_strlen($value, $this->getEncoding()) > 4000) {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('invalid parameter: "summary" may only'
-            . ' contain a maximum of 4000 characters');
+                . ' contain a maximum of 4000 characters');
         }
         $this->_data['summary'] = $value;
         return $this;

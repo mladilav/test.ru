@@ -44,42 +44,42 @@ require_once 'Zend/Db/Expr.php';
 class Zend_Db_Select
 {
 
-    const DISTINCT       = 'distinct';
-    const COLUMNS        = 'columns';
-    const FROM           = 'from';
-    const UNION          = 'union';
-    const WHERE          = 'where';
-    const GROUP          = 'group';
-    const HAVING         = 'having';
-    const ORDER          = 'order';
-    const LIMIT_COUNT    = 'limitcount';
-    const LIMIT_OFFSET   = 'limitoffset';
-    const FOR_UPDATE     = 'forupdate';
+    const DISTINCT = 'distinct';
+    const COLUMNS = 'columns';
+    const FROM = 'from';
+    const UNION = 'union';
+    const WHERE = 'where';
+    const GROUP = 'group';
+    const HAVING = 'having';
+    const ORDER = 'order';
+    const LIMIT_COUNT = 'limitcount';
+    const LIMIT_OFFSET = 'limitoffset';
+    const FOR_UPDATE = 'forupdate';
 
-    const INNER_JOIN     = 'inner join';
-    const LEFT_JOIN      = 'left join';
-    const RIGHT_JOIN     = 'right join';
-    const FULL_JOIN      = 'full join';
-    const CROSS_JOIN     = 'cross join';
-    const NATURAL_JOIN   = 'natural join';
+    const INNER_JOIN = 'inner join';
+    const LEFT_JOIN = 'left join';
+    const RIGHT_JOIN = 'right join';
+    const FULL_JOIN = 'full join';
+    const CROSS_JOIN = 'cross join';
+    const NATURAL_JOIN = 'natural join';
 
-    const SQL_WILDCARD   = '*';
-    const SQL_SELECT     = 'SELECT';
-    const SQL_UNION      = 'UNION';
-    const SQL_UNION_ALL  = 'UNION ALL';
-    const SQL_FROM       = 'FROM';
-    const SQL_WHERE      = 'WHERE';
-    const SQL_DISTINCT   = 'DISTINCT';
-    const SQL_GROUP_BY   = 'GROUP BY';
-    const SQL_ORDER_BY   = 'ORDER BY';
-    const SQL_HAVING     = 'HAVING';
+    const SQL_WILDCARD = '*';
+    const SQL_SELECT = 'SELECT';
+    const SQL_UNION = 'UNION';
+    const SQL_UNION_ALL = 'UNION ALL';
+    const SQL_FROM = 'FROM';
+    const SQL_WHERE = 'WHERE';
+    const SQL_DISTINCT = 'DISTINCT';
+    const SQL_GROUP_BY = 'GROUP BY';
+    const SQL_ORDER_BY = 'ORDER BY';
+    const SQL_HAVING = 'HAVING';
     const SQL_FOR_UPDATE = 'FOR UPDATE';
-    const SQL_AND        = 'AND';
-    const SQL_AS         = 'AS';
-    const SQL_OR         = 'OR';
-    const SQL_ON         = 'ON';
-    const SQL_ASC        = 'ASC';
-    const SQL_DESC       = 'DESC';
+    const SQL_AND = 'AND';
+    const SQL_AS = 'AS';
+    const SQL_OR = 'OR';
+    const SQL_ON = 'ON';
+    const SQL_ASC = 'ASC';
+    const SQL_DESC = 'DESC';
 
     /**
      * Bind variables for query
@@ -103,17 +103,17 @@ class Zend_Db_Select
      * @var array
      */
     protected static $_partsInit = array(
-        self::DISTINCT     => false,
-        self::COLUMNS      => array(),
-        self::UNION        => array(),
-        self::FROM         => array(),
-        self::WHERE        => array(),
-        self::GROUP        => array(),
-        self::HAVING       => array(),
-        self::ORDER        => array(),
-        self::LIMIT_COUNT  => null,
+        self::DISTINCT => false,
+        self::COLUMNS => array(),
+        self::UNION => array(),
+        self::FROM => array(),
+        self::WHERE => array(),
+        self::GROUP => array(),
+        self::HAVING => array(),
+        self::ORDER => array(),
+        self::LIMIT_COUNT => null,
         self::LIMIT_OFFSET => null,
-        self::FOR_UPDATE   => false
+        self::FOR_UPDATE => false
     );
 
     /**
@@ -197,7 +197,7 @@ class Zend_Db_Select
      */
     public function distinct($flag = true)
     {
-        $this->_parts[self::DISTINCT] = (bool) $flag;
+        $this->_parts[self::DISTINCT] = (bool)$flag;
         return $this;
     }
 
@@ -465,9 +465,9 @@ class Zend_Db_Select
      * $db->fetchAll($select, array('id' => 5));
      * </code>
      *
-     * @param string   $cond  The WHERE condition.
-     * @param mixed    $value OPTIONAL The value to quote into the condition.
-     * @param int      $type  OPTIONAL The type of the given value
+     * @param string $cond The WHERE condition.
+     * @param mixed $value OPTIONAL The value to quote into the condition.
+     * @param int $type OPTIONAL The type of the given value
      * @return Zend_Db_Select This Zend_Db_Select object.
      */
     public function where($cond, $value = null, $type = null)
@@ -482,9 +482,9 @@ class Zend_Db_Select
      *
      * Otherwise identical to where().
      *
-     * @param string   $cond  The WHERE condition.
-     * @param mixed    $value OPTIONAL The value to quote into the condition.
-     * @param int      $type  OPTIONAL The type of the given value
+     * @param string $cond The WHERE condition.
+     * @param mixed $value OPTIONAL The value to quote into the condition.
+     * @param int $type OPTIONAL The type of the given value
      * @return Zend_Db_Select This Zend_Db_Select object.
      *
      * @see where()
@@ -509,7 +509,7 @@ class Zend_Db_Select
         }
 
         foreach ($spec as $val) {
-            if (preg_match('/\(.*\)/', (string) $val)) {
+            if (preg_match('/\(.*\)/', (string)$val)) {
                 $val = new Zend_Db_Expr($val);
             }
             $this->_parts[self::GROUP][] = $val;
@@ -526,8 +526,8 @@ class Zend_Db_Select
      * appears. See {@link where()} for an example
      *
      * @param string $cond The HAVING condition.
-     * @param mixed    $value OPTIONAL The value to quote into the condition.
-     * @param int      $type  OPTIONAL The type of the given value
+     * @param mixed $value OPTIONAL The value to quote into the condition.
+     * @param int $type OPTIONAL The type of the given value
      * @return Zend_Db_Select This Zend_Db_Select object.
      */
     public function having($cond, $value = null, $type = null)
@@ -551,8 +551,8 @@ class Zend_Db_Select
      * Otherwise identical to orHaving().
      *
      * @param string $cond The HAVING condition.
-     * @param mixed    $value OPTIONAL The value to quote into the condition.
-     * @param int      $type  OPTIONAL The type of the given value
+     * @param mixed $value OPTIONAL The value to quote into the condition.
+     * @param int $type OPTIONAL The type of the given value
      * @return Zend_Db_Select This Zend_Db_Select object.
      *
      * @see having()
@@ -620,8 +620,8 @@ class Zend_Db_Select
      */
     public function limit($count = null, $offset = null)
     {
-        $this->_parts[self::LIMIT_COUNT]  = (int) $count;
-        $this->_parts[self::LIMIT_OFFSET] = (int) $offset;
+        $this->_parts[self::LIMIT_COUNT] = (int)$count;
+        $this->_parts[self::LIMIT_OFFSET] = (int)$offset;
         return $this;
     }
 
@@ -634,10 +634,10 @@ class Zend_Db_Select
      */
     public function limitPage($page, $rowCount)
     {
-        $page     = ($page > 0)     ? $page     : 1;
+        $page = ($page > 0) ? $page : 1;
         $rowCount = ($rowCount > 0) ? $rowCount : 1;
-        $this->_parts[self::LIMIT_COUNT]  = (int) $rowCount;
-        $this->_parts[self::LIMIT_OFFSET] = (int) $rowCount * ($page - 1);
+        $this->_parts[self::LIMIT_COUNT] = (int)$rowCount;
+        $this->_parts[self::LIMIT_OFFSET] = (int)$rowCount * ($page - 1);
         return $this;
     }
 
@@ -649,7 +649,7 @@ class Zend_Db_Select
      */
     public function forUpdate($flag = true)
     {
-        $this->_parts[self::FOR_UPDATE] = (bool) $flag;
+        $this->_parts[self::FOR_UPDATE] = (bool)$flag;
         return $this;
     }
 
@@ -674,7 +674,7 @@ class Zend_Db_Select
      * Executes the current select object and returns the result
      *
      * @param integer $fetchMode OPTIONAL
-     * @param  mixed  $bind An array of data to bind to the placeholders.
+     * @param  mixed $bind An array of data to bind to the placeholders.
      * @return PDO_Statement|Zend_Db_Statement
      */
     public function query($fetchMode = null, $bind = array())
@@ -782,7 +782,7 @@ class Zend_Db_Select
                 }
                 break;
             }
-        } elseif ($name instanceof Zend_Db_Expr|| $name instanceof Zend_Db_Select) {
+        } elseif ($name instanceof Zend_Db_Expr || $name instanceof Zend_Db_Select) {
             $tableName = $name;
             $correlationName = $this->_uniqueCorrelation('t');
         } elseif (preg_match('/^(.+)\s+AS\s+(.+)$/i', $name, $m)) {
@@ -825,11 +825,11 @@ class Zend_Db_Select
                 $tmpFromParts = array();
             }
             $this->_parts[self::FROM][$correlationName] = array(
-                'joinType'      => $type,
-                'schema'        => $schema,
-                'tableName'     => $tableName,
+                'joinType' => $type,
+                'schema' => $schema,
+                'tableName' => $tableName,
                 'joinCondition' => $cond
-                );
+            );
             while ($tmpFromParts) {
                 $currentCorrelationName = key($tmpFromParts);
                 $this->_parts[self::FROM][$currentCorrelationName] = array_shift($tmpFromParts);
@@ -877,16 +877,16 @@ class Zend_Db_Select
             throw new Zend_Db_Select_Exception("You can only perform a joinUsing after specifying a FROM table");
         }
 
-        $join  = $this->_adapter->quoteIdentifier(key($this->_parts[self::FROM]), true);
-        $from  = $this->_adapter->quoteIdentifier($this->_uniqueCorrelation($name), true);
+        $join = $this->_adapter->quoteIdentifier(key($this->_parts[self::FROM]), true);
+        $from = $this->_adapter->quoteIdentifier($this->_uniqueCorrelation($name), true);
 
         $joinCond = array();
         foreach ((array)$cond as $fieldName) {
             $cond1 = $from . '.' . $fieldName;
             $cond2 = $join . '.' . $fieldName;
-            $joinCond[]  = $cond1 . ' = ' . $cond2;
+            $joinCond[] = $cond1 . ' = ' . $cond2;
         }
-        $cond = implode(' '.self::SQL_AND.' ', $joinCond);
+        $cond = implode(' ' . self::SQL_AND . ' ', $joinCond);
 
         return $this->_join($type, $name, $cond, $cols, $schema);
     }
@@ -904,11 +904,11 @@ class Zend_Db_Select
             $c = is_string($k) ? $k : end($name);
         } else {
             // Extract just the last name of a qualified table name
-            $dot = strrpos($name,'.');
-            $c = ($dot === false) ? $name : substr($name, $dot+1);
+            $dot = strrpos($name, '.');
+            $c = ($dot === false) ? $name : substr($name, $dot + 1);
         }
         for ($i = 2; array_key_exists($c, $this->_parts[self::FROM]); ++$i) {
-            $c = $name . '_' . (string) $i;
+            $c = $name . '_' . (string)$i;
         }
         return $c;
     }
@@ -988,10 +988,10 @@ class Zend_Db_Select
     /**
      * Internal function for creating the where clause
      *
-     * @param string   $condition
-     * @param mixed    $value  optional
-     * @param string   $type   optional
-     * @param boolean  $bool  true = AND, false = OR
+     * @param string $condition
+     * @param mixed $value optional
+     * @param string $type optional
+     * @param boolean $bool true = AND, false = OR
      * @return string  clause
      */
     protected function _where($condition, $value = null, $type = null, $bool = true)
@@ -1028,7 +1028,7 @@ class Zend_Db_Select
     /**
      * Return a quoted schema name
      *
-     * @param string   $schema  The schema name OPTIONAL
+     * @param string $schema The schema name OPTIONAL
      * @return string|null
      */
     protected function _getQuotedSchema($schema = null)
@@ -1042,8 +1042,8 @@ class Zend_Db_Select
     /**
      * Return a quoted table name
      *
-     * @param string   $tableName        The table name
-     * @param string   $correlationName  The correlation name OPTIONAL
+     * @param string $tableName The table name
+     * @param string $correlationName The correlation name OPTIONAL
      * @return string
      */
     protected function _getQuotedTable($tableName, $correlationName = null)
@@ -1054,7 +1054,7 @@ class Zend_Db_Select
     /**
      * Render DISTINCT clause
      *
-     * @param string   $sql SQL query
+     * @param string $sql SQL query
      * @return string
      */
     protected function _renderDistinct($sql)
@@ -1069,7 +1069,7 @@ class Zend_Db_Select
     /**
      * Render DISTINCT clause
      *
-     * @param string   $sql SQL query
+     * @param string $sql SQL query
      * @return string|null
      */
     protected function _renderColumns($sql)
@@ -1102,7 +1102,7 @@ class Zend_Db_Select
     /**
      * Render FROM clause
      *
-     * @param string   $sql SQL query
+     * @param string $sql SQL query
      * @return string
      */
     protected function _renderFrom($sql)
@@ -1123,7 +1123,7 @@ class Zend_Db_Select
             $joinType = ($table['joinType'] == self::FROM) ? self::INNER_JOIN : $table['joinType'];
 
             // Add join clause (if applicable)
-            if (! empty($from)) {
+            if (!empty($from)) {
                 $tmp .= ' ' . strtoupper($joinType) . ' ';
             }
 
@@ -1131,7 +1131,7 @@ class Zend_Db_Select
             $tmp .= $this->_getQuotedTable($table['tableName'], $correlationName);
 
             // Add join conditions (if applicable)
-            if (!empty($from) && ! empty($table['joinCondition'])) {
+            if (!empty($from) && !empty($table['joinCondition'])) {
                 $tmp .= ' ' . self::SQL_ON . ' ' . $table['joinCondition'];
             }
 
@@ -1150,7 +1150,7 @@ class Zend_Db_Select
     /**
      * Render UNION query
      *
-     * @param string   $sql SQL query
+     * @param string $sql SQL query
      * @return string
      */
     protected function _renderUnion($sql)
@@ -1175,13 +1175,13 @@ class Zend_Db_Select
     /**
      * Render WHERE clause
      *
-     * @param string   $sql SQL query
+     * @param string $sql SQL query
      * @return string
      */
     protected function _renderWhere($sql)
     {
         if ($this->_parts[self::FROM] && $this->_parts[self::WHERE]) {
-            $sql .= ' ' . self::SQL_WHERE . ' ' .  implode(' ', $this->_parts[self::WHERE]);
+            $sql .= ' ' . self::SQL_WHERE . ' ' . implode(' ', $this->_parts[self::WHERE]);
         }
 
         return $sql;
@@ -1190,7 +1190,7 @@ class Zend_Db_Select
     /**
      * Render GROUP clause
      *
-     * @param string   $sql SQL query
+     * @param string $sql SQL query
      * @return string
      */
     protected function _renderGroup($sql)
@@ -1209,7 +1209,7 @@ class Zend_Db_Select
     /**
      * Render HAVING clause
      *
-     * @param string   $sql SQL query
+     * @param string $sql SQL query
      * @return string
      */
     protected function _renderHaving($sql)
@@ -1224,7 +1224,7 @@ class Zend_Db_Select
     /**
      * Render ORDER clause
      *
-     * @param string   $sql SQL query
+     * @param string $sql SQL query
      * @return string
      */
     protected function _renderOrder($sql)
@@ -1233,7 +1233,7 @@ class Zend_Db_Select
             $order = array();
             foreach ($this->_parts[self::ORDER] as $term) {
                 if (is_array($term)) {
-                    if(is_numeric($term[0]) && strval(intval($term[0])) == $term[0]) {
+                    if (is_numeric($term[0]) && strval(intval($term[0])) == $term[0]) {
                         $order[] = (int)trim($term[0]) . ' ' . $term[1];
                     } else {
                         $order[] = $this->_adapter->quoteIdentifier($term[0], true) . ' ' . $term[1];
@@ -1253,7 +1253,7 @@ class Zend_Db_Select
     /**
      * Render LIMIT OFFSET clause
      *
-     * @param string   $sql SQL query
+     * @param string $sql SQL query
      * @return string
      */
     protected function _renderLimitoffset($sql)
@@ -1262,12 +1262,12 @@ class Zend_Db_Select
         $offset = 0;
 
         if (!empty($this->_parts[self::LIMIT_OFFSET])) {
-            $offset = (int) $this->_parts[self::LIMIT_OFFSET];
+            $offset = (int)$this->_parts[self::LIMIT_OFFSET];
             $count = PHP_INT_MAX;
         }
 
         if (!empty($this->_parts[self::LIMIT_COUNT])) {
-            $count = (int) $this->_parts[self::LIMIT_COUNT];
+            $count = (int)$this->_parts[self::LIMIT_COUNT];
         }
 
         /*
@@ -1283,7 +1283,7 @@ class Zend_Db_Select
     /**
      * Render FOR UPDATE clause
      *
-     * @param string   $sql SQL query
+     * @param string $sql SQL query
      * @return string
      */
     protected function _renderForupdate($sql)

@@ -118,9 +118,9 @@ abstract class Zend_Service_Ebay_Finding_Response_Abstract extends Zend_Service_
         parent::_init();
         $ns = Zend_Service_Ebay_Finding::XMLNS_FINDING;
 
-        $this->ack       = $this->_query(".//$ns:ack[1]", 'string');
+        $this->ack = $this->_query(".//$ns:ack[1]", 'string');
         $this->timestamp = $this->_query(".//$ns:timestamp[1]", 'string');
-        $this->version   = $this->_query(".//$ns:version[1]", 'string');
+        $this->version = $this->_query(".//$ns:version[1]", 'string');
 
         $node = $this->_xPath->query(".//$ns:errorMessage[1]", $this->_dom)->item(0);
         if ($node) {
@@ -138,7 +138,7 @@ abstract class Zend_Service_Ebay_Finding_Response_Abstract extends Zend_Service_
      */
     public function setOperation($operation)
     {
-        $this->_operation = (string) $operation;
+        $this->_operation = (string)$operation;
         return $this;
     }
 
@@ -152,7 +152,7 @@ abstract class Zend_Service_Ebay_Finding_Response_Abstract extends Zend_Service_
 
     /**
      * @param  string|Zend_Config|array $name
-     * @param  mixed                    $value
+     * @param  mixed $value
      * @return Zend_Service_Ebay_Finding_Response_Abstract Provides a fluent interface
      */
     public function setOption($name, $value = null)

@@ -232,7 +232,7 @@ class Zend_Gdata_YouTube_VideoEntry extends Zend_Gdata_YouTube_MediaEntry
             }
         }
         if ($this->_where != null) {
-           $element->appendChild($this->_where->getDOM(
+            $element->appendChild($this->_where->getDOM(
                 $element->ownerDocument));
         }
         return $element;
@@ -249,64 +249,64 @@ class Zend_Gdata_YouTube_VideoEntry extends Zend_Gdata_YouTube_MediaEntry
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
 
         switch ($absoluteNodeName) {
-        case $this->lookupNamespace('yt') . ':' . 'statistics':
-            $statistics = new Zend_Gdata_YouTube_Extension_Statistics();
-            $statistics->transferFromDOM($child);
-            $this->_statistics = $statistics;
-            break;
-        case $this->lookupNamespace('yt') . ':' . 'racy':
-            $racy = new Zend_Gdata_YouTube_Extension_Racy();
-            $racy->transferFromDOM($child);
-            $this->_racy = $racy;
-            break;
-        case $this->lookupNamespace('yt') . ':' . 'recorded':
-            $recorded = new Zend_Gdata_YouTube_Extension_Recorded();
-            $recorded->transferFromDOM($child);
-            $this->_recorded = $recorded;
-            break;
-        case $this->lookupNamespace('yt') . ':' . 'location':
-            $location = new Zend_Gdata_YouTube_Extension_Location();
-            $location->transferFromDOM($child);
-            $this->_location = $location;
-            break;
-        case $this->lookupNamespace('gd') . ':' . 'rating':
-            $rating = new Zend_Gdata_Extension_Rating();
-            $rating->transferFromDOM($child);
-            $this->_rating = $rating;
-            break;
-        case $this->lookupNamespace('gd') . ':' . 'comments':
-            $comments = new Zend_Gdata_Extension_Comments();
-            $comments->transferFromDOM($child);
-            $this->_comments = $comments;
-            break;
-        case $this->lookupNamespace('yt') . ':' . 'noembed':
-            $noEmbed = new Zend_Gdata_YouTube_Extension_NoEmbed();
-            $noEmbed->transferFromDOM($child);
-            $this->_noEmbed = $noEmbed;
-            break;
-        case $this->lookupNamespace('gd') . ':' . 'feedLink':
-            $feedLink = new Zend_Gdata_Extension_FeedLink();
-            $feedLink->transferFromDOM($child);
-            $this->_feedLink[] = $feedLink;
-            break;
-        case $this->lookupNamespace('georss') . ':' . 'where':
-            $where = new Zend_Gdata_Geo_Extension_GeoRssWhere();
-            $where->transferFromDOM($child);
-            $this->_where = $where;
-            break;
-        case $this->lookupNamespace('atom') . ':' . 'link';
-            $link = new Zend_Gdata_YouTube_Extension_Link();
-            $link->transferFromDOM($child);
-            $this->_link[] = $link;
-            break;
-        case $this->lookupNamespace('app') . ':' . 'control':
-            $control = new Zend_Gdata_YouTube_Extension_Control();
-            $control->transferFromDOM($child);
-            $this->_control = $control;
-            break;
-        default:
-            parent::takeChildFromDOM($child);
-            break;
+            case $this->lookupNamespace('yt') . ':' . 'statistics':
+                $statistics = new Zend_Gdata_YouTube_Extension_Statistics();
+                $statistics->transferFromDOM($child);
+                $this->_statistics = $statistics;
+                break;
+            case $this->lookupNamespace('yt') . ':' . 'racy':
+                $racy = new Zend_Gdata_YouTube_Extension_Racy();
+                $racy->transferFromDOM($child);
+                $this->_racy = $racy;
+                break;
+            case $this->lookupNamespace('yt') . ':' . 'recorded':
+                $recorded = new Zend_Gdata_YouTube_Extension_Recorded();
+                $recorded->transferFromDOM($child);
+                $this->_recorded = $recorded;
+                break;
+            case $this->lookupNamespace('yt') . ':' . 'location':
+                $location = new Zend_Gdata_YouTube_Extension_Location();
+                $location->transferFromDOM($child);
+                $this->_location = $location;
+                break;
+            case $this->lookupNamespace('gd') . ':' . 'rating':
+                $rating = new Zend_Gdata_Extension_Rating();
+                $rating->transferFromDOM($child);
+                $this->_rating = $rating;
+                break;
+            case $this->lookupNamespace('gd') . ':' . 'comments':
+                $comments = new Zend_Gdata_Extension_Comments();
+                $comments->transferFromDOM($child);
+                $this->_comments = $comments;
+                break;
+            case $this->lookupNamespace('yt') . ':' . 'noembed':
+                $noEmbed = new Zend_Gdata_YouTube_Extension_NoEmbed();
+                $noEmbed->transferFromDOM($child);
+                $this->_noEmbed = $noEmbed;
+                break;
+            case $this->lookupNamespace('gd') . ':' . 'feedLink':
+                $feedLink = new Zend_Gdata_Extension_FeedLink();
+                $feedLink->transferFromDOM($child);
+                $this->_feedLink[] = $feedLink;
+                break;
+            case $this->lookupNamespace('georss') . ':' . 'where':
+                $where = new Zend_Gdata_Geo_Extension_GeoRssWhere();
+                $where->transferFromDOM($child);
+                $this->_where = $where;
+                break;
+            case $this->lookupNamespace('atom') . ':' . 'link';
+                $link = new Zend_Gdata_YouTube_Extension_Link();
+                $link->transferFromDOM($child);
+                $this->_link[] = $link;
+                break;
+            case $this->lookupNamespace('app') . ':' . 'control':
+                $control = new Zend_Gdata_YouTube_Extension_Control();
+                $control->transferFromDOM($child);
+                $this->_control = $control;
+                break;
+            default:
+                parent::takeChildFromDOM($child);
+                break;
         }
     }
 
@@ -599,9 +599,9 @@ class Zend_Gdata_YouTube_VideoEntry extends Zend_Gdata_YouTube_MediaEntry
     {
         $recorded = $this->getRecorded();
         if ($recorded != null) {
-          return $recorded->getText();
+            return $recorded->getText();
         } else {
-          return null;
+            return null;
         }
     }
 
@@ -711,7 +711,8 @@ class Zend_Gdata_YouTube_VideoEntry extends Zend_Gdata_YouTube_MediaEntry
     {
         $this->ensureMediaGroupIsNotNull();
         if ($this->getMediaGroup()->getPlayer() != null &&
-             array_key_exists(0, $this->getMediaGroup()->getPlayer())) {
+            array_key_exists(0, $this->getMediaGroup()->getPlayer())
+        ) {
             $players = $this->getMediaGroup()->getPlayer();
             return $players[0]->getUrl();
         } else {
@@ -759,10 +760,10 @@ class Zend_Gdata_YouTube_VideoEntry extends Zend_Gdata_YouTube_MediaEntry
     {
         $this->ensureMediaGroupIsNotNull();
         foreach ($this->getMediaGroup()->getContent() as $content) {
-                if ($content->getType() === 'application/x-shockwave-flash') {
-                    return $content->getUrl();
-                }
+            if ($content->getType() === 'application/x-shockwave-flash') {
+                return $content->getUrl();
             }
+        }
         return null;
     }
 
@@ -887,7 +888,8 @@ class Zend_Gdata_YouTube_VideoEntry extends Zend_Gdata_YouTube_MediaEntry
     {
         if ($this->getWhere() != null &&
             $this->getWhere()->getPoint() != null &&
-            ($position = $this->getWhere()->getPoint()->getPos()) != null) {
+            ($position = $this->getWhere()->getPoint()->getPos()) != null
+        ) {
 
             $positionString = $position->__toString();
 
@@ -936,7 +938,7 @@ class Zend_Gdata_YouTube_VideoEntry extends Zend_Gdata_YouTube_MediaEntry
         $this->ensureMediaGroupIsNotNull();
         $categories = $this->getMediaGroup()->getCategory();
         if ($categories != null) {
-            foreach($categories as $category) {
+            foreach ($categories as $category) {
                 if ($category->getScheme() == self::YOUTUBE_CATEGORY_SCHEMA) {
                     return $category->getText();
                 }
@@ -1014,7 +1016,7 @@ class Zend_Gdata_YouTube_VideoEntry extends Zend_Gdata_YouTube_MediaEntry
      */
     public function setVideoDeveloperTags($developerTags)
     {
-        foreach($developerTags as $developerTag) {
+        foreach ($developerTags as $developerTag) {
             $this->addVideoDeveloperTag($developerTag);
         }
         return $this;
@@ -1031,7 +1033,8 @@ class Zend_Gdata_YouTube_VideoEntry extends Zend_Gdata_YouTube_MediaEntry
         $control = $this->getControl();
         if ($control != null &&
             $control->getDraft() != null &&
-            $control->getDraft()->getText() == 'yes') {
+            $control->getDraft()->getText() == 'yes'
+        ) {
 
             return $control->getState();
         }
@@ -1067,8 +1070,8 @@ class Zend_Gdata_YouTube_VideoEntry extends Zend_Gdata_YouTube_MediaEntry
                 'Rating for video entry must be between 1 and 5 inclusive.');
         }
 
-         require_once 'Zend/Gdata/Extension/Rating.php';
-         $rating = new Zend_Gdata_Extension_Rating(null, 1, 5, null,
+        require_once 'Zend/Gdata/Extension/Rating.php';
+        $rating = new Zend_Gdata_Extension_Rating(null, 1, 5, null,
             $ratingValue);
         $this->setRating($rating);
         return $this;

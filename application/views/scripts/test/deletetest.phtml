@@ -1,0 +1,31 @@
+<?php
+if($this->lang == "ua") {
+$this->title = "Видалення запису";
+$this->headTitle($this->title);
+?>
+<p>Ви дійсно хочете видалити тест
+    '<?php echo $this->escape($this->test['name']); ?>'
+</p>
+<form action="<?php echo $this->url(array('action' => 'deletetest')); ?>" method="post">
+    <div>
+        <input type="hidden" name="id" value="<?php echo $this->test['int']; ?>"/>
+        <input type="submit" name="del" value="Так"/>
+        <input type="submit" name="del" value="Ні"/>
+    </div>
+</form>
+<?php } else {
+
+    $this->title = "Удаление записи";
+    $this->headTitle($this->title);
+    ?>
+    <p>Вы действительно хотите удалить тест
+        '<?php echo $this->escape($this->test['name']); ?>'
+    </p>
+    <form action="<?php echo $this->url(array('action' => 'deletetest')); ?>" method="post">
+        <div>
+            <input type="hidden" name="id" value="<?php echo $this->test['int']; ?>"/>
+            <input type="submit" name="del" value="Да"/>
+            <input type="submit" name="del" value="Нет"/>
+        </div>
+    </form>
+<?php }?>

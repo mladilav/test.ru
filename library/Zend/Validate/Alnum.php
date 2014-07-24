@@ -32,8 +32,8 @@ require_once 'Zend/Validate/Abstract.php';
  */
 class Zend_Validate_Alnum extends Zend_Validate_Abstract
 {
-    const INVALID      = 'alnumInvalid';
-    const NOT_ALNUM    = 'notAlnum';
+    const INVALID = 'alnumInvalid';
+    const NOT_ALNUM = 'notAlnum';
     const STRING_EMPTY = 'alnumStringEmpty';
 
     /**
@@ -57,8 +57,8 @@ class Zend_Validate_Alnum extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::INVALID      => "Invalid type given. String, integer or float expected",
-        self::NOT_ALNUM    => "'%value%' contains characters which are non alphabetic and no digits",
+        self::INVALID => "Invalid type given. String, integer or float expected",
+        self::NOT_ALNUM => "'%value%' contains characters which are non alphabetic and no digits",
         self::STRING_EMPTY => "'%value%' is an empty string",
     );
 
@@ -82,7 +82,7 @@ class Zend_Validate_Alnum extends Zend_Validate_Abstract
             }
         }
 
-        $this->allowWhiteSpace = (boolean) $allowWhiteSpace;
+        $this->allowWhiteSpace = (boolean)$allowWhiteSpace;
     }
 
     /**
@@ -103,7 +103,7 @@ class Zend_Validate_Alnum extends Zend_Validate_Abstract
      */
     public function setAllowWhiteSpace($allowWhiteSpace)
     {
-        $this->allowWhiteSpace = (boolean) $allowWhiteSpace;
+        $this->allowWhiteSpace = (boolean)$allowWhiteSpace;
         return $this;
     }
 

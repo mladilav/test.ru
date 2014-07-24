@@ -66,12 +66,13 @@ class Zend_Service_DeveloperGarden_Request_LocalSearch_LocalSearchRequest
      * @return Zend_Service_DeveloperGarden_Request_RequestAbstract
      */
     public function __construct($environment,
-        Zend_Service_DeveloperGarden_LocalSearch_SearchParameters $searchParameters,
-        $account = null
-    ) {
+                                Zend_Service_DeveloperGarden_LocalSearch_SearchParameters $searchParameters,
+                                $account = null
+    )
+    {
         parent::__construct($environment);
         $this->setSearchParameters($searchParameters)
-             ->setAccount($account);
+            ->setAccount($account);
     }
 
     /**
@@ -96,8 +97,9 @@ class Zend_Service_DeveloperGarden_Request_LocalSearch_LocalSearchRequest
      */
     public function setSearchParameters(
         Zend_Service_DeveloperGarden_LocalSearch_SearchParameters $searchParameters
-    ) {
-        $this->searchParameters  = $searchParameters->getSearchParameters();
+    )
+    {
+        $this->searchParameters = $searchParameters->getSearchParameters();
         $this->_searchParameters = $searchParameters;
         return $this;
     }

@@ -48,7 +48,7 @@ class Zend_Validate_Callback extends Zend_Validate_Abstract
      * @var array
      */
     protected $_messageTemplates = array(
-        self::INVALID_VALUE    => "'%value%' is not valid",
+        self::INVALID_VALUE => "'%value%' is not valid",
         self::INVALID_CALLBACK => "An exception has been raised within the callback",
     );
 
@@ -70,7 +70,7 @@ class Zend_Validate_Callback extends Zend_Validate_Abstract
      * Sets validator options
      *
      * @param  string|array $callback
-     * @param  mixed   $max
+     * @param  mixed $max
      * @param  boolean $inclusive
      * @return void
      */
@@ -137,7 +137,7 @@ class Zend_Validate_Callback extends Zend_Validate_Abstract
      */
     public function setOptions($options)
     {
-        $this->_options = (array) $options;
+        $this->_options = (array)$options;
         return $this;
     }
 
@@ -154,10 +154,10 @@ class Zend_Validate_Callback extends Zend_Validate_Abstract
     {
         $this->_setValue($value);
 
-        $options  = $this->getOptions();
+        $options = $this->getOptions();
         $callback = $this->getCallback();
-        $args     = func_get_args();
-        $options  = array_merge($args, $options);
+        $args = func_get_args();
+        $options = array_merge($args, $options);
 
         try {
             if (!call_user_func_array($callback, $options)) {

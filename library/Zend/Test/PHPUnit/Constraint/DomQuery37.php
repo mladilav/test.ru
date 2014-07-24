@@ -38,25 +38,25 @@ class Zend_Test_PHPUnit_Constraint_DomQuery extends PHPUnit_Framework_Constraint
     /**#@+
      * Assertion type constants
      */
-    const ASSERT_QUERY            = 'assertQuery';
+    const ASSERT_QUERY = 'assertQuery';
     const ASSERT_CONTENT_CONTAINS = 'assertQueryContentContains';
-    const ASSERT_CONTENT_REGEX    = 'assertQueryContentRegex';
-    const ASSERT_CONTENT_COUNT    = 'assertQueryCount';
-    const ASSERT_CONTENT_COUNT_MIN= 'assertQueryCountMin';
-    const ASSERT_CONTENT_COUNT_MAX= 'assertQueryCountMax';
+    const ASSERT_CONTENT_REGEX = 'assertQueryContentRegex';
+    const ASSERT_CONTENT_COUNT = 'assertQueryCount';
+    const ASSERT_CONTENT_COUNT_MIN = 'assertQueryCountMin';
+    const ASSERT_CONTENT_COUNT_MAX = 'assertQueryCountMax';
     /**#@-*/
 
     /**
      * Current assertion type
      * @var string
      */
-    protected $_assertType        = null;
+    protected $_assertType = null;
 
     /**
      * Available assertion types
      * @var array
      */
-    protected $_assertTypes       = array(
+    protected $_assertTypes = array(
         self::ASSERT_QUERY,
         self::ASSERT_CONTENT_CONTAINS,
         self::ASSERT_CONTENT_REGEX,
@@ -69,25 +69,25 @@ class Zend_Test_PHPUnit_Constraint_DomQuery extends PHPUnit_Framework_Constraint
      * Content being matched
      * @var string
      */
-    protected $_content           = null;
+    protected $_content = null;
 
     /**
      * Whether or not assertion is negated
      * @var bool
      */
-    protected $_negate            = false;
+    protected $_negate = false;
 
     /**
      * CSS selector or XPath path to select against
      * @var string
      */
-    protected $_path              = null;
+    protected $_path = null;
 
     /**
      * Whether or not to use XPath when querying
      * @var bool
      */
-    protected $_useXpath          = false;
+    protected $_useXpath = false;
 
     /**
      * XPath namespaces
@@ -125,7 +125,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery extends PHPUnit_Framework_Constraint
      */
     public function setUseXpath($flag = true)
     {
-        $this->_useXpath = (bool) $flag;
+        $this->_useXpath = (bool)$flag;
         return $this;
     }
 
@@ -133,10 +133,10 @@ class Zend_Test_PHPUnit_Constraint_DomQuery extends PHPUnit_Framework_Constraint
      * Evaluate an object to see if it fits the constraints
      *
      * @param  string       Response content to be matched against (haystack)
-     * @param  null|string  Assertion type
+     * @param  null|string Assertion type
      * @param  string       (optional) String to match (needle), may be required depending on assertion type
      * @return bool
-     * 
+     *
      * NOTE:
      * Drastic changes up to PHPUnit 3.5.15 this was:
      *     public function evaluate($other, $assertType = null)
@@ -163,10 +163,10 @@ class Zend_Test_PHPUnit_Constraint_DomQuery extends PHPUnit_Framework_Constraint
 
         $this->_assertType = $assertType;
 
-        $method   = $this->_useXpath ? 'queryXpath' : 'query';
+        $method = $this->_useXpath ? 'queryXpath' : 'query';
         $domQuery = new Zend_Dom_Query($content);
         $domQuery->registerXpathNamespaces($this->_xpathNamespaces);
-        $result   = $domQuery->$method($this->_path);
+        $result = $domQuery->$method($this->_path);
 
         switch ($assertType) {
             case self::ASSERT_CONTENT_CONTAINS:
@@ -302,7 +302,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery extends PHPUnit_Framework_Constraint
      */
     protected function _matchContent($result, $match)
     {
-        $match = (string) $match;
+        $match = (string)$match;
 
         if (0 == count($result)) {
             return false;
@@ -424,10 +424,10 @@ class Zend_Test_PHPUnit_Constraint_DomQuery extends PHPUnit_Framework_Constraint
         if ($node instanceof DOMAttr) {
             return $node->value;
         } else {
-            $doc     = $node->ownerDocument;
+            $doc = $node->ownerDocument;
             $content = $doc->saveXML($node);
-            $tag     = $node->nodeName;
-            $regex   = '|</?' . $tag . '[^>]*>|';
+            $tag = $node->nodeName;
+            $regex = '|</?' . $tag . '[^>]*>|';
             return preg_replace($regex, '', $content);
         }
     }

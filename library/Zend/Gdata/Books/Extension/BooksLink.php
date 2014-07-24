@@ -50,7 +50,7 @@ class Zend_Gdata_Books_Extension_BooksLink extends Zend_Gdata_App_Extension_Link
      * @param string|null $length Resource length in octets
      */
     public function __construct($href = null, $rel = null, $type = null,
-            $hrefLang = null, $title = null, $length = null)
+                                $hrefLang = null, $title = null, $length = null)
     {
         $this->registerAllNamespaces(Zend_Gdata_Books::$namespaces);
         parent::__construct($href, $rel, $type, $hrefLang, $title, $length);

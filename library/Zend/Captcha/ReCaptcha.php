@@ -46,7 +46,7 @@ class Zend_Captcha_ReCaptcha extends Zend_Captcha_Base
      * @var string
      */
     protected $_CHALLENGE = 'recaptcha_challenge_field';
-    protected $_RESPONSE  = 'recaptcha_response_field';
+    protected $_RESPONSE = 'recaptcha_response_field';
     /**@-*/
 
     /**
@@ -74,8 +74,8 @@ class Zend_Captcha_ReCaptcha extends Zend_Captcha_Base
      * Error codes
      */
     const MISSING_VALUE = 'missingValue';
-    const ERR_CAPTCHA   = 'errCaptcha';
-    const BAD_CAPTCHA   = 'badCaptcha';
+    const ERR_CAPTCHA = 'errCaptcha';
+    const BAD_CAPTCHA = 'badCaptcha';
     /**#@-*/
 
     /**
@@ -84,8 +84,8 @@ class Zend_Captcha_ReCaptcha extends Zend_Captcha_Base
      */
     protected $_messageTemplates = array(
         self::MISSING_VALUE => 'Missing captcha fields',
-        self::ERR_CAPTCHA   => 'Failed to validate captcha',
-        self::BAD_CAPTCHA   => 'Captcha value is wrong: %value%',
+        self::ERR_CAPTCHA => 'Failed to validate captcha',
+        self::BAD_CAPTCHA => 'Captcha value is wrong: %value%',
     );
 
     /**

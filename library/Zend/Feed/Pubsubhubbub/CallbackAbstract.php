@@ -92,7 +92,7 @@ abstract class Zend_Feed_Pubsubhubbub_CallbackAbstract
         } elseif (!is_array($config)) {
             require_once 'Zend/Feed/Pubsubhubbub/Exception.php';
             throw new Zend_Feed_Pubsubhubbub_Exception('Array or Zend_Config object'
-            . 'expected, got ' . gettype($config));
+                . 'expected, got ' . gettype($config));
         }
         if (array_key_exists('storage', $config)) {
             $this->setStorage($config['storage']);
@@ -234,7 +234,7 @@ abstract class Zend_Feed_Pubsubhubbub_CallbackAbstract
                 $callbackUrl = substr($callbackUrl, strlen($schemeAndHttpHost));
             }
         } elseif (isset($_SERVER['ORIG_PATH_INFO'])) {
-            $callbackUrl= $_SERVER['ORIG_PATH_INFO'];
+            $callbackUrl = $_SERVER['ORIG_PATH_INFO'];
             if (!empty($_SERVER['QUERY_STRING'])) {
                 $callbackUrl .= '?' . $_SERVER['QUERY_STRING'];
             }

@@ -70,7 +70,6 @@ class Zend_Search_Lucene_Index_SegmentMerger
     private $_fieldsMap = array();
 
 
-
     /**
      * Object constructor.
      *
@@ -117,8 +116,8 @@ class Zend_Search_Lucene_Index_SegmentMerger
         if (count($this->_segmentInfos) < 1) {
             require_once 'Zend/Search/Lucene/Exception.php';
             throw new Zend_Search_Lucene_Exception('Wrong number of segments to be merged ('
-                                                 . count($this->_segmentInfos)
-                                                 . ').');
+                . count($this->_segmentInfos)
+                . ').');
         }
 
         $this->_mergeFields();
@@ -154,8 +153,8 @@ class Zend_Search_Lucene_Index_SegmentMerger
                 foreach ($this->_segmentInfos as $segName => $segmentInfo) {
                     if ($segmentInfo->hasDeletions()) {
                         $srcNorm = $segmentInfo->normVector($fieldInfo->name);
-                        $norm    = '';
-                        $docs    = $segmentInfo->count();
+                        $norm = '';
+                        $docs = $segmentInfo->count();
                         for ($count = 0; $count < $docs; $count++) {
                             if (!$segmentInfo->isDeleted($count)) {
                                 $norm .= $srcNorm[$count];
@@ -191,21 +190,21 @@ class Zend_Search_Lucene_Index_SegmentMerger
 
                     if (!($bits & 2)) { // Text data
                         $storedFields[] =
-                                 new Zend_Search_Lucene_Field($fieldInfo->name,
-                                                              $fdtFile->readString(),
-                                                              'UTF-8',
-                                                              true,
-                                                              $fieldInfo->isIndexed,
-                                                              $bits & 1 );
-                    } else {            // Binary data
+                            new Zend_Search_Lucene_Field($fieldInfo->name,
+                                $fdtFile->readString(),
+                                'UTF-8',
+                                true,
+                                $fieldInfo->isIndexed,
+                                $bits & 1);
+                    } else { // Binary data
                         $storedFields[] =
-                                 new Zend_Search_Lucene_Field($fieldInfo->name,
-                                                              $fdtFile->readBinary(),
-                                                              '',
-                                                              true,
-                                                              $fieldInfo->isIndexed,
-                                                              $bits & 1,
-                                                              true);
+                            new Zend_Search_Lucene_Field($fieldInfo->name,
+                                $fdtFile->readBinary(),
+                                '',
+                                true,
+                                $fieldInfo->isIndexed,
+                                $bits & 1,
+                                true);
                     }
                 }
 
@@ -247,7 +246,8 @@ class Zend_Search_Lucene_Index_SegmentMerger
 
             if ($segmentInfoQueue->top() === null ||
                 $segmentInfoQueue->top()->currentTerm()->key() !=
-                            $segmentInfo->currentTerm()->key()) {
+                $segmentInfo->currentTerm()->key()
+            ) {
                 // We got new term
                 ksort($termDocs, SORT_NUMERIC);
 

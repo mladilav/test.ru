@@ -37,8 +37,8 @@ class Zend_Validate_File_WordCount extends Zend_Validate_File_Count
     /**#@+
      * @const string Error constants
      */
-    const TOO_MUCH  = 'fileWordCountTooMuch';
-    const TOO_LESS  = 'fileWordCountTooLess';
+    const TOO_MUCH = 'fileWordCountTooMuch';
+    const TOO_LESS = 'fileWordCountTooLess';
     const NOT_FOUND = 'fileWordCountNotFound';
     /**#@-*/
 
@@ -58,7 +58,7 @@ class Zend_Validate_File_WordCount extends Zend_Validate_File_Count
      * not bigger than max (when max is not null).
      *
      * @param  string $value Filename to check for word count
-     * @param  array  $file  File data from Zend_File_Transfer
+     * @param  array $file File data from Zend_File_Transfer
      * @return boolean
      */
     public function isValid($value, $file = null)

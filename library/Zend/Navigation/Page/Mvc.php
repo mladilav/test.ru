@@ -152,7 +152,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      * This method will compare the page properties against the request object
      * that is found in the front controller.
      *
-     * @param  bool $recursive  [optional] whether page should be considered
+     * @param  bool $recursive [optional] whether page should be considered
      *                          active if any child pages are active. Default is
      *                          false.
      * @return bool             whether page should be considered active or not
@@ -160,8 +160,8 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
     public function isActive($recursive = false)
     {
         if (null === $this->_active) {
-            $front     = Zend_Controller_Front::getInstance();
-            $request   = $front->getRequest();
+            $front = Zend_Controller_Front::getInstance();
+            $request = $front->getRequest();
             $reqParams = array();
             if ($request) {
                 $reqParams = $request->getParams();
@@ -284,7 +284,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  string $action             action name
+     * @param  string $action action name
      * @return Zend_Navigation_Page_Mvc   fluent interface, returns self
      * @throws Zend_Navigation_Exception  if invalid $action is given
      */
@@ -297,7 +297,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
             );
         }
 
-        $this->_action    = $action;
+        $this->_action = $action;
         $this->_hrefCache = null;
 
         return $this;
@@ -320,7 +320,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  string|null $controller    controller name
+     * @param  string|null $controller controller name
      * @return Zend_Navigation_Page_Mvc   fluent interface, returns self
      * @throws Zend_Navigation_Exception  if invalid controller name is given
      */
@@ -334,7 +334,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
         }
 
         $this->_controller = $controller;
-        $this->_hrefCache  = null;
+        $this->_hrefCache = null;
 
         return $this;
     }
@@ -356,7 +356,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  string|null $module        module name
+     * @param  string|null $module module name
      * @return Zend_Navigation_Page_Mvc   fluent interface, returns self
      * @throws Zend_Navigation_Exception  if invalid module name is given
      */
@@ -369,7 +369,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
             );
         }
 
-        $this->_module    = $module;
+        $this->_module = $module;
         $this->_hrefCache = null;
 
         return $this;
@@ -395,7 +395,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  array|null $params           [optional] paramters as array
+     * @param  array|null $params [optional] paramters as array
      *                                      ('name' => 'value'). Default is null
      *                                      which clears all params.
      * @return Zend_Navigation_Page_Mvc     fluent interface, returns self
@@ -418,13 +418,13 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  string $name                 parameter name
-     * @param  mixed $value                 parameter value
+     * @param  string $name parameter name
+     * @param  mixed $value parameter value
      * @return Zend_Navigation_Page_Mvc     fluent interface, returns self
      */
     public function setParam($name, $value)
     {
-        $name                 = (string)$name;
+        $name = (string)$name;
         $this->_params[$name] = $value;
 
         $this->_hrefCache = null;
@@ -439,7 +439,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  array $params                paramters as array ('name' => 'value')
+     * @param  array $params paramters as array ('name' => 'value')
      * @return Zend_Navigation_Page_Mvc     fluent interface, returns self
      */
     public function addParams(array $params)
@@ -508,7 +508,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      */
     public function getParam($name)
     {
-        $name = (string) $name;
+        $name = (string)$name;
 
         if (!array_key_exists($name, $this->_params)) {
             return null;
@@ -522,7 +522,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  string $route              route name to use when assembling URL
+     * @param  string $route route name to use when assembling URL
      * @return Zend_Navigation_Page_Mvc   fluent interface, returns self
      * @throws Zend_Navigation_Exception  if invalid $route is given
      */
@@ -535,7 +535,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
             );
         }
 
-        $this->_route     = $route;
+        $this->_route = $route;
         $this->_hrefCache = null;
 
         return $this;
@@ -558,14 +558,14 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  bool $resetParams         whether params should be reset when
+     * @param  bool $resetParams whether params should be reset when
      *                                   assembling URL
      * @return Zend_Navigation_Page_Mvc  fluent interface, returns self
      */
     public function setResetParams($resetParams)
     {
-        $this->_resetParams = (bool) $resetParams;
-        $this->_hrefCache   = null;
+        $this->_resetParams = (bool)$resetParams;
+        $this->_hrefCache = null;
 
         return $this;
     }
@@ -592,7 +592,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      */
     public function setEncodeUrl($encodeUrl)
     {
-        $this->_encodeUrl = (bool) $encodeUrl;
+        $this->_encodeUrl = (bool)$encodeUrl;
         $this->_hrefCache = null;
 
         return $this;
@@ -615,7 +615,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  string|null $scheme        scheme
+     * @param  string|null $scheme scheme
      * @throws Zend_Navigation_Exception
      * @return Zend_Navigation_Page_Mvc   fluent interface, returns self
      */
@@ -649,7 +649,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  Zend_Controller_Action_Helper_Url $uh  URL helper
+     * @param  Zend_Controller_Action_Helper_Url $uh URL helper
      * @return void
      */
     public static function setUrlHelper(Zend_Controller_Action_Helper_Url $uh)
@@ -662,7 +662,7 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
      *
      * @see getHref()
      *
-     * @param  Zend_View_Helper_ServerUrl $sh   scheme helper
+     * @param  Zend_View_Helper_ServerUrl $sh scheme helper
      * @return void
      */
     public static function setSchemeHelper(Zend_View_Helper_ServerUrl $sh)
@@ -682,14 +682,14 @@ class Zend_Navigation_Page_Mvc extends Zend_Navigation_Page
         return array_merge(
             parent::toArray(),
             array(
-                 'action'       => $this->getAction(),
-                 'controller'   => $this->getController(),
-                 'module'       => $this->getModule(),
-                 'params'       => $this->getParams(),
-                 'route'        => $this->getRoute(),
-                 'reset_params' => $this->getResetParams(),
-                 'encodeUrl'    => $this->getEncodeUrl(),
-                 'scheme'       => $this->getScheme(),
+                'action' => $this->getAction(),
+                'controller' => $this->getController(),
+                'module' => $this->getModule(),
+                'params' => $this->getParams(),
+                'route' => $this->getRoute(),
+                'reset_params' => $this->getResetParams(),
+                'encodeUrl' => $this->getEncodeUrl(),
+                'scheme' => $this->getScheme(),
             )
         );
     }

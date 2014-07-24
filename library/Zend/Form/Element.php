@@ -46,8 +46,8 @@ class Zend_Form_Element implements Zend_Validate_Interface
      * Element Constants
      */
     const DECORATOR = 'DECORATOR';
-    const FILTER    = 'FILTER';
-    const VALIDATE  = 'VALIDATE';
+    const FILTER = 'FILTER';
+    const VALIDATE = 'VALIDATE';
 
     /**
      * Default view helper to use
@@ -295,7 +295,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setDisableLoadDefaultDecorators($flag)
     {
-        $this->_disableLoadDefaultDecorators = (bool) $flag;
+        $this->_disableLoadDefaultDecorators = (bool)$flag;
         return $this;
     }
 
@@ -323,13 +323,13 @@ class Zend_Form_Element implements Zend_Validate_Interface
         $decorators = $this->getDecorators();
         if (empty($decorators)) {
             $this->addDecorator('ViewHelper')
-                 ->addDecorator('Errors')
-                 ->addDecorator('Description', array('tag' => 'p', 'class' => 'description'))
-                 ->addDecorator('HtmlTag', array(
-                     'tag' => 'dd',
-                     'id'  => array('callback' => array(get_class($this), 'resolveElementId'))
-                 ))
-                 ->addDecorator('Label', array('tag' => 'dt'));
+                ->addDecorator('Errors')
+                ->addDecorator('Description', array('tag' => 'p', 'class' => 'description'))
+                ->addDecorator('HtmlTag', array(
+                    'tag' => 'dd',
+                    'id' => array('callback' => array(get_class($this), 'resolveElementId'))
+                ))
+                ->addDecorator('Label', array('tag' => 'dt'));
         }
         return $this;
     }
@@ -338,8 +338,8 @@ class Zend_Form_Element implements Zend_Validate_Interface
      * Used to resolve and return an element ID
      *
      * Passed to the HtmlTag decorator as a callback in order to provide an ID.
-     * 
-     * @param  Zend_Form_Decorator_Interface $decorator 
+     *
+     * @param  Zend_Form_Decorator_Interface $decorator
      * @return string
      */
     public static function resolveElementId(Zend_Form_Decorator_Interface $decorator)
@@ -458,7 +458,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setDisableTranslator($flag)
     {
-        $this->_translatorDisabled = (bool) $flag;
+        $this->_translatorDisabled = (bool)$flag;
         return $this;
     }
 
@@ -487,7 +487,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
         if ($allowBrackets) {
             $charset .= '\[\]';
         }
-        return preg_replace('/[' . $charset . ']/', '', (string) $value);
+        return preg_replace('/[' . $charset . ']/', '', (string)$value);
     }
 
     /**
@@ -631,7 +631,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setLabel($label)
     {
-        $this->_label = (string) $label;
+        $this->_label = (string)$label;
         return $this;
     }
 
@@ -658,7 +658,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setOrder($order)
     {
-        $this->_order = (int) $order;
+        $this->_order = (int)$order;
         return $this;
     }
 
@@ -680,7 +680,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setRequired($flag = true)
     {
-        $this->_required = (bool) $flag;
+        $this->_required = (bool)$flag;
         return $this;
     }
 
@@ -702,7 +702,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setAutoInsertNotEmptyValidator($flag)
     {
-        $this->_autoInsertNotEmptyValidator = (bool) $flag;
+        $this->_autoInsertNotEmptyValidator = (bool)$flag;
         return $this;
     }
 
@@ -724,7 +724,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setDescription($description)
     {
-        $this->_description = (string) $description;
+        $this->_description = (string)$description;
         return $this;
     }
 
@@ -749,7 +749,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setAllowEmpty($flag)
     {
-        $this->_allowEmpty = (bool) $flag;
+        $this->_allowEmpty = (bool)$flag;
         return $this;
     }
 
@@ -771,7 +771,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setIgnore($flag)
     {
-        $this->_ignore = (bool) $flag;
+        $this->_ignore = (bool)$flag;
         return $this;
     }
 
@@ -793,7 +793,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setIsArray($flag)
     {
-        $this->_isArray = (bool) $flag;
+        $this->_isArray = (bool)$flag;
         return $this;
     }
 
@@ -857,7 +857,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function setAttrib($name, $value)
     {
-        $name = (string) $name;
+        $name = (string)$name;
         if ('_' == $name[0]) {
             require_once 'Zend/Form/Exception.php';
             throw new Zend_Form_Exception(sprintf('Invalid attribute "%s"; must not contain a leading underscore', $name));
@@ -895,7 +895,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function getAttrib($name)
     {
-        $name = (string) $name;
+        $name = (string)$name;
         if (isset($this->$name)) {
             return $this->$name;
         }
@@ -1053,11 +1053,11 @@ class Zend_Form_Element implements Zend_Validate_Interface
             case self::FILTER:
             case self::VALIDATE:
                 $prefixSegment = ucfirst(strtolower($type));
-                $pathSegment   = $prefixSegment;
+                $pathSegment = $prefixSegment;
             case self::DECORATOR:
                 if (!isset($prefixSegment)) {
                     $prefixSegment = 'Form_Decorator';
-                    $pathSegment   = 'Form/Decorator';
+                    $pathSegment = 'Form/Decorator';
                 }
                 if (!isset($this->_loaders[$type])) {
                     require_once 'Zend/Loader/PluginLoader.php';
@@ -1100,12 +1100,12 @@ class Zend_Form_Element implements Zend_Validate_Interface
                 $loader->addPrefixPath($prefix, $path);
                 return $this;
             case null:
-                $nsSeparator = (false !== strpos($prefix, '\\'))?'\\':'_';
+                $nsSeparator = (false !== strpos($prefix, '\\')) ? '\\' : '_';
                 $prefix = rtrim($prefix, $nsSeparator) . $nsSeparator;
-                $path   = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+                $path = rtrim($path, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
                 foreach (array(self::DECORATOR, self::FILTER, self::VALIDATE) as $type) {
-                    $cType        = ucfirst(strtolower($type));
-                    $loader       = $this->getPluginLoader($type);
+                    $cType = ucfirst(strtolower($type));
+                    $loader = $this->getPluginLoader($type);
                     $loader->addPrefixPath($prefix . $cType, $path . $cType . DIRECTORY_SEPARATOR);
                 }
                 return $this;
@@ -1179,11 +1179,11 @@ class Zend_Form_Element implements Zend_Validate_Interface
                 $validator->zfBreakChainOnFailure = $breakChainOnFailure;
             }
         } elseif (is_string($validator)) {
-            $name      = $validator;
+            $name = $validator;
             $validator = array(
                 'validator' => $validator,
                 'breakChainOnFailure' => $breakChainOnFailure,
-                'options'             => $options,
+                'options' => $options,
             );
         } else {
             require_once 'Zend/Form/Exception.php';
@@ -1210,9 +1210,9 @@ class Zend_Form_Element implements Zend_Validate_Interface
             } elseif ($validatorInfo instanceof Zend_Validate_Interface) {
                 $this->addValidator($validatorInfo);
             } elseif (is_array($validatorInfo)) {
-                $argc                = count($validatorInfo);
+                $argc = count($validatorInfo);
                 $breakChainOnFailure = false;
-                $options             = array();
+                $options = array();
                 if (isset($validatorInfo['validator'])) {
                     $validator = $validatorInfo['validator'];
                     if (isset($validatorInfo['breakChainOnFailure'])) {
@@ -1227,7 +1227,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
                         case (0 == $argc):
                             break;
                         case (1 <= $argc):
-                            $validator  = array_shift($validatorInfo);
+                            $validator = array_shift($validatorInfo);
                         case (2 <= $argc):
                             $breakChainOnFailure = array_shift($validatorInfo);
                         case (3 <= $argc):
@@ -1373,10 +1373,10 @@ class Zend_Form_Element implements Zend_Validate_Interface
 
         if ($this->isRequired()
             && $this->autoInsertNotEmptyValidator()
-            && !$this->getValidator('NotEmpty'))
-        {
+            && !$this->getValidator('NotEmpty')
+        ) {
             $validators = $this->getValidators();
-            $notEmpty   = array('validator' => 'NotEmpty', 'breakChainOnFailure' => true);
+            $notEmpty = array('validator' => 'NotEmpty', 'breakChainOnFailure' => true);
             array_unshift($validators, $notEmpty);
             $this->setValidators($validators);
         }
@@ -1385,8 +1385,8 @@ class Zend_Form_Element implements Zend_Validate_Interface
         // will get either the static translator attached to Zend_Validate_Abstract
         // or the 'Zend_Translate' from Zend_Registry.
         if (Zend_Validate_Abstract::hasDefaultTranslator() &&
-            !Zend_Form::hasDefaultTranslator())
-        {
+            !Zend_Form::hasDefaultTranslator()
+        ) {
             $translator = Zend_Validate_Abstract::getDefaultTranslator();
             if ($this->hasTranslator()) {
                 // only pick up this element's translator if it was attached directly.
@@ -1397,9 +1397,9 @@ class Zend_Form_Element implements Zend_Validate_Interface
         }
 
         $this->_messages = array();
-        $this->_errors   = array();
-        $result          = true;
-        $isArray         = $this->isArray();
+        $this->_errors = array();
+        $result = true;
+        $isArray = $this->isArray();
         foreach ($this->getValidators() as $key => $validator) {
             if (method_exists($validator, 'setTranslator')) {
                 if (method_exists($validator, 'hasTranslator')) {
@@ -1417,7 +1417,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
 
             if ($isArray && is_array($value)) {
                 $messages = array();
-                $errors   = array();
+                $errors = array();
                 if (empty($value)) {
                     if ($this->isRequired()
                         || (!$this->isRequired() && !$this->getAllowEmpty())
@@ -1430,10 +1430,10 @@ class Zend_Form_Element implements Zend_Validate_Interface
                         $result = false;
                         if ($this->_hasErrorMessages()) {
                             $messages = $this->_getErrorMessages();
-                            $errors   = $messages;
+                            $errors = $messages;
                         } else {
                             $messages = array_merge($messages, $validator->getMessages());
-                            $errors   = array_merge($errors,   $validator->getErrors());
+                            $errors = array_merge($errors, $validator->getErrors());
                         }
                     }
                 }
@@ -1446,16 +1446,16 @@ class Zend_Form_Element implements Zend_Validate_Interface
                 $result = false;
                 if ($this->_hasErrorMessages()) {
                     $messages = $this->_getErrorMessages();
-                    $errors   = $messages;
+                    $errors = $messages;
                 } else {
                     $messages = $validator->getMessages();
-                    $errors   = array_keys($messages);
+                    $errors = array_keys($messages);
                 }
             }
 
-            $result          = false;
+            $result = false;
             $this->_messages = array_merge($this->_messages, $messages);
-            $this->_errors   = array_merge($this->_errors,   $errors);
+            $this->_errors = array_merge($this->_errors, $errors);
 
             if ($validator->zfBreakChainOnFailure) {
                 break;
@@ -1478,7 +1478,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function addErrorMessage($message)
     {
-        $this->_errorMessages[] = (string) $message;
+        $this->_errorMessages[] = (string)$message;
         return $this;
     }
 
@@ -1558,9 +1558,9 @@ class Zend_Form_Element implements Zend_Validate_Interface
      */
     public function markAsError()
     {
-        $messages       = $this->getMessages();
+        $messages = $this->getMessages();
         $customMessages = $this->_getErrorMessages();
-        $messages       = $messages + $customMessages;
+        $messages = $messages + $customMessages;
         if (empty($messages)) {
             $this->_isError = true;
         } else {
@@ -1655,7 +1655,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
         } elseif (is_string($filter)) {
             $name = $filter;
             $filter = array(
-                'filter'  => $filter,
+                'filter' => $filter,
                 'options' => $options,
             );
             $this->_filters[$name] = $filter;
@@ -1683,8 +1683,8 @@ class Zend_Form_Element implements Zend_Validate_Interface
             } elseif ($filterInfo instanceof Zend_Filter_Interface) {
                 $this->addFilter($filterInfo);
             } elseif (is_array($filterInfo)) {
-                $argc                = count($filterInfo);
-                $options             = array();
+                $argc = count($filterInfo);
+                $options = array();
                 if (isset($filterInfo['filter'])) {
                     $filter = $filterInfo['filter'];
                     if (isset($filterInfo['options'])) {
@@ -1696,7 +1696,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
                         case (0 == $argc):
                             break;
                         case (1 <= $argc):
-                            $filter  = array_shift($filterInfo);
+                            $filter = array_shift($filterInfo);
                         case (2 <= $argc):
                             $options = array_shift($filterInfo);
                         default:
@@ -1875,10 +1875,10 @@ class Zend_Form_Element implements Zend_Validate_Interface
         if ($decorator instanceof Zend_Form_Decorator_Interface) {
             $name = get_class($decorator);
         } elseif (is_string($decorator)) {
-            $name      = $decorator;
+            $name = $decorator;
             $decorator = array(
                 'decorator' => $name,
-                'options'   => $options,
+                'options' => $options,
             );
         } elseif (is_array($decorator)) {
             foreach ($decorator as $name => $spec) {
@@ -1891,7 +1891,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
             if (is_string($spec)) {
                 $decorator = array(
                     'decorator' => $spec,
-                    'options'   => $options,
+                    'options' => $options,
                 );
             } elseif ($spec instanceof Zend_Form_Decorator_Interface) {
                 $decorator = $spec;
@@ -1916,14 +1916,15 @@ class Zend_Form_Element implements Zend_Validate_Interface
     {
         foreach ($decorators as $decoratorName => $decoratorInfo) {
             if (is_string($decoratorInfo) ||
-                $decoratorInfo instanceof Zend_Form_Decorator_Interface) {
+                $decoratorInfo instanceof Zend_Form_Decorator_Interface
+            ) {
                 if (!is_numeric($decoratorName)) {
                     $this->addDecorator(array($decoratorName => $decoratorInfo));
                 } else {
                     $this->addDecorator($decoratorInfo);
                 }
             } elseif (is_array($decoratorInfo)) {
-                $argc    = count($decoratorInfo);
+                $argc = count($decoratorInfo);
                 $options = array();
                 if (isset($decoratorInfo['decorator'])) {
                     $decorator = $decoratorInfo['decorator'];
@@ -1936,7 +1937,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
                         case (0 == $argc):
                             break;
                         case (1 <= $argc):
-                            $decorator  = array_shift($decoratorInfo);
+                            $decorator = array_shift($decoratorInfo);
                         case (2 <= $argc):
                             $options = array_shift($decoratorInfo);
                         default:
@@ -2100,7 +2101,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
     protected function _loadFilter(array $filter)
     {
         $origName = $filter['filter'];
-        $name     = $this->getPluginLoader(self::FILTER)->load($filter['filter']);
+        $name = $this->getPluginLoader(self::FILTER)->load($filter['filter']);
 
         if (array_key_exists($name, $this->_filters)) {
             require_once 'Zend/Form/Exception.php';
@@ -2112,15 +2113,15 @@ class Zend_Form_Element implements Zend_Validate_Interface
         } else {
             $r = new ReflectionClass($name);
             if ($r->hasMethod('__construct')) {
-                $instance = $r->newInstanceArgs((array) $filter['options']);
+                $instance = $r->newInstanceArgs((array)$filter['options']);
             } else {
                 $instance = $r->newInstance();
             }
         }
 
         if ($origName != $name) {
-            $filterNames  = array_keys($this->_filters);
-            $order        = array_flip($filterNames);
+            $filterNames = array_keys($this->_filters);
+            $order = array_flip($filterNames);
             $order[$name] = $order[$origName];
             $filtersExchange = array();
             unset($order[$origName]);
@@ -2149,7 +2150,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
     protected function _loadValidator(array $validator)
     {
         $origName = $validator['validator'];
-        $name     = $this->getPluginLoader(self::VALIDATE)->load($validator['validator']);
+        $name = $this->getPluginLoader(self::VALIDATE)->load($validator['validator']);
 
         if (array_key_exists($name, $this->_validators)) {
             require_once 'Zend/Form/Exception.php';
@@ -2169,8 +2170,8 @@ class Zend_Form_Element implements Zend_Validate_Interface
             if ($r->hasMethod('__construct')) {
                 $numeric = false;
                 if (is_array($validator['options'])) {
-                    $keys    = array_keys($validator['options']);
-                    foreach($keys as $key) {
+                    $keys = array_keys($validator['options']);
+                    foreach ($keys as $key) {
                         if (is_numeric($key)) {
                             $numeric = true;
                             break;
@@ -2179,7 +2180,7 @@ class Zend_Form_Element implements Zend_Validate_Interface
                 }
 
                 if ($numeric) {
-                    $instance = $r->newInstanceArgs((array) $validator['options']);
+                    $instance = $r->newInstanceArgs((array)$validator['options']);
                 } else {
                     $instance = $r->newInstance($validator['options']);
                 }
@@ -2198,9 +2199,9 @@ class Zend_Form_Element implements Zend_Validate_Interface
         $instance->zfBreakChainOnFailure = $validator['breakChainOnFailure'];
 
         if ($origName != $name) {
-            $validatorNames     = array_keys($this->_validators);
-            $order              = array_flip($validatorNames);
-            $order[$name]       = $order[$origName];
+            $validatorNames = array_keys($this->_validators);
+            $order = array_flip($validatorNames);
+            $order[$name] = $order[$origName];
             $validatorsExchange = array();
             unset($order[$origName]);
             asort($order);
@@ -2235,10 +2236,10 @@ class Zend_Form_Element implements Zend_Validate_Interface
 
         $instance = $this->_getDecorator($decorator['decorator'], $decorator['options']);
         if ($sameName) {
-            $newName            = get_class($instance);
-            $decoratorNames     = array_keys($this->_decorators);
-            $order              = array_flip($decoratorNames);
-            $order[$newName]    = $order[$name];
+            $newName = get_class($instance);
+            $decoratorNames = array_keys($this->_decorators);
+            $order = array_flip($decoratorNames);
+            $order[$newName] = $order[$name];
             $decoratorsExchange = array();
             unset($order[$name]);
             asort($order);
@@ -2265,8 +2266,8 @@ class Zend_Form_Element implements Zend_Validate_Interface
     protected function _getErrorMessages()
     {
         $translator = $this->getTranslator();
-        $messages   = $this->getErrorMessages();
-        $value      = $this->getValue();
+        $messages = $this->getErrorMessages();
+        $value = $this->getValue();
         foreach ($messages as $key => $message) {
             if (null !== $translator) {
                 $message = $translator->translate($message);

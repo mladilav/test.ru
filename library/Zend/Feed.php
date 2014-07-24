@@ -56,8 +56,8 @@ class Zend_Feed
      */
     protected static $_namespaces = array(
         'opensearch' => 'http://a9.com/-/spec/opensearchrss/1.0/',
-        'atom'       => 'http://www.w3.org/2005/Atom',
-        'rss'        => 'http://blogs.law.harvard.edu/tech/rss',
+        'atom' => 'http://www.w3.org/2005/Atom',
+        'rss' => 'http://blogs.law.harvard.edu/tech/rss',
     );
 
 
@@ -195,7 +195,7 @@ class Zend_Feed
         if (trim($string) == '') {
             require_once 'Zend/Feed/Exception.php';
             throw new Zend_Feed_Exception('Document/string being imported'
-            . ' is an Empty string or comes from an empty HTTP response');
+                . ' is an Empty string or comes from an empty HTTP response');
         }
         $doc = new DOMDocument;
         $doc = Zend_Xml_Security::scan($string, $doc);
@@ -220,7 +220,8 @@ class Zend_Feed
 
         // Try to find the base feed element or a single <entry> of an Atom feed
         if ($doc->getElementsByTagName('feed')->item(0) ||
-            $doc->getElementsByTagName('entry')->item(0)) {
+            $doc->getElementsByTagName('entry')->item(0)
+        ) {
             /**
              * @see Zend_Feed_Atom
              */
@@ -326,7 +327,8 @@ class Zend_Feed
                     continue;
                 }
                 if (!isset($attributes['type']) ||
-                        !@preg_match('~^application/(?:atom|rss|rdf)\+xml~', $attributes['type'])) {
+                    !@preg_match('~^application/(?:atom|rss|rdf)\+xml~', $attributes['type'])
+                ) {
                     continue;
                 }
                 if (!isset($attributes['href'])) {
@@ -335,10 +337,10 @@ class Zend_Feed
                 try {
                     // checks if we need to canonize the given uri
                     try {
-                        $uri = Zend_Uri::factory((string) $attributes['href']);
+                        $uri = Zend_Uri::factory((string)$attributes['href']);
                     } catch (Zend_Uri_Exception $e) {
                         // canonize the uri
-                        $path = (string) $attributes['href'];
+                        $path = (string)$attributes['href'];
                         $query = $fragment = '';
                         if (substr($path, 0, 1) != '/') {
                             // add the current root path to this one
@@ -371,7 +373,7 @@ class Zend_Feed
     /**
      * Construct a new Zend_Feed_Abstract object from a custom array
      *
-     * @param  array  $data
+     * @param  array $data
      * @param  string $format (rss|atom) the requested output format
      * @return Zend_Feed_Abstract
      */
@@ -394,7 +396,7 @@ class Zend_Feed
      * Construct a new Zend_Feed_Abstract object from a Zend_Feed_Builder_Interface data source
      *
      * @param  Zend_Feed_Builder_Interface $builder this object will be used to extract the data of the feed
-     * @param  string                      $format (rss|atom) the requested output format
+     * @param  string $format (rss|atom) the requested output format
      * @return Zend_Feed_Abstract
      */
     public static function importBuilder(Zend_Feed_Builder_Interface $builder, $format = 'atom')

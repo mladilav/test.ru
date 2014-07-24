@@ -24,34 +24,26 @@ class Application_Model_DbTable_Category extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
-    public function addCategory($name, $userId, $partId)
+    public function addCategory($data)
     {
 
-        $data = array(
-            'name' => $name,
-            'partId' => $partId,
-            'userId' => $userId,
-
-
-        );
-
+        if (!$data) {
+            return false;
+        }
         // Используем метод insert для вставки записи в базу
         $this->insert($data);
 
     }
 
-    public function updateCategory($id, $name, $userId, $partId)
+    public function updateCategory($data)
     {
-        // Формируем массив значений
-        $data = array(
-            'name' => $name,
-            'userId' => $userId,
-            'partId' => $partId,
-        );
+        if (!$data) {
+            return false;
+        }
 
         // Используем метод update для обновления записи
         // В скобках указываем условие обновления (привычное для вас where)
-        $this->update($data, 'id = ' . (int)$id);
+        $this->update($data, 'id = ' . (int)$data['id']);
 
     }
 
@@ -60,6 +52,40 @@ class Application_Model_DbTable_Category extends Zend_Db_Table_Abstract
         // В скобках указываем условие удаления (привычное для вас where)
         $this->delete('id = ' . (int)$id);
     }
+
+    public function arrayCategory()
+    {
+        $result = array();
+        $data = $this->fetchAll();
+        foreach ($data as $row) {
+            $cat = new Application_Model_Category($row);
+            $result[] = $cat;
+        }
+        return $result;
+    }
+
+    public function arraySelect()
+    {
+        $array_tests = $this->fetchAll($this->select()->from('category', 'name'));
+        $i = 0;
+        foreach ($array_tests->toArray() as $array) {
+            foreach ($array as $arg) {
+                $result[$i] = $arg;
+                $i++;
+            }
+        }
+
+        $array_testss = $this->fetchAll($this->select()->from('category', 'id'));
+        $i = 0;
+        foreach ($array_testss->toArray() as $array) {
+            foreach ($array as $arg) {
+                $results[$i] = $arg;
+                $i++;
+            }
+        }
+        return array_combine($results, $result);
+    }
+
 }
 
 ?>

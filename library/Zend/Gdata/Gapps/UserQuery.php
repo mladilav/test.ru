@@ -62,7 +62,7 @@ class Zend_Gdata_Gapps_UserQuery extends Zend_Gdata_Gapps_Query
      *          startUsername property.
      */
     public function __construct($domain = null, $username = null,
-            $startUsername = null)
+                                $startUsername = null)
     {
         parent::__construct($domain);
         $this->setUsername($username);

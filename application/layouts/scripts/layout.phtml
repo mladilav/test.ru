@@ -2,28 +2,93 @@
 $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html;charset=utf-8');
 $this->headTitle()->setSeparator(' - ');
 $this->headTitle('');
-
+date_default_timezone_set('Europe/Kiev');
 echo $this->doctype();
 ?>
 
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <?php echo $this->headMeta(); ?>
     <?php echo $this->headTitle(); ?>
-    <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/site.css'); ?>
+    <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/style.css'); ?>
+    <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/css/bootstrap.css'); ?>
+    <?php echo $this->headLink()->prependStylesheet($this->baseUrl() . '/slick/slick.css'); ?>
+
+    <?php
+    if ( $this->layout()->ckeditor ) {
+        echo $this->headScript()->appendFile( $this->baseUrl().'/ckeditor/ckeditor.js');
+    }
+    ?>
+    <style>
+        i{
+            cursor: pointer;
+        }
+        </style>
+
 </head>
 <body>
-<?php
-// Применяем уже знакомый метод для проверки авторизации пользователя
-if (Zend_Auth::getInstance()->hasIdentity()) {
-    $url = $this->url(array('controller' => 'auth', 'action' => 'logout'));
-    // если пользователь авторизирован, показываем ему кнопку "Выход"
-    echo "<a href=\"{$url}\">Выход</a>";
-}
-?>
-<div id="content">
-    <h1><?php echo $this->escape($this->title); ?></h1>
-    <?php echo $this->layout()->content; ?>
+
+
+<div class="container">
+    <div class="header"><p><?php echo $this->layout()->auth;?></p></div>
+<div class="navbar">
+    <div class="navbar-inner">
+
+        <ul class="nav">
+            <?php echo $this->layout()->menu;?>
+        </ul>
+        <a href="/index/lang/lang/ua"><img src="/img/Ukraine-Flag.png"></a>
+        <a href="/index/lang/lang/ru"><img src="/img/Russia-Flag.png"></a>
+    </div>
 </div>
+
+    <div class="single-item">
+        <div class="image"><img src="/img/capture01.png"></div>
+        <div class="image"><img src="/img/capture01.png"></div>
+        <div class="image"><img src="/img/capture01.png"></div>
+        <div class="image"><img src="/img/capture01.png"></div>
+    </div>
+
+
+    <div class="row-fluid">
+        <div class="span3">
+           <?php
+           echo  $this->layout()->test;
+           echo $this->layout()->category;?>
+
+        </div>
+
+
+        <div class="span9">
+            <div id="content">
+                <h1><?php echo $this->escape($this->title); ?></h1>
+                <?php echo $this->layout()->content; ?>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <ul>
+            <?php echo $this->layout()->menu;?>
+        </ul>
+        ZNO Online Copyright 2014
+    </div>
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="/slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.single-item').slick({dots: true, arrows: false});
+        });
+    </script>
+
+
 </body>
 </html>

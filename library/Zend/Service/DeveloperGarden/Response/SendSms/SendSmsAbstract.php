@@ -98,7 +98,7 @@ abstract class Zend_Service_DeveloperGarden_Response_SendSms_SendSmsAbstract
     public function isValid()
     {
         return ($this->return === null
-                || $this->return->status == '0000');
+            || $this->return->status == '0000');
     }
 
     /**

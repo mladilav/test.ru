@@ -69,10 +69,10 @@ class Zend_Cache_Backend_BlackHole
      * Note : $data is always "string" (serialization is done by the
      * core not by the backend)
      *
-     * @param  string $data             Datas to cache
-     * @param  string $id               Cache id
-     * @param  array  $tags             Array of strings, the cache record will be tagged by each string entry
-     * @param  int    $specificLifetime If != false, set a specific lifetime for this cache record (null => infinite lifetime)
+     * @param  string $data Datas to cache
+     * @param  string $id Cache id
+     * @param  array $tags Array of strings, the cache record will be tagged by each string entry
+     * @param  int $specificLifetime If != false, set a specific lifetime for this cache record (null => infinite lifetime)
      * @return boolean true if no problem
      */
     public function save($data, $id, $tags = array(), $specificLifetime = false)
@@ -229,11 +229,11 @@ class Zend_Cache_Backend_BlackHole
     {
         return array(
             'automatic_cleaning' => true,
-            'tags'               => true,
-            'expired_read'       => true,
-            'priority'           => true,
-            'infinite_lifetime'  => true,
-            'get_list'           => true,
+            'tags' => true,
+            'expired_read' => true,
+            'priority' => true,
+            'infinite_lifetime' => true,
+            'get_list' => true,
         );
     }
 

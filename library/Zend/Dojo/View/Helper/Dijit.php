@@ -31,7 +31,7 @@ require_once 'Zend/View/Helper/HtmlElement.php';
  * @subpackage View
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
-  */
+ */
 abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
 {
     /**
@@ -155,8 +155,8 @@ abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
 
         $nodeType = $this->getRootNode();
         $html = '<' . $nodeType . $this->_htmlAttribs($attribs) . '>'
-              . $content
-              . "</$nodeType>\n";
+            . $content
+            . "</$nodeType>\n";
 
         return $html;
     }
@@ -176,15 +176,15 @@ abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
         if (!array_key_exists('id', $attribs)) {
             $attribs['id'] = $id;
         }
-        $attribs['name']  = $id;
-        $attribs['value'] = (string) $value;
-        $attribs['type']  = $this->_elementType;
+        $attribs['name'] = $id;
+        $attribs['value'] = (string)$value;
+        $attribs['type'] = $this->_elementType;
 
         $attribs = $this->_prepareDijit($attribs, $params, 'element', $dijit);
 
         $html = '<input'
-              . $this->_htmlAttribs($attribs)
-              . $this->getClosingBracket();
+            . $this->_htmlAttribs($attribs)
+            . $this->getClosingBracket();
         return $html;
     }
 
@@ -245,7 +245,7 @@ abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
                         $values[$key] = $value;
                     }
                 } elseif (is_string($params[$param])) {
-                    $values = (array) $params[$param];
+                    $values = (array)$params[$param];
                 } else {
                     $values = array();
                 }
@@ -313,9 +313,9 @@ abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
     protected function _renderHiddenElement($id, $value)
     {
         $hiddenAttribs = array(
-            'name'  => $id,
-            'value' => (string) $value,
-            'type'  => 'hidden',
+            'name' => $id,
+            'value' => (string)$value,
+            'type' => 'hidden',
         );
         return '<input' . $this->_htmlAttribs($hiddenAttribs) . $this->getClosingBracket();
     }
@@ -327,7 +327,7 @@ abstract class Zend_Dojo_View_Helper_Dijit extends Zend_View_Helper_HtmlElement
      */
     protected function _createGetParentFormFunction()
     {
-        $function =<<<EOJ
+        $function = <<<EOJ
 if (zend == undefined) {
     var zend = {};
 }

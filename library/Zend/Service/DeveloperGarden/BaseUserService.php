@@ -107,16 +107,16 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
      * @var array
      */
     protected $_moduleIds = array(
-        'SmsProduction'            => 'SmsProduction',
-        'SmsSandbox'               => 'SmsSandbox',
-        'VoiceCallProduction'      => 'VoiceButlerProduction',
-        'VoiceCallSandbox'         => 'VoiceButlerSandbox',
+        'SmsProduction' => 'SmsProduction',
+        'SmsSandbox' => 'SmsSandbox',
+        'VoiceCallProduction' => 'VoiceButlerProduction',
+        'VoiceCallSandbox' => 'VoiceButlerSandbox',
         'ConferenceCallProduction' => 'CCSProduction',
-        'ConferenceCallSandbox'    => 'CCSSandbox',
-        'LocalSearchProduction'    => 'localsearchProduction',
-        'LocalSearchSandbox'       => 'localsearchSandbox',
-        'IPLocationProduction'     => 'IPLocationProduction',
-        'IPLocationSandbox'        => 'IPLocationSandbox'
+        'ConferenceCallSandbox' => 'CCSSandbox',
+        'LocalSearchProduction' => 'localsearchProduction',
+        'LocalSearchSandbox' => 'localsearchSandbox',
+        'IPLocationProduction' => 'IPLocationProduction',
+        'IPLocationSandbox' => 'IPLocationSandbox'
     );
 
     /**
@@ -154,7 +154,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     protected function _buildModuleString($module, $environment)
     {
         $moduleString = $module;
-        switch($environment) {
+        switch ($environment) {
             case self::ENV_PRODUCTION :
                 $moduleString .= 'Production';
                 break;
@@ -216,7 +216,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     {
         self::checkEnvironment($environment);
         $moduleId = $this->_buildModuleString('Sms', $environment);
-        $request  = $this->_getRequestModule($moduleId);
+        $request = $this->_getRequestModule($moduleId);
         return $this->getQuotaInformation($request);
     }
 
@@ -230,7 +230,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     {
         self::checkEnvironment($environment);
         $moduleId = $this->_buildModuleString('VoiceButler', $environment);
-        $request  = $this->_getRequestModule($moduleId);
+        $request = $this->_getRequestModule($moduleId);
         return $this->getQuotaInformation($request);
     }
 
@@ -244,7 +244,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     {
         self::checkEnvironment($environment);
         $moduleId = $this->_buildModuleString('CCS', $environment);
-        $request  = $this->_getRequestModule($moduleId);
+        $request = $this->_getRequestModule($moduleId);
         return $this->getQuotaInformation($request);
     }
 
@@ -258,7 +258,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     {
         self::checkEnvironment($environment);
         $moduleId = $this->_buildModuleString('localsearch', $environment);
-        $request  = $this->_getRequestModule($moduleId);
+        $request = $this->_getRequestModule($moduleId);
         return $this->getQuotaInformation($request);
     }
 
@@ -272,7 +272,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     {
         self::checkEnvironment($environment);
         $moduleId = $this->_buildModuleString('IPLocation', $environment);
-        $request  = $this->_getRequestModule($moduleId);
+        $request = $this->_getRequestModule($moduleId);
         return $this->getQuotaInformation($request);
     }
 
@@ -284,11 +284,12 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
      */
     public function getQuotaInformation(
         Zend_Service_DeveloperGarden_Request_BaseUserService_GetQuotaInformation $request
-    ) {
+    )
+    {
         $this->_checkModuleId($request->getModuleId());
         return $this->getSoapClient()
-                    ->getQuotaInformation($request)
-                    ->parse();
+            ->getQuotaInformation($request)
+            ->parse();
     }
 
     /**
@@ -302,7 +303,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     {
         self::checkEnvironment($environment);
         $moduleId = $this->_buildModuleString('Sms', $environment);
-        $request  = $this->_getChangeRequestModule($moduleId, $quotaMax);
+        $request = $this->_getChangeRequestModule($moduleId, $quotaMax);
         return $this->changeQuotaPool($request);
     }
 
@@ -317,7 +318,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     {
         self::checkEnvironment($environment);
         $moduleId = $this->_buildModuleString('VoiceButler', $environment);
-        $request  = $this->_getChangeRequestModule($moduleId, $quotaMax);
+        $request = $this->_getChangeRequestModule($moduleId, $quotaMax);
         return $this->changeQuotaPool($request);
     }
 
@@ -332,7 +333,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     {
         self::checkEnvironment($environment);
         $moduleId = $this->_buildModuleString('IPLocation', $environment);
-        $request  = $this->_getChangeRequestModule($moduleId, $quotaMax);
+        $request = $this->_getChangeRequestModule($moduleId, $quotaMax);
         return $this->changeQuotaPool($request);
     }
 
@@ -347,7 +348,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     {
         self::checkEnvironment($environment);
         $moduleId = $this->_buildModuleString('CCS', $environment);
-        $request  = $this->_getChangeRequestModule($moduleId, $quotaMax);
+        $request = $this->_getChangeRequestModule($moduleId, $quotaMax);
         return $this->changeQuotaPool($request);
     }
 
@@ -362,7 +363,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
     {
         self::checkEnvironment($environment);
         $moduleId = $this->_buildModuleString('localsearch', $environment);
-        $request  = $this->_getChangeRequestModule($moduleId, $quotaMax);
+        $request = $this->_getChangeRequestModule($moduleId, $quotaMax);
         return $this->changeQuotaPool($request);
     }
 
@@ -374,11 +375,12 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
      */
     public function changeQuotaPool(
         Zend_Service_DeveloperGarden_Request_BaseUserService_ChangeQuotaPool $request
-    ) {
+    )
+    {
         $this->_checkModuleId($request->getModuleId());
         return $this->getSoapClient()
-                    ->changeQuotaPool($request)
-                    ->parse();
+            ->changeQuotaPool($request)
+            ->parse();
     }
 
     /**
@@ -393,7 +395,7 @@ class Zend_Service_DeveloperGarden_BaseUserService extends Zend_Service_Develope
             $accounts
         );
         return $this->getSoapClient()
-                    ->getAccountBalance($request)
-                    ->parse();
+            ->getAccountBalance($request)
+            ->parse();
     }
 }

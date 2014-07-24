@@ -104,10 +104,10 @@ class Zend_Reflection_Class extends ReflectionClass
      */
     public function getContents($includeDocblock = true)
     {
-        $filename  = $this->getFileName();
+        $filename = $this->getFileName();
         $filelines = file($filename);
-        $startnum  = $this->getStartLine($includeDocblock);
-        $endnum    = $this->getEndLine() - $this->getStartLine();
+        $startnum = $this->getStartLine($includeDocblock);
+        $endnum = $this->getEndLine() - $this->getStartLine();
 
         return implode('', array_splice($filelines, $startnum, $endnum, true));
     }
@@ -120,7 +120,7 @@ class Zend_Reflection_Class extends ReflectionClass
      */
     public function getInterfaces($reflectionClass = 'Zend_Reflection_Class')
     {
-        $phpReflections  = parent::getInterfaces();
+        $phpReflections = parent::getInterfaces();
         $zendReflections = array();
         while ($phpReflections && ($phpReflection = array_shift($phpReflections))) {
             $instance = new $reflectionClass($phpReflection->getName());
@@ -144,7 +144,7 @@ class Zend_Reflection_Class extends ReflectionClass
      */
     public function getMethod($name, $reflectionClass = 'Zend_Reflection_Method')
     {
-        $phpReflection  = parent::getMethod($name);
+        $phpReflection = parent::getMethod($name);
         $zendReflection = new $reflectionClass($this->getName(), $phpReflection->getName());
 
         if (!$zendReflection instanceof Zend_Reflection_Method) {
@@ -165,7 +165,7 @@ class Zend_Reflection_Class extends ReflectionClass
      */
     public function getMethods($filter = -1, $reflectionClass = 'Zend_Reflection_Method')
     {
-        $phpReflections  = parent::getMethods($filter);
+        $phpReflections = parent::getMethods($filter);
         $zendReflections = array();
         while ($phpReflections && ($phpReflection = array_shift($phpReflections))) {
             $instance = new $reflectionClass($this->getName(), $phpReflection->getName());
@@ -211,7 +211,7 @@ class Zend_Reflection_Class extends ReflectionClass
      */
     public function getProperty($name, $reflectionClass = 'Zend_Reflection_Property')
     {
-        $phpReflection  = parent::getProperty($name);
+        $phpReflection = parent::getProperty($name);
         $zendReflection = new $reflectionClass($this->getName(), $phpReflection->getName());
         if (!$zendReflection instanceof Zend_Reflection_Property) {
             require_once 'Zend/Reflection/Exception.php';

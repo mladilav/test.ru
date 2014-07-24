@@ -147,15 +147,16 @@ class Zend_Mobile_Push_Response_Gcm
             !isset($response['success']) ||
             !isset($response['failure']) ||
             !isset($response['canonical_ids']) ||
-            !isset($response['multicast_id'])) {
+            !isset($response['multicast_id'])
+        ) {
             throw new Zend_Mobile_Push_Exception('Response did not contain the proper fields');
         }
         $this->_response = $response;
         $this->_results = $response['results'];
-        $this->_successCnt = (int) $response['success'];
-        $this->_failureCnt = (int) $response['failure'];
-        $this->_canonicalCnt = (int) $response['canonical_ids'];
-        $this->_id = (int) $response['multicast_id'];
+        $this->_successCnt = (int)$response['success'];
+        $this->_failureCnt = (int)$response['failure'];
+        $this->_canonicalCnt = (int)$response['canonical_ids'];
+        $this->_id = (int)$response['multicast_id'];
         return $this;
     }
 
@@ -194,7 +195,7 @@ class Zend_Mobile_Push_Response_Gcm
      *
      * @return array multi dimensional array of:
      *         NOTE: key is registration_id if the message is passed.
-     *         'registration_id' => array( 
+     *         'registration_id' => array(
      *             'message_id' => 'id',
      *             'error' => 'error',
      *             'registration_id' => 'id'
@@ -208,7 +209,7 @@ class Zend_Mobile_Push_Response_Gcm
     /**
      * Get Singular Result
      *
-     * @param  int   $flag one of the RESULT_* flags
+     * @param  int $flag one of the RESULT_* flags
      * @return array singular array with keys being registration id
      *               value is the type of result
      */
@@ -233,7 +234,7 @@ class Zend_Mobile_Push_Response_Gcm
         $results = $this->_results;
         if ($this->_message && $results) {
             $tokens = $this->_message->getToken();
-            while($token = array_shift($tokens)) {
+            while ($token = array_shift($tokens)) {
                 $results[$token] = array_shift($results);
             }
         }

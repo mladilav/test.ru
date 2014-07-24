@@ -80,7 +80,7 @@ class Zend_Ldap_Node_Schema_OpenLdap extends Zend_Ldap_Node_Schema
      * Parses the schema
      *
      * @param  Zend_Ldap_Dn $dn
-     * @param  Zend_Ldap    $ldap
+     * @param  Zend_Ldap $ldap
      * @return Zend_Ldap_Node_Schema Provides a fluid interface
      */
     protected function _parseSchema(Zend_Ldap_Dn $dn, Zend_Ldap $ldap)
@@ -178,22 +178,22 @@ class Zend_Ldap_Node_Schema_OpenLdap extends Zend_Ldap_Node_Schema
     protected function _parseAttributeType($value)
     {
         $attributeType = array(
-            'oid'                  => null,
-            'name'                 => null,
-            'desc'                 => null,
-            'obsolete'             => false,
-            'sup'                  => null,
-            'equality'             => null,
-            'ordering'             => null,
-            'substr'               => null,
-            'syntax'               => null,
-            'max-length'           => null,
-            'single-value'         => false,
-            'collective'           => false,
+            'oid' => null,
+            'name' => null,
+            'desc' => null,
+            'obsolete' => false,
+            'sup' => null,
+            'equality' => null,
+            'ordering' => null,
+            'substr' => null,
+            'syntax' => null,
+            'max-length' => null,
+            'single-value' => false,
+            'collective' => false,
             'no-user-modification' => false,
-            'usage'                => 'userApplications',
-            '_string'              => $value,
-            '_parents'             => array());
+            'usage' => 'userApplications',
+            '_string' => $value,
+            '_parents' => array());
 
         $tokens = $this->_tokenizeString($value);
         $attributeType['oid'] = array_shift($tokens); // first token is the oid
@@ -245,18 +245,18 @@ class Zend_Ldap_Node_Schema_OpenLdap extends Zend_Ldap_Node_Schema
     protected function _parseObjectClass($value)
     {
         $objectClass = array(
-            'oid'        => null,
-            'name'       => null,
-            'desc'       => null,
-            'obsolete'   => false,
-            'sup'        => array(),
-            'abstract'   => false,
+            'oid' => null,
+            'name' => null,
+            'desc' => null,
+            'obsolete' => false,
+            'sup' => array(),
+            'abstract' => false,
             'structural' => false,
-            'auxiliary'  => false,
-            'must'       => array(),
-            'may'        => array(),
-            '_string'    => $value,
-            '_parents'   => array());
+            'auxiliary' => false,
+            'must' => array(),
+            'may' => array(),
+            '_string' => $value,
+            '_parents' => array());
 
         $tokens = $this->_tokenizeString($value);
         $objectClass['oid'] = array_shift($tokens); // first token is the oid
@@ -271,7 +271,7 @@ class Zend_Ldap_Node_Schema_OpenLdap extends Zend_Ldap_Node_Schema
      * Resolves inheritance in objectClasses and attributes
      *
      * @param Zend_Ldap_Node_Schema_Item $node
-     * @param array                      $repository
+     * @param array $repository
      */
     protected function _resolveInheritance(Zend_Ldap_Node_Schema_Item $node, array $repository)
     {
@@ -281,9 +281,9 @@ class Zend_Ldap_Node_Schema_OpenLdap extends Zend_Ldap_Node_Schema
         foreach ($parents as $parent) {
             if (!array_key_exists($parent, $repository)) continue;
             if (!array_key_exists('_parents', $data) || !is_array($data['_parents'])) {
-               $data['_parents'] = array();
-           }
-           $data['_parents'][] = $repository[$parent];
+                $data['_parents'] = array();
+            }
+            $data['_parents'][] = $repository[$parent];
         }
         $node->setData($data);
     }
@@ -312,8 +312,8 @@ class Zend_Ldap_Node_Schema_OpenLdap extends Zend_Ldap_Node_Schema
     protected function _parseLdapSyntax($value)
     {
         $ldapSyntax = array(
-            'oid'      => null,
-            'desc'     => null,
+            'oid' => null,
+            'desc' => null,
             '_string' => $value);
 
         $tokens = $this->_tokenizeString($value);
@@ -347,12 +347,12 @@ class Zend_Ldap_Node_Schema_OpenLdap extends Zend_Ldap_Node_Schema
     protected function _parseMatchingRule($value)
     {
         $matchingRule = array(
-            'oid'      => null,
-            'name'     => null,
-            'desc'     => null,
+            'oid' => null,
+            'name' => null,
+            'desc' => null,
             'obsolete' => false,
-            'syntax'   => null,
-            '_string'  => $value);
+            'syntax' => null,
+            '_string' => $value);
 
         $tokens = $this->_tokenizeString($value);
         $matchingRule['oid'] = array_shift($tokens); // first token is the oid
@@ -387,12 +387,12 @@ class Zend_Ldap_Node_Schema_OpenLdap extends Zend_Ldap_Node_Schema
     protected function _parseMatchingRuleUse($value)
     {
         $matchingRuleUse = array(
-            'oid'      => null,
-            'name'     => null,
-            'desc'     => null,
+            'oid' => null,
+            'name' => null,
+            'desc' => null,
             'obsolete' => false,
-            'applies'  => array(),
-            '_string'  => $value);
+            'applies' => array(),
+            '_string' => $value);
 
         $tokens = $this->_tokenizeString($value);
         $matchingRuleUse['oid'] = array_shift($tokens); // first token is the oid
@@ -473,11 +473,11 @@ class Zend_Ldap_Node_Schema_OpenLdap extends Zend_Ldap_Node_Schema
     }
 
     /**
-    * Tokenizes the given value into an array
-    *
-    * @param  string $value
-    * @return array tokens
-    */
+     * Tokenizes the given value into an array
+     *
+     * @param  string $value
+     * @return array tokens
+     */
     protected function _tokenizeString($value)
     {
         $tokens = array();
@@ -487,11 +487,11 @@ class Zend_Ldap_Node_Schema_OpenLdap extends Zend_Ldap_Node_Schema
         preg_match_all($pattern, $value, $matches);
         $cMatches = count($matches[0]);
         $cPattern = count($matches);
-        for ($i = 0; $i < $cMatches; $i++) {     // number of tokens (full pattern match)
+        for ($i = 0; $i < $cMatches; $i++) { // number of tokens (full pattern match)
             for ($j = 1; $j < $cPattern; $j++) { // each subpattern
                 $tok = trim($matches[$j][$i]);
-                if (!empty($tok)) {              // pattern match in this subpattern
-                    $tokens[$i] = $tok;          // this is the token
+                if (!empty($tok)) { // pattern match in this subpattern
+                    $tokens[$i] = $tok; // this is the token
                 }
             }
         }

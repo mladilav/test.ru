@@ -29,7 +29,7 @@
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
+class Zend_Dojo_Data implements ArrayAccess, Iterator, Countable
 {
     /**
      * Identifier field of item
@@ -223,7 +223,7 @@ class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
         } elseif (is_string($identifier)) {
             $this->_identifier = $identifier;
         } elseif (is_numeric($identifier)) {
-            $this->_identifier = (int) $identifier;
+            $this->_identifier = (int)$identifier;
         } else {
             require_once 'Zend/Dojo/Exception.php';
             throw new Zend_Dojo_Exception('Invalid identifier; please use a string or integer');
@@ -254,7 +254,7 @@ class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
         if (null === $label) {
             $this->_label = null;
         } else {
-            $this->_label = (string) $label;
+            $this->_label = (string)$label;
         }
         return $this;
     }
@@ -376,7 +376,7 @@ class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
 
         $array = array(
             'identifier' => $identifier,
-            'items'      => array_values($this->getItems()),
+            'items' => array_values($this->getItems()),
         );
 
         $metadata = $this->getMetadata();
@@ -506,7 +506,7 @@ class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
      */
     public function valid()
     {
-        return (bool) $this->current();
+        return (bool)$this->current();
     }
 
     /**
@@ -556,7 +556,7 @@ class Zend_Dojo_Data implements ArrayAccess,Iterator,Countable
         }
 
         return array(
-            'id'   => $id,
+            'id' => $id,
             'data' => $item,
         );
     }

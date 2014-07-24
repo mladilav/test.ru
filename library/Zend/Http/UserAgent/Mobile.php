@@ -329,7 +329,7 @@ class Zend_Http_UserAgent_Mobile extends Zend_Http_UserAgent_AbstractDevice
     {
         // For mobile detection, an adapter must be defined
         if (empty($config['mobile']['features'])) {
-            $config['mobile']['features']['path']      = self::DEFAULT_FEATURES_ADAPTER_PATH;
+            $config['mobile']['features']['path'] = self::DEFAULT_FEATURES_ADAPTER_PATH;
             $config['mobile']['features']['classname'] = self::DEFAULT_FEATURES_ADAPTER_CLASSNAME;
         }
         parent::__construct($userAgent, $server, $config);

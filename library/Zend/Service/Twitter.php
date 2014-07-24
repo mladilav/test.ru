@@ -367,15 +367,15 @@ class Zend_Service_Twitter
      * Blocks the user specified in the ID parameter as the authenticating user.
      * Destroys a friendship to the blocked user if it exists.
      *
-     * @param  integer|string $id       The ID or screen name of a user to block.
+     * @param  integer|string $id The ID or screen name of a user to block.
      * @throws Exception\DomainException if unable to decode JSON payload
      * @return Zend_Service_Twitter_Response
      */
     public function blocksCreate($id)
     {
         $this->init();
-        $path     = 'blocks/create';
-        $params   = $this->createUserParameter($id, array());
+        $path = 'blocks/create';
+        $params = $this->createUserParameter($id, array());
         $response = $this->post($path, $params);
         return new Zend_Service_Twitter_Response($response);
     }
@@ -383,14 +383,14 @@ class Zend_Service_Twitter
     /**
      * Un-blocks the user specified in the ID parameter for the authenticating user
      *
-     * @param  integer|string $id       The ID or screen_name of the user to un-block.
+     * @param  integer|string $id The ID or screen_name of the user to un-block.
      * @throws Exception\DomainException if unable to decode JSON payload
      * @return Zend_Service_Twitter_Response
      */
     public function blocksDestroy($id)
     {
         $this->init();
-        $path   = 'blocks/destroy';
+        $path = 'blocks/destroy';
         $params = $this->createUserParameter($id, array());
         $response = $this->post($path, $params);
         return new Zend_Service_Twitter_Response($response);
@@ -399,7 +399,7 @@ class Zend_Service_Twitter
     /**
      * Returns an array of user ids that the authenticating user is blocking
      *
-     * @param  integer $cursor  Optional. Specifies the cursor position at which to begin listing ids; defaults to first "page" of results.
+     * @param  integer $cursor Optional. Specifies the cursor position at which to begin listing ids; defaults to first "page" of results.
      * @throws Exception\DomainException if unable to decode JSON payload
      * @return Zend_Service_Twitter_Response
      */
@@ -414,7 +414,7 @@ class Zend_Service_Twitter
     /**
      * Returns an array of user objects that the authenticating user is blocking
      *
-     * @param  integer $cursor  Optional. Specifies the cursor position at which to begin listing ids; defaults to first "page" of results.
+     * @param  integer $cursor Optional. Specifies the cursor position at which to begin listing ids; defaults to first "page" of results.
      * @throws Exception\DomainException if unable to decode JSON payload
      * @return Zend_Service_Twitter_Response
      */
@@ -437,8 +437,8 @@ class Zend_Service_Twitter
     public function directMessagesDestroy($id)
     {
         $this->init();
-        $path     = 'direct_messages/destroy';
-        $params   = array('id' => $this->validInteger($id));
+        $path = 'direct_messages/destroy';
+        $params = array('id' => $this->validInteger($id));
         $response = $this->post($path, $params);
         return new Zend_Service_Twitter_Response($response);
     }
@@ -461,12 +461,12 @@ class Zend_Service_Twitter
     public function directMessagesMessages(array $options = array())
     {
         $this->init();
-        $path   = 'direct_messages';
+        $path = 'direct_messages';
         $params = array();
         foreach ($options as $key => $value) {
             switch (strtolower($key)) {
                 case 'count':
-                    $params['count'] = (int) $value;
+                    $params['count'] = (int)$value;
                     break;
                 case 'since_id':
                     $params['since_id'] = $this->validInteger($value);
@@ -475,10 +475,10 @@ class Zend_Service_Twitter
                     $params['max_id'] = $this->validInteger($value);
                     break;
                 case 'include_entities':
-                    $params['include_entities'] = (bool) $value;
+                    $params['include_entities'] = (bool)$value;
                     break;
                 case 'skip_status':
-                    $params['skip_status'] = (bool) $value;
+                    $params['skip_status'] = (bool)$value;
                     break;
                 default:
                     break;
@@ -517,9 +517,9 @@ class Zend_Service_Twitter
             );
         }
 
-        $params         = $this->createUserParameter($user, array());
+        $params = $this->createUserParameter($user, array());
         $params['text'] = $text;
-        $response       = $this->post($path, $params);
+        $response = $this->post($path, $params);
         return new Zend_Service_Twitter_Response($response);
     }
 
@@ -541,15 +541,15 @@ class Zend_Service_Twitter
     public function directMessagesSent(array $options = array())
     {
         $this->init();
-        $path   = 'direct_messages/sent';
+        $path = 'direct_messages/sent';
         $params = array();
         foreach ($options as $key => $value) {
             switch (strtolower($key)) {
                 case 'count':
-                    $params['count'] = (int) $value;
+                    $params['count'] = (int)$value;
                     break;
                 case 'page':
-                    $params['page'] = (int) $value;
+                    $params['page'] = (int)$value;
                     break;
                 case 'since_id':
                     $params['since_id'] = $this->validInteger($value);
@@ -558,7 +558,7 @@ class Zend_Service_Twitter
                     $params['max_id'] = $this->validInteger($value);
                     break;
                 case 'include_entities':
-                    $params['include_entities'] = (bool) $value;
+                    $params['include_entities'] = (bool)$value;
                     break;
                 default:
                     break;
@@ -579,8 +579,8 @@ class Zend_Service_Twitter
     public function favoritesCreate($id)
     {
         $this->init();
-        $path     = 'favorites/create';
-        $params   = array('id' => $this->validInteger($id));
+        $path = 'favorites/create';
+        $params = array('id' => $this->validInteger($id));
         $response = $this->post($path, $params);
         return new Zend_Service_Twitter_Response($response);
     }
@@ -596,8 +596,8 @@ class Zend_Service_Twitter
     public function favoritesDestroy($id)
     {
         $this->init();
-        $path     = 'favorites/destroy';
-        $params   = array('id' => $this->validInteger($id));
+        $path = 'favorites/destroy';
+        $params = array('id' => $this->validInteger($id));
         $response = $this->post($path, $params);
         return new Zend_Service_Twitter_Response($response);
     }
@@ -632,7 +632,7 @@ class Zend_Service_Twitter
                     $params['screen_name'] = $value;
                     break;
                 case 'count':
-                    $params['count'] = (int) $value;
+                    $params['count'] = (int)$value;
                     break;
                 case 'since_id':
                     $params['since_id'] = $this->validInteger($value);
@@ -641,7 +641,7 @@ class Zend_Service_Twitter
                     $params['max_id'] = $this->validInteger($value);
                     break;
                 case 'include_entities':
-                    $params['include_entities'] = (bool) $value;
+                    $params['include_entities'] = (bool)$value;
                     break;
                 default:
                     break;
@@ -663,12 +663,12 @@ class Zend_Service_Twitter
     public function friendshipsCreate($id, array $params = array())
     {
         $this->init();
-        $path    = 'friendships/create';
-        $params  = $this->createUserParameter($id, $params);
+        $path = 'friendships/create';
+        $params = $this->createUserParameter($id, $params);
         $allowed = array(
-            'user_id'     => null,
+            'user_id' => null,
             'screen_name' => null,
-            'follow'      => null,
+            'follow' => null,
         );
         $params = array_intersect_key($params, $allowed);
         $response = $this->post($path, $params);
@@ -686,8 +686,8 @@ class Zend_Service_Twitter
     public function friendshipsDestroy($id)
     {
         $this->init();
-        $path     = 'friendships/destroy';
-        $params   = $this->createUserParameter($id, array());
+        $path = 'friendships/destroy';
+        $params = $this->createUserParameter($id, array());
         $response = $this->post($path, $params);
         return new Zend_Service_Twitter_Response($response);
     }
@@ -743,8 +743,8 @@ class Zend_Service_Twitter
                             'Radius segment of "geocode" must be of the format "[unit](mi|km)"'
                         );
                     }
-                    $latitude  = (float) $latitude;
-                    $longitude = (float) $longitude;
+                    $latitude = (float)$latitude;
+                    $longitude = (float)$longitude;
                     $params['geocode'] = $latitude . ',' . $longitude . ',' . $radius;
                     break;
                 case 'lang':
@@ -776,7 +776,7 @@ class Zend_Service_Twitter
                     $params['result_type'] = $value;
                     break;
                 case 'count':
-                    $value = (int) $value;
+                    $value = (int)$value;
                     if (1 > $value || 100 < $value) {
                         require_once 'Zend/Service/Twitter/Exception.php';
                         throw new Zend_Service_Twitter_Exception(
@@ -801,7 +801,7 @@ class Zend_Service_Twitter
                     $params['max_id'] = $this->validInteger($value);
                     break;
                 case 'include_entities':
-                    $params['include_entities'] = (bool) $value;
+                    $params['include_entities'] = (bool)$value;
                     break;
                 default:
                     break;
@@ -852,7 +852,7 @@ class Zend_Service_Twitter
         foreach ($options as $key => $value) {
             switch (strtolower($key)) {
                 case 'count':
-                    $params['count'] = (int) $value;
+                    $params['count'] = (int)$value;
                     break;
                 case 'since_id':
                     $params['since_id'] = $this->validInteger($value);
@@ -869,13 +869,13 @@ class Zend_Service_Twitter
                     $params['trim_user'] = $value;
                     break;
                 case 'contributor_details:':
-                    $params['contributor_details:'] = (bool) $value;
+                    $params['contributor_details:'] = (bool)$value;
                     break;
                 case 'include_entities':
-                    $params['include_entities'] = (bool) $value;
+                    $params['include_entities'] = (bool)$value;
                     break;
                 case 'exclude_replies':
-                    $params['exclude_replies'] = (bool) $value;
+                    $params['exclude_replies'] = (bool)$value;
                     break;
                 default:
                     break;
@@ -904,12 +904,12 @@ class Zend_Service_Twitter
     public function statusesMentionsTimeline(array $options = array())
     {
         $this->init();
-        $path   = 'statuses/mentions_timeline';
+        $path = 'statuses/mentions_timeline';
         $params = array();
         foreach ($options as $key => $value) {
             switch (strtolower($key)) {
                 case 'count':
-                    $params['count'] = (int) $value;
+                    $params['count'] = (int)$value;
                     break;
                 case 'since_id':
                     $params['since_id'] = $this->validInteger($value);
@@ -926,10 +926,10 @@ class Zend_Service_Twitter
                     $params['trim_user'] = $value;
                     break;
                 case 'contributor_details:':
-                    $params['contributor_details:'] = (bool) $value;
+                    $params['contributor_details:'] = (bool)$value;
                     break;
                 case 'include_entities':
-                    $params['include_entities'] = (bool) $value;
+                    $params['include_entities'] = (bool)$value;
                     break;
                 default:
                     break;
@@ -1042,7 +1042,7 @@ class Zend_Service_Twitter
                     $params['screen_name'] = $this->validateScreenName($value);
                     break;
                 case 'count':
-                    $params['count'] = (int) $value;
+                    $params['count'] = (int)$value;
                     break;
                 case 'since_id':
                     $params['since_id'] = $this->validInteger($value);
@@ -1059,13 +1059,13 @@ class Zend_Service_Twitter
                     $params['trim_user'] = $value;
                     break;
                 case 'contributor_details:':
-                    $params['contributor_details:'] = (bool) $value;
+                    $params['contributor_details:'] = (bool)$value;
                     break;
                 case 'exclude_replies':
-                    $params['exclude_replies'] = (bool) $value;
+                    $params['exclude_replies'] = (bool)$value;
                     break;
                 case 'include_rts':
-                    $params['include_rts'] = (bool) $value;
+                    $params['include_rts'] = (bool)$value;
                     break;
                 default:
                     break;
@@ -1106,7 +1106,7 @@ class Zend_Service_Twitter
         foreach ($options as $key => $value) {
             switch (strtolower($key)) {
                 case 'count':
-                    $value = (int) $value;
+                    $value = (int)$value;
                     if (1 > $value || 20 < $value) {
                         require_once 'Zend/Service/Twitter/Exception.php';
                         throw new Zend_Service_Twitter_Exception(
@@ -1116,10 +1116,10 @@ class Zend_Service_Twitter
                     $params['count'] = $value;
                     break;
                 case 'page':
-                    $params['page'] = (int) $value;
+                    $params['page'] = (int)$value;
                     break;
                 case 'include_entities':
-                    $params['include_entities'] = (bool) $value;
+                    $params['include_entities'] = (bool)$value;
                     break;
                 default:
                     break;
@@ -1141,8 +1141,8 @@ class Zend_Service_Twitter
     public function usersShow($id)
     {
         $this->init();
-        $path     = 'users/show';
-        $params   = $this->createUserParameter($id, array());
+        $path = 'users/show';
+        $params = $this->createUserParameter($id, array());
         $response = $this->get($path, $params);
         return new Zend_Service_Twitter_Response($response);
     }
@@ -1234,7 +1234,7 @@ class Zend_Service_Twitter
      * Performs an HTTP GET request to the $path.
      *
      * @param string $path
-     * @param array  $query Array of GET parameters
+     * @param array $query Array of GET parameters
      * @throws Zend_Http_Client_Exception
      * @return Zend_Http_Response
      */
@@ -1279,7 +1279,7 @@ class Zend_Service_Twitter
         if (is_string($data)) {
             $client->setRawData($data);
         } elseif (is_array($data) || is_object($data)) {
-            $client->setParameterPost((array) $data);
+            $client->setParameterPost((array)$data);
         }
         return $client->request($method);
     }

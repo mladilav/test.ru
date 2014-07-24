@@ -1,0 +1,15 @@
+
+<?php
+ if($this->lang == "ua")  $this->title = "Додати групу"; else
+$this->title = "Добавить группу"; ?>
+<div class="settings">
+    <ul class="breadcrumb">
+        <li><a href="/user/settings/"><?php if($this->lang == "ua") echo 'Користувачі'; else echo 'Пользователи';?></a>
+            <span class="divider">/</span></li>
+        <li class="active"><?php if($this->lang == "ua") echo 'Додати групу'; else echo 'Добавить группу';?></li>
+    </ul>
+<?php
+echo $this->errMessage;
+echo $this->form;
+?>
+</div>

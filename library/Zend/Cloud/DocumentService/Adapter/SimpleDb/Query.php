@@ -74,11 +74,11 @@ class Zend_Cloud_DocumentService_Adapter_SimpleDb_Query
     public function assemble($collectionName = null)
     {
         $adapter = $this->getAdapter()->getClient();
-        $select  = null;
-        $from    = null;
-        $where   = null;
-        $order   = null;
-        $limit   = null;
+        $select = null;
+        $from = null;
+        $where = null;
+        $order = null;
+        $limit = null;
         foreach ($this->getClauses() as $clause) {
             list($name, $args) = $clause;
 
@@ -159,17 +159,17 @@ class Zend_Cloud_DocumentService_Adapter_SimpleDb_Query
     protected function _parseWhere($where, $args)
     {
         if (!is_array($args)) {
-            $args = (array) $args;
+            $args = (array)$args;
         }
         $adapter = $this->getAdapter()->getClient();
         $i = 0;
         while (false !== ($pos = strpos($where, '?'))) {
-           $where = substr_replace($where, $adapter->quote($args[$i]), $pos);
-           ++$i;
+            $where = substr_replace($where, $adapter->quote($args[$i]), $pos);
+            ++$i;
         }
         if (('(' != $where[0]) || (')' != $where[strlen($where) - 1])) {
             $where = '(' . $where . ')';
         }
         return $where;
     }
- }
+}

@@ -51,7 +51,7 @@ class Zend_Gdata_Calendar_Extension_Link extends Zend_Gdata_App_Extension_Link
      * @param Zend_Gdata_Calendar_Extension_Webcontent $webContent
      */
     public function __construct($href = null, $rel = null, $type = null,
-            $hrefLang = null, $title = null, $length = null, $webContent = null)
+                                $hrefLang = null, $title = null, $length = null, $webContent = null)
     {
         $this->registerAllNamespaces(Zend_Gdata_Calendar::$namespaces);
         parent::__construct($href, $rel, $type, $hrefLang, $title, $length);
@@ -87,14 +87,14 @@ class Zend_Gdata_Calendar_Extension_Link extends Zend_Gdata_App_Extension_Link
     {
         $absoluteNodeName = $child->namespaceURI . ':' . $child->localName;
         switch ($absoluteNodeName) {
-        case $this->lookupNamespace('gCal') . ':' . 'webContent':
-            $webContent = new Zend_Gdata_Calendar_Extension_WebContent();
-            $webContent->transferFromDOM($child);
-            $this->_webContent = $webContent;
-            break;
-        default:
-            parent::takeChildFromDOM($child);
-            break;
+            case $this->lookupNamespace('gCal') . ':' . 'webContent':
+                $webContent = new Zend_Gdata_Calendar_Extension_WebContent();
+                $webContent->transferFromDOM($child);
+                $this->_webContent = $webContent;
+                break;
+            default:
+                parent::takeChildFromDOM($child);
+                break;
         }
     }
 

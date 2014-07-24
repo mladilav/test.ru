@@ -43,7 +43,7 @@ class Zend_Cloud_DocumentService_DocumentSet implements Countable, IteratorAggre
     public function __construct(array $documents)
     {
         $this->_documentCount = count($documents);
-        $this->_documents     = new ArrayIterator($documents);
+        $this->_documents = new ArrayIterator($documents);
     }
 
     /**

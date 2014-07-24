@@ -62,7 +62,7 @@ class Zend_Pdf_Trailer_Keeper extends Zend_Pdf_Trailer
         parent::__construct($dict);
 
         $this->_context = $context;
-        $this->_prev    = $prev;
+        $this->_prev = $prev;
     }
 
     /**

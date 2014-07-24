@@ -86,14 +86,14 @@ class Zend_Application_Resource_Multidb extends Zend_Application_Resource_Resour
 
         foreach ($options as $id => $params) {
             $adapter = $params['adapter'];
-            $default = (int) (
+            $default = (int)(
                 isset($params['isDefaultTableAdapter']) && $params['isDefaultTableAdapter']
                 || isset($params['default']) && $params['default']
             );
             unset(
-                $params['adapter'],
-                $params['default'],
-                $params['isDefaultTableAdapter']
+            $params['adapter'],
+            $params['default'],
+            $params['isDefaultTableAdapter']
             );
 
             $this->_dbs[$id] = Zend_Db::factory($adapter, $params);
@@ -114,7 +114,7 @@ class Zend_Application_Resource_Multidb extends Zend_Application_Resource_Resour
      */
     public function isDefault($db)
     {
-        if(!$db instanceof Zend_Db_Adapter_Abstract) {
+        if (!$db instanceof Zend_Db_Adapter_Abstract) {
             $db = $this->getDb($db);
         }
 
@@ -176,7 +176,7 @@ class Zend_Application_Resource_Multidb extends Zend_Application_Resource_Resour
         $this->_defaultDb = $adapter;
     }
 
-   /**
+    /**
      * Set the default metadata cache
      *
      * @param string|Zend_Cache_Core $cache

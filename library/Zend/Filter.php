@@ -33,7 +33,7 @@ require_once 'Zend/Filter/Interface.php';
 class Zend_Filter implements Zend_Filter_Interface
 {
 
-    const CHAIN_APPEND  = 'append';
+    const CHAIN_APPEND = 'append';
     const CHAIN_PREPEND = 'prepend';
 
     /**
@@ -135,7 +135,7 @@ class Zend_Filter implements Zend_Filter_Interface
     public static function setDefaultNamespaces($namespace)
     {
         if (!is_array($namespace)) {
-            $namespace = array((string) $namespace);
+            $namespace = array((string)$namespace);
         }
 
         self::$_defaultNamespaces = $namespace;
@@ -150,7 +150,7 @@ class Zend_Filter implements Zend_Filter_Interface
     public static function addDefaultNamespaces($namespace)
     {
         if (!is_array($namespace)) {
-            $namespace = array((string) $namespace);
+            $namespace = array((string)$namespace);
         }
 
         self::$_defaultNamespaces = array_unique(array_merge(self::$_defaultNamespaces, $namespace));
@@ -170,10 +170,10 @@ class Zend_Filter implements Zend_Filter_Interface
      * @deprecated
      * @see Zend_Filter::filterStatic()
      *
-     * @param  mixed        $value
-     * @param  string       $classBaseName
-     * @param  array        $args          OPTIONAL
-     * @param  array|string $namespaces    OPTIONAL
+     * @param  mixed $value
+     * @param  string $classBaseName
+     * @param  array $args OPTIONAL
+     * @param  array|string $namespaces OPTIONAL
      * @return mixed
      * @throws Zend_Filter_Exception
      */
@@ -197,17 +197,17 @@ class Zend_Filter implements Zend_Filter_Interface
      * creates an instance, and applies the filter() method to the data input. You can also pass
      * an array of constructor arguments, if they are needed for the filter class.
      *
-     * @param  mixed        $value
-     * @param  string       $classBaseName
-     * @param  array        $args          OPTIONAL
-     * @param  array|string $namespaces    OPTIONAL
+     * @param  mixed $value
+     * @param  string $classBaseName
+     * @param  array $args OPTIONAL
+     * @param  array|string $namespaces OPTIONAL
      * @return mixed
      * @throws Zend_Filter_Exception
      */
     public static function filterStatic($value, $classBaseName, array $args = array(), $namespaces = array())
     {
         require_once 'Zend/Loader.php';
-        $namespaces = array_merge((array) $namespaces, self::$_defaultNamespaces, array('Zend_Filter'));
+        $namespaces = array_merge((array)$namespaces, self::$_defaultNamespaces, array('Zend_Filter'));
         foreach ($namespaces as $namespace) {
             $className = $namespace . '_' . ucfirst($classBaseName);
             if (!class_exists($className, false)) {

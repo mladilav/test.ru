@@ -73,18 +73,18 @@ abstract class Zend_XmlRpc_Value
     /**
      * All the XML-RPC native types
      */
-    const XMLRPC_TYPE_I4        = 'i4';
-    const XMLRPC_TYPE_INTEGER   = 'int';
-    const XMLRPC_TYPE_I8        = 'i8';
-    const XMLRPC_TYPE_APACHEI8  = 'ex:i8';
-    const XMLRPC_TYPE_DOUBLE    = 'double';
-    const XMLRPC_TYPE_BOOLEAN   = 'boolean';
-    const XMLRPC_TYPE_STRING    = 'string';
-    const XMLRPC_TYPE_DATETIME  = 'dateTime.iso8601';
-    const XMLRPC_TYPE_BASE64    = 'base64';
-    const XMLRPC_TYPE_ARRAY     = 'array';
-    const XMLRPC_TYPE_STRUCT    = 'struct';
-    const XMLRPC_TYPE_NIL       = 'nil';
+    const XMLRPC_TYPE_I4 = 'i4';
+    const XMLRPC_TYPE_INTEGER = 'int';
+    const XMLRPC_TYPE_I8 = 'i8';
+    const XMLRPC_TYPE_APACHEI8 = 'ex:i8';
+    const XMLRPC_TYPE_DOUBLE = 'double';
+    const XMLRPC_TYPE_BOOLEAN = 'boolean';
+    const XMLRPC_TYPE_STRING = 'string';
+    const XMLRPC_TYPE_DATETIME = 'dateTime.iso8601';
+    const XMLRPC_TYPE_BASE64 = 'base64';
+    const XMLRPC_TYPE_ARRAY = 'array';
+    const XMLRPC_TYPE_STRUCT = 'struct';
+    const XMLRPC_TYPE_NIL = 'nil';
     const XMLRPC_TYPE_APACHENIL = 'ex:nil';
 
     /**
@@ -158,7 +158,7 @@ abstract class Zend_XmlRpc_Value
     {
         if (!$this->_xml) {
             $this->generateXml();
-            $this->_xml = (string) $this->getGenerator();
+            $this->_xml = (string)$this->getGenerator();
         }
         return $this->_xml;
     }
@@ -184,7 +184,7 @@ abstract class Zend_XmlRpc_Value
      * By default the value type is autodetected according to it's PHP type
      *
      * @param mixed $value
-     * @param Zend_XmlRpc_Value::constant $type
+     * @param Zend_XmlRpc_Value ::constant $type
      *
      * @return Zend_XmlRpc_Value
      * @static
@@ -248,7 +248,7 @@ abstract class Zend_XmlRpc_Value
 
             default:
                 require_once 'Zend/XmlRpc/Value/Exception.php';
-                throw new Zend_XmlRpc_Value_Exception('Given type is not a '. __CLASS__ .' constant');
+                throw new Zend_XmlRpc_Value_Exception('Given type is not a ' . __CLASS__ . ' constant');
         }
     }
 
@@ -315,8 +315,7 @@ abstract class Zend_XmlRpc_Value
             }
         }
 
-        switch (self::getXmlRpcTypeByValue($value))
-        {
+        switch (self::getXmlRpcTypeByValue($value)) {
             case self::XMLRPC_TYPE_DATETIME:
                 require_once 'Zend/XmlRpc/Value/DateTime.php';
                 return new Zend_XmlRpc_Value_DateTime($value);
@@ -396,11 +395,11 @@ abstract class Zend_XmlRpc_Value
                 require_once 'Zend/XmlRpc/Value/String.php';
                 $xmlrpcValue = new Zend_XmlRpc_Value_String($value);
                 break;
-            case self::XMLRPC_TYPE_DATETIME:  // The value should already be in a iso8601 format
+            case self::XMLRPC_TYPE_DATETIME: // The value should already be in a iso8601 format
                 require_once 'Zend/XmlRpc/Value/DateTime.php';
                 $xmlrpcValue = new Zend_XmlRpc_Value_DateTime($value);
                 break;
-            case self::XMLRPC_TYPE_BASE64:    // The value should already be base64 encoded
+            case self::XMLRPC_TYPE_BASE64: // The value should already be base64 encoded
                 require_once 'Zend/XmlRpc/Value/Base64.php';
                 $xmlrpcValue = new Zend_XmlRpc_Value_Base64($value, true);
                 break;
@@ -424,7 +423,7 @@ abstract class Zend_XmlRpc_Value
 
                 if (null === $data) {
                     require_once 'Zend/XmlRpc/Value/Exception.php';
-                    throw new Zend_XmlRpc_Value_Exception('Invalid XML for XML-RPC native '. self::XMLRPC_TYPE_ARRAY .' type: ARRAY tag must contain DATA tag');
+                    throw new Zend_XmlRpc_Value_Exception('Invalid XML for XML-RPC native ' . self::XMLRPC_TYPE_ARRAY . ' type: ARRAY tag must contain DATA tag');
                 }
                 $values = array();
                 // Parse all the elements of the array from the XML string
@@ -453,7 +452,7 @@ abstract class Zend_XmlRpc_Value
                 break;
             default:
                 require_once 'Zend/XmlRpc/Value/Exception.php';
-                throw new Zend_XmlRpc_Value_Exception('Value type \''. $type .'\' parsed from the XML string is not a known XML-RPC native type');
+                throw new Zend_XmlRpc_Value_Exception('Value type \'' . $type . '\' parsed from the XML string is not a known XML-RPC native type');
                 break;
         }
         $xmlrpcValue->_setXML($xml->asXML());

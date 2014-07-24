@@ -66,14 +66,14 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
         // Workaround for PHP5 with E_STRICT enabled complaining about "Only
         // variables should be passed by reference"
         if ((null === $data) && ($dataByVal !== false)) {
-            $data = &$dataByVal;
+            $data = & $dataByVal;
         }
         if (null !== $markerType) {
             //try to reference the given object
             if (!$this->writeObjectReference($data, $markerType)) {
                 // Write the Type Marker to denote the following action script data type
                 $this->_stream->writeByte($markerType);
-                switch($markerType) {
+                switch ($markerType) {
                     case Zend_Amf_Constants::AMF0_NUMBER:
                         $this->_stream->writeDouble($data);
                         break;
@@ -138,7 +138,7 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
                         $markerType = Zend_Amf_Constants::AMF0_DATE;
                     } else {
 
-                        if($className = $this->getClassName($data)){
+                        if ($className = $this->getClassName($data)) {
                             //Object is a Typed object set classname
                             $markerType = Zend_Amf_Constants::AMF0_TYPEDOBJECT;
                             $this->_className = $className;
@@ -161,14 +161,14 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
                             $markerType = Zend_Amf_Constants::AMF0_OBJECT;
                             break;
                             // check if it is a sparse indexed array
-                         } else if ($key != $i) {
-                             $markerType = Zend_Amf_Constants::AMF0_MIXEDARRAY;
-                             break;
-                         }
-                         $i++;
+                        } else if ($key != $i) {
+                            $markerType = Zend_Amf_Constants::AMF0_MIXEDARRAY;
+                            break;
+                        }
+                        $i++;
                     }
                     // Dealing with a standard numeric array
-                    if(!$markerType){
+                    if (!$markerType) {
                         $markerType = Zend_Amf_Constants::AMF0_ARRAY;
                         break;
                     }
@@ -187,9 +187,9 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
      * Check if the given object is in the reference table, write the reference if it exists,
      * otherwise add the object to the reference table
      *
-     * @param mixed  $object object reference to check for reference
+     * @param mixed $object object reference to check for reference
      * @param string $markerType AMF type of the object to write
-     * @param mixed  $objectByVal object to check for reference
+     * @param mixed $objectByVal object to check for reference
      * @return Boolean true, if the reference was written, false otherwise
      */
     protected function writeObjectReference(&$object, $markerType, $objectByVal = false)
@@ -197,7 +197,7 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
         // Workaround for PHP5 with E_STRICT enabled complaining about "Only
         // variables should be passed by reference"
         if ((null === $object) && ($objectByVal !== false)) {
-            $object = &$objectByVal;
+            $object = & $objectByVal;
         }
 
         if ($markerType == Zend_Amf_Constants::AMF0_OBJECT
@@ -207,8 +207,8 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
         ) {
             $ref = array_search($object, $this->_referenceObjects, true);
             //handle object reference
-            if($ref !== false){
-                $this->writeTypeMarker($ref,Zend_Amf_Constants::AMF0_REFERENCE);
+            if ($ref !== false) {
+                $this->writeTypeMarker($ref, Zend_Amf_Constants::AMF0_REFERENCE);
                 return true;
             }
 
@@ -229,7 +229,7 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
         // Loop each element and write the name of the property.
         foreach ($object as $key => &$value) {
             // skip variables starting with an _ private transient
-            if( $key[0] == "_") continue;
+            if ($key[0] == "_") continue;
             $this->_stream->writeUTF($key);
             $this->writeTypeMarker($value);
         }
@@ -256,7 +256,7 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
         } else {
             // Write the length of the numeric array
             $this->_stream->writeLong($length);
-            for ($i=0; $i<$length; $i++) {
+            for ($i = 0; $i < $length; $i++) {
                 $value = isset($array[$i]) ? $array[$i] : null;
                 $this->writeTypeMarker($value);
             }
@@ -336,24 +336,24 @@ class Zend_Amf_Parse_Amf0_Serializer extends Zend_Amf_Parse_Serializer
             case Zend_Amf_Parse_TypeLoader::getMappedClassName(get_class($object)):
                 $className = Zend_Amf_Parse_TypeLoader::getMappedClassName(get_class($object));
                 break;
-                // Check to see if the user has defined an explicit Action Script type.
+            // Check to see if the user has defined an explicit Action Script type.
             case isset($object->_explicitType):
                 $className = $object->_explicitType;
                 break;
-                // Check if user has defined a method for accessing the Action Script type
+            // Check if user has defined a method for accessing the Action Script type
             case method_exists($object, 'getASClassName'):
                 $className = $object->getASClassName();
                 break;
-                // No return class name is set make it a generic object
+            // No return class name is set make it a generic object
             case ($object instanceof stdClass):
                 $className = '';
                 break;
-        // By default, use object's class name
+            // By default, use object's class name
             default:
-        $className = get_class($object);
+                $className = get_class($object);
                 break;
         }
-        if(!$className == '') {
+        if (!$className == '') {
             return $className;
         } else {
             return false;

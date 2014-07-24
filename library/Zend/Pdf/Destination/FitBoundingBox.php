@@ -51,7 +51,7 @@ class Zend_Pdf_Destination_FitBoundingBox extends Zend_Pdf_Destination_Explicit
     /**
      * Create destination object
      *
-     * @param Zend_Pdf_Page|integer $page  Page object or page number
+     * @param Zend_Pdf_Page|integer $page Page object or page number
      * @return Zend_Pdf_Destination_FitBoundingBox
      * @throws Zend_Pdf_Exception
      */

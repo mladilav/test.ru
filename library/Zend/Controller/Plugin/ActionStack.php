@@ -129,19 +129,19 @@ class Zend_Controller_Plugin_ActionStack extends Zend_Controller_Plugin_Abstract
      */
     public function setRegistryKey($key)
     {
-        $this->_registryKey = (string) $key;
+        $this->_registryKey = (string)$key;
         return $this;
     }
 
     /**
      *  Set clearRequestParams flag
      *
-     *  @param  bool $clearRequestParams
-     *  @return Zend_Controller_Plugin_ActionStack
+     * @param  bool $clearRequestParams
+     * @return Zend_Controller_Plugin_ActionStack
      */
     public function setClearRequestParams($clearRequestParams)
     {
-        $this->_clearRequestParams = (bool) $clearRequestParams;
+        $this->_clearRequestParams = (bool)$clearRequestParams;
         return $this;
     }
 
@@ -163,7 +163,7 @@ class Zend_Controller_Plugin_ActionStack extends Zend_Controller_Plugin_Abstract
     public function getStack()
     {
         $registry = $this->getRegistry();
-        $stack    = $registry[$this->getRegistryKey()];
+        $stack = $registry[$this->getRegistryKey()];
         return $stack;
     }
 
@@ -217,7 +217,7 @@ class Zend_Controller_Plugin_ActionStack extends Zend_Controller_Plugin_Abstract
             return $this->popStack($stack);
         }
 
-        $request    = $this->getRequest();
+        $request = $this->getRequest();
         $controller = $next->getControllerName();
         if (empty($controller)) {
             $next->setControllerName($request->getControllerName());
@@ -272,9 +272,9 @@ class Zend_Controller_Plugin_ActionStack extends Zend_Controller_Plugin_Abstract
         }
 
         $request->setModuleName($next->getModuleName())
-                ->setControllerName($next->getControllerName())
-                ->setActionName($next->getActionName())
-                ->setParams($next->getParams())
-                ->setDispatched(false);
+            ->setControllerName($next->getControllerName())
+            ->setActionName($next->getActionName())
+            ->setParams($next->getParams())
+            ->setDispatched(false);
     }
 }

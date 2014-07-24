@@ -121,7 +121,7 @@ class Zend_XmlRpc_Response
     public function setReturnValue($value, $type = null)
     {
         $this->_return = $value;
-        $this->_type = (string) $type;
+        $this->_type = (string)$type;
     }
 
     /**
@@ -184,7 +184,7 @@ class Zend_XmlRpc_Response
 
         try {
             $xml = Zend_Xml_Security::scan($response);
-        } catch (Zend_Xml_Exception $e) {    
+        } catch (Zend_Xml_Exception $e) {
             // Not valid XML
             $this->_fault = new Zend_XmlRpc_Fault(651);
             $this->_fault->setEncoding($this->getEncoding());
@@ -233,12 +233,12 @@ class Zend_XmlRpc_Response
         $value = $this->_getXmlRpcReturn();
         $generator = Zend_XmlRpc_Value::getGenerator();
         $generator->openElement('methodResponse')
-                  ->openElement('params')
-                  ->openElement('param');
+            ->openElement('params')
+            ->openElement('param');
         $value->generateXml();
         $generator->closeElement('param')
-                  ->closeElement('params')
-                  ->closeElement('methodResponse');
+            ->closeElement('params')
+            ->closeElement('methodResponse');
 
         return $generator->flush();
     }

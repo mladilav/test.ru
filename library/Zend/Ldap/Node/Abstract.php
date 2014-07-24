@@ -40,7 +40,7 @@ require_once 'Zend/Ldap/Dn.php';
  */
 abstract class Zend_Ldap_Node_Abstract implements ArrayAccess, Countable
 {
-    protected static $_systemAttributes=array('createtimestamp', 'creatorsname',
+    protected static $_systemAttributes = array('createtimestamp', 'creatorsname',
         'entrycsn', 'entrydn', 'entryuuid', 'hassubordinates', 'modifiersname',
         'modifytimestamp', 'structuralobjectclass', 'subschemasubentry',
         'distinguishedname', 'instancetype', 'name', 'objectcategory', 'objectguid',
@@ -66,8 +66,8 @@ abstract class Zend_Ldap_Node_Abstract implements ArrayAccess, Countable
      * Constructor is protected to enforce the use of factory methods.
      *
      * @param  Zend_Ldap_Dn $dn
-     * @param  array        $data
-     * @param  boolean      $fromDataSource
+     * @param  array $data
+     * @param  boolean $fromDataSource
      */
     protected function __construct(Zend_Ldap_Dn $dn, array $data, $fromDataSource)
     {
@@ -76,7 +76,7 @@ abstract class Zend_Ldap_Node_Abstract implements ArrayAccess, Countable
     }
 
     /**
-     * @param  array   $data
+     * @param  array $data
      * @param  boolean $fromDataSource
      * @throws Zend_Ldap_Exception
      */
@@ -291,7 +291,7 @@ abstract class Zend_Ldap_Node_Abstract implements ArrayAccess, Countable
      * true. In this case method returns false only if the attribute name is
      * missing in the key-collection.
      *
-     * @param  string  $name
+     * @param  string $name
      * @param  boolean $emptyExists
      * @return boolean
      */
@@ -300,15 +300,14 @@ abstract class Zend_Ldap_Node_Abstract implements ArrayAccess, Countable
         $name = strtolower($name);
         if (isset($this->_currentData[$name])) {
             if ($emptyExists) return true;
-            return count($this->_currentData[$name])>0;
-        }
-        else return false;
+            return count($this->_currentData[$name]) > 0;
+        } else return false;
     }
 
     /**
      * Checks if the given value(s) exist in the attribute
      *
-     * @param  string      $attribName
+     * @param  string $attribName
      * @param  mixed|array $value
      * @return boolean
      */
@@ -322,7 +321,7 @@ abstract class Zend_Ldap_Node_Abstract implements ArrayAccess, Countable
      *
      * This is an offline method.
      *
-     * @param  string  $name
+     * @param  string $name
      * @param  integer $index
      * @return mixed
      * @throws Zend_Ldap_Exception
@@ -331,8 +330,7 @@ abstract class Zend_Ldap_Node_Abstract implements ArrayAccess, Countable
     {
         if ($name == 'dn') {
             return $this->getDnString();
-        }
-        else {
+        } else {
             return Zend_Ldap_Attribute::getAttribute($this->_currentData, $name, $index);
         }
     }
@@ -342,7 +340,7 @@ abstract class Zend_Ldap_Node_Abstract implements ArrayAccess, Countable
      *
      * This is an offline method.
      *
-     * @param  string  $name
+     * @param  string $name
      * @param  integer $index
      * @return array|integer
      * @throws Zend_Ldap_Exception
@@ -358,7 +356,7 @@ abstract class Zend_Ldap_Node_Abstract implements ArrayAccess, Countable
      * This is an offline method.
      *
      * @param  string $name
-     * @param  mixed  $value
+     * @param  mixed $value
      * @return null
      * @throws BadMethodCallException
      */
@@ -417,7 +415,7 @@ abstract class Zend_Ldap_Node_Abstract implements ArrayAccess, Countable
      * This is an offline method.
      *
      * @param  string $name
-     * @param  mixed  $value
+     * @param  mixed $value
      * @return null
      * @throws BadMethodCallException
      */

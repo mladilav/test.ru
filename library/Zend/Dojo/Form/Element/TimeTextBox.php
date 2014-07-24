@@ -64,7 +64,7 @@ class Zend_Dojo_Form_Element_TimeTextBox extends Zend_Dojo_Form_Element_DateText
      */
     public function setTimePattern($pattern)
     {
-        $this->setConstraint('timePattern', (string) $pattern);
+        $this->setConstraint('timePattern', (string)$pattern);
         return $this;
     }
 
@@ -86,7 +86,7 @@ class Zend_Dojo_Form_Element_TimeTextBox extends Zend_Dojo_Form_Element_DateText
      */
     public function setClickableIncrement($format)
     {
-        $format = (string) $format;
+        $format = (string)$format;
         $this->_validateIso8601($format);
         $this->setConstraint('clickableIncrement', $format);
         return $this;
@@ -110,7 +110,7 @@ class Zend_Dojo_Form_Element_TimeTextBox extends Zend_Dojo_Form_Element_DateText
      */
     public function setVisibleIncrement($format)
     {
-        $format = (string) $format;
+        $format = (string)$format;
         $this->_validateIso8601($format);
         $this->setConstraint('visibleIncrement', $format);
         return $this;
@@ -134,7 +134,7 @@ class Zend_Dojo_Form_Element_TimeTextBox extends Zend_Dojo_Form_Element_DateText
      */
     public function setVisibleRange($format)
     {
-        $format = (string) $format;
+        $format = (string)$format;
         $this->_validateIso8601($format);
         $this->setConstraint('visibleRange', $format);
         return $this;

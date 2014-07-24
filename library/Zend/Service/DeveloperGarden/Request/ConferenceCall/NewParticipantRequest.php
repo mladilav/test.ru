@@ -58,11 +58,11 @@ class Zend_Service_DeveloperGarden_Request_ConferenceCall_NewParticipantRequest
      * @param Zend_Service_DeveloperGarden_ConferenceCall_ParticipantDetail $participant
      */
     public function __construct($environment, $conferenceId,
-        Zend_Service_DeveloperGarden_ConferenceCall_ParticipantDetail $participant)
+                                Zend_Service_DeveloperGarden_ConferenceCall_ParticipantDetail $participant)
     {
         parent::__construct($environment);
         $this->setConferenceId($conferenceId)
-             ->setParticipant($participant);
+            ->setParticipant($participant);
     }
 
     /**

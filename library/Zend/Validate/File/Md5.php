@@ -38,16 +38,16 @@ class Zend_Validate_File_Md5 extends Zend_Validate_File_Hash
      * @const string Error constants
      */
     const DOES_NOT_MATCH = 'fileMd5DoesNotMatch';
-    const NOT_DETECTED   = 'fileMd5NotDetected';
-    const NOT_FOUND      = 'fileMd5NotFound';
+    const NOT_DETECTED = 'fileMd5NotDetected';
+    const NOT_FOUND = 'fileMd5NotFound';
 
     /**
      * @var array Error message templates
      */
     protected $_messageTemplates = array(
         self::DOES_NOT_MATCH => "File '%value%' does not match the given md5 hashes",
-        self::NOT_DETECTED   => "A md5 hash could not be evaluated for the given file",
-        self::NOT_FOUND      => "File '%value%' is not readable or does not exist",
+        self::NOT_DETECTED => "A md5 hash could not be evaluated for the given file",
+        self::NOT_FOUND => "File '%value%' is not readable or does not exist",
     );
 
     /**
@@ -93,13 +93,13 @@ class Zend_Validate_File_Md5 extends Zend_Validate_File_Hash
      * Sets the md5 hash for one or multiple files
      *
      * @param  string|array $options
-     * @param  string       $algorithm (Deprecated) Algorithm to use, fixed to md5
+     * @param  string $algorithm (Deprecated) Algorithm to use, fixed to md5
      * @return Zend_Validate_File_Hash Provides a fluent interface
      */
     public function setHash($options)
     {
         if (!is_array($options)) {
-            $options = (array) $options;
+            $options = (array)$options;
         }
 
         $options['algorithm'] = 'md5';
@@ -123,13 +123,13 @@ class Zend_Validate_File_Md5 extends Zend_Validate_File_Hash
      * Adds the md5 hash for one or multiple files
      *
      * @param  string|array $options
-     * @param  string       $algorithm (Deprecated) Algorithm to use, fixed to md5
+     * @param  string $algorithm (Deprecated) Algorithm to use, fixed to md5
      * @return Zend_Validate_File_Hash Provides a fluent interface
      */
     public function addHash($options)
     {
         if (!is_array($options)) {
-            $options = (array) $options;
+            $options = (array)$options;
         }
 
         $options['algorithm'] = 'md5';
@@ -155,7 +155,7 @@ class Zend_Validate_File_Md5 extends Zend_Validate_File_Hash
      * Returns true if and only if the given file confirms the set hash
      *
      * @param  string $value Filename to check for hash
-     * @param  array  $file  File data from Zend_File_Transfer
+     * @param  array $file File data from Zend_File_Transfer
      * @return boolean
      */
     public function isValid($value, $file = null)
@@ -172,7 +172,7 @@ class Zend_Validate_File_Md5 extends Zend_Validate_File_Hash
             return $this->_throw($file, self::NOT_DETECTED);
         }
 
-        foreach($hashes as $hash) {
+        foreach ($hashes as $hash) {
             if ($filehash === $hash) {
                 return true;
             }

@@ -45,7 +45,7 @@ class Zend_Reflection_Extension extends ReflectionExtension
      */
     public function getFunctions($reflectionClass = 'Zend_Reflection_Function')
     {
-        $phpReflections  = parent::getFunctions();
+        $phpReflections = parent::getFunctions();
         $zendReflections = array();
         while ($phpReflections && ($phpReflection = array_shift($phpReflections))) {
             $instance = new $reflectionClass($phpReflection->getName());
@@ -68,7 +68,7 @@ class Zend_Reflection_Extension extends ReflectionExtension
      */
     public function getClasses($reflectionClass = 'Zend_Reflection_Class')
     {
-        $phpReflections  = parent::getClasses();
+        $phpReflections = parent::getClasses();
         $zendReflections = array();
         while ($phpReflections && ($phpReflection = array_shift($phpReflections))) {
             $instance = new $reflectionClass($phpReflection->getName());

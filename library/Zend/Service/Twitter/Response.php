@@ -76,7 +76,7 @@ class Zend_Service_Twitter_Response
     public function __construct(Zend_Http_Response $httpResponse)
     {
         $this->httpResponse = $httpResponse;
-        $this->rawBody      = $httpResponse->getBody();
+        $this->rawBody = $httpResponse->getBody();
         try {
             $jsonBody = Zend_Json::decode($this->rawBody, Zend_Json::TYPE_OBJECT);
             $this->jsonBody = $jsonBody;

@@ -31,7 +31,7 @@ require_once 'Zend/Dojo/View/Helper/Dijit.php';
  * @subpackage View
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
-  */
+ */
 abstract class Zend_Dojo_View_Helper_Slider extends Zend_Dojo_View_Helper_Dijit
 {
     /**
@@ -57,7 +57,7 @@ abstract class Zend_Dojo_View_Helper_Slider extends Zend_Dojo_View_Helper_Dijit
      *
      * @param  int $id
      * @param  mixed $value
-     * @param  array $params  Parameters to use for dijit creation
+     * @param  array $params Parameters to use for dijit creation
      * @param  array $attribs HTML attributes
      * @return string
      */
@@ -83,9 +83,9 @@ abstract class Zend_Dojo_View_Helper_Slider extends Zend_Dojo_View_Helper_Dijit
             $attribs['onChange'] = "dojo.byId('" . $id . "').value = arguments[0];";
         }
 
-        $id  = str_replace('][', '-', $id);
-        $id  = str_replace(array('[', ']'), '-', $id);
-        $id  = rtrim($id, '-');
+        $id = str_replace('][', '-', $id);
+        $id = str_replace(array('[', ']'), '-', $id);
+        $id = rtrim($id, '-');
         $id .= '-slider';
 
         switch ($this->_sliderType) {
@@ -167,9 +167,9 @@ abstract class Zend_Dojo_View_Helper_Slider extends Zend_Dojo_View_Helper_Dijit
             }
         }
 
-        $params  = array();
+        $params = array();
         $attribs = array();
-        $labels  = $decInfo['labels'];
+        $labels = $decInfo['labels'];
         if (array_key_exists('params', $decInfo)) {
             $params = $decInfo['params'];
         }
@@ -212,7 +212,7 @@ abstract class Zend_Dojo_View_Helper_Slider extends Zend_Dojo_View_Helper_Dijit
         }
 
         $containerParams['container'] = $position;
-        $labelsParams['container']    = $position;
+        $labelsParams['container'] = $position;
 
         $labelList = $this->_prepareLabelsList($id, $labelsParams, $labelsAttribs, $labels);
 

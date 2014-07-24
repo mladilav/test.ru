@@ -1,0 +1,29 @@
+<?php
+if ($this->lang == "ua"){
+    $this->title = "Видалення домашнього завдання";
+    $this->headTitle($this->title);
+    ?>
+    <p>Ви дійсно хочете видалити домашнє завдання
+        '<?php echo $this->escape($this->homework['nameUa']); ?>'?
+    </p>
+    <form action="<?php echo $this->url(array('action' => 'deletehomework')); ?>" method="post">
+        <div>
+            <input type="hidden" name="id" value="<?php echo $this->homework['id']; ?>"/>
+            <input type="submit" name="del" value="Так"/>
+            <input type="submit" name="del" value="Ні"/>
+        </div>
+    </form>
+<?php } else { $this->title = "Удаление домашнего задания";
+    $this->headTitle($this->title);
+    ?>
+    <p>Вы действительно хотите удалить домашнее задание
+        '<?php echo $this->escape($this->homework['name']); ?>'?
+    </p>
+    <form action="<?php echo $this->url(array('action' => 'deletehomework')); ?>" method="post">
+        <div>
+            <input type="hidden" name="id" value="<?php echo $this->homework['id']; ?>"/>
+            <input type="submit" name="del" value="Да"/>
+            <input type="submit" name="del" value="Нет"/>
+        </div>
+    </form>
+<?php } ?>

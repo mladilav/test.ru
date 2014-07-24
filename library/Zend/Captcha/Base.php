@@ -114,8 +114,8 @@ abstract class Zend_Captcha_Base extends Zend_Validate_Abstract implements Zend_
             return $this;
         }
 
-        $method = 'set' . ucfirst ($key);
-        if (method_exists ($this, $method)) {
+        $method = 'set' . ucfirst($key);
+        if (method_exists($this, $method)) {
             // Setter exists; use it
             $this->$method ($value);
             $this->_options[$key] = $value;

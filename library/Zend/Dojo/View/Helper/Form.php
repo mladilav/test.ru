@@ -31,14 +31,14 @@ require_once 'Zend/Dojo/View/Helper/Dijit.php';
  * @subpackage View
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
-  */
+ */
 class Zend_Dojo_View_Helper_Form extends Zend_Dojo_View_Helper_Dijit
 {
     /**
      * Dijit being used
      * @var string
      */
-    protected $_dijit  = 'dijit.form.Form';
+    protected $_dijit = 'dijit.form.Form';
 
     /**
      * Module being used
@@ -62,7 +62,7 @@ class Zend_Dojo_View_Helper_Form extends Zend_Dojo_View_Helper_Dijit
     public function form($id, $attribs = null, $content = false)
     {
         if (!is_array($attribs)) {
-            $attribs = (array) $attribs;
+            $attribs = (array)$attribs;
         }
         if (array_key_exists('id', $attribs)) {
             $attribs['name'] = $id;

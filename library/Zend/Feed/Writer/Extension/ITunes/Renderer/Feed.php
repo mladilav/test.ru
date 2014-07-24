@@ -132,7 +132,7 @@ class Zend_Feed_Writer_Extension_ITunes_Renderer_Feed
         if (!$cats || empty($cats)) {
             return;
         }
-        foreach ($cats as $key=>$cat) {
+        foreach ($cats as $key => $cat) {
             if (!is_array($cat)) {
                 $el = $dom->createElement('itunes:category');
                 $el->setAttribute('text', $cat);

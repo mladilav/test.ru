@@ -5,21 +5,21 @@ CLDR data files are interpreted according to the LDML specification (http://unic
 For terms of use, see http://www.unicode.org/copyright.html
 -->
 <ldml>
-	<identity>
-		<version number="$Revision: 9061 $"/>
-		<generation date="$Date: 2013-07-20 12:27:45 -0500 (Sat, 20 Jul 2013) $"/>
-		<language type="ko"/>
-		<territory type="KP"/>
-	</identity>
-	<dates>
-		<timeZoneNames>
-			<metazone type="Korea">
-				<long>
-					<generic>조선 시간</generic>
-					<standard>조선 표준시</standard>
-					<daylight>조선 하계 표준시</daylight>
-				</long>
-			</metazone>
-		</timeZoneNames>
-	</dates>
+    <identity>
+        <version number="$Revision: 9061 $"/>
+        <generation date="$Date: 2013-07-20 12:27:45 -0500 (Sat, 20 Jul 2013) $"/>
+        <language type="ko"/>
+        <territory type="KP"/>
+    </identity>
+    <dates>
+        <timeZoneNames>
+            <metazone type="Korea">
+                <long>
+                    <generic>조선 시간</generic>
+                    <standard>조선 표준시</standard>
+                    <daylight>조선 하계 표준시</daylight>
+                </long>
+            </metazone>
+        </timeZoneNames>
+    </dates>
 </ldml>

@@ -94,7 +94,7 @@ class Zend_Filter_File_Encrypt extends Zend_Filter_Encrypt
         }
 
         $encrypted = parent::filter($content);
-        $result    = file_put_contents($this->_filename, $encrypted);
+        $result = file_put_contents($this->_filename, $encrypted);
 
         if (!$result) {
             require_once 'Zend/Filter/Exception.php';

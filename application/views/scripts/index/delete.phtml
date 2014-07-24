@@ -1,14 +1,19 @@
 <?php
 $this->title = "Удаление записи";
 $this->headTitle($this->title);
+if ($this->lang == "ua") {
 ?>
-<p>Вы действительно хотите удалить фильм
-    '<?php echo $this->escape($this->post['title']); ?>' от
-    '<?php echo $this->escape($this->post['director']); ?>'?
+<p>Ви дійсно хочете видалити запис
+    '<?php echo $this->escape($this->posts['titleUa']); ?>'?
 </p>
+<?php } else { ?>
+<p>Вы действительно хотите удалить запись
+    '<?php echo $this->escape($this->posts['title']); ?>'?
+</p>
+<?php }?>
 <form action="<?php echo $this->url(array('action' => 'delete')); ?>" method="post">
     <div>
-        <input type="hidden" name="id" value="<?php echo $this->post['id']; ?>"/>
+        <input type="hidden" name="id" value="<?php echo $this->posts['id']; ?>"/>
         <input type="submit" name="del" value="Да"/>
         <input type="submit" name="del" value="Нет"/>
     </div>

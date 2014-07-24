@@ -300,7 +300,8 @@ class Zend_Service_Technorati_Weblog
      *
      * @return  float   weblog latitude coordinate
      */
-    public function getLat() {
+    public function getLat()
+    {
         return $this->_lat;
     }
 
@@ -326,7 +327,7 @@ class Zend_Service_Technorati_Weblog
      */
     public function hasPhoto()
     {
-        return (bool) $this->_hasPhoto;
+        return (bool)$this->_hasPhoto;
     }
 
     /**
@@ -336,7 +337,7 @@ class Zend_Service_Technorati_Weblog
      */
     public function getAuthors()
     {
-        return (array) $this->_authors;
+        return (array)$this->_authors;
     }
 
 
@@ -348,7 +349,7 @@ class Zend_Service_Technorati_Weblog
      */
     public function setName($name)
     {
-        $this->_name = (string) $name;
+        $this->_name = (string)$name;
         return $this;
     }
 
@@ -374,7 +375,7 @@ class Zend_Service_Technorati_Weblog
      */
     public function setInboundBlogs($number)
     {
-        $this->_inboundBlogs = (int) $number;
+        $this->_inboundBlogs = (int)$number;
         return $this;
     }
 
@@ -386,7 +387,7 @@ class Zend_Service_Technorati_Weblog
      */
     public function setInboundLinks($number)
     {
-        $this->_inboundLinks = (int) $number;
+        $this->_inboundLinks = (int)$number;
         return $this;
     }
 
@@ -443,7 +444,7 @@ class Zend_Service_Technorati_Weblog
      */
     public function setRank($rank)
     {
-        $this->_rank = (int) $rank;
+        $this->_rank = (int)$rank;
         return $this;
     }
 
@@ -455,7 +456,7 @@ class Zend_Service_Technorati_Weblog
      */
     public function setLat($coordinate)
     {
-        $this->_lat = (float) $coordinate;
+        $this->_lat = (float)$coordinate;
         return $this;
     }
 
@@ -467,7 +468,7 @@ class Zend_Service_Technorati_Weblog
      */
     public function setLon($coordinate)
     {
-        $this->_lon = (float) $coordinate;
+        $this->_lon = (float)$coordinate;
         return $this;
     }
 
@@ -479,7 +480,7 @@ class Zend_Service_Technorati_Weblog
      */
     public function setHasPhoto($hasPhoto)
     {
-        $this->_hasPhoto = (bool) $hasPhoto;
+        $this->_hasPhoto = (bool)$hasPhoto;
         return $this;
     }
 

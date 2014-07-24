@@ -72,10 +72,10 @@ class Zend_View_Helper_Translate extends Zend_View_Helper_Abstract
         }
 
         $translate = $this->getTranslator();
-        $options   = func_get_args();
+        $options = func_get_args();
 
         array_shift($options);
-        $count  = count($options);
+        $count = count($options);
         $locale = null;
         if ($count > 0) {
             if (Zend_Locale::isLocale($options[($count - 1)], null, false) !== false) {

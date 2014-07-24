@@ -105,11 +105,11 @@ class Zend_Tool_Project_Provider_View extends Zend_Tool_Project_Provider_Abstrac
         if ($this->_registry->getRequest()->isPretend()) {
             $this->_registry->getResponse(
                 'Would create a view script in location ' . $view->getContext()->getPath()
-                );
+            );
         } else {
             $this->_registry->getResponse(
                 'Creating a view script in location ' . $view->getContext()->getPath()
-                );
+            );
             $view->create();
             $this->_storeProfile();
         }

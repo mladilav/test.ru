@@ -50,7 +50,7 @@ abstract class Zend_Filter_Word_Separator_Abstract extends Zend_Filter_PregRepla
     /**
      * Sets a new seperator
      *
-     * @param  string  $separator  Seperator
+     * @param  string $separator Seperator
      * @return $this
      */
     public function setSeparator($separator)

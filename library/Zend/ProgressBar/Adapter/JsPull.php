@@ -60,24 +60,24 @@ class Zend_ProgressBar_Adapter_JsPull extends Zend_ProgressBar_Adapter
     /**
      * Defined by Zend_ProgressBar_Adapter_Interface
      *
-     * @param  float   $current       Current progress value
-     * @param  float   $max           Max progress value
-     * @param  float   $percent       Current percent value
-     * @param  integer $timeTaken     Taken time in seconds
+     * @param  float $current Current progress value
+     * @param  float $max Max progress value
+     * @param  float $percent Current percent value
+     * @param  integer $timeTaken Taken time in seconds
      * @param  integer $timeRemaining Remaining time in seconds
-     * @param  string  $text          Status text
+     * @param  string $text Status text
      * @return void
      */
     public function notify($current, $max, $percent, $timeTaken, $timeRemaining, $text)
     {
         $arguments = array(
-            'current'       => $current,
-            'max'           => $max,
-            'percent'       => ($percent * 100),
-            'timeTaken'     => $timeTaken,
+            'current' => $current,
+            'max' => $max,
+            'percent' => ($percent * 100),
+            'timeTaken' => $timeTaken,
             'timeRemaining' => $timeRemaining,
-            'text'          => $text,
-            'finished'      => false
+            'text' => $text,
+            'finished' => false
         );
 
         $data = Zend_Json::encode($arguments);

@@ -186,11 +186,11 @@ class Zend_Service_ReCaptcha_MailHide extends Zend_Service_ReCaptcha
     public function getDefaultOptions()
     {
         return array(
-            'encoding'       => 'UTF-8',
-            'linkTitle'      => 'Reveal this e-mail address',
+            'encoding' => 'UTF-8',
+            'linkTitle' => 'Reveal this e-mail address',
             'linkHiddenText' => '...',
-            'popupWidth'     => 500,
-            'popupHeight'    => 300,
+            'popupWidth' => 500,
+            'popupHeight' => 300,
         );
     }
 
@@ -314,17 +314,17 @@ class Zend_Service_ReCaptcha_MailHide extends Zend_Service_ReCaptcha
         /* Genrate the HTML used to represent the email address */
         $html = htmlentities($this->getEmailLocalPart(), ENT_COMPAT, $enc)
             . '<a href="'
-                . htmlentities($url, ENT_COMPAT, $enc)
-                . '" onclick="window.open(\''
-                    . htmlentities($url, ENT_COMPAT, $enc)
-                    . '\', \'\', \'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width='
-                    . $this->_options['popupWidth']
-                    . ',height='
-                    . $this->_options['popupHeight']
-                . '\'); return false;" title="'
-                . $this->_options['linkTitle']
-                . '">' . $this->_options['linkHiddenText'] . '</a>@'
-                . htmlentities($this->getEmailDomainPart(), ENT_COMPAT, $enc);
+            . htmlentities($url, ENT_COMPAT, $enc)
+            . '" onclick="window.open(\''
+            . htmlentities($url, ENT_COMPAT, $enc)
+            . '\', \'\', \'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width='
+            . $this->_options['popupWidth']
+            . ',height='
+            . $this->_options['popupHeight']
+            . '\'); return false;" title="'
+            . $this->_options['linkTitle']
+            . '">' . $this->_options['linkHiddenText'] . '</a>@'
+            . htmlentities($this->getEmailDomainPart(), ENT_COMPAT, $enc);
 
         return $html;
     }

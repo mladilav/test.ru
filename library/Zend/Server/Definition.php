@@ -61,7 +61,7 @@ class Zend_Server_Definition implements Countable, Iterator
      */
     public function setOverwriteExistingMethods($flag)
     {
-        $this->_overwriteExistingMethods = (bool) $flag;
+        $this->_overwriteExistingMethods = (bool)$flag;
         return $this;
     }
 
@@ -262,6 +262,6 @@ class Zend_Server_Definition implements Countable, Iterator
      */
     public function valid()
     {
-        return (bool) $this->current();
+        return (bool)$this->current();
     }
 }

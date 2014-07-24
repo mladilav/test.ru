@@ -54,7 +54,7 @@ interface Zend_Cloud_QueueService_Adapter
      *                      Only alphanumeric characters, hyphens (-), and underscores (_)
      *
      * @param  string $name
-     * @param  array  $options
+     * @param  array $options
      * @return string Queue ID (typically URL)
      */
     public function createQueue($name, $options = null);
@@ -63,7 +63,7 @@ interface Zend_Cloud_QueueService_Adapter
      * Delete a queue. All messages in the queue will also be deleted.
      *
      * @param  string $queueId
-     * @param  array  $options
+     * @param  array $options
      * @return boolean true if successful, false otherwise
      */
     public function deleteQueue($queueId, $options = null);
@@ -80,7 +80,7 @@ interface Zend_Cloud_QueueService_Adapter
      * Get a key/value array of metadata for the given queue.
      *
      * @param  string $queueId
-     * @param  array  $options
+     * @param  array $options
      * @return array
      */
     public function fetchQueueMetadata($queueId, $options = null);
@@ -91,29 +91,29 @@ interface Zend_Cloud_QueueService_Adapter
      * $destinationPath. Some adapters may not support this method.
      *
      * @param  string $queueId
-     * @param  array  $metadata
-     * @param  array  $options
+     * @param  array $metadata
+     * @param  array $options
      * @return void
      */
-    public function storeQueueMetadata($queueId, $metadata,  $options = null);
+    public function storeQueueMetadata($queueId, $metadata, $options = null);
 
     /**
      * Send a message to the specified queue.
      *
      * @param  string $queueId
      * @param  string $message
-     * @param  array  $options
+     * @param  array $options
      * @return string Message ID
      */
-    public function sendMessage($queueId, $message,  $options = null);
+    public function sendMessage($queueId, $message, $options = null);
 
     /**
      * Recieve at most $max messages from the specified queue and return the
      * message IDs for messages recieved.
      *
      * @param  string $queueId
-     * @param  int    $max
-     * @param  array  $options
+     * @param  int $max
+     * @param  array $options
      * @return array[Zend_Cloud_QueueService_Message]  Array of messages
      */
     public function receiveMessages($queueId, $max = 1, $options = null);
@@ -123,7 +123,7 @@ interface Zend_Cloud_QueueService_Adapter
      *
      * @param  string $queueId
      * @param  int $num How many messages
-     * @param  array  $options
+     * @param  array $options
      * @return array[Zend_Cloud_QueueService_Message]
      */
     public function peekMessages($queueId, $num = 1, $options = null);
@@ -133,11 +133,11 @@ interface Zend_Cloud_QueueService_Adapter
      *
      * @param  string $queueId
      * @param  Zend_Cloud_QueueService_Message $message Message to delete
-     * @param  array  $options
+     * @param  array $options
      * @return void
      *
      */
-    public function deleteMessage($queueId, $message,  $options = null);
+    public function deleteMessage($queueId, $message, $options = null);
 
     /**
      * Get the concrete adapter.

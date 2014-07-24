@@ -69,7 +69,7 @@ abstract class Zend_Dojo_Form_Element_Dijit extends Zend_Form_Element
      */
     public function setDijitParam($key, $value)
     {
-        $key = (string) $key;
+        $key = (string)$key;
         $this->dijitParams[$key] = $value;
         return $this;
     }
@@ -105,7 +105,7 @@ abstract class Zend_Dojo_Form_Element_Dijit extends Zend_Form_Element
      */
     public function getDijitParam($key)
     {
-        $key = (string) $key;
+        $key = (string)$key;
         if ($this->hasDijitParam($key)) {
             return $this->dijitParams[$key];
         }
@@ -130,7 +130,7 @@ abstract class Zend_Dojo_Form_Element_Dijit extends Zend_Form_Element
      */
     public function removeDijitParam($key)
     {
-        $key = (string) $key;
+        $key = (string)$key;
         if (array_key_exists($key, $this->dijitParams)) {
             unset($this->dijitParams[$key]);
         }
@@ -162,10 +162,10 @@ abstract class Zend_Dojo_Form_Element_Dijit extends Zend_Form_Element
         $decorators = $this->getDecorators();
         if (empty($decorators)) {
             $this->addDecorator('DijitElement')
-                 ->addDecorator('Errors')
-                 ->addDecorator('Description', array('tag' => 'p', 'class' => 'description'))
-                 ->addDecorator('HtmlTag', array('tag' => 'dd'))
-                 ->addDecorator('Label', array('tag' => 'dt'));
+                ->addDecorator('Errors')
+                ->addDecorator('Description', array('tag' => 'p', 'class' => 'description'))
+                ->addDecorator('HtmlTag', array('tag' => 'dd'))
+                ->addDecorator('Label', array('tag' => 'dt'));
         }
     }
 

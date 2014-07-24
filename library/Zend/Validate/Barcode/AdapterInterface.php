@@ -30,7 +30,7 @@ interface Zend_Validate_Barcode_AdapterInterface
     /**
      * Checks the length of a barcode
      *
-     * @param  string $value  The barcode to check for proper length
+     * @param  string $value The barcode to check for proper length
      * @return boolean
      */
     public function checkLength($value);

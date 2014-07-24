@@ -31,13 +31,13 @@ class Zend_Controller_Action_HelperBroker_PriorityStack implements IteratorAggre
 {
 
     protected $_helpersByPriority = array();
-    protected $_helpersByNameRef  = array();
+    protected $_helpersByNameRef = array();
     protected $_nextDefaultPriority = 1;
 
     /**
      * Magic property overloading for returning helper by name
      *
-     * @param string $helperName    The helper name
+     * @param string $helperName The helper name
      * @return Zend_Controller_Action_Helper_Abstract
      */
     public function __get($helperName)
@@ -52,7 +52,7 @@ class Zend_Controller_Action_HelperBroker_PriorityStack implements IteratorAggre
     /**
      * Magic property overloading for returning if helper is set by name
      *
-     * @param string $helperName    The helper name
+     * @param string $helperName The helper name
      * @return Zend_Controller_Action_Helper_Abstract
      */
     public function __isset($helperName)
@@ -63,7 +63,7 @@ class Zend_Controller_Action_HelperBroker_PriorityStack implements IteratorAggre
     /**
      * Magic property overloading for unsetting if helper is exists by name
      *
-     * @param string $helperName    The helper name
+     * @param string $helperName The helper name
      * @return Zend_Controller_Action_Helper_Abstract
      */
     public function __unset($helperName)
@@ -137,7 +137,7 @@ class Zend_Controller_Action_HelperBroker_PriorityStack implements IteratorAggre
      */
     public function offsetSet($priority, $helper)
     {
-        $priority = (int) $priority;
+        $priority = (int)$priority;
 
         if (!$helper instanceof Zend_Controller_Action_Helper_Abstract) {
             require_once 'Zend/Controller/Action/Exception.php';
@@ -151,7 +151,7 @@ class Zend_Controller_Action_HelperBroker_PriorityStack implements IteratorAggre
         }
 
         if (array_key_exists($priority, $this->_helpersByPriority)) {
-            $priority = $this->getNextFreeHigherPriority($priority);  // ensures LIFO
+            $priority = $this->getNextFreeHigherPriority($priority); // ensures LIFO
             trigger_error("A helper with the same priority already exists, reassigning to $priority", E_USER_WARNING);
         }
 
@@ -162,7 +162,7 @@ class Zend_Controller_Action_HelperBroker_PriorityStack implements IteratorAggre
             $this->_nextDefaultPriority = $nextFreeDefault;
         }
 
-        krsort($this->_helpersByPriority);  // always make sure priority and LIFO are both enforced
+        krsort($this->_helpersByPriority); // always make sure priority and LIFO are both enforced
         return $this;
     }
 

@@ -45,8 +45,8 @@ class Zend_Config_Writer_Xml extends Zend_Config_Writer_FileAbstract
      */
     public function render()
     {
-        $xml         = new SimpleXMLElement('<zend-config xmlns:zf="' . Zend_Config_Xml::XML_NAMESPACE . '"/>');
-        $extends     = $this->_config->getExtends();
+        $xml = new SimpleXMLElement('<zend-config xmlns:zf="' . Zend_Config_Xml::XML_NAMESPACE . '"/>');
+        $extends = $this->_config->getExtends();
         $sectionName = $this->_config->getSectionName();
 
         if (is_string($sectionName)) {
@@ -56,7 +56,7 @@ class Zend_Config_Writer_Xml extends Zend_Config_Writer_FileAbstract
         } else {
             foreach ($this->_config as $sectionName => $data) {
                 if (!($data instanceof Zend_Config)) {
-                    $xml->addChild($sectionName, (string) $data);
+                    $xml->addChild($sectionName, (string)$data);
                 } else {
                     $child = $xml->addChild($sectionName);
 
@@ -80,7 +80,7 @@ class Zend_Config_Writer_Xml extends Zend_Config_Writer_FileAbstract
     /**
      * Add a branch to an XML object recursively
      *
-     * @param  Zend_Config      $config
+     * @param  Zend_Config $config
      * @param  SimpleXMLElement $xml
      * @param  SimpleXMLElement $parent
      * @return void
@@ -94,7 +94,7 @@ class Zend_Config_Writer_Xml extends Zend_Config_Writer_FileAbstract
                 if (is_numeric($key)) {
                     $branchType = 'numeric';
                     $branchName = $xml->getName();
-                    $xml        = $parent;
+                    $xml = $parent;
 
                     unset($parent->{$branchName});
                 } else {
@@ -111,7 +111,7 @@ class Zend_Config_Writer_Xml extends Zend_Config_Writer_FileAbstract
 
                     $this->_addBranch($value, $child, $parent);
                 } else {
-                    $parent->addChild($branchName, (string) $value);
+                    $parent->addChild($branchName, (string)$value);
                 }
             } else {
                 if ($value instanceof Zend_Config) {
@@ -119,7 +119,7 @@ class Zend_Config_Writer_Xml extends Zend_Config_Writer_FileAbstract
 
                     $this->_addBranch($value, $child, $xml);
                 } else {
-                    $xml->addChild($key, (string) $value);
+                    $xml->addChild($key, (string)$value);
                 }
             }
         }

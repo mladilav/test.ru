@@ -54,13 +54,13 @@ class Zend_XmlRpc_Client_ServerProxy
     /**
      * Class constructor
      *
-     * @param string             $namespace
+     * @param string $namespace
      * @param Zend_XmlRpc_Client $client
      */
     public function __construct($client, $namespace = '')
     {
         $this->_namespace = $namespace;
-        $this->_client    = $client;
+        $this->_client = $client;
     }
 
 

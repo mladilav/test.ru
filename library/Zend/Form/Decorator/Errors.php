@@ -45,7 +45,7 @@ class Zend_Form_Decorator_Errors extends Zend_Form_Decorator_Abstract
     public function render($content)
     {
         $element = $this->getElement();
-        $view    = $element->getView();
+        $view = $element->getView();
         if (null === $view) {
             return $content;
         }
@@ -65,7 +65,7 @@ class Zend_Form_Decorator_Errors extends Zend_Form_Decorator_Abstract
 
         $separator = $this->getSeparator();
         $placement = $this->getPlacement();
-        $errors    = $view->formErrors($errors, $this->getOptions());
+        $errors = $view->formErrors($errors, $this->getOptions());
 
         switch ($placement) {
             case self::APPEND:

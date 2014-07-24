@@ -64,7 +64,7 @@ class Zend_Server_Method_Callback
      */
     public function __construct($options = null)
     {
-        if ((null !== $options) && is_array($options))  {
+        if ((null !== $options) && is_array($options)) {
             $this->setOptions($options);
         }
     }
@@ -119,7 +119,7 @@ class Zend_Server_Method_Callback
      */
     public function setFunction($function)
     {
-        $this->_function = (string) $function;
+        $this->_function = (string)$function;
         $this->setType('function');
         return $this;
     }
@@ -197,7 +197,7 @@ class Zend_Server_Method_Callback
         if ('function' == $type) {
             $array['function'] = $this->getFunction();
         } else {
-            $array['class']  = $this->getClass();
+            $array['class'] = $this->getClass();
             $array['method'] = $this->getMethod();
         }
         return $array;

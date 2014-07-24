@@ -44,14 +44,14 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
      * Default Server Values
      */
     const DEFAULT_HOST = '127.0.0.1';
-    const DEFAULT_PORT =  11211;
-    const DEFAULT_WEIGHT  = 1;
+    const DEFAULT_PORT = 11211;
+    const DEFAULT_WEIGHT = 1;
 
     /**
      * Log message
      */
     const TAGS_UNSUPPORTED_BY_CLEAN_OF_LIBMEMCACHED_BACKEND = 'Zend_Cache_Backend_Libmemcached::clean() : tags are unsupported by the Libmemcached backend';
-    const TAGS_UNSUPPORTED_BY_SAVE_OF_LIBMEMCACHED_BACKEND =  'Zend_Cache_Backend_Libmemcached::save() : tags are unsupported by the Libmemcached backend';
+    const TAGS_UNSUPPORTED_BY_SAVE_OF_LIBMEMCACHED_BACKEND = 'Zend_Cache_Backend_Libmemcached::save() : tags are unsupported by the Libmemcached backend';
 
     /**
      * Available options
@@ -73,8 +73,8 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
      */
     protected $_options = array(
         'servers' => array(array(
-            'host'   => self::DEFAULT_HOST,
-            'port'   => self::DEFAULT_PORT,
+            'host' => self::DEFAULT_HOST,
+            'port' => self::DEFAULT_PORT,
             'weight' => self::DEFAULT_WEIGHT,
         )),
         'client' => array()
@@ -102,8 +102,8 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
 
         // override default client options
         $this->_options['client'] = array(
-            Memcached::OPT_DISTRIBUTION         => Memcached::DISTRIBUTION_CONSISTENT,
-            Memcached::OPT_HASH                 => Memcached::HASH_MD5,
+            Memcached::OPT_DISTRIBUTION => Memcached::DISTRIBUTION_CONSISTENT,
+            Memcached::OPT_HASH => Memcached::HASH_MD5,
             Memcached::OPT_LIBKETAMA_COMPATIBLE => true,
         );
 
@@ -157,7 +157,7 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
     /**
      * Test if a cache is available for the given id and (if yes) return it (false else)
      *
-     * @param  string  $id                     Cache id
+     * @param  string $id Cache id
      * @param  boolean $doNotTestCacheValidity If set to true, the cache validity won't be tested
      * @return string|false cached datas
      */
@@ -191,10 +191,10 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
      * Note : $data is always "string" (serialization is done by the
      * core not by the backend)
      *
-     * @param  string $data             Datas to cache
-     * @param  string $id               Cache id
-     * @param  array  $tags             Array of strings, the cache record will be tagged by each string entry
-     * @param  int    $specificLifetime If != false, set a specific lifetime for this cache record (null => infinite lifetime)
+     * @param  string $data Datas to cache
+     * @param  string $id Cache id
+     * @param  array $tags Array of strings, the cache record will be tagged by each string entry
+     * @param  int $specificLifetime If != false, set a specific lifetime for this cache record (null => infinite lifetime)
      * @return boolean True if no problem
      */
     public function save($data, $id, $tags = array(), $specificLifetime = false)
@@ -205,7 +205,7 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
         $result = @$this->_memcache->set($id, array($data, time(), $lifetime), $lifetime);
         if ($result === false) {
             $rsCode = $this->_memcache->getResultCode();
-            $rsMsg  = $this->_memcache->getResultMessage();
+            $rsMsg = $this->_memcache->getResultMessage();
             $this->_log("Memcached::set() failed: [{$rsCode}] {$rsMsg}");
         }
 
@@ -238,7 +238,7 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
      * 'matchingAnyTag' => unsupported
      *
      * @param  string $mode Clean mode
-     * @param  array  $tags Array of tags
+     * @param  array $tags Array of tags
      * @throws Zend_Cache_Exception
      * @return boolean True if no problem
      */
@@ -256,9 +256,9 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
             case Zend_Cache::CLEANING_MODE_MATCHING_ANY_TAG:
                 $this->_log(self::TAGS_UNSUPPORTED_BY_CLEAN_OF_LIBMEMCACHED_BACKEND);
                 break;
-               default:
+            default:
                 Zend_Cache::throwException('Invalid mode for clean() method');
-                   break;
+                break;
         }
     }
 
@@ -392,7 +392,7 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
             Zend_Cache::throwException('Can\'t get filling percentage');
         }
 
-        return ((int) (100. * ($memUsed / $memSize)));
+        return ((int)(100. * ($memUsed / $memSize)));
     }
 
     /**
@@ -410,8 +410,8 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
     {
         $tmp = $this->_memcache->get($id);
         if (isset($tmp[0], $tmp[1], $tmp[2])) {
-            $data     = $tmp[0];
-            $mtime    = $tmp[1];
+            $data = $tmp[0];
+            $mtime = $tmp[1];
             $lifetime = $tmp[2];
             return array(
                 'expire' => $mtime + $lifetime,
@@ -434,11 +434,11 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
     {
         $tmp = $this->_memcache->get($id);
         if (isset($tmp[0], $tmp[1], $tmp[2])) {
-            $data     = $tmp[0];
-            $mtime    = $tmp[1];
+            $data = $tmp[0];
+            $mtime = $tmp[1];
             $lifetime = $tmp[2];
             $newLifetime = $lifetime - (time() - $mtime) + $extraLifetime;
-            if ($newLifetime <=0) {
+            if ($newLifetime <= 0) {
                 return false;
             }
             // #ZF-5702 : we try replace() first becase set() seems to be slower
@@ -446,7 +446,7 @@ class Zend_Cache_Backend_Libmemcached extends Zend_Cache_Backend implements Zend
                 $result = $this->_memcache->set($id, array($data, time(), $newLifetime), $newLifetime);
                 if ($result === false) {
                     $rsCode = $this->_memcache->getResultCode();
-                    $rsMsg  = $this->_memcache->getResultMessage();
+                    $rsMsg = $this->_memcache->getResultMessage();
                     $this->_log("Memcached::set() failed: [{$rsCode}] {$rsMsg}");
                 }
             }

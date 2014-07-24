@@ -122,7 +122,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
         }
 
         $interfaceNames = array();
-        foreach($interfaces AS $interface) {
+        foreach ($interfaces AS $interface) {
             $interfaceNames[] = $interface->getName();
         }
 
@@ -567,7 +567,7 @@ class Zend_CodeGenerator_Php_Class extends Zend_CodeGenerator_Php_Abstract
 
         $output .= 'class ' . $this->getName();
 
-        if ( !empty( $this->_extendedClass) ) {
+        if (!empty($this->_extendedClass)) {
             $output .= ' extends ' . $this->_extendedClass;
         }
 

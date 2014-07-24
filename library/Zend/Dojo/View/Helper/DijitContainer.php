@@ -31,7 +31,7 @@ require_once 'Zend/Dojo/View/Helper/Dijit.php';
  * @subpackage View
  * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
-  */
+ */
 abstract class Zend_Dojo_View_Helper_DijitContainer extends Zend_Dojo_View_Helper_Dijit
 {
     /**
@@ -63,7 +63,7 @@ abstract class Zend_Dojo_View_Helper_DijitContainer extends Zend_Dojo_View_Helpe
 
         $this->_captureLock[$id] = true;
         $this->_captureInfo[$id] = array(
-            'params'  => $params,
+            'params' => $params,
             'attribs' => $attribs,
         );
 

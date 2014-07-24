@@ -134,7 +134,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      * Sets the validation failure message template for a particular key
      *
      * @param  string $messageString
-     * @param  string $messageKey     OPTIONAL
+     * @param  string $messageKey OPTIONAL
      * @return Zend_Validate_Abstract Provides a fluent interface
      * @throws Zend_Validate_Exception
      */
@@ -142,7 +142,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
     {
         if ($messageKey === null) {
             $keys = array_keys($this->_messageTemplates);
-            foreach($keys as $key) {
+            foreach ($keys as $key) {
                 $this->setMessage($messageString, $key);
             }
             return $this;
@@ -230,7 +230,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
                 $value = $value->__toString();
             }
         } else {
-            $value = implode((array) $value);
+            $value = implode((array)$value);
         }
 
         if ($this->getObscureValue()) {
@@ -241,7 +241,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
         foreach ($this->_messageVariables as $ident => $property) {
             $message = str_replace(
                 "%$ident%",
-                implode(' ', (array) $this->$property),
+                implode(' ', (array)$this->$property),
                 $message
             );
         }
@@ -256,7 +256,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
 
     /**
      * @param  string $messageKey
-     * @param  string $value      OPTIONAL
+     * @param  string $value OPTIONAL
      * @return void
      */
     protected function _error($messageKey, $value = null)
@@ -268,7 +268,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
         if ($value === null) {
             $value = $this->_value;
         }
-        $this->_errors[]              = $messageKey;
+        $this->_errors[] = $messageKey;
         $this->_messages[$messageKey] = $this->_createMessage($messageKey, $value);
     }
 
@@ -280,9 +280,9 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      */
     protected function _setValue($value)
     {
-        $this->_value    = $value;
+        $this->_value = $value;
         $this->_messages = array();
-        $this->_errors   = array();
+        $this->_errors = array();
     }
 
     /**
@@ -304,7 +304,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      */
     public function setObscureValue($flag)
     {
-        $this->_obscureValue = (bool) $flag;
+        $this->_obscureValue = (bool)$flag;
         return $this;
     }
 
@@ -424,7 +424,7 @@ abstract class Zend_Validate_Abstract implements Zend_Validate_Interface
      */
     public function setDisableTranslator($flag)
     {
-        $this->_translatorDisabled = (bool) $flag;
+        $this->_translatorDisabled = (bool)$flag;
         return $this;
     }
 

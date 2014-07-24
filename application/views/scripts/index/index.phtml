@@ -1,21 +1,14 @@
-<?php
-// Создаём заголовок страницы, который загрузится в layout
-$this->title = "Блог";
-$this->headTitle($this->title);
-?>
-<p><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'add')); ?>">Добавить статью</a></p>
-<table>
-    <tr>
-        <th>Название</th>
-        <th>Категория</th>
-        <th>текст</th>
-        <th>Автор</th>
-        <th>Дата</th>
-        <th></th>
-        <th></th>
-    </tr>
+
+<?php  if (Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->role == 'admin')  {?>
+<p><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'add')); ?>">
+        <?php if($this->lang == "ua") echo 'Додати статтю'; else echo 'Добавить статью';?></a></p>
+<?php } ?>
+
     <?php
     // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
-    echo $this->partialLoop('/partials/posts.phtml', $this->posts);
+    if($this->lang == "ua")
+        echo $this->partialLoop('/partials/postsUa.phtml', $this->paginator);
+    else
+        echo $this->partialLoop('/partials/posts.phtml', $this->paginator);
     ?>
-</table>
+<?php echo $this->paginationControl($this->paginator, 'Sliding', 'paginator_control.phtml'); ?>

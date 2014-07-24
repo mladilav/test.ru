@@ -72,9 +72,9 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
 
     /**
      * @param Zend_Service_Service_WindowsAzure_Storage_Table|Zend_Service_WindowsAzure_Storage_Table $tableStorageConnection
-     * @param string                                                                                  $tableName
-     * @param bool                                                                                    $createTable create the Windows Azure table for logging if it does not exist
-     * @param bool                                                                                    $bufferMessages
+     * @param string $tableName
+     * @param bool $createTable create the Windows Azure table for logging if it does not exist
+     * @param bool $bufferMessages
      * @throws Zend_Service_Log_Exception
      */
     public function __construct(
@@ -97,7 +97,7 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
         }
 
         $this->_tableStorageConnection = $tableStorageConnection;
-        $this->_tableName              = $tableName;
+        $this->_tableName = $tableName;
 
         // create the logging table if it does not exist. It will add some overhead, so it's optional
         if ($createTable) {
@@ -146,9 +146,9 @@ class Zend_Service_WindowsAzure_Log_Writer_WindowsAzure
         $config = self::_parseConfig($config);
         $config = array_merge(
             array(
-                 'connection' => null,
-                 'tableName' => null,
-                 'createTable' => true,
+                'connection' => null,
+                'tableName' => null,
+                'createTable' => true,
             ), $config
         );
 

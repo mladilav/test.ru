@@ -55,28 +55,28 @@ class Zend_Service_SlideShare
     /**
      * Web service result code mapping
      */
-    const SERVICE_ERROR_BAD_APIKEY       = 1;
-    const SERVICE_ERROR_BAD_AUTH         = 2;
-    const SERVICE_ERROR_MISSING_TITLE    = 3;
-    const SERVICE_ERROR_MISSING_FILE     = 4;
-    const SERVICE_ERROR_EMPTY_TITLE      = 5;
-    const SERVICE_ERROR_NOT_SOURCEOBJ    = 6;
-    const SERVICE_ERROR_INVALID_EXT      = 7;
-    const SERVICE_ERROR_FILE_TOO_BIG     = 8;
-    const SERVICE_ERROR_SHOW_NOT_FOUND   = 9;
-    const SERVICE_ERROR_USER_NOT_FOUND   = 10;
-    const SERVICE_ERROR_GROUP_NOT_FOUND  = 11;
-    const SERVICE_ERROR_MISSING_TAG      = 12;
-    const SERVICE_ERROR_DAILY_LIMIT      = 99;
-    const SERVICE_ERROR_ACCOUNT_BLOCKED  = 100;
+    const SERVICE_ERROR_BAD_APIKEY = 1;
+    const SERVICE_ERROR_BAD_AUTH = 2;
+    const SERVICE_ERROR_MISSING_TITLE = 3;
+    const SERVICE_ERROR_MISSING_FILE = 4;
+    const SERVICE_ERROR_EMPTY_TITLE = 5;
+    const SERVICE_ERROR_NOT_SOURCEOBJ = 6;
+    const SERVICE_ERROR_INVALID_EXT = 7;
+    const SERVICE_ERROR_FILE_TOO_BIG = 8;
+    const SERVICE_ERROR_SHOW_NOT_FOUND = 9;
+    const SERVICE_ERROR_USER_NOT_FOUND = 10;
+    const SERVICE_ERROR_GROUP_NOT_FOUND = 11;
+    const SERVICE_ERROR_MISSING_TAG = 12;
+    const SERVICE_ERROR_DAILY_LIMIT = 99;
+    const SERVICE_ERROR_ACCOUNT_BLOCKED = 100;
 
     /**
      * Slide share Web service communication URIs
      */
-    const SERVICE_UPLOAD_URI            = 'https://www.slideshare.net/api/2/upload_slideshow';
-    const SERVICE_GET_SHOW_URI          = 'https://www.slideshare.net/api/2/get_slideshow';
-    const SERVICE_GET_SHOW_BY_USER_URI  = 'https://www.slideshare.net/api/2/get_slideshows_by_user';
-    const SERVICE_GET_SHOW_BY_TAG_URI   = 'https://www.slideshare.net/api/2/get_slideshows_by_tag';
+    const SERVICE_UPLOAD_URI = 'https://www.slideshare.net/api/2/upload_slideshow';
+    const SERVICE_GET_SHOW_URI = 'https://www.slideshare.net/api/2/get_slideshow';
+    const SERVICE_GET_SHOW_BY_USER_URI = 'https://www.slideshare.net/api/2/get_slideshows_by_user';
+    const SERVICE_GET_SHOW_BY_TAG_URI = 'https://www.slideshare.net/api/2/get_slideshows_by_tag';
     const SERVICE_GET_SHOW_BY_GROUP_URI = 'https://www.slideshare.net/api/2/get_slideshows_by_group';
 
     /**
@@ -153,8 +153,8 @@ class Zend_Service_SlideShare
             $client = new Zend_Http_Client();
             $client->setConfig(
                 array(
-                     'maxredirects' => 2,
-                     'timeout'      => 5
+                    'maxredirects' => 2,
+                    'timeout' => 5
                 )
             );
 
@@ -193,8 +193,8 @@ class Zend_Service_SlideShare
                 'Core',
                 'File',
                 array(
-                     'lifetime'                => 43200,
-                     'automatic_serialization' => true
+                    'lifetime' => 43200,
+                    'automatic_serialization' => true
                 ),
                 array('cache_dir' => '/tmp')
             );
@@ -296,10 +296,10 @@ class Zend_Service_SlideShare
     /**
      * The Constructor
      *
-     * @param string $apikey       The API key
+     * @param string $apikey The API key
      * @param string $sharedSecret The shared secret
-     * @param string $username     The username
-     * @param string $password     The password
+     * @param string $username The username
+     * @param string $password The password
      */
     public function __construct(
         $apikey, $sharedSecret, $username = null, $password = null
@@ -316,8 +316,8 @@ class Zend_Service_SlideShare
     /**
      * Uploads the specified Slide show the the server
      *
-     * @param Zend_Service_SlideShare_SlideShow $ss            The slide show object representing the slide show to upload
-     * @param boolean                           $makeSrcPublic Determines if the the slide show's source file is public or not upon upload
+     * @param Zend_Service_SlideShare_SlideShow $ss The slide show object representing the slide show to upload
+     * @param boolean $makeSrcPublic Determines if the the slide show's source file is public or not upon upload
      * @return Zend_Service_SlideShare_SlideShow The passed Slide show object, with the new assigned ID provided
      * @throws Zend_Service_SlideShare_Exception
      */
@@ -328,16 +328,16 @@ class Zend_Service_SlideShare
         $timestamp = time();
 
         $params = array(
-            'api_key'         => $this->getApiKey(),
-            'ts'              => $timestamp,
-            'hash'            => sha1($this->getSharedSecret() . $timestamp),
-            'username'        => $this->getUserName(),
-            'password'        => $this->getPassword(),
+            'api_key' => $this->getApiKey(),
+            'ts' => $timestamp,
+            'hash' => sha1($this->getSharedSecret() . $timestamp),
+            'username' => $this->getUserName(),
+            'password' => $this->getPassword(),
             'slideshow_title' => $ss->getTitle()
         );
 
         $description = $ss->getDescription();
-        $tags        = $ss->getTags();
+        $tags = $ss->getTags();
 
         $filename = $ss->getFilename();
 
@@ -414,9 +414,9 @@ class Zend_Service_SlideShare
         $timestamp = time();
 
         $params = array(
-            'api_key'      => $this->getApiKey(),
-            'ts'           => $timestamp,
-            'hash'         => sha1($this->getSharedSecret() . $timestamp),
+            'api_key' => $this->getApiKey(),
+            'ts' => $timestamp,
+            'hash' => sha1($this->getSharedSecret() . $timestamp),
             'slideshow_id' => $ss_id
         );
 
@@ -522,10 +522,10 @@ class Zend_Service_SlideShare
      * Retrieves Zend_Service_SlideShare_SlideShow object arrays based on the type of
      * list desired
      *
-     * @param string $key    The type of slide show object to retrieve
-     * @param string $value  The specific search query for the slide show type to look up
-     * @param int    $offset The offset of the list to start retrieving from
-     * @param int    $limit  The maximum number of slide shows to retrieve
+     * @param string $key The type of slide show object to retrieve
+     * @param string $value The specific search query for the slide show type to look up
+     * @param int $offset The offset of the list to start retrieving from
+     * @param int $limit The maximum number of slide shows to retrieve
      * @return array An array of Zend_Service_SlideShare_SlideShow objects
      * @throws Zend_Service_SlideShare_Exception
      */
@@ -536,15 +536,15 @@ class Zend_Service_SlideShare
         switch ($key) {
             case 'username_for':
                 $responseTag = 'User';
-                $queryUri    = self::SERVICE_GET_SHOW_BY_USER_URI;
+                $queryUri = self::SERVICE_GET_SHOW_BY_USER_URI;
                 break;
             case 'group_name':
                 $responseTag = 'Group';
-                $queryUri    = self::SERVICE_GET_SHOW_BY_GROUP_URI;
+                $queryUri = self::SERVICE_GET_SHOW_BY_GROUP_URI;
                 break;
             case 'tag':
                 $responseTag = 'Tag';
-                $queryUri    = self::SERVICE_GET_SHOW_BY_TAG_URI;
+                $queryUri = self::SERVICE_GET_SHOW_BY_TAG_URI;
                 break;
             default:
                 require_once 'Zend/Service/SlideShare/Exception.php';
@@ -556,9 +556,9 @@ class Zend_Service_SlideShare
         $timestamp = time();
 
         $params = array('api_key' => $this->getApiKey(),
-                        'ts' => $timestamp,
-                        'hash' => sha1($this->getSharedSecret().$timestamp),
-                        $key => $value);
+            'ts' => $timestamp,
+            'hash' => sha1($this->getSharedSecret() . $timestamp),
+            $key => $value);
 
         if ($offset !== null) {
             $params['offset'] = (int)$offset;
@@ -570,7 +570,7 @@ class Zend_Service_SlideShare
 
         $cache = $this->getCacheObject();
 
-        $cache_key = md5($key.$value.$offset.$limit);
+        $cache_key = md5($key . $value . $offset . $limit);
 
         if (!$retval = $cache->load($cache_key)) {
             $client = $this->getHttpClient();
@@ -631,7 +631,7 @@ class Zend_Service_SlideShare
     protected function _slideShowNodeToObject(SimpleXMLElement $node)
     {
 
-        if($node->getName() == 'Slideshow') {
+        if ($node->getName() == 'Slideshow') {
             $ss = new Zend_Service_SlideShare_SlideShow();
 
             $ss->setId((string)$node->ID);

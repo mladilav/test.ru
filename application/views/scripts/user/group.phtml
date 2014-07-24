@@ -1,0 +1,24 @@
+<?php  $_SESSION['group'] = $this->id; ?>
+<h3><?php if($this->lang == "ua") echo $this->group['nameUa']; else echo $this->group['name'];?></h3>
+
+<ul class="breadcrumb">
+    <li><a href="/user/settings/"><?php if($this->lang == "ua") echo 'Користувачі'; else echo 'Пользователи';?></a> <span class="divider">/</span></li>
+    <li class="active"><?php if($this->lang == "ua") echo $this->group['nameUa']; else echo $this->group['name'];?></li>
+</ul>
+
+<p><a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'addgroupsuser')); ?>">
+        <?php if($this->lang == "ua") echo 'Додати користувача у групу'; else echo 'Добавить пользователя в группу';?></a></p>
+<h4><?php if($this->lang == "ua") echo 'Користувачі у групі:'; else echo 'Пользователи  в группе:';?></h4>
+<table class="table table-condensed">
+    <tr>
+        <th>ID</th>
+        <th><?php if($this->lang == "ua") echo 'Нік'; else echo 'Ник';?></th>
+        <th><?php if($this->lang == "ua") echo 'Пошта'; else echo 'Почта';?></th>
+        <th>Роль</th>
+        <th></th>
+    </tr>
+    <?php
+    // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+    echo $this->partialLoop('/partials/usersInGroup.phtml', $this->users);
+    ?>
+</table>

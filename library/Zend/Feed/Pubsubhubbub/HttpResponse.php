@@ -107,8 +107,8 @@ class Zend_Feed_Pubsubhubbub_HttpResponse
      */
     public function setHeader($name, $value, $replace = false)
     {
-        $name  = $this->_normalizeHeader($name);
-        $value = (string) $value;
+        $name = $this->_normalizeHeader($name);
+        $value = (string)$value;
         if ($replace) {
             foreach ($this->_headers as $key => $header) {
                 if ($name == $header['name']) {
@@ -117,8 +117,8 @@ class Zend_Feed_Pubsubhubbub_HttpResponse
             }
         }
         $this->_headers[] = array(
-            'name'    => $name,
-            'value'   => $value,
+            'name' => $name,
+            'value' => $value,
             'replace' => $replace,
         );
 
@@ -179,7 +179,7 @@ class Zend_Feed_Pubsubhubbub_HttpResponse
         if (!is_int($code) || (100 > $code) || (599 < $code)) {
             require_once 'Zend/Feed/Pubsubhubbub/Exception.php';
             throw new Zend_Feed_Pubsubhubbub_Exception('Invalid HTTP response'
-            . ' code:' . $code);
+                . ' code:' . $code);
         }
         $this->_httpResponseCode = $code;
         return $this;
@@ -203,7 +203,7 @@ class Zend_Feed_Pubsubhubbub_HttpResponse
      */
     public function setBody($content)
     {
-        $this->_body = (string) $content;
+        $this->_body = (string)$content;
         $this->setHeader('content-length', strlen($content));
         return $this;
     }
@@ -226,7 +226,7 @@ class Zend_Feed_Pubsubhubbub_HttpResponse
      */
     protected function _normalizeHeader($name)
     {
-        $filtered = str_replace(array('-', '_'), ' ', (string) $name);
+        $filtered = str_replace(array('-', '_'), ' ', (string)$name);
         $filtered = ucwords(strtolower($filtered));
         $filtered = str_replace(' ', '-', $filtered);
         return $filtered;

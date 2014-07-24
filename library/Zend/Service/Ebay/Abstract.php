@@ -29,7 +29,7 @@
  */
 abstract class Zend_Service_Ebay_Abstract
 {
-    const OPTION_APP_ID    = 'app_id';
+    const OPTION_APP_ID = 'app_id';
     const OPTION_GLOBAL_ID = 'global_id';
 
     /**
@@ -54,7 +54,7 @@ abstract class Zend_Service_Ebay_Abstract
 
     /**
      * @param  string|Zend_Config|array $name
-     * @param  mixed                    $value
+     * @param  mixed $value
      * @return Zend_Service_Ebay_Abstract Provides a fluent interface
      */
     public function setOption($name, $value = null)
@@ -190,16 +190,16 @@ abstract class Zend_Service_Ebay_Abstract
      */
     protected function _optionsToNameValueSyntax($options)
     {
-        $options  = self::optionsToArray($options);
+        $options = self::optionsToArray($options);
         ksort($options);
-        $new      = array();
+        $new = array();
         $runAgain = false;
         foreach ($options as $name => $value) {
             if (is_array($value)) {
                 // parse an array value, check if it is associative
-                $keyRaw    = array_keys($value);
+                $keyRaw = array_keys($value);
                 $keyNumber = range(0, count($value) - 1);
-                $isAssoc   = count(array_diff($keyRaw, $keyNumber)) > 0;
+                $isAssoc = count(array_diff($keyRaw, $keyNumber)) > 0;
                 // check for tag representation, like <name att="sometinhg"></value>
                 // empty key refers to text value
                 // when there is a root tag, attributes receive flags
@@ -212,7 +212,7 @@ abstract class Zend_Service_Ebay_Abstract
                         if ($subName !== '') {
                             // when $subName is empty means that current value
                             // is the main value for the main key
-                            $glue     = $hasAttribute ? '.@' : '.';
+                            $glue = $hasAttribute ? '.@' : '.';
                             $newName .= $glue . $subName;
                         }
                     } else {
@@ -259,7 +259,7 @@ abstract class Zend_Service_Ebay_Abstract
         } else if ($value instanceof DateTime) {
             $value = $value->format(DateTime::ISO8601);
         } else {
-            $value = (string) $value;
+            $value = (string)$value;
         }
         return $value;
     }
@@ -278,12 +278,12 @@ abstract class Zend_Service_Ebay_Abstract
         switch ($type) {
             // cast for: boolean
             case 'boolean':
-                $value = (string) $value == 'true';
+                $value = (string)$value == 'true';
                 break;
 
             // cast for: Amount, decimal, double, float, MeasureType
             case 'float':
-                $value = floatval((string) $value);
+                $value = floatval((string)$value);
                 break;
 
             // cast for: int, long
@@ -292,9 +292,9 @@ abstract class Zend_Service_Ebay_Abstract
             case 'integer':
                 // break intentionally omitted
 
-            // cast for: anyURI, base64Binary, dateTime, duration, string, token
+                // cast for: anyURI, base64Binary, dateTime, duration, string, token
             case 'string':
-                $value = (string) $value;
+                $value = (string)$value;
                 break;
 
             default:

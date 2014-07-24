@@ -48,7 +48,7 @@ abstract class Zend_Log_Writer_Abstract implements Zend_Log_FactoryInterface
     /**
      * Add a filter specific to this writer.
      *
-     * @param  Zend_Log_Filter_Interface  $filter
+     * @param  Zend_Log_Filter_Interface $filter
      * @return Zend_Log_Writer_Abstract
      */
     public function addFilter($filter)
@@ -76,7 +76,7 @@ abstract class Zend_Log_Writer_Abstract implements Zend_Log_FactoryInterface
     public function write($event)
     {
         foreach ($this->_filters as $filter) {
-            if (! $filter->accept($event)) {
+            if (!$filter->accept($event)) {
                 return;
             }
         }
@@ -103,12 +103,13 @@ abstract class Zend_Log_Writer_Abstract implements Zend_Log_FactoryInterface
      * @return void
      */
     public function shutdown()
-    {}
+    {
+    }
 
     /**
      * Write a message to the log.
      *
-     * @param  array  $event  log data event
+     * @param  array $event log data event
      * @return void
      */
     abstract protected function _write($event);

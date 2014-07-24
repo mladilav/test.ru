@@ -36,10 +36,10 @@ require_once 'Zend/Ldap/Node/Abstract.php';
  */
 class Zend_Ldap_Node_RootDse extends Zend_Ldap_Node_Abstract
 {
-    const SERVER_TYPE_GENERIC         = 1;
-    const SERVER_TYPE_OPENLDAP        = 2;
+    const SERVER_TYPE_GENERIC = 1;
+    const SERVER_TYPE_OPENLDAP = 2;
     const SERVER_TYPE_ACTIVEDIRECTORY = 3;
-    const SERVER_TYPE_EDIRECTORY      = 4;
+    const SERVER_TYPE_EDIRECTORY = 4;
 
     /**
      * Factory method to create the RootDSE.
@@ -65,7 +65,8 @@ class Zend_Ldap_Node_RootDse extends Zend_Ldap_Node_Abstract
             require_once 'Zend/Ldap/Node/RootDse/eDirectory.php';
             return new Zend_Ldap_Node_RootDse_eDirectory($dn, $data);
         } else if (isset($data['structuralobjectclass']) &&
-                $data['structuralobjectclass'][0] === 'OpenLDAProotDSE') {
+            $data['structuralobjectclass'][0] === 'OpenLDAProotDSE'
+        ) {
             /**
              * @see Zend_Ldap_Node_RootDse_OpenLdap
              */
@@ -82,7 +83,7 @@ class Zend_Ldap_Node_RootDse extends Zend_Ldap_Node_Abstract
      * Constructor is protected to enforce the use of factory methods.
      *
      * @param  Zend_Ldap_Dn $dn
-     * @param  array        $data
+     * @param  array $data
      */
     protected function __construct(Zend_Ldap_Dn $dn, array $data)
     {

@@ -1,0 +1,23 @@
+
+<ul class="nav nav-tabs">
+    <li>
+        <a href="/user/profile"><?php if($this->lang == "ua") echo 'Особистий кабінет'; else echo 'Личный кабинет';?></a>
+    </li>
+    <li class="active"><a href="/user/messege"><?php if($this->lang == "ua") echo 'Повідомлення'; else echo 'Сообщения';?></a></li>
+    <li><a href="/user/messegesend"><?php if($this->lang == "ua") echo 'Надіслати повідомлення'; else echo 'Отправить сообщение';?></a></li>
+</ul>
+<div class="profile">
+    <?php foreach($this->message as $message) {?>
+        <small class="muted"> <?php echo date("H:i:s d-m-Y",$message['date']);?></small>
+        <div class="
+        <?php if($message['status'] == 1)
+            echo 'alert alert-info'; else  echo 'well'; ?>
+        " style="padding: 10px;">
+
+                <a href="/user/userhomework/id/<?php echo $message['homeworkId'];?>/idMes/<?php echo $message['id'];?>">
+                <?php if($this->lang == "ua") echo 'Домашнє завдання'; else echo 'Домашнее задание';?> </a>
+        </div>
+    <?php } ?>
+
+
+</div>

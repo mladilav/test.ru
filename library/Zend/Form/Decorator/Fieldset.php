@@ -26,7 +26,7 @@ require_once 'Zend/Form/Decorator/Abstract.php';
  * Zend_Form_Decorator_Fieldset
  *
  * Any options passed will be used as HTML attributes of the fieldset tag.
- * 
+ *
  *
  * @category   Zend
  * @package    Zend_Form
@@ -88,7 +88,7 @@ class Zend_Form_Decorator_Fieldset extends Zend_Form_Decorator_Abstract
      */
     public function setLegend($value)
     {
-        $this->_legend = (string) $value;
+        $this->_legend = (string)$value;
         return $this;
     }
 
@@ -123,15 +123,15 @@ class Zend_Form_Decorator_Fieldset extends Zend_Form_Decorator_Abstract
     public function render($content)
     {
         $element = $this->getElement();
-        $view    = $element->getView();
+        $view = $element->getView();
         if (null === $view) {
             return $content;
         }
 
-        $legend  = $this->getLegend();
+        $legend = $this->getLegend();
         $attribs = $this->getOptions();
-        $name    = $element->getFullyQualifiedName();
-        $id      = (string)$element->getId();
+        $name = $element->getFullyQualifiedName();
+        $id = (string)$element->getId();
 
         if ((!array_key_exists('id', $attribs) || $attribs['id'] == $id) && '' !== $id) {
             $attribs['id'] = 'fieldset-' . $id;

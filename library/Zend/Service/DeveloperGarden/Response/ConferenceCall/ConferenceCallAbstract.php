@@ -63,10 +63,10 @@ abstract class Zend_Service_DeveloperGarden_Response_ConferenceCall_ConferenceCa
     {
         $retVal = $this->getResponse();
         if ($retVal === null) {
-            $this->statusCode    = 9999;
+            $this->statusCode = 9999;
             $this->statusMessage = 'Internal response property not found.';
         } else {
-            $this->statusCode    = $retVal->getStatusCode();
+            $this->statusCode = $retVal->getStatusCode();
             $this->statusMessage = $retVal->getStatusMessage();
         }
         parent::parse();

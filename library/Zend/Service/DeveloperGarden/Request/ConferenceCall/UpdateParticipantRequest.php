@@ -74,14 +74,15 @@ class Zend_Service_DeveloperGarden_Request_ConferenceCall_UpdateParticipantReque
      * @param Zend_Service_DeveloperGarden_ConferenceCall_ParticipantDetail $participant
      */
     public function __construct($environment, $conferenceId, $participantId,
-        $action = null,
-        Zend_Service_DeveloperGarden_ConferenceCall_ParticipantDetail $participant = null
-    ) {
+                                $action = null,
+                                Zend_Service_DeveloperGarden_ConferenceCall_ParticipantDetail $participant = null
+    )
+    {
         parent::__construct($environment);
         $this->setConferenceId($conferenceId)
-             ->setParticipantId($participantId)
-             ->setAction($action)
-             ->setParticipant($participant);
+            ->setParticipantId($participantId)
+            ->setAction($action)
+            ->setParticipant($participant);
     }
 
     /**
@@ -131,7 +132,8 @@ class Zend_Service_DeveloperGarden_Request_ConferenceCall_UpdateParticipantReque
      */
     public function setParticipant(
         Zend_Service_DeveloperGarden_ConferenceCall_ParticipantDetail $participant = null
-    ) {
+    )
+    {
         $this->participant = $participant;
         return $this;
     }

@@ -32,30 +32,30 @@ require_once 'Zend/Filter/Interface.php';
  */
 class Zend_Filter_Boolean implements Zend_Filter_Interface
 {
-    const BOOLEAN      = 1;
-    const INTEGER      = 2;
-    const FLOAT        = 4;
-    const STRING       = 8;
-    const ZERO         = 16;
-    const EMPTY_ARRAY  = 32;
-    const NULL         = 64;
-    const PHP          = 127;
+    const BOOLEAN = 1;
+    const INTEGER = 2;
+    const FLOAT = 4;
+    const STRING = 8;
+    const ZERO = 16;
+    const EMPTY_ARRAY = 32;
+    const NULL = 64;
+    const PHP = 127;
     const FALSE_STRING = 128;
-    const YES          = 256;
-    const ALL          = 511;
+    const YES = 256;
+    const ALL = 511;
 
     protected $_constants = array(
-        self::BOOLEAN      => 'boolean',
-        self::INTEGER      => 'integer',
-        self::FLOAT        => 'float',
-        self::STRING       => 'string',
-        self::ZERO         => 'zero',
-        self::EMPTY_ARRAY  => 'array',
-        self::NULL         => 'null',
-        self::PHP          => 'php',
+        self::BOOLEAN => 'boolean',
+        self::INTEGER => 'integer',
+        self::FLOAT => 'float',
+        self::STRING => 'string',
+        self::ZERO => 'zero',
+        self::EMPTY_ARRAY => 'array',
+        self::NULL => 'null',
+        self::PHP => 'php',
         self::FALSE_STRING => 'false',
-        self::YES          => 'yes',
-        self::ALL          => 'all',
+        self::YES => 'yes',
+        self::ALL => 'all',
     );
 
     /**
@@ -90,7 +90,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
             $options = $options->toArray();
         } elseif (!is_array($options)) {
             $options = func_get_args();
-            $temp    = array();
+            $temp = array();
             if (!empty($options)) {
                 $temp['type'] = array_shift($options);
             }
@@ -140,7 +140,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
     {
         if (is_array($type)) {
             $detected = 0;
-            foreach($type as $value) {
+            foreach ($type as $value) {
                 if (is_int($value)) {
                     $detected += $value;
                 } elseif (in_array($value, $this->_constants)) {
@@ -223,7 +223,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
      */
     public function setCasting($casting = true)
     {
-        $this->_casting = (boolean) $casting;
+        $this->_casting = (boolean)$casting;
         return $this;
     }
 
@@ -237,7 +237,7 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
      */
     public function filter($value)
     {
-        $type    = $this->getType();
+        $type = $this->getType();
         $casting = $this->getCasting();
 
         // STRING YES (Localized)
@@ -357,15 +357,15 @@ class Zend_Filter_Boolean implements Zend_Filter_Interface
     {
         if ($yes == true) {
             $question = 'yes';
-            $return   = true;
+            $return = true;
         } else {
             $question = 'no';
-            $return   = false;
+            $return = false;
         }
         $str = Zend_Locale::getTranslation($question, 'question', $locale);
         $str = explode(':', $str);
         if (!empty($str)) {
-            foreach($str as $no) {
+            foreach ($str as $no) {
                 if (($no == $value) || (strtolower($no) == strtolower($value))) {
                     return $return;
                 }
