@@ -29,71 +29,17 @@
       <file leaf-file-name="TestController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1074" column="26" selection-start="43274" selection-end="43645" vertical-scroll-proportion="-28.73077" vertical-offset="392" max-vertical-offset="1258">
-              <folding>
-                <element signature="n#init#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#indexAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#addtestAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#edittestAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#deletetestAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#typequestionAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#questionAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#resultAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#addquestion1Action#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#addquestion2Action#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#addquestion3Action#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#addquestion4Action#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#deletequestionAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#constructAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#dataAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#topicAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#addtopicAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#edittopicAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#deletetopicAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#allresultsAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#uploadtestAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#getXLS#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#buildAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#ratingAction#0;n#TestController#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Bootstrap.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="50" selection-start="2992" selection-end="2992" vertical-scroll-proportion="0.29109588" vertical-offset="1173" max-vertical-offset="2312">
+            <state line="1074" column="26" selection-start="43274" selection-end="43645" vertical-scroll-proportion="-11.346154" vertical-offset="17963" max-vertical-offset="18547">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
+      <file leaf-file-name="index.phtml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="447" column="20" selection-start="15298" selection-end="15310" vertical-scroll-proportion="-16.576923" vertical-offset="266" max-vertical-offset="850">
-              <folding>
-                <element signature="n#init#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#indexAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#editAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#deleteAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#profileAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#addgroupsAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#editgroupsAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#deletegroupsAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#settingsAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#homeworkAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#addhomeworkAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#deletehomeworkAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#sendhomeworkAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#groupAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#deleteuserAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#addgroupsuserAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#adduserAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#messegeAction#0;n#UserController#0;n#!!top" expanded="false" />
-                <element signature="n#userhomeworkAction#0;n#UserController#0;n#!!top" expanded="false" />
-              </folding>
+            <state line="14" column="0" selection-start="763" selection-end="763" vertical-scroll-proportion="0.40753424" vertical-offset="0" max-vertical-offset="584">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -108,7 +54,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/models/Topic.php" />
         <option value="$PROJECT_DIR$/application/forms/Addtopic.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/construct.phtml" />
         <option value="$PROJECT_DIR$/application/forms/Typequestion.php" />
@@ -159,13 +104,14 @@
         <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/application/Bootstrap.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-27" />
-    <option name="y" value="30" />
+    <option name="x" value="18" />
+    <option name="y" value="15" />
     <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
@@ -318,7 +264,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
+              <option name="myItemId" value="index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -444,13 +390,12 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-27" y="30" width="1382" height="744" extended-state="0" />
-    <editor active="false" />
+    <frame x="18" y="15" width="1382" height="744" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24450952" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -461,10 +406,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937106" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -487,11 +433,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/addsubcat.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="41" selection-start="115" selection-end="115" vertical-scroll-proportion="0.05954466" vertical-offset="0" max-vertical-offset="571" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/index/addpart.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="23" selection-start="0" selection-end="529" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="357" />
@@ -554,9 +495,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/Topic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="126" column="48" selection-start="3213" selection-end="3213" vertical-scroll-proportion="0.62157536" vertical-offset="1779" max-vertical-offset="2363">
-          <folding />
-        </state>
+        <state line="126" column="48" selection-start="3213" selection-end="3213" vertical-scroll-proportion="0.62157536" vertical-offset="1779" max-vertical-offset="2363" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/partials/topic.phtml">
@@ -626,25 +565,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/Category.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="5" selection-start="1799" selection-end="1799" vertical-scroll-proportion="2.0376713" vertical-offset="0" max-vertical-offset="1734">
-          <folding />
-        </state>
+        <state line="70" column="5" selection-start="1799" selection-end="1799" vertical-scroll-proportion="2.0376713" vertical-offset="0" max-vertical-offset="1734" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/Groups.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1479" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/test/result.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="120" selection-start="0" selection-end="1252" vertical-scroll-proportion="0.494863" vertical-offset="0" max-vertical-offset="612">
-          <folding>
-            <marker date="1406281828501" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="17" column="120" selection-start="0" selection-end="1252" vertical-scroll-proportion="0.494863" vertical-offset="0" max-vertical-offset="612" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/library/Zend/Db/Select.php">
@@ -656,220 +587,113 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/forms/Registration.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="17" selection-start="3140" selection-end="3140" vertical-scroll-proportion="-8.076923" vertical-offset="1286" max-vertical-offset="2193">
-          <folding />
-        </state>
+        <state line="88" column="17" selection-start="3140" selection-end="3140" vertical-scroll-proportion="-8.076923" vertical-offset="1286" max-vertical-offset="2193" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/partials/result.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="589" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/partials/results.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="1" selection-start="131" selection-end="131" vertical-scroll-proportion="0.060390763" vertical-offset="0" max-vertical-offset="563">
-          <folding />
-        </state>
+        <state line="2" column="1" selection-start="131" selection-end="131" vertical-scroll-proportion="0.060390763" vertical-offset="0" max-vertical-offset="563" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/test/allresults.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="95" selection-start="287" selection-end="287" vertical-scroll-proportion="0.120781526" vertical-offset="0" max-vertical-offset="563">
-          <folding />
-        </state>
+        <state line="4" column="95" selection-start="287" selection-end="287" vertical-scroll-proportion="0.120781526" vertical-offset="0" max-vertical-offset="563" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="19" selection-start="926" selection-end="926" vertical-scroll-proportion="0.50513697" vertical-offset="300" max-vertical-offset="884">
-          <folding />
-        </state>
+        <state line="35" column="19" selection-start="926" selection-end="926" vertical-scroll-proportion="0.50513697" vertical-offset="300" max-vertical-offset="884" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/Test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="20" selection-start="1856" selection-end="1856" vertical-scroll-proportion="2.1061645" vertical-offset="11" max-vertical-offset="1819">
-          <folding />
-        </state>
+        <state line="73" column="20" selection-start="1856" selection-end="1856" vertical-scroll-proportion="2.1061645" vertical-offset="11" max-vertical-offset="1819" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/Result.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="71" column="32" selection-start="1770" selection-end="1770" vertical-scroll-proportion="-11.038462" vertical-offset="920" max-vertical-offset="1530">
-          <folding />
-        </state>
+        <state line="71" column="32" selection-start="1770" selection-end="1770" vertical-scroll-proportion="-11.038462" vertical-offset="920" max-vertical-offset="1530" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Topic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="629" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Tests.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="203" column="101" selection-start="7944" selection-end="7944" vertical-scroll-proportion="3.5907533" vertical-offset="1354" max-vertical-offset="3791">
-          <folding />
-        </state>
+        <state line="203" column="101" selection-start="7944" selection-end="7944" vertical-scroll-proportion="3.5907533" vertical-offset="1354" max-vertical-offset="3791" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Part.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="31" selection-start="2392" selection-end="2392" vertical-scroll-proportion="-38.96154" vertical-offset="398" max-vertical-offset="2006">
-          <folding>
-            <marker date="1406294758807" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1406294758807" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="83" column="31" selection-start="2392" selection-end="2392" vertical-scroll-proportion="-38.96154" vertical-offset="398" max-vertical-offset="2006" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="20" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.3485114" vertical-offset="787" max-vertical-offset="1411">
-          <folding />
-        </state>
+        <state line="58" column="20" selection-start="1634" selection-end="1634" vertical-scroll-proportion="0.3485114" vertical-offset="787" max-vertical-offset="1411" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/user/profile.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="85" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.5061296" vertical-offset="0" max-vertical-offset="867">
-          <folding />
-        </state>
+        <state line="17" column="85" selection-start="1065" selection-end="1065" vertical-scroll-proportion="0.5061296" vertical-offset="0" max-vertical-offset="867" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/test/rating.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="71" selection-start="772" selection-end="772" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="323">
-          <folding />
-        </state>
+        <state line="12" column="71" selection-start="772" selection-end="772" vertical-scroll-proportion="-7.8461537" vertical-offset="0" max-vertical-offset="323" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/Resulttest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="32" selection-start="1634" selection-end="1634" vertical-scroll-proportion="-14.615385" vertical-offset="657" max-vertical-offset="1241">
-          <folding />
-        </state>
+        <state line="61" column="32" selection-start="1634" selection-end="1634" vertical-scroll-proportion="-14.615385" vertical-offset="657" max-vertical-offset="1241" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="751" column="20" selection-start="27274" selection-end="27282" vertical-scroll-proportion="-16.576923" vertical-offset="300" max-vertical-offset="884">
-          <folding>
-            <element signature="n#init#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#indexAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#postAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#addAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#editAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#deleteAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#addpartAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#editpartAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#deletepartAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#categoryAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#partAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#subcategoryAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#addcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#editcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#deletecatAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#addsubcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#editsubcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#deletesubcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#settingsAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#analyticAction#0;n#IndexController#0;n#!!top" expanded="false" />
-            <element signature="n#langAction#0;n#IndexController#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
+        <state line="751" column="20" selection-start="27274" selection-end="27282" vertical-scroll-proportion="-16.576923" vertical-offset="300" max-vertical-offset="884" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="268" column="20" selection-start="10125" selection-end="10130" vertical-scroll-proportion="0.46575344" vertical-offset="0" max-vertical-offset="584">
-          <folding>
-            <element signature="n#init#0;n#AuthController#0;n#!!top" expanded="false" />
-            <element signature="n#indexAction#0;n#AuthController#0;n#!!top" expanded="false" />
-            <element signature="n#loginAction#0;n#AuthController#0;n#!!top" expanded="false" />
-            <element signature="n#logoutAction#0;n#AuthController#0;n#!!top" expanded="false" />
-            <element signature="n#registrationAction#0;n#AuthController#0;n#!!top" expanded="false" />
-            <element signature="n#regvkAction#0;n#AuthController#0;n#!!top" expanded="false" />
-            <element signature="n#regfcAction#0;n#AuthController#0;n#!!top" expanded="false" />
-            <element signature="n#regtwAction#0;n#AuthController#0;n#!!top" expanded="false" />
-            <element signature="n#authreg#0;n#AuthController#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
+        <state line="268" column="20" selection-start="10125" selection-end="10130" vertical-scroll-proportion="0.46575344" vertical-offset="0" max-vertical-offset="584" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="447" column="20" selection-start="15298" selection-end="15310" vertical-scroll-proportion="-16.576923" vertical-offset="266" max-vertical-offset="850">
-          <folding>
-            <element signature="n#init#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#indexAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#editAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#deleteAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#profileAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#addgroupsAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#editgroupsAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#deletegroupsAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#settingsAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#homeworkAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#addhomeworkAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#deletehomeworkAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#sendhomeworkAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#groupAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#deleteuserAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#addgroupsuserAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#adduserAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#messegeAction#0;n#UserController#0;n#!!top" expanded="false" />
-            <element signature="n#userhomeworkAction#0;n#UserController#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1074" column="26" selection-start="43274" selection-end="43645" vertical-scroll-proportion="-28.73077" vertical-offset="392" max-vertical-offset="1258">
-          <folding>
-            <element signature="n#init#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#indexAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#addtestAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#edittestAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#deletetestAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#typequestionAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#questionAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#resultAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#addquestion1Action#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#addquestion2Action#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#addquestion3Action#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#addquestion4Action#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#deletequestionAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#constructAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#dataAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#topicAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#addtopicAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#edittopicAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#deletetopicAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#allresultsAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#uploadtestAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#getXLS#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#buildAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#ratingAction#0;n#TestController#0;n#!!top" expanded="false" />
-          </folding>
+        <state line="447" column="20" selection-start="15298" selection-end="15310" vertical-scroll-proportion="0.0" vertical-offset="7599" max-vertical-offset="7973">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/test/add.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="610">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="610" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/Bootstrap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="50" selection-start="2992" selection-end="2992" vertical-scroll-proportion="0.29109588" vertical-offset="1173" max-vertical-offset="2312">
+        <state line="79" column="50" selection-start="2992" selection-end="2992" vertical-scroll-proportion="2.2996576" vertical-offset="0" max-vertical-offset="2312">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1074" column="26" selection-start="43274" selection-end="43645" vertical-scroll-proportion="-11.346154" vertical-offset="17963" max-vertical-offset="18547">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="763" selection-end="763" vertical-scroll-proportion="0.40753424" vertical-offset="0" max-vertical-offset="584">
           <folding />
         </state>
       </provider>

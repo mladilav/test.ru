@@ -1,4 +1,4 @@
-
+<?php if(!isset($_COOKIE['lang'])) $_COOKIE['lang'] = "ru";?>
 <?php  if (Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->role == 'admin')  {?>
 <p><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'add')); ?>">
         <?php if($this->lang == "ua") echo 'Додати статтю'; else echo 'Добавить статью';?></a></p>
