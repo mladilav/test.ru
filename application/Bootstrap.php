@@ -68,7 +68,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $acl->addResource('deletetopic', 'test');
         $acl->addResource('allresults', 'test');
         $acl->addResource('uploadtest', 'test');
-        $acl->addResource('buildAction', 'test');
+        $acl->addResource('build', 'test');
         $acl->addResource('rating', 'test');
 
 
@@ -88,6 +88,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $acl->addResource('adduser', 'user');
         $acl->addResource('messege', 'user');
         $acl->addResource('userhomework', 'user');
+        $acl->addResource('messegesend', 'user');
 
         // далее переходим к созданию ролей, которых у нас 2:
         // гость (неавторизированный пользователь)
@@ -102,7 +103,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         // разрешаем гостю просматривать ресурс auth и его подресурсы
         $acl->allow('guest', 'auth', array('index', 'login', 'logout', 'registration', 'regvk','regfc','regtw'));
         $acl->allow('guest', 'test', array('index','question', 'result', 'data', 'topic', 'rating'));
-        $acl->allow('guest', 'user', array('index','edit', 'profile', 'messege', 'userhomework'));
+        $acl->allow('guest', 'user', array('index','edit', 'profile', 'messege', 'userhomework','messegesend'));
 
         // даём администратору доступ к ресурсам 'add', 'edit' и 'delete'
         $acl->allow('admin', 'index', array('add', 'edit', 'delete', 'addpart', 'editpart', 'deletepart', 'addcat',
@@ -110,7 +111,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
 
         $acl->allow('admin', 'test', array( 'addtest', 'edittest', 'deletetest', 'typequestion', 'question',
             'deletequestion', 'addquestion1', 'addquestion2', 'addquestion3', 'addquestion4', 'construct', 'add',
-            'addtopic', 'edittopic', 'deletetopic', 'allresults', 'uploadtest', 'buildAction'));
+            'addtopic', 'edittopic', 'deletetopic', 'allresults', 'uploadtest', 'build'));
 
         $acl->allow('admin', 'user', array('edit', 'delete', 'addgroups', 'editgroups', 'deletegroups', 'settings',
             'homework', 'addhomework', 'deletehomework', 'sendhomework', 'group','deleteuser', 'addgroupsuser', 'adduser', ));

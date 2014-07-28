@@ -40,7 +40,7 @@ class TestController extends Zend_Controller_Action
             $form->topic->addMultiOptions($topics->arrayUaSelect());
             $form->name->setLabel("Назва тесту російською:");
             $form->nameUa->setLabel("Назва тесту українською:");
-            $form->comment->setLabel("Коментар:");
+            $form->comments->setLabel("Коментар:");
 
             $form->add->setLabel("Додати тест");
         }
@@ -60,7 +60,7 @@ class TestController extends Zend_Controller_Action
                     'author' => Zend_Auth::getInstance()->getIdentity()->username,
                     'userId' => Zend_Auth::getInstance()->getIdentity()->id,
                     'topicId' => $form->getValue('topic'),
-                    'comments' => $form->getValue('comment'),
+                    'comments' => $form->getValue('comments'),
 
                 );
 
@@ -86,7 +86,17 @@ class TestController extends Zend_Controller_Action
     {
         $form = new Application_Form_Addtest();
         $this->view->form = $form;
-
+        $form->add->setLabel("Сохранить");
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $topics = new Application_Model_DbTable_Topic();
+            $form->topic->addMultiOptions($topics->arrayUaSelect());
+            $form->name->setLabel("Назва тесту російською:");
+            $form->nameUa->setLabel("Назва тесту українською:");
+            $form->comments->setLabel("Коментар:");
+            $form->add->setLabel("Зберегти");
+        }
         if ($this->getRequest()->isPost()) {
             // Принимаем его
             $formData = $this->getRequest()->getPost();
@@ -101,7 +111,7 @@ class TestController extends Zend_Controller_Action
                     'author' => Zend_Auth::getInstance()->getIdentity()->username,
                     'userId' => Zend_Auth::getInstance()->getIdentity()->id,
                     'topicId' => $form->getValue('topic'),
-                    'comments' => $form->getValue('comment'),
+                    'comments' => $form->getValue('comments'),
 
                 );
 
@@ -372,6 +382,7 @@ class TestController extends Zend_Controller_Action
             $test_array = $test->getTest($testId);
             $this->view->topic = $test_array['topicId'];
             $this->view->testId = $testId;
+            $this->view->comments = $test_array['comments'];
                 if ($this->getRequest()->isPost()) {
                     $test = $this->getRequest()->getPost('test');
                     if($test == 'Отправить результат' || $test == 'Надіслати результат'){

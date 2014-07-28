@@ -42,12 +42,11 @@ class Application_Form_Addtest extends Zend_Form
         $topic ->setLabel('Тип:')
             ->addMultiOptions($topics->arraySelect());
 
-        $comment = new Zend_Form_Element_Textarea('comment');
+        $comment = new Zend_Form_Element_Textarea('comments');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
         $comment->setLabel('Комментарий:')
-            ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty', true,

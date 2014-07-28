@@ -19,6 +19,7 @@ class Application_Form_Uploadtest extends Zend_Form
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
         $file->setLabel('Файл:')
+
             ->addFilter('StripTags')
             ->addFilter('StringTrim');
 
@@ -39,7 +40,7 @@ class Application_Form_Uploadtest extends Zend_Form
 
 
         $submit = new Zend_Form_Element_Submit('add');
-        $submit->setLabel('Загрузить');
+        $submit->setLabel('Загрузить')->setAttrib('class','btn btn-success');
 
         // добавляем элементы в форму
         $this->addElements(array($id, $file, $type, $submit));

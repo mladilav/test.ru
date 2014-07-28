@@ -13,11 +13,11 @@ $this->headTitle($this->title);
         <i class="icon-plus icon-white"></i>
         <?php if ($this->lang == "ua") echo 'Додати питання'; else echo 'Добавить вопрос'; ?></a>
 
-    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'uploadtest')); ?>" class="btn btn-success">
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'uploadtest')); ?>" class="btn btn-success" >
         <i class="icon-arrow-down icon-white"></i>
         <?php if ($this->lang == "ua") echo 'Завантажити питання'; else echo 'Загрузить вопросы'; ?></a>
     <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'addtopic')); ?>" class="btn btn-success"
-       style="color: #FFFFFF"> <i class="icon-plus icon-white"></i>
+       > <i class="icon-plus icon-white"></i>
         <?php if ($this->lang == "ua") echo 'Додати тему'; else echo 'Добавить тему'; ?> </a>
     <hr>
     <h4><?php if ($this->lang == "ua") echo 'Теми'; else echo 'Темы'; ?>:</h4>

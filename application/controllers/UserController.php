@@ -459,5 +459,31 @@ class UserController extends Zend_Controller_Action
 
         }
     }
+    public function messegesendAction(){
+        $form = new Application_Form_Messegesend();
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if ($lang == "ua") {
+            $form->caption->setLabel("Тема:");
+            $form->send->setLabel("Надіслати");
+        }
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+
+            $formData = $this->getRequest()->getPost();
+            if ($form->isValid($formData)) {
+
+
+                $messege = '<h1>'.$form->getValue('caption').'</h1>';
+                $messege .= '<p>'.$form->getValue('text').'</p>';
+                $messege .= '<p> oт'.Zend_Auth::getInstance()->getIdentity()->username.'</p>';
+                mail("mladi2010@yandex.ua", "New message", $messege);
+
+
+                }
+                $this->_helper->redirector('profile', 'user');
+            }
+        }
 
 }

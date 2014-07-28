@@ -1,6 +1,7 @@
 <?php $this->headTitle('Тест по географии');
         $this->headMeta()->appendName('description', 'Результат теста:'.$this->count);
         $this->headMeta()->appendName('image', 'https://cdn1.iconfinder.com/data/icons/football/256/favorites.png');?>
+<div class="settings">
 <h4>Результат:</h4>
 <table class="table table-condensed">
     <tr>
@@ -13,6 +14,11 @@
     {echo $this->partialLoop('/partials/result.phtml', $this->result);}
     ?>
 </table>
+    <?php if($this->comments){?>
+    <div class="well">
+        <?php echo $this->comments;?>
+    </div>
+    <?php }?>
 Ваш результат - <b><?php echo $this->count;?></b>
 <?php if($this->lang == "ua") echo 'за час'; else echo 'за время';?> - <b><?php echo $this->date;?></b>
 
@@ -31,4 +37,5 @@ else echo 'Отправить результат';?>">
 <div class="yashare-auto-init" data-yashareL10n="ru"
      data-yashareQuickServices="vkontakte,facebook" data-yashareTheme="counter"
 
-    ></div>
+    ></div><br>
+</div>
