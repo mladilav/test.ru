@@ -59,7 +59,7 @@ class Application_Model_DbTable_Resulttest extends Zend_Db_Table_Abstract
 
     public function truncate()
     {
-        $this->getAdapter()->query('TRUNCATE TABLE '.$this->_name);
+        $this->delete('userId = '.Zend_Auth::getInstance()->getIdentity()->id);
     }
 
 

@@ -1,21 +1,21 @@
 <?php
 
-class Application_Form_Addtest extends Zend_Form
+class Application_Form_Addsubcat extends Zend_Form
 {
     public function init()
     {
         // указываем имя формы
-        $this->setName('addTest');
+        $this->setName('addPart');
 
         // сообщение о незаполненном поле
         $isEmptyMessage = 'Значение является обязательным и не может быть пустым';
-        $int = new Zend_Form_Element_Hidden('int');
+        $id = new Zend_Form_Element_Hidden('id');
         // создаём текстовый элемент
         $name = new Zend_Form_Element_Text('name');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $name->setLabel('Название теста на русском:')
+        $name->setLabel('Название на русском:')
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
@@ -27,39 +27,28 @@ class Application_Form_Addtest extends Zend_Form
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $nameUa->setLabel('Название теста на украинском:')
+        $nameUa->setLabel('Название на украинском:')
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')
             ->addValidator('NotEmpty', true,
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             );
-        $topics = new Application_Model_DbTable_Topic();
-        $topic= new Zend_Form_Element_Select('topic');
-
+        $categoryId = new Zend_Form_Element_Select('categoryId');
+        $category= new Application_Model_DbTable_Category();
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $topic ->setLabel('Тип:')
-            ->addMultiOptions($topics->arraySelect());
+        $categoryId->setLabel('Категория:')
+            ->addMultiOptions($category->arraySelect());
 
-        $comment = new Zend_Form_Element_Textarea('comment');
 
-        // задаём ему label и отмечаем как обязательное поле;
-        // также добавляем фильтры и валидатор с переводом
-        $comment->setLabel('Комментарий:')
-            ->setRequired(true)
-            ->addFilter('StripTags')
-            ->addFilter('StringTrim')
-            ->addValidator('NotEmpty', true,
-                array('messages' => array('isEmpty' => $isEmptyMessage))
-            );
         // создаём кнопку submit
         $submit = new Zend_Form_Element_Submit('add');
-        $submit->setLabel('Добавить тест')
+        $submit->setLabel('Добавить подкатегорию')
             ->setAttrib('class','btn btn-success');
 
         // добавляем элементы в форму
-        $this->addElements(array($int, $name, $nameUa, $topic,$comment, $submit));
+        $this->addElements(array($id, $name,$nameUa, $categoryId, $submit));
 
         // указываем метод передачи данных
         $this->setMethod('post');

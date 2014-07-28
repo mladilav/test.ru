@@ -6,25 +6,22 @@ class AuthController extends Zend_Controller_Action
     public function init()
     {
         $array = array();
-        $category = new Application_Model_Category($array);
+        $part= new Application_Model_Part($array);
         $menu= new Application_Model_Menu();
         $test= new Application_Model_Tests($array);
         $request = new Zend_Controller_Request_Http();
         $lang = $request->getCookie('lang');
-        if(!$lang){
-            $lang = "ru";
-        }
+        $this->view->lang = $lang;
+
         if($lang == "ua"){
-            $this->view->layout()->category = $category->getUaCategory();
+            $this->view->layout()->part = $part->getUaPart();
             $this->view->layout()->auth = $menu->getAuthUa();
             $this->view->layout()->menu = $menu->getUaMenu();
-            $this->view->layout()->test = $test->getUaTests();
         }
         else {
-            $this->view->layout()->category = $category->getCategory();
+            $this->view->layout()->part = $part->getPart();
             $this->view->layout()->auth = $menu->getAuth();
             $this->view->layout()->menu = $menu->getMenu();
-            $this->view->layout()->test = $test->getTests();
         }
     }
 
@@ -240,6 +237,8 @@ class AuthController extends Zend_Controller_Action
                 $email = $form->getValue('email');
                 $photo = $form->getValue('photo');
                 $gender = $form->getValue('gender');
+                $class = $form->getValue('class');
+                $letter = $form->getValue('letter');
                 $date_reg = time();
                 $role = 'guest';
                 $vk = '';
@@ -252,7 +251,7 @@ class AuthController extends Zend_Controller_Action
 
 
                 // Вызываем метод модели addMovie для вставки новой записи
-                $user->addUsers($username, md5($password), md5($password_rep), $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw);
+                $user->addUsers($username, md5($password), md5($password_rep), $email, $photo, $gender,$class,$letter, $date_reg, $role, $vk, $fc, $tw);
 
                 // Используем библиотечный helper для редиректа на action = index
                 $this->authreg($username, md5($password));

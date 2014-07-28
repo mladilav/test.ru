@@ -1,0 +1,15 @@
+<?php
+if ($this->lang == "ua") $this->title = "Додати тему"; else
+    $this->title = "Добавить тему"; ?>
+<div class="settings">
+    <ul class="breadcrumb">
+        <li><a href="/test/construct/"><?php if($this->lang == "ua") echo 'Конструктор тестів'; else echo 'Конструктор тестов';?></a>
+            <span class="divider">/</span></li>
+        <li class="active"><?php if($this->lang == "ua") echo 'Додати тему'; else echo 'Добавить тему';?></li>
+    </ul>
+    <?php
+    echo $this->errMessage;
+    echo $this->form;
+    ?>
+</div>
+

@@ -81,12 +81,13 @@ class Application_Form_Addquestion1 extends Zend_Form
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             );
 
-        $topic = new Zend_Form_Element_Text('topic');
+        $topics = new Application_Model_DbTable_Topic();
+        $topic = new Zend_Form_Element_Select('topic');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
         $topic->setLabel('Тема:')
-            ->setAttrib("autocomplete",'off');
+            ->addMultiOptions($topics->arraySelect());
 
 
 

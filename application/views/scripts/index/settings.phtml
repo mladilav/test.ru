@@ -1,5 +1,21 @@
 <h2><?php if($this->lang == "ua") echo 'Управління матеріалами'; else echo 'Управление материалами';?></h2>
 <div class="settings">
+
+    <h3> <?php if($this->lang == "ua") echo 'Підкатегоріі:'; else echo 'Подкатегории:';?></h3>
+    <p><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'addsubcat')); ?>">
+            <?php if($this->lang == "ua") echo 'Додати підкатегорію'; else echo 'Добавить подкатегорию';?></a></p>
+    <table class="table table-condensed">
+        <tr>
+            <th>ID</th>
+            <th width="100%"> <?php if($this->lang == "ua") echo 'Назва'; else echo 'Название';?></th>
+            <th></th>
+            <th></th>
+        </tr>
+        <?php
+        // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+        echo $this->partialLoop('/partials/subcategories.phtml', $this->subcategory);
+        ?>
+    </table>
 <div class="row-fluid">
     <div class="span6">
         <h3> <?php if($this->lang == "ua") echo 'Розділи:'; else echo 'Разделы:';?></h3>

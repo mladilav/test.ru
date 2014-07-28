@@ -81,6 +81,51 @@ class Application_Model_DbTable_Topic extends Zend_Db_Table_Abstract
         return $result;
     }
 
+    public function arraySelect()
+    {
+        $array_tests = $this->fetchAll($this->select()->from('topic', 'name'));
+        $i = 0;
+        foreach ($array_tests->toArray() as $array) {
+            foreach ($array as $arg) {
+                $result[$i] = $arg;
+                $i++;
+            }
+        }
+
+        $array_testss = $this->fetchAll($this->select()->from('topic', 'id'));
+        $i = 0;
+        foreach ($array_testss->toArray() as $array) {
+            foreach ($array as $arg) {
+                $results[$i] = $arg;
+                $i++;
+            }
+        }
+
+        return array_combine($results, $result);
+    }
+
+    public function arrayUaSelect()
+    {
+        $array_tests = $this->fetchAll($this->select()->from('topic', 'nameUa'));
+        $i = 0;
+        foreach ($array_tests->toArray() as $array) {
+            foreach ($array as $arg) {
+                $result[$i] = $arg;
+                $i++;
+            }
+        }
+
+        $array_testss = $this->fetchAll($this->select()->from('topic', 'id'));
+        $i = 0;
+        foreach ($array_testss->toArray() as $array) {
+            foreach ($array as $arg) {
+                $results[$i] = $arg;
+                $i++;
+            }
+        }
+
+        return array_combine($results, $result);
+    }
 
 
 

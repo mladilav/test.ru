@@ -5,9 +5,10 @@ class Application_Model_Tests
 
     protected $int;
     protected $name;
+    protected $nameUa;
     protected $author;
     protected $userId;
-    protected $type;
+    protected $topicId;
 
     public function __construct($array)
     {
@@ -16,7 +17,8 @@ class Application_Model_Tests
             $this->name = $array['name'];
             $this->author = $array['author'];
             $this->userId = $array['userId'];
-            $this->type = $array['type'];
+            $this->topicId = $array['topicId'];
+            $this->nameUa = $array['nameUa'];
         }
 
     }
@@ -25,177 +27,191 @@ class Application_Model_Tests
     {
         return $this->name;
     }
+    public function getNameUa()
+    {
+        return $this->nameUa;
+    }
     public function getId()
     {
         return $this->int;
     }
+    public function getTopicId()
+    {
+        return $this->topicId;
+    }
 
     public function getTests()
     {
-        $result = '<div class="leftBar"><h3>Тесты</h3>';
-        $result = $result.'<div class="accordion" id="accordion2">';
-        $result = $result.'<div class ="accordion-group">
-                           <div class="accordion-heading">
-                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                           Легкий уровень </a>
-                           </div>
-                           <div id="collapseOne" class="accordion-body collapse ">
-                           <div class="accordion-inner"><ul>';
-        $tests = new Application_Model_DbTable_Test();
-        $testArray = $tests->arrayObjectsTest(0);
-        foreach ($testArray as $test)
+        $test = new Application_Model_DbTable_Test();
+        $topic = new Application_Model_DbTable_Topic();
+        $topics = $topic->arrayTopic();
+        $i = 0;
+        $result = '<div class = "accordion-group"><div class="accordion-heading">
+                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#tests'.$i.'">';
+        $result .= 'Тесты';
+        $result .= '</a></div>
+                           <div id="tests'.$i.'" class="accordion-body collapse ">
+                           <div class="accordion-inner">';
+        $result .= '<div class="accordion" id="accordion4">';
+        foreach ($topics as $top)
         {
-            $result = $result.'<li><a href="/test/question/test/'.$test->getId().'/question/1">'.$test->getName().'</a></li>';
-        }
-        $result = $result.'</ul></div></div></div>';
+            if($top->getId() == 1){
 
-        $result = $result.'<div class ="accordion-group">
-                           <div class="accordion-heading">
-                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                           Средний уровень </a>
-                           </div>
-                           <div id="collapseTwo" class="accordion-body collapse">
+            }
+            else
+            {
+            $result .= '<div class = "accordion-group"><div class="accordion-heading">
+                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#test'.$i.'">';
+            $result .= $top->getName();
+            $result .= '</a></div>
+                           <div id="test'.$i.'" class="accordion-body collapse ">
                            <div class="accordion-inner"><ul>';
-        $tests = new Application_Model_DbTable_Test();
-        $testArray = $tests->arrayObjectsTest(2);
-        foreach ($testArray as $test)
-        {
-            $result = $result.'<li><a href="/test/question/test/'.$test->getId().'/question/1">'.$test->getName().'</a></li>';
-        }
-        $result = $result.'</ul></div></div></div>';
+                            $tests = $test->arrayObjectsTest($top->getId());
+                            foreach($tests as $tes)
+                            {
+                                $result .= '<li><a href="/test/question/test/'.$tes->getId().'/question/1">'.$tes->getName().'</a></li>';
 
-        $result = $result.'<div class ="accordion-group">
-                           <div class="accordion-heading">
-                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                           Тяжелый уровень </a>
-                           </div>
-                           <div id="collapseThree" class="accordion-body collapse">
-                           <div class="accordion-inner"><ul>';
-        $tests = new Application_Model_DbTable_Test();
-        $testArray = $tests->arrayObjectsTest(3);
-        foreach ($testArray as $test)
-        {
-            $result = $result.'<li><a href="/test/question/test/'.$test->getId().'/question/1">'.$test->getName().'</a></li>';
-        }
-        $result = $result.'</ul></div></div></div>';
+                            }
+                            $result .='</ul></div></div></div>';
+                $i++;
+            }
 
-        $result = $result.'<div class ="accordion-group">
-                           <div class="accordion-heading">
-                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-                           Задачи </a>
-                           </div>
-                           <div id="collapseFour" class="accordion-body collapse">
-                           <div class="accordion-inner"><ul>';
-        $tests = new Application_Model_DbTable_Test();
-        $testArray = $tests->arrayObjectsTest(4);
-        foreach ($testArray as $test)
-        {
-            $result = $result.'<li><a href="/test/question/test/'.$test->getId().'/question/1">'.$test->getName().'</a></li>';
         }
-        $result = $result.'</ul></div></div></div>';
-
-
-        $result = $result.'<div class ="accordion-group">
-                           <div class="accordion-heading">
-                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-                           Экспресс тест </a>
-                           </div>
-                           <div id="collapseFive" class="accordion-body collapse">
-                           <div class="accordion-inner"><ul>';
-        $tests = new Application_Model_DbTable_Test();
-        $testArray = $tests->arrayObjectsTest(5);
-        foreach ($testArray as $test)
-        {
-            $result = $result.'<li><a href="/test/question/test/'.$test->getId().'/question/1">'.$test->getName().'</a></li>';
-        }
-        $result = $result.'</ul></div></div></div>';
-        $result = $result.'</div></div>';
+        $result .= '</div></div></div></div>';
         return $result;
-
     }
 
     public function getUaTests()
     {
-        $result = '<div class="leftBar"><h3>Тести</h3>';
-        $result = $result.'<div class="accordion" id="accordion2">';
-        $result = $result.'<div class ="accordion-group">
-                           <div class="accordion-heading">
-                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                           Легкий рівень </a>
-                           </div>
-                           <div id="collapseOne" class="accordion-body collapse ">
-                           <div class="accordion-inner"><ul>';
-        $tests = new Application_Model_DbTable_Test();
-        $testArray = $tests->arrayObjectsTest(0);
-        foreach ($testArray as $test)
+        $test = new Application_Model_DbTable_Test();
+        $topic = new Application_Model_DbTable_Topic();
+        $topics = $topic->arrayTopic();
+        $i = 0;
+        $result = '<div class = "accordion-group"><div class="accordion-heading">
+                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#tests'.$i.'">';
+        $result .= 'Тести';
+        $result .= '</a></div>
+                           <div id="tests'.$i.'" class="accordion-body collapse ">
+                           <div class="accordion-inner">';
+        $result .= '<div class="accordion" id="accordion4">';
+        foreach ($topics as $top)
         {
-            $result = $result.'<li><a href="/test/question/test/'.$test->getId().'/question/1">'.$test->getName().'</a></li>';
-        }
-        $result = $result.'</ul></div></div></div>';
+            if($top->getId() == 1){
 
-        $result = $result.'<div class ="accordion-group">
-                           <div class="accordion-heading">
-                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                           Середній рівень </a>
-                           </div>
-                           <div id="collapseTwo" class="accordion-body collapse">
+            }
+            else
+            {
+                $result .= '<div class = "accordion-group"><div class="accordion-heading">
+                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#test'.$i.'">';
+                $result .= $top->getNameUa();
+                $result .= '</a></div>
+                           <div id="test'.$i.'" class="accordion-body collapse ">
                            <div class="accordion-inner"><ul>';
-        $tests = new Application_Model_DbTable_Test();
-        $testArray = $tests->arrayObjectsTest(2);
-        foreach ($testArray as $test)
-        {
-            $result = $result.'<li><a href="/test/question/test/'.$test->getId().'/question/1">'.$test->getName().'</a></li>';
-        }
-        $result = $result.'</ul></div></div></div>';
+                $tests = $test->arrayObjectsTest($top->getId());
+                foreach($tests as $tes)
+                {
+                    $result .= '<li><a href="/test/question/test/'.$tes->getId().'/question/1">'.$tes->getNameUa().'</a></li>';
 
-        $result = $result.'<div class ="accordion-group">
-                           <div class="accordion-heading">
-                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                           Важкий рівень </a>
-                           </div>
-                           <div id="collapseThree" class="accordion-body collapse">
-                           <div class="accordion-inner"><ul>';
-        $tests = new Application_Model_DbTable_Test();
-        $testArray = $tests->arrayObjectsTest(3);
-        foreach ($testArray as $test)
-        {
-            $result = $result.'<li><a href="/test/question/test/'.$test->getId().'/question/1">'.$test->getName().'</a></li>';
-        }
-        $result = $result.'</ul></div></div></div>';
+                }
+                $result .='</ul></div></div></div>';
+                $i++;
+            }
 
-        $result = $result.'<div class ="accordion-group">
-                           <div class="accordion-heading">
-                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-                           Задачі </a>
-                           </div>
-                           <div id="collapseFour" class="accordion-body collapse">
-                           <div class="accordion-inner"><ul>';
-        $tests = new Application_Model_DbTable_Test();
-        $testArray = $tests->arrayObjectsTest(4);
-        foreach ($testArray as $test)
-        {
-            $result = $result.'<li><a href="/test/question/test/'.$test->getId().'/question/1">'.$test->getName().'</a></li>';
         }
-        $result = $result.'</ul></div></div></div>';
-
-
-        $result = $result.'<div class ="accordion-group">
-                           <div class="accordion-heading">
-                           <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFive">
-                           Експрес тест </a>
-                           </div>
-                           <div id="collapseFive" class="accordion-body collapse">
-                           <div class="accordion-inner"><ul>';
-        $tests = new Application_Model_DbTable_Test();
-        $testArray = $tests->arrayObjectsTest(5);
-        foreach ($testArray as $test)
-        {
-            $result = $result.'<li><a href="/test/question/test/'.$test->getId().'/question/1">'.$test->getName().'</a></li>';
-        }
-        $result = $result.'</ul></div></div></div>';
-        $result = $result.'</div></div>';
+        $result .= '</div></div></div></div>';
         return $result;
+    }
 
+
+
+    public function getRating()
+    {
+        $test = new Application_Model_DbTable_Test();
+        $topic = new Application_Model_DbTable_Topic();
+        $topics = $topic->arrayTopic();
+        $i = 0;
+        $result = '<div class = "accordion-group"><div class="accordion-heading">
+                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#ratings'.$i.'">';
+        $result .= 'Рейтинги';
+        $result .= '</a></div>
+                           <div id="ratings'.$i.'" class="accordion-body collapse ">
+                           <div class="accordion-inner">';
+        $result .= '<div class="accordion" id="accordion5">';
+        foreach ($topics as $top)
+        {
+            if($top->getId() == 1){
+
+            }
+            else
+            {
+                $result .= '<div class = "accordion-group"><div class="accordion-heading">
+                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#rating'.$i.'">';
+                $result .= $top->getName();
+                $result .= '</a></div>
+                           <div id="rating'.$i.'" class="accordion-body collapse ">
+                           <div class="accordion-inner"><ul>';
+                $tests = $test->arrayObjectsTest($top->getId());
+                foreach($tests as $tes)
+                {
+                    $rating = new Application_Model_DbTable_Result();
+                    $ratingArray = $rating->fetchAll($rating->select()->where('testId ='.$tes->getId())->where('type =?','rating'));
+                    if($ratingArray->count()>0){
+                    $result .= '<li><a href="/test/rating/id/'.$tes->getId().'">'.$tes->getName().'</a></li>';
+                    }
+
+                }
+                $result .='</ul></div></div></div>';
+                $i++;
+            }
+
+        }
+        $result .= '</div></div></div></div>';
+        return $result;
+    }
+
+    public function getUaRating()
+    {
+        $test = new Application_Model_DbTable_Test();
+        $topic = new Application_Model_DbTable_Topic();
+        $topics = $topic->arrayTopic();
+        $i = 0;
+        $result = '<div class = "accordion-group"><div class="accordion-heading">
+                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#ratings'.$i.'">';
+        $result .= 'Рейтинги';
+        $result .= '</a></div>
+                           <div id="ratings'.$i.'" class="accordion-body collapse ">
+                           <div class="accordion-inner">';
+        $result .= '<div class="accordion" id="accordion5">';
+        foreach ($topics as $top)
+        {
+            if($top->getId() == 1){
+
+            }
+            else
+            {
+                $result .= '<div class = "accordion-group"><div class="accordion-heading">
+                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#rating'.$i.'">';
+                $result .= $top->getNameUa();
+                $result .= '</a></div>
+                           <div id="rating'.$i.'" class="accordion-body collapse ">
+                           <div class="accordion-inner"><ul>';
+                $tests = $test->arrayObjectsTest($top->getId());
+                foreach($tests as $tes)
+                {
+                    $rating = new Application_Model_DbTable_Result();
+                    $ratingArray = $rating->fetchAll($rating->select()->where('testId ='.$tes->getId())->where('type =?','rating'));
+                    if($ratingArray->count()>0){
+                        $result .= '<li><a href="/test/rating/id/'.$tes->getId().'">'.$tes->getNameUa().'</a></li>';
+                    }
+
+                }
+                $result .='</ul></div></div></div>';
+                $i++;
+            }
+
+        }
+        $result .= '</div></div></div></div>';
+        return $result;
     }
 }
 

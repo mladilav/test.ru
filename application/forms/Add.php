@@ -94,13 +94,31 @@ class Application_Form_Add extends Zend_Form
             ->addValidator('NotEmpty', true,
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             );
+        $parts = new Application_Model_DbTable_Part();
+        $part = new Zend_Form_Element_Select('part');
+
+        // задаём ему label и отмечаем как обязательное поле;
+        // также добавляем фильтры и валидатор с переводом
+        $part->setLabel('Раздел:')
+            ->addMultiOptions($parts->arrayParts());
+
+
         $categories = new Application_Model_DbTable_Category();
         $category = new Zend_Form_Element_Select('category');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $category->setLabel('Рубрика:')
+        $category->setLabel('Категория:')
             ->addMultiOptions($categories->arraySelect());
+
+        $subcategories = new Application_Model_DbTable_Subcategory();
+        $subcategory = new Zend_Form_Element_Select('subcategory');
+
+        // задаём ему label и отмечаем как обязательное поле;
+        // также добавляем фильтры и валидатор с переводом
+        $subcategory->setLabel('Подкатегория:')
+            ->addMultiOptions($subcategories->arraySelect());
+
 
         // создаём кнопку submit
         $submit = new Zend_Form_Element_Submit('add');
@@ -108,7 +126,8 @@ class Application_Form_Add extends Zend_Form
                ->setAttrib('class','btn btn-success');
 
         // добавляем элементы в форму
-        $this->addElements(array($id, $title,$titleUa, $icon,$category, $description,$descriptionUa, $text,$textUa, $submit));
+        $this->addElements(array($id, $title,$titleUa, $icon,$part,$category, $subcategory, $description,$descriptionUa,
+            $text,$textUa, $submit));
         // указываем метод передачи данных
         $this->setMethod('post');
 

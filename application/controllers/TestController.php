@@ -3,28 +3,23 @@
 class TestController extends Zend_Controller_Action
 {
     public function init()
-    {
-        $array = array();
-        $category = new Application_Model_Category($array);
+    {  $array = array();
+        $part= new Application_Model_Part($array);
         $menu= new Application_Model_Menu();
         $test= new Application_Model_Tests($array);
         $request = new Zend_Controller_Request_Http();
         $lang = $request->getCookie('lang');
         $this->view->lang = $lang;
-        if(!$lang){
-            $lang = "ru";
-        }
+
         if($lang == "ua"){
-            $this->view->layout()->category = $category->getUaCategory();
+            $this->view->layout()->part = $part->getUaPart();
             $this->view->layout()->auth = $menu->getAuthUa();
             $this->view->layout()->menu = $menu->getUaMenu();
-            $this->view->layout()->test = $test->getUaTests();
         }
         else {
-            $this->view->layout()->category = $category->getCategory();
+            $this->view->layout()->part = $part->getPart();
             $this->view->layout()->auth = $menu->getAuth();
             $this->view->layout()->menu = $menu->getMenu();
-            $this->view->layout()->test = $test->getTests();
         }
     }
 
@@ -41,15 +36,12 @@ class TestController extends Zend_Controller_Action
         $request = new Zend_Controller_Request_Http();
         $lang = $request->getCookie('lang');
         if($lang == "ua"){
+            $topics = new Application_Model_DbTable_Topic();
+            $form->topic->addMultiOptions($topics->arrayUaSelect());
             $form->name->setLabel("Назва тесту російською:");
             $form->nameUa->setLabel("Назва тесту українською:");
-            $form->type->addMultiOptions(array(
-                '0' => 'Легкий рівень',
-                '2' => 'Середній рівень',
-                '3' => 'Важкий рівень',
-                '4' => 'Задачі',
-                '5' => 'Експрес тест'
-            ));
+            $form->comment->setLabel("Коментар:");
+
             $form->add->setLabel("Додати тест");
         }
 
@@ -67,7 +59,8 @@ class TestController extends Zend_Controller_Action
                     'nameUa' => $form->getValue('nameUa'),
                     'author' => Zend_Auth::getInstance()->getIdentity()->username,
                     'userId' => Zend_Auth::getInstance()->getIdentity()->id,
-                    'type' => $form->getValue('type'),
+                    'topicId' => $form->getValue('topic'),
+                    'comments' => $form->getValue('comment'),
 
                 );
 
@@ -107,7 +100,8 @@ class TestController extends Zend_Controller_Action
                     'nameUa' => $form->getValue('nameUa'),
                     'author' => Zend_Auth::getInstance()->getIdentity()->username,
                     'userId' => Zend_Auth::getInstance()->getIdentity()->id,
-                    'type' => $form->getValue('type'),
+                    'topicId' => $form->getValue('topic'),
+                    'comments' => $form->getValue('comment'),
 
                 );
 
@@ -225,6 +219,8 @@ class TestController extends Zend_Controller_Action
             $questionNumber = $this->_getParam('question', 0);
             if ($questionNumber == 1) {
                 $_SESSION['time'] = time();
+                $result = new Application_Model_DbTable_Resulttest();
+                $result->truncate();
             }
             $this->view->questionNumber = $questionNumber;
             $questionId = new Application_Model_DbTable_Testquestionrel();
@@ -362,6 +358,7 @@ class TestController extends Zend_Controller_Action
     {
         $testId = $this->_getParam('testId', 0);
         if ($testId > 0) {
+
             $result = new Application_Model_DbTable_Resulttest();
             if ($result->result($testId))
             {
@@ -371,15 +368,26 @@ class TestController extends Zend_Controller_Action
                                          ->from('resulttest')
                                          ->where('testId = ?', $testId));
             $time = (time() - $_SESSION['time']);
-
+            $test = new Application_Model_DbTable_Test();
+            $test_array = $test->getTest($testId);
+            $this->view->topic = $test_array['topicId'];
             $this->view->testId = $testId;
                 if ($this->getRequest()->isPost()) {
+                    $test = $this->getRequest()->getPost('test');
+                    if($test == 'Отправить результат' || $test == 'Надіслати результат'){
+                        $type = 'homework';
+                    }
+                    else {
+                        $type = 'rating';
+                        $user = new Application_Model_DbTable_User();
+                        $userArray = $user->getUser(Zend_Auth::getInstance()->getIdentity()->id);
+                        $data = array( 'id' => Zend_Auth::getInstance()->getIdentity()->id,
+                            'result' => $userArray['result']+$result->result($testId));
 
+                        $user->updateUser($data);
+
+                    }
                     $resultBD  = new Application_Model_DbTable_Result();
-
-                    $test = new Application_Model_DbTable_Test();
-                    $test_array = $test->getTest($testId);
-
                     $group = new Application_Model_DbTable_Groups();
                     $group_array = $group->getGroups(Zend_Auth::getInstance()->getIdentity()->groupId);
 
@@ -395,12 +403,15 @@ class TestController extends Zend_Controller_Action
                         'group' => $group_array['name'],
                         'groupUa' => $group_array['nameUa'],
                         'groupId' => Zend_Auth::getInstance()->getIdentity()->groupId,
+                        'type' => $type,
                     );
-                        $resultBD->addResult($data);
-                        $result->truncate();
+                        $bool = $resultBD->addResult($data);
+                        if (!$bool){echo 'Больше тест проходить нельзя!';}
+
                         $_SESSION['time'] = '';
-                        $this->_helper->redirector->gotoUrl('/user/profile');
+                        //$this->_helper->redirector->gotoUrl('/user/profile');
                     }
+
 
 
 
@@ -408,6 +419,7 @@ class TestController extends Zend_Controller_Action
             }
 
         }
+
     }
 
     public function addquestion1Action()
@@ -416,6 +428,8 @@ class TestController extends Zend_Controller_Action
         $request = new Zend_Controller_Request_Http();
         $lang = $request->getCookie('lang');
         if($lang == "ua"){
+            $topics = new Application_Model_DbTable_Topic();
+            $form->topic->addMultiOptions($topics->arrayUaSelect());
             $form->name->setLabel("Питання  російською:");
             $form->nameUa->setLabel("Питання українською:");
             $form->capture->setLabel("Посилання на картинку (url): * Якщо питання з картинкою");
@@ -440,14 +454,11 @@ class TestController extends Zend_Controller_Action
                                                 '1' => $form->getValue('answerTwoUa'),
                                                 '2' => $form->getValue('answerThreeUa'),
                                                 '3' => $form->getValue('answerFourUa')));
-
-                $topics = new Application_Model_DbTable_Topic();
-                $topicId = $topics->getTopic($form->getValue('topic'));
                 $data = array(
                     'name' => $form->getValue('name'),
                     'nameUa' => $form->getValue('nameUa'),
                     'type' => 0,
-                    'topicId' => (int)$topicId['id'],
+                    'topicId' => $form->getValue('topic'),
                     'capture' => $form->getValue('capture'),
                     'answers' => $answers,
                     'answersUa' => $answersUa,
@@ -470,13 +481,14 @@ class TestController extends Zend_Controller_Action
 
     }
 
-
     public function addquestion2Action()
     {
         $form = new Application_Form_Addquestion2();
         $request = new Zend_Controller_Request_Http();
         $lang = $request->getCookie('lang');
         if($lang == "ua"){
+            $topics = new Application_Model_DbTable_Topic();
+            $form->topic->addMultiOptions($topics->arrayUaSelect());
             $form->name->setLabel("Питання  російською:");
             $form->nameUa->setLabel("Питання українською:");
             $form->capture->setLabel("Посилання на картинку (url): * Якщо питання з картинкою");
@@ -517,14 +529,11 @@ class TestController extends Zend_Controller_Action
                                                 '3' => $form->getValue('answerThree'),
                                                 '4' => $form->getValue('answerFour')));
 
-                $topics = new Application_Model_DbTable_Topic();
-                $topicId = $topics->getTopic($form->getValue('topic'));
-
                 $data = array(
                     'name' => $form->getValue('name'),
                     'nameUa' => $form->getValue('nameUa'),
                     'type' => 2,
-                    'topicId' => (int)$topicId['id'],
+                    'topicId' => $form->getValue('topic'),
                     'capture' => $form->getValue('capture'),
                     'answers' => $answers,
                     'answersUa' => $answersUa,
@@ -554,6 +563,8 @@ class TestController extends Zend_Controller_Action
         $request = new Zend_Controller_Request_Http();
         $lang = $request->getCookie('lang');
         if($lang == "ua"){
+            $topics = new Application_Model_DbTable_Topic();
+            $form->topic->addMultiOptions($topics->arrayUaSelect());
             $form->name->setLabel("Питання  російською:");
             $form->nameUa->setLabel("Питання українською:");
             $form->capture->setLabel("Посилання на картинку (url): * Якщо питання з картинкою");
@@ -582,13 +593,12 @@ class TestController extends Zend_Controller_Action
                                                '6' => $form->getValue('answerSixUa')));
                 $answerRight = $form->getValue('answerOneRight').','.$form->getValue('answerTwoRight').','
                                                                     .$form->getValue('answerThreeRight');
-                $topics = new Application_Model_DbTable_Topic();
-                $topicId = $topics->getTopic($form->getValue('topic'));
+
                 $data = array(
                     'name' => $form->getValue('name'),
                     'nameUa' => $form->getValue('nameUa'),
                     'type' => 3,
-                    'topicId' => (int)$topicId['id'],
+                    'topicId' => $form->getValue('topic'),
                     'capture' => $form->getValue('capture'),
                     'answers' => $answers,
                     'answersUa' => $answersUa,
@@ -617,6 +627,8 @@ class TestController extends Zend_Controller_Action
         $request = new Zend_Controller_Request_Http();
         $lang = $request->getCookie('lang');
         if($lang == "ua"){
+            $topics = new Application_Model_DbTable_Topic();
+            $form->topic->addMultiOptions($topics->arrayUaSelect());
             $form->name->setLabel("Питання  російською:");
             $form->nameUa->setLabel("Питання українською:");
             $form->capture->setLabel("Посилання на картинку (url): * Якщо питання з картинкою");
@@ -631,14 +643,13 @@ class TestController extends Zend_Controller_Action
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
                 $question = new Application_Model_DbTable_Question();
-                $topics = new Application_Model_DbTable_Topic();
-                $topicId = $topics->getTopic($form->getValue('topic'));
+
 
                 $data = array(
                     'name' => $form->getValue('name'),
                     'nameUa' => $form->getValue('nameUa'),
                     'type' => 4,
-                    'topicId' => $topicId['id'],
+                    'topicId' => $form->getValue('topic'),
                     'capture' => $form->getValue('capture'),
                     'answers' => '',
                     'answersUa' => '',
@@ -660,6 +671,7 @@ class TestController extends Zend_Controller_Action
         }
 
     }
+
     public function deletequestionAction()
     {
         // Если к нам идёт Post запрос
@@ -695,20 +707,6 @@ class TestController extends Zend_Controller_Action
             // Достаём запись и передаём в view
             $this->view->question = $question->getQuestion($id);
         }
-    }
-
-
-
-
-
-    public function buildAction()
-    {
-        $type = $this->_getParam('type', 0);
-        if ($type >= 0) {
-            $form = new Application_Form_Build();
-            $this->view->form = $form;
-        }
-
     }
 
     public function constructAction()
@@ -757,6 +755,7 @@ class TestController extends Zend_Controller_Action
         echo '<div class="alert alert-success">Тест успешно добавлен!</div>';
 
     }
+
     public function topicAction()
     {
         $this->_helper->layout()->disableLayout();
@@ -766,6 +765,50 @@ class TestController extends Zend_Controller_Action
         foreach($topics_array as $topic)
         {
             echo $topic->getName(). "\n";
+        }
+    }
+
+    public function addtopicAction(){
+        $form = new Application_Form_Addtopic();
+        $form->add->setLabel("Добавить тему");
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $form->name->setLabel("Назва російською:");
+            $form->nameUa->setLabel("Назва українською:");
+            $form->add->setLabel("Додати тему");
+        }
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            // Принимаем его
+            $formData = $this->getRequest()->getPost();
+
+            // Если форма заполнена верно
+            if ($form->isValid($formData)) {
+
+                $data = array(
+                    'name' => $form->getValue('name'),
+                    'nameUa' => $form->getValue('nameUa'),
+
+                );
+
+                // Создаём объект модели
+
+                $topic = new Application_Model_DbTable_Topic();
+
+
+                // Вызываем метод модели addMovie для вставки новой записи
+                $topic->addTopic($data);
+                $this->_helper->redirector('construct', 'test');
+
+
+            } else {
+                // Если форма заполнена неверно,
+                // используем метод populate для заполнения всех полей
+                // той информацией, которую ввёл пользователь
+                $form->populate($formData);
+            }
         }
     }
 
@@ -783,6 +826,7 @@ class TestController extends Zend_Controller_Action
                 $data = array(
                     'id' => (int)$form->getValue('id'),
                     'name' => (string)$form->getValue('name'),
+                    'nameUa' => (string)$form->getValue('nameUa'),
                 );
 
 
@@ -848,12 +892,10 @@ class TestController extends Zend_Controller_Action
     public function allresultsAction()
     {
         $result = new Application_Model_DbTable_Result();
-        $results = $result->fetchAll($result->select()
+        $results = $result->fetchAll($result->select()->where('type =?','homework')
             ->order('date DESC'));
         $this->view->results = $results;
     }
-
-
 
     public function uploadtestAction()
     {
@@ -995,7 +1037,6 @@ class TestController extends Zend_Controller_Action
         }
     }
 
-
     public function getXLS($xls){
 
         $objPHPExcel = PHPExcel_IOFactory::load($xls);
@@ -1021,4 +1062,25 @@ class TestController extends Zend_Controller_Action
         return $array;
     }
 
+    public function buildAction()
+    {
+        $type = $this->_getParam('type', 0);
+        if ($type >= 0) {
+            $form = new Application_Form_Build();
+            $this->view->form = $form;
+        }
+
+    }
+
+    public function ratingAction(){
+        $id = $this->_getParam('id', 0);
+        if($id > 0){
+        $result = new Application_Model_DbTable_Result();
+        $results = $result->fetchAll($result->select()
+            ->where('type =?','rating')
+            ->where('testId =?',$id)
+            ->order('result DESC')
+            ->order('time ASC'));
+        $this->view->results = $results;}
+    }
 }

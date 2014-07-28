@@ -1,0 +1,15 @@
+<?php
+if ($this->lang == "ua") $this->title = "Додати підкатегорію"; else
+    $this->title = "Добавить подкатегорию";?>
+<div class="settings">
+    <ul class="breadcrumb">
+        <li><a href="/index/settings/"><?php if($this->lang == "ua") echo 'Управління матеріалами'; else echo 'Управление материалами';?></a>
+            <span class="divider">/</span></li>
+        <li class="active"><?php if($this->lang == "ua") echo 'Додати підкатегорію'; else echo 'Добавить подкатегорию';?></li>
+    </ul>
+    <?php
+    echo $this->errMessage;
+    echo $this->form;
+    ?>
+</div>
+

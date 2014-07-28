@@ -27,12 +27,18 @@ class Application_Model_DbTable_Result extends Zend_Db_Table_Abstract
         if(!$data){
             return false;
         }
-        $result = $this->fetchAll($this->select()
-            ->from("result")
-            ->where('testId = '.$data['testId'].' AND userId = '.$data['userId']));
+
+        $result = $this->fetchAll('testId = '.$data['testId'].' AND userId = '.$data['userId']);
         if ($result->count() != 0)
-        {$this->update($data, 'testId = '.$data['testId'].' AND userId = '.$data['userId']);
+        {
+            $test = new Application_Model_DbTable_Test();
+            $testArray = $test->getTest($data['testId']);
+            if($testArray['topicId'] == 1){
+            $this->update($data, 'testId = '.$data['testId'].' AND userId = '.$data['userId']);
             return true;
+            }
+            else {return false;}
+
         } else {
         $this->insert($data);
         return true;}
@@ -60,7 +66,7 @@ class Application_Model_DbTable_Result extends Zend_Db_Table_Abstract
         $this->delete('id = ' . (int)$id);
     }
 
-    public function arrayResult()
+    public function arrayResult($testId)
     {
         $result = array();
         $data = $this->fetchAll();

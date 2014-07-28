@@ -48,11 +48,13 @@ class Application_Form_Addquestion4 extends Zend_Form
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             );
 
-        $topic = new Zend_Form_Element_Text('topic');
+        $topics = new Application_Model_DbTable_Topic();
+        $topic = new Zend_Form_Element_Select('topic');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $topic->setLabel('Тема:');
+        $topic->setLabel('Тема:')
+            ->addMultiOptions($topics->arraySelect());
 
         $answer = new Zend_Form_Element_Text('answer');
 
@@ -81,7 +83,7 @@ class Application_Form_Addquestion4 extends Zend_Form
 
         // создаём кнопку submit
         $submit = new Zend_Form_Element_Submit('add');
-        $submit->setLabel('Добавить вопрос');
+        $submit->setLabel('Добавить вопрос')->setAttrib('class','btn btn-success');
 
         // добавляем элементы в форму
         $this->addElements(array($id, $name,$nameUa,$capture, $topic, $answer, $cost, $submit));

@@ -76,7 +76,7 @@ class Application_Model_DbTable_Test extends Zend_Db_Table_Abstract
         $result = array();
         $data = $this->fetchAll($this->select()
             ->from('test')
-            ->where('type = ?', (int)$type));
+            ->where('topicId = ?', (int)$type));
         foreach ($data as $row) {
             $user = new Application_Model_Tests($row);
             $result[] = $user;

@@ -25,7 +25,7 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
     }
 
     // Метод для добавление новой записи
-    public function addUsers($username, $password, $password_rep, $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw)
+    public function addUsers($username, $password, $password_rep, $email, $photo, $gender,$class,$letter, $date_reg, $role, $vk, $fc, $tw)
     {
 
         // Формируем массив вставляемых значений
@@ -41,6 +41,8 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
             'photo' => $photo,
             'gender' => $gender,
             'date_reg' => $date_reg,
+            'class' => $class,
+            'letter' => $letter,
             'role' => $role,
             'vk' => $vk,
             'fc' => $fc,

@@ -12,9 +12,16 @@
 </table>
 Ваш результат - <b><?php echo $this->count;?></b>
 <?php if($this->lang == "ua") echo 'за час'; else echo 'за время';?> - <b><?php echo $this->date;?></b>
-<form method="post">
-    <input type="submit" class="btn btn-success" value ="<?php if($this->lang == "ua") echo 'Надіслати результат'; else echo 'Отправить результат';?>"></form>
 
+<form method="post">
+    <?php if($this->topic == 1) {?>
+<input type="submit" name="test" class="btn btn-success" value ="<?php if($this->lang == "ua") echo 'Надіслати результат';
+else echo 'Отправить результат';?>">
+    <?php } else {?>
+        <input type="submit" name="test" class="btn btn-success" value ="<?php if($this->lang == "ua") echo 'Взяти участь у рейтингу';
+        else echo 'Поучаствовать в рейтинге';?>">
+    <?php } ?>
+</form>
 
 <script type="text/javascript" src="//yandex.st/share/share.js"
         charset="utf-8"></script>

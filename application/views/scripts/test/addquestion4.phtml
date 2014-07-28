@@ -1,11 +1,17 @@
-<link href="/css/jquery.autocomplete.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="/js/jquery-1.5.2.min.js"></script>
-<script type="text/javascript" src="/js/jquery.autocomplete.pack.js"></script>
-<script type="text/javascript" src="/js/script.js"></script>
+
 <?php
 if ($this->lang == "ua") $this->title = "Додати питання"; else
-$this->title = "Добавить вопрос";
-echo $this->errMessage;
-echo $this->form;
-?>
-
+    $this->title = "Добавить вопрос"; ?>
+<div class="settings">
+    <ul class="breadcrumb">
+        <li><a href="/test/construct/"><?php if($this->lang == "ua") echo 'Конструктор тестів'; else echo 'Конструктор тестов';?></a>
+            <span class="divider">/</span></li>
+        <li><a href="/test/typequestion/"><?php if($this->lang == "ua") echo 'Вибрати складність питання'; else echo 'Выбрать сложность вопроса';?></a>
+            <span class="divider">/</span></li>
+        <li class="active"><?php if($this->lang == "ua") echo 'Додати питання'; else echo 'Добавить вопрос';?></li>
+    </ul>
+    <?php
+    echo $this->errMessage;
+    echo $this->form;
+    ?>
+</div>

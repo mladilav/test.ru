@@ -80,12 +80,40 @@ class Application_Form_Registration extends Zend_Form
                 'Female' => 'Female'
             ));
 
+        $class = new Zend_Form_Element_Select('class');
+
+        // задаём ему label и отмечаем как обязательное поле;
+        // также добавляем фильтры и валидатор с переводом
+        $class->setLabel('Класс:')
+            ->addMultiOptions(array(
+                '' => '',
+                '6' => '6',
+                '7' => '7',
+                '8' => '8',
+                '9' => '9',
+                '10' => '10',
+                '11' => '11'
+            ));
+
+        $letter = new Zend_Form_Element_Select('letter');
+
+        // задаём ему label и отмечаем как обязательное поле;
+        // также добавляем фильтры и валидатор с переводом
+        $letter->setLabel('Параллель:')
+            ->addMultiOptions(array(
+                '' => '',
+                'А' => 'А',
+                'Б' => 'Б',
+                'В' => 'В',
+                'Г' => 'Г',
+            ));
+
         // создаём кнопку submit
         $submit = new Zend_Form_Element_Submit('registration');
         $submit->setLabel('Зарегистрироваться ')->setAttrib('class','btn btn-success');
 
         // добавляем элементы в форму
-        $this->addElements(array($username, $password, $password_rep, $email, $photo, $gender, $submit));
+        $this->addElements(array($username, $password, $password_rep, $email, $photo, $gender,$class, $letter, $submit));
 
         // указываем метод передачи данных
         $this->setMethod('post');

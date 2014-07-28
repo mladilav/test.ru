@@ -6,26 +6,22 @@ class UserController extends Zend_Controller_Action
     public function init()
     {
         $array = array();
-        $category = new Application_Model_Category($array);
-        $menu = new Application_Model_Menu();
-        $test = new Application_Model_Tests($array);
+        $part= new Application_Model_Part($array);
+        $menu= new Application_Model_Menu();
+        $test= new Application_Model_Tests($array);
         $request = new Zend_Controller_Request_Http();
         $lang = $request->getCookie('lang');
         $this->view->lang = $lang;
-        if(!$lang){
-            $lang = "ru";
-        }
+
         if($lang == "ua"){
-            $this->view->layout()->category = $category->getUaCategory();
+            $this->view->layout()->part = $part->getUaPart();
             $this->view->layout()->auth = $menu->getAuthUa();
             $this->view->layout()->menu = $menu->getUaMenu();
-            $this->view->layout()->test = $test->getUaTests();
         }
         else {
-            $this->view->layout()->category = $category->getCategory();
+            $this->view->layout()->part = $part->getPart();
             $this->view->layout()->auth = $menu->getAuth();
             $this->view->layout()->menu = $menu->getMenu();
-            $this->view->layout()->test = $test->getTests();
         }
     }
 
@@ -65,9 +61,11 @@ class UserController extends Zend_Controller_Action
                     'username' => (string)$form->getValue('username'),
                     'password' => md5($form->getValue('password')),
                     'email' => $form->getValue('email'),
-                    'photo' => $photo = $form->getValue('photo'),
-                    'group' => $photo = $form->getValue('group'),
-                    'gender' => $gender = $form->getValue('gender'),
+                    'photo' => $form->getValue('photo'),
+                    'group' => $form->getValue('group'),
+                    'gender' => $form->getValue('gender'),
+                    'letter' => $form->getValue('letter'),
+                    'class' => $form->getValue('class'),
                 );
 
                 // Создаём объект модели

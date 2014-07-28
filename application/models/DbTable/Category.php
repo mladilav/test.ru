@@ -53,10 +53,13 @@ class Application_Model_DbTable_Category extends Zend_Db_Table_Abstract
         $this->delete('id = ' . (int)$id);
     }
 
-    public function arrayCategory()
+    public function arrayCategory($partId)
     {
         $result = array();
-        $data = $this->fetchAll();
+        $data = $this->fetchAll('partId = '.$partId);
+        if(!$data){
+            return false;
+        }
         foreach ($data as $row) {
             $cat = new Application_Model_Category($row);
             $result[] = $cat;
@@ -67,7 +70,9 @@ class Application_Model_DbTable_Category extends Zend_Db_Table_Abstract
     public function arraySelect()
     {
         $array_tests = $this->fetchAll($this->select()->from('category', 'name'));
-        $i = 0;
+        $i = 1;
+        $result[0] = 'Без категории';
+        $results[0] = 0;
         foreach ($array_tests->toArray() as $array) {
             foreach ($array as $arg) {
                 $result[$i] = $arg;
@@ -76,13 +81,14 @@ class Application_Model_DbTable_Category extends Zend_Db_Table_Abstract
         }
 
         $array_testss = $this->fetchAll($this->select()->from('category', 'id'));
-        $i = 0;
+        $i = 1;
         foreach ($array_testss->toArray() as $array) {
             foreach ($array as $arg) {
                 $results[$i] = $arg;
                 $i++;
             }
         }
+
         return array_combine($results, $result);
     }
 

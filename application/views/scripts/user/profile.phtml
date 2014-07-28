@@ -14,7 +14,8 @@
 <ul>
     <li><b>Email:</b><?= $this->user['email']; ?></li>
     <li><b>Gender: </b><?= $this->user['gender']; ?></li>
-    <li><b>Group: </b><?= $this->user['group']; ?></li>
+    <li><b>Rating: </b><?= $this->user['result']; ?></li>
+    <li><b>Class: </b><?= $this->user['class']; ?>-<?= $this->user['letter']; ?></li>
     <li><b>Role: </b><?= $this->user['role']; ?></li>
     <li><b>VK: </b><?php if ($this->user['vk'] != 0) echo 'yes'; else { ?>
             <a href="/auth/regvk">bind</a>
@@ -32,7 +33,6 @@
 <table class="table table-condensed">
     <tr>
         <th><?php if($this->lang == "ua") echo 'Користувач:'; else echo 'Пользователь:';?></th>
-        <th><?php if($this->lang == "ua") echo 'Група:'; else echo 'Группа:';?></th>
         <th><?php if($this->lang == "ua") echo 'Тест:'; else echo 'Тест:';?></th>
         <th>Дата</th>
         <th><?php if($this->lang == "ua") echo 'Кількість балів:'; else echo 'Количество баллов:';?></th>

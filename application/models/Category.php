@@ -32,30 +32,72 @@ class Application_Model_Category
         return $this->id;
     }
 
-    public function getCategory()
+    public function getCategory($partId)
     {
+        $array = array();
         $category = new Application_Model_DbTable_Category();
-        $categoryArray = $category->arrayCategory();
-        $result = '<div class="leftBar"><h3>Категории</h3><ul class="nav nav-tabs nav-stacked">';
+        $categoryArray = $category->arrayCategory($partId);
+        if(!$categoryArray){
+            return false;
+        }
+        $i = 0;
+        $result = '<div class="accordion" id="accordion3">';
         foreach ($categoryArray as $cat)
         {
-            $result = $result.'<li><a href="/index/category/id/'.$cat->getId().'">'.$cat->getName().'</a></li>';
+            $result .= '<div class ="accordion-group">
+                        <div class="accordion-heading">';
+            $subcategory = new Application_Model_Subcategory($array);
+            $resultSubCat = $subcategory->getSubcategory($cat->getId());
+            if(!$resultSubCat)
+            {$result = $result.'<li><a class="accordion-toggle" href="/index/category/id/'.$cat->getId().'">'.$cat->getName().'</a></li></div></div>';}
+            else
+            {
+                $result = $result.'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#cat'.$i.'">
+                           '.$cat->getName().' </a>
+                           </div>
+                           <div id="cat'.$i.'" class="accordion-body collapse ">
+                           <div class="accordion-inner"> ';
+                $result .= $resultSubCat;
+                $result .= '</div></div></div>';
+                $i++;
+            }
         }
-        $result = $result.'</ul></div>';
+        $result = $result.'</div>';
         return $result;
 
     }
 
-    public function getUaCategory()
+    public function getUaCategory($partId)
     {
+        $array = array();
         $category = new Application_Model_DbTable_Category();
-        $categoryArray = $category->arrayCategory();
-        $result = '<div class="leftBar"><h3>Категорії</h3><ul class="nav nav-tabs nav-stacked">';
+        $categoryArray = $category->arrayCategory($partId);
+        if(!$categoryArray){
+            return false;
+        }
+        $i = 0;
+        $result = '<div class="accordion" id="accordion3">';
         foreach ($categoryArray as $cat)
         {
-            $result = $result.'<li><a href="/index/category/id/'.$cat->getId().'">'.$cat->getNameUa().'</a></li>';
+            $result .= '<div class ="accordion-group">
+                        <div class="accordion-heading">';
+            $subcategory = new Application_Model_Subcategory($array);
+            $resultSubCat = $subcategory->getUaSubcategory($cat->getId());
+            if(!$resultSubCat)
+            {$result = $result.'<li><a class="accordion-toggle" href="/index/category/id/'.$cat->getId().'">'.$cat->getNameUa().'</a></li></div></div>';}
+            else
+            {
+                $result = $result.'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion3" href="#cat'.$i.'">
+                           '.$cat->getNameUa().' </a>
+                           </div>
+                           <div id="cat'.$i.'" class="accordion-body collapse ">
+                           <div class="accordion-inner"> ';
+                $result .= $resultSubCat;
+                $result .= '</div></div></div>';
+                $i++;
+            }
         }
-        $result = $result.'</ul></div>';
+        $result = $result.'</div>';
         return $result;
 
     }

@@ -1,13 +1,13 @@
 <?php
 
-class Application_Model_DbTable_Part extends Zend_Db_Table_Abstract
+class Application_Model_DbTable_Subcategory extends Zend_Db_Table_Abstract
 {
 
     // Имя таблицы, с которой будем работать
-    protected $_name = 'part';
+    protected $_name = 'subcategory';
 
     // Метод для получения записи по id
-    public function getPart($id)
+    public function getSubcategory($id)
     {
         // Получаем id как параметр
         $id = (int)$id;
@@ -24,7 +24,7 @@ class Application_Model_DbTable_Part extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
-    public function addPart( $data)
+    public function addSubcategory($data)
     {
 
         if (!$data) {
@@ -32,42 +32,47 @@ class Application_Model_DbTable_Part extends Zend_Db_Table_Abstract
         }
         // Используем метод insert для вставки записи в базу
         $this->insert($data);
-        return true;
 
     }
 
-    public function updatePart($data)
+    public function updateSubcategory($data)
     {
         if (!$data) {
             return false;
         }
+
         // Используем метод update для обновления записи
         // В скобках указываем условие обновления (привычное для вас where)
         $this->update($data, 'id = ' . (int)$data['id']);
 
     }
 
-    public function deletePart($id)
+    public function deleteSubcategory($id)
     {
         // В скобках указываем условие удаления (привычное для вас where)
         $this->delete('id = ' . (int)$id);
     }
 
-    public function objParts()
+    public function arraySubcategory($catId)
     {
         $result = array();
-        $data = $this->fetchAll();
+        $data = $this->fetchAll('categoryId ='.$catId);
+        if(!$data){
+            return false;
+        }
         foreach ($data as $row) {
-            $cat = new Application_Model_Part($row);
+            $cat = new Application_Model_Subcategory($row);
             $result[] = $cat;
         }
         return $result;
     }
 
-    public function arrayParts()
+    public function arraySelect()
     {
-        $array_tests = $this->fetchAll($this->select()->from('part', 'name'));
-        $i = 0;
+        $array_tests = $this->fetchAll($this->select()->from('subcategory', 'name'));
+        $i = 1;
+        $result[0] = 'Без подкатегории';
+        $results[0] = 0;
         foreach ($array_tests->toArray() as $array) {
             foreach ($array as $arg) {
                 $result[$i] = $arg;
@@ -75,18 +80,17 @@ class Application_Model_DbTable_Part extends Zend_Db_Table_Abstract
             }
         }
 
-        $array_testss = $this->fetchAll($this->select()->from('part', 'id'));
-        $i = 0;
+        $array_testss = $this->fetchAll($this->select()->from('subcategory', 'id'));
+        $i = 1;
         foreach ($array_testss->toArray() as $array) {
             foreach ($array as $arg) {
                 $results[$i] = $arg;
                 $i++;
             }
         }
-
-
         return array_combine($results, $result);
     }
+
 }
 
 ?>

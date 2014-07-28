@@ -1,7 +1,6 @@
 <tr>
     <td><?php echo '<a href="/user/profile/id/'.$this->escape($this->userId).'">'.$this->escape($this->user).'</a>'; ?></td>
-    <td><?php echo '<a href="/user/group/id/'.$this->escape($this->groupId).'">';
-        if($_COOKIE['lang']== "ua") echo  $this->escape($this->groupUa); else echo $this->escape($this->group).'</a>'; ?></td>
+
     <td><?php echo '<a href="/test/question/test/'.$this->escape($this->testId).'/question/1">';
         if($_COOKIE['lang']== "ua") echo $this->escape($this->testUa); else echo $this->escape($this->test).'</a>'; ?></td>
     <td><?php echo date('Y-m-d H:i:s',$this->escape($this->date)); ?></td>

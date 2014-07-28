@@ -7,7 +7,7 @@ class IndexController extends Zend_Controller_Action
     {
 
         $array = array();
-        $category = new Application_Model_Category($array);
+        $part= new Application_Model_Part($array);
         $menu= new Application_Model_Menu();
         $test= new Application_Model_Tests($array);
         $request = new Zend_Controller_Request_Http();
@@ -15,16 +15,14 @@ class IndexController extends Zend_Controller_Action
         $this->view->lang = $lang;
 
         if($lang == "ua"){
-            $this->view->layout()->category = $category->getUaCategory();
+            $this->view->layout()->part = $part->getUaPart();
             $this->view->layout()->auth = $menu->getAuthUa();
             $this->view->layout()->menu = $menu->getUaMenu();
-            $this->view->layout()->test = $test->getUaTests();
         }
         else {
-            $this->view->layout()->category = $category->getCategory();
+            $this->view->layout()->part = $part->getPart();
             $this->view->layout()->auth = $menu->getAuth();
             $this->view->layout()->menu = $menu->getMenu();
-            $this->view->layout()->test = $test->getTests();
         }
     }
 
@@ -70,8 +68,36 @@ class IndexController extends Zend_Controller_Action
 
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
+                $parts = new Application_Model_DbTable_Part();
+                $parts_ar = $parts->getPart($form->getValue('part'));
+
+                if($form->getValue('category') > 0){
                 $categories = new Application_Model_DbTable_Category();
                 $categories_ar = $categories->getCategory($form->getValue('category'));
+                    $categoryId = $form->getValue('category');
+                    $category = $categories_ar['name'];
+                    $categoryUa = $categories_ar['nameUa'];
+                }
+                else{
+                    $categoryId = '';
+                    $category = 'Без категории';
+                    $categoryUa = 'Без категорії';
+                }
+
+
+                if($form->getValue('subcategory') > 0){
+                    $subcategories = new Application_Model_DbTable_Subcategory();
+                    $subcategories_ar = $subcategories->getSubcategory($form->getValue('subcategory'));
+                    $subcategoryId = $form->getValue('subcategory');
+                    $subcategory = $subcategories_ar['name'];
+                    $subcategoryUa = $subcategories_ar['nameUa'];
+                }
+                else{
+                    $subcategoryId = '';
+                    $subcategory = 'Без подкатегории';
+                    $subcategoryUa = 'Без підкатегорії';
+                }
+
                 $data = array(
                     'title' => $form->getValue('title'),
                     'titleUa' => $form->getValue('titleUa'),
@@ -79,9 +105,15 @@ class IndexController extends Zend_Controller_Action
                     'descriptionUa' => $form->getValue('descriptionUa'),
                     'body' => $form->getValue('body'),
                     'bodyUa' => $form->getValue('bodyUa'),
-                    'categoryId' => $form->getValue('category'),
-                    'category' => $categories_ar['name'],
-                    'categoryUa' => $categories_ar['nameUa'],
+                    'partId' => $parts_ar['id'],
+                    'part' => $parts_ar['name'],
+                    'partUa' => $parts_ar['nameUa'],
+                    'categoryId' => $categoryId,
+                    'category' => $category,
+                    'categoryUa' => $categoryUa,
+                    'subcategoryId' => $subcategoryId,
+                    'subcategory' => $subcategory,
+                    'subcategoryUa' => $subcategoryUa,
                     'userId' => Zend_Auth::getInstance()->getIdentity()->id,
                     'user' => Zend_Auth::getInstance()->getIdentity()->username,
                     'date' => time(),
@@ -102,7 +134,6 @@ class IndexController extends Zend_Controller_Action
             }
         }
     }
-
 
     public function editAction()
     {
@@ -127,8 +158,35 @@ class IndexController extends Zend_Controller_Action
             $formData = $this->getRequest()->getPost();
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
-                $categories = new Application_Model_DbTable_Category();
-                $categories_ar = $categories->getCategory($form->getValue('category'));
+                $parts = new Application_Model_DbTable_Part();
+                $parts_ar = $parts->getPart($form->getValue('part'));
+
+                if($form->getValue('category') > 0){
+                    $categories = new Application_Model_DbTable_Category();
+                    $categories_ar = $categories->getCategory($form->getValue('category'));
+                    $categoryId = $form->getValue('category');
+                    $category = $categories_ar['name'];
+                    $categoryUa = $categories_ar['nameUa'];
+                }
+                else{
+                    $categoryId = '';
+                    $category = 'Без категории';
+                    $categoryUa = 'Без категорії';
+                }
+
+
+                if($form->getValue('subcategory') > 0){
+                    $subcategories = new Application_Model_DbTable_Subcategory();
+                    $subcategories_ar = $subcategories->getSubcategory($form->getValue('subcategory'));
+                    $subcategoryId = $form->getValue('subcategory');
+                    $subcategory = $subcategories_ar['name'];
+                    $subcategoryUa = $subcategories_ar['nameUa'];
+                }
+                else{
+                    $subcategoryId = '';
+                    $subcategory = 'Без подкатегории';
+                    $subcategoryUa = 'Без підкатегорії';
+                }
                 $data = array(
                     'id' => (int)$form->getValue('id'),
                     'title' => $form->getValue('title'),
@@ -137,9 +195,15 @@ class IndexController extends Zend_Controller_Action
                     'descriptionUa' => $form->getValue('descriptionUa'),
                     'body' => $form->getValue('body'),
                     'bodyUa' => $form->getValue('bodyUa'),
-                    'categoryId' => $form->getValue('category'),
-                    'category' => $categories_ar['name'],
-                    'categoryUa' => $categories_ar['nameUa'],
+                    'partId' => $parts_ar['id'],
+                    'part' => $parts_ar['name'],
+                    'partUa' => $parts_ar['nameUa'],
+                    'categoryId' => $categoryId,
+                    'category' => $category,
+                    'categoryUa' => $categoryUa,
+                    'subcategoryId' => $subcategoryId,
+                    'subcategory' => $subcategory,
+                    'subcategoryUa' => $subcategoryUa,
                     'userId' => Zend_Auth::getInstance()->getIdentity()->id,
                     'user' => Zend_Auth::getInstance()->getIdentity()->username,
                     'date' => time(),
@@ -206,7 +270,6 @@ class IndexController extends Zend_Controller_Action
             $this->view->posts = $post->getPost($id);
         }
     }
-
 
     public function addpartAction()
     {
@@ -353,12 +416,39 @@ class IndexController extends Zend_Controller_Action
         if ($id > 0) {
 
             $post = new Application_Model_DbTable_Posts();
-            $this->view->post = $post->fetchAll($post->select()->from('posts')
-                ->where('categoryId = ?', $id));
+            $this->view->post = $post->fetchAll('categoryId = '. $id);
 
         }
        /* $category = new Application_Model_DbTable_Category();
         $this->view->categories = $category->fetchAll();*/
+
+    }
+
+    public function partAction()
+    {
+        $id = $this->_getParam('id', 0);
+        if ($id > 0) {
+
+            $post = new Application_Model_DbTable_Posts();
+            $this->view->post = $post->fetchAll('partId = '. $id);
+
+        }
+        /* $category = new Application_Model_DbTable_Category();
+         $this->view->categories = $category->fetchAll();*/
+
+    }
+
+    public function subcategoryAction()
+    {
+        $id = $this->_getParam('id', 0);
+        if ($id > 0) {
+
+            $post = new Application_Model_DbTable_Posts();
+            $this->view->post = $post->fetchAll('subcategoryId = '. $id);
+
+        }
+        /* $category = new Application_Model_DbTable_Category();
+         $this->view->categories = $category->fetchAll();*/
 
     }
 
@@ -467,7 +557,6 @@ class IndexController extends Zend_Controller_Action
         }
     }
 
-
     public function deletecatAction()
     {
 
@@ -504,6 +593,149 @@ class IndexController extends Zend_Controller_Action
         }
     }
 
+    public function addsubcatAction()
+    {
+
+        $form = new Application_Form_Addsubcat();
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $form->name->setLabel("Назва російською:");
+            $form->nameUa->setLabel("Назва українською:");
+            $form->categoryId->setLabel("Категорія");
+            $form->add->setLabel("Додати підкатегорію");
+        }
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            // Принимаем его
+            $formData = $this->getRequest()->getPost();
+
+            // Если форма заполнена верно
+            if ($form->isValid($formData)) {
+
+                $data = array(
+                    'name' => $form->getValue('name'),
+                    'nameUa' => $form->getValue('nameUa'),
+                    'categoryId' => $form->getValue('categoryId'),
+                    'userId' => Zend_Auth::getInstance()->getIdentity()->id,
+                );
+
+                // Создаём объект модели
+
+                $subcategory = new Application_Model_DbTable_Subcategory();
+
+
+                // Вызываем метод модели addMovie для вставки новой записи
+                $subcategory->addSubcategory($data);
+                $this->_helper->redirector('settings', 'index');
+
+            } else {
+                // Если форма заполнена неверно,
+                // используем метод populate для заполнения всех полей
+                // той информацией, которую ввёл пользователь
+                $form->populate($formData);
+            }
+        }
+
+    }
+
+    public function editsubcatAction()
+    {
+
+        $form = new Application_Form_Addsubcat();
+        $form->add->setLabel('Сохранить');
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $form->name->setLabel("Назва російською:");
+            $form->nameUa->setLabel("Назва українською:");
+            $form->categoryId->setLabel("Категорія");
+            $form->add->setLabel("Зберегти");
+        }
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            // Принимаем его
+            $formData = $this->getRequest()->getPost();
+
+            // Если форма заполнена верно
+            if ($form->isValid($formData)) {
+
+                $data = array(
+                    'id' => (int)$form->getValue('id'),
+                    'name' => $form->getValue('name'),
+                    'nameUa' => $form->getValue('nameUa'),
+                    'categoryId' => $form->getValue('categoryId'),
+                    'userId' => Zend_Auth::getInstance()->getIdentity()->id,
+                );
+
+                // Создаём объект модели
+
+                $subcategory = new Application_Model_DbTable_Subcategory();
+
+
+                // Вызываем метод модели addMovie для вставки новой записи
+                $subcategory->updateCategory($data);
+                $this->_helper->redirector('settings', 'index');
+
+
+            } else {
+                // Если форма заполнена неверно,
+                // используем метод populate для заполнения всех полей
+                // той информацией, которую ввёл пользователь
+                $form->populate($formData);
+            }
+        } else {
+
+            // Если мы выводим форму, то получаем id фильма, который хотим обновить
+            $id = $this->_getParam('id', 0);
+            if ($id > 0) {
+                // Создаём объект модели
+                $subcategory = new Application_Model_DbTable_Subcategory();
+
+                // Заполняем форму информацией при помощи метода populate
+                $form->populate($subcategory->getSubcategory($id));
+            }
+        }
+    }
+
+    public function deletesubcatAction()
+    {
+
+        // Если к нам идёт Post запрос
+        if ($this->getRequest()->isPost()) {
+
+            // Принимаем значение
+            $del = $this->getRequest()->getPost('del');
+
+            // Если пользователь подтвердил своё желание удалить запись
+            if ($del == 'Да' ||$del == 'Так' ) {
+                // Принимаем id записи, которую хотим удалить
+                $id = $this->getRequest()->getPost('id');
+
+                // Создаём объект модели
+                $subcategory = new Application_Model_DbTable_Subcategory();
+
+                // Вызываем метод модели deleteMovie для удаления записи
+                $subcategory->deleteSubcategory($id);
+            }
+
+            // Используем библиотечный helper для редиректа на action = index
+            $this->_helper->redirector('settings', 'index');
+        } else {
+            // Если запрос не Post, выводим сообщение для подтверждения
+            // Получаем id записи, которую хотим удалить
+            $id = $this->_getParam('id');
+
+            // Создаём объект модели
+            $subcategory = new Application_Model_DbTable_Subcategory();
+
+            // Достаём запись и передаём в view
+            $this->view->subcategory = $subcategory->getSubcategory($id);
+        }
+    }
+
     public function settingsAction()
     {
         $part = new Application_Model_DbTable_Part();
@@ -512,7 +744,11 @@ class IndexController extends Zend_Controller_Action
         $category = new Application_Model_DbTable_Category();
         $this->view->category = $category->fetchAll();
 
+        $subcategory = new Application_Model_DbTable_Subcategory();
+        $this->view->subcategory = $subcategory->fetchAll();
+
     }
+
     public function analyticAction()
     {
 
