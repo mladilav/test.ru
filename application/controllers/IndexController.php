@@ -757,9 +757,9 @@ class IndexController extends Zend_Controller_Action
     public function langAction()
     {
         $lang = $this->_getParam('lang');
-
+        $request = new Zend_Controller_Request_Http();
         $this->getResponse()->setRawHeader(new Zend_Http_Header_SetCookie(
-            'lang', $lang, time()+86400, '/', 'vps84192.ovh.net', false, true
+            'lang', $lang, NULL, '/', $request->getServer('HTTP_HOST'), false, true
         ));
         $this->_helper->redirector('index', 'index');
     }
