@@ -35,11 +35,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.phtml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
+      <file leaf-file-name="IndexController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="0" selection-start="763" selection-end="763" vertical-scroll-proportion="0.40753424" vertical-offset="0" max-vertical-offset="584">
-              <folding />
+            <state line="641" column="0" selection-start="23398" selection-end="23398" vertical-scroll-proportion="0.30136988" vertical-offset="436" max-vertical-offset="1020">
+              <folding>
+                <element signature="n#init#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#indexAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#postAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#addAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#editAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#deleteAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#addpartAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#editpartAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#deletepartAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#categoryAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#partAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#subcategoryAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#addcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#editcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#deletecatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#addsubcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#editsubcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#deletesubcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#settingsAction#0;n#IndexController#0;n#!!top" expanded="false" />
+                <element signature="n#analyticAction#0;n#IndexController#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,10 +122,10 @@
         <option value="$PROJECT_DIR$/application/views/scripts/test/rating.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/profile.phtml" />
         <option value="$PROJECT_DIR$/application/models/DbTable/Resulttest.php" />
-        <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/application/Bootstrap.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
       </list>
     </option>
   </component>
@@ -433,11 +454,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/addpart.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="23" selection-start="0" selection-end="529" vertical-scroll-proportion="-6.5384617" vertical-offset="0" max-vertical-offset="357" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Subcategory.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="61" column="108" selection-start="1514" selection-end="1514" vertical-scroll-proportion="-17.884615" vertical-offset="572" max-vertical-offset="1275" />
@@ -655,11 +671,6 @@
         <state line="61" column="32" selection-start="1634" selection-end="1634" vertical-scroll-proportion="-14.615385" vertical-offset="657" max-vertical-offset="1241" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="751" column="20" selection-start="27274" selection-end="27282" vertical-scroll-proportion="-16.576923" vertical-offset="300" max-vertical-offset="884" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="268" column="20" selection-start="10125" selection-end="10130" vertical-scroll-proportion="0.46575344" vertical-offset="0" max-vertical-offset="584" />
@@ -684,6 +695,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="0" selection-start="763" selection-end="763" vertical-scroll-proportion="0.40753424" vertical-offset="0" max-vertical-offset="584">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1074" column="26" selection-start="43274" selection-end="43645" vertical-scroll-proportion="-11.346154" vertical-offset="17963" max-vertical-offset="18547">
@@ -691,10 +709,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
+    <entry file="file://$PROJECT_DIR$/library/Zend/Http/Header/SetCookie.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="763" selection-end="763" vertical-scroll-proportion="0.40753424" vertical-offset="0" max-vertical-offset="584">
+        <state line="197" column="20" selection-start="5708" selection-end="5708" vertical-scroll-proportion="0.5271454" vertical-offset="2725" max-vertical-offset="9299">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="641" column="0" selection-start="23398" selection-end="23398" vertical-scroll-proportion="0.30136988" vertical-offset="436" max-vertical-offset="1020">
+          <folding>
+            <element signature="n#init#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#indexAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#postAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#addAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#editAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#deleteAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#addpartAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#editpartAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#deletepartAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#categoryAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#partAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#subcategoryAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#addcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#editcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#deletecatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#addsubcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#editsubcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#deletesubcatAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#settingsAction#0;n#IndexController#0;n#!!top" expanded="false" />
+            <element signature="n#analyticAction#0;n#IndexController#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
