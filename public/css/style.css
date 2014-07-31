@@ -22,6 +22,7 @@ body{
 }
 .leftBar .accordion-group{
     border: 0;
+    border-radius: 0;
     border-bottom:1px solid #e6e6e6;
 }
 .leftBar h3{
@@ -78,7 +79,8 @@ a:hover {
     text-align: left;
 }
 .navbar a img {
-    padding-top: 7px;
+    margin-left: 8px;
+    padding-top: 11px;
 
 }
 .slick-dots li button:before {
@@ -126,7 +128,7 @@ a:hover {
 }
 
 .post h2{
-    font-size: 30px;
+    font-size: 26px;
     font-family: "Myriad Pro";
     font-weight: normal;
     margin: 0;
@@ -198,4 +200,63 @@ h2{
  }
 .settings textarea{
     height: 150px;
+}
+
+.muted div{
+    display: inline;
+}
+.muted .date{
+}
+.muted .category{
+    margin-left: 15px;
+}
+.muted .user{
+    margin-left: 15px;
+}
+.inner hr{
+    margin-bottom: 8px;
+}
+
+.question h3{
+    font-weight: 100;
+}
+.question .btn{
+    width: 112px;
+    float: right;
+}
+.accordion ul{
+    margin-left:0 ;
+    font-size: 10pt;
+}
+.accordion ul li a{
+    padding-left: 0;
+}
+.text-info{
+    color: #2a4602;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {
+    border-color: rgba(83, 132, 12, 0.8);
+    outline: 0;
+    outline: thin dotted \9;
+    /* IE6-9 */
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(83, 132, 12, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(83, 132, 12, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(83, 132, 12, 0.6);
 }

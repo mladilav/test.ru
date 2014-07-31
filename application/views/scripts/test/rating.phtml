@@ -1,5 +1,7 @@
+<div class="settings">
 <h4 class="text-info"><img src="/img/profile-result.png">
     <?php if($this->lang == "ua") echo 'Результати:'; else echo 'Результаты:';?> </h4>
+
 <table class="table table-condensed">
     <tr>
         <th><?php if($this->lang == "ua") echo 'Користувач:'; else echo 'Пользователь:';?></th>
@@ -12,3 +14,4 @@
     // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
     echo $this->partialLoop('/partials/results.phtml', $this->results);
     ?></table>
+</div>

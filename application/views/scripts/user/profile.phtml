@@ -26,7 +26,10 @@
     <li><b>TW: </b><?php if ($this->user['tw'] != 0) echo 'yes'; else { ?>
             <a href="/auth/regtw">bind</a>
         <?php }; ?></li>
-</ul><hr>
+</ul>
+    <a href="/user/edit/id/<?php echo Zend_Auth::getInstance()->getIdentity()->id; ?>" class="btn btn-success">
+        <?php if($this->lang == "ua") echo 'Редагувати:'; else echo 'Редактировать:';?></a>
+    <hr>
 <?php if (Zend_Auth::getInstance()->getIdentity()->id == $this->user['id']){ ?>
     <h4 class="text-success"><img src="/img/profile-result.png">
         <?php if($this->lang == "ua") echo 'Мої результати:'; else echo 'Мои результаты:';?> </h4>

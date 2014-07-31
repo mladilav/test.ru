@@ -136,9 +136,9 @@ class AuthController extends Zend_Controller_Action
 
         // Регистрация через контакт
 
-        $client_id = '4445511'; // ID приложения
-        $client_secret = 'kkzShivsClQAPAvN2gyx'; // Защищённый ключ
-        $redirect_uri = 'http://test.ru/auth/regvk'; // Адрес сайта
+        $client_id = '4485744 '; // ID приложения
+        $client_secret = '9JYDwQ0AptHRMFRRr6ma'; // Защищённый ключ
+        $redirect_uri = 'http://moregeo.com//auth/regvk'; // Адрес сайта
         $url = 'http://oauth.vk.com/authorize';
 
         $params = array(
@@ -152,7 +152,7 @@ class AuthController extends Zend_Controller_Action
         // Регистрация через facebook
         $client_id = '885659381448025'; // Client ID
         $client_secret = '8bba37e25902a2cfa8d52e6493bfce6a'; // Client secret
-        $redirect_uri = 'http://test.ru/auth/regfc'; // Redirect URIs
+        $redirect_uri = 'http://moregeo.com/auth/regfc'; // Redirect URIs
 
         $url = 'https://www.facebook.com/dialog/oauth';
 
@@ -175,7 +175,7 @@ class AuthController extends Zend_Controller_Action
         define('ACCESS_TOKEN_URL', 'https://api.twitter.com/oauth/access_token');
         define('ACCOUNT_DATA_URL', 'https://api.twitter.com/1.1/users/show.json');
 
-        define('CALLBACK_URL', 'http://test.ru/auth/regtw');
+        define('CALLBACK_URL', 'http://moregeo.com/auth/regtw');
 
 
 // формируем подпись для получения токена доступа
@@ -276,9 +276,9 @@ class AuthController extends Zend_Controller_Action
             $this->_helper->redirector('index', 'index');
         }
 
-        $client_id = '4445511'; // ID приложения
-        $client_secret = 'kkzShivsClQAPAvN2gyx'; // Защищённый ключ
-        $redirect_uri = 'http://test.ru/auth/regvk'; // Адрес сайта
+        $client_id = '4485744 '; // ID приложения
+        $client_secret = '9JYDwQ0AptHRMFRRr6ma'; // Защищённый ключ
+        $redirect_uri = 'http://moregeo.com//auth/regvk'; // Адрес сайта
         $url = 'http://oauth.vk.com/authorize';
 
         $params = array(
@@ -359,7 +359,7 @@ class AuthController extends Zend_Controller_Action
 
         $client_id = '885659381448025'; // Client ID
         $client_secret = '8bba37e25902a2cfa8d52e6493bfce6a'; // Client secret
-        $redirect_uri = 'http://test.ru/auth/regfc'; // Redirect URIs
+        $redirect_uri = 'http://moregeo.com/auth/regfc'; // Redirect URIs
 
         $url = 'https://www.facebook.com/dialog/oauth';
 
@@ -450,7 +450,7 @@ class AuthController extends Zend_Controller_Action
         define('ACCESS_TOKEN_URL', 'https://api.twitter.com/oauth/access_token');
         define('ACCOUNT_DATA_URL', 'https://api.twitter.com/1.1/users/show.json');
 
-        define('CALLBACK_URL', 'http://test.ru/auth/regtw');
+        define('CALLBACK_URL', 'http://moregeo.com/auth/regtw');
 
 
 // формируем подпись для получения токена доступа

@@ -1,0 +1,23 @@
+<style>
+    textarea{
+        resize: none;
+        width: 96%;
+        height: 100px;
+    }
+    #caption{
+        width: 96%;
+    }
+</style>
+<ul class="nav nav-tabs">
+    <li>
+        <a href="/user/profile"><?php if($this->lang == "ua") echo 'Особистий кабінет'; else echo 'Личный кабинет';?></a>
+    </li>
+    <li><a href="/user/messege"><?php if($this->lang == "ua") echo 'Повідомлення'; else echo 'Сообщения';?></a></li>
+    <li class="active"><a href="/user/messegesend"><?php if($this->lang == "ua") echo 'Надіслати повідомлення'; else echo 'Отправить сообщение';?></a></li>
+</ul>
+
+<div class="profile">
+    <?php echo $this->form;?>
+
+</div>
+

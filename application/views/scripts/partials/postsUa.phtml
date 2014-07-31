@@ -1,11 +1,12 @@
 <div class="post" style="clear: left;">
     <h2><?php echo '<a href="/index/post/id/' . $this->escape($this->id) . '">' . $this->escape($this->titleUa) . '</a>'; ?></h2>
     <small class="muted">
-        <b> Дата: </b> <?php echo date('Y-m-d H:i:s', $this->escape($this->date)); ?>
-        <b> Категорія: </b>
+        <div class="date"><b> Дата: </b> <?php echo date('d.m.Y', $this->escape($this->date)); ?></div>
+        <div class="category"> <b> Категорія: </b>
         <?php echo '<a href="/index/category/id/' . $this->escape($this->categoryId) . '">' . $this->escape($this->categoryUa) . '</a>'; ?>
-        <b>
-            Користува: </b> <?php echo '<a href="/user/profile/id/' . $this->escape($this->userId) . '">' . $this->escape($this->user) . '</a>'; ?>
+        <b></div>
+            <div class="user"> Користувач: </b> <?php echo '<a href="/user/profile/id/' . $this->escape($this->userId) . '">' . $this->escape($this->user) . '</a>'; ?>
+            </div>
     </small>
     <?php if (Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->role == 'admin') { ?>
         <div class="pull-right">

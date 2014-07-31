@@ -69,7 +69,7 @@ class Application_Form_TestsTwo extends Zend_Form
             ->setRequired(true);
 
         $submit = new Zend_Form_Element_Submit('add');
-        $submit->setAttrib('class','btn btn-primary')->setLabel('Далее');
+        $submit->setAttrib('class','btn btn-success')->setLabel('Далее');
 
         // добавляем элементы в форму
         $this->addElements(array($answerOne,$answerTwo,$answerThree, $answerFour, $submit));

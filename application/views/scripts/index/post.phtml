@@ -8,10 +8,12 @@ $this->headTitle($this->post['title']);
     <?php if ($this->lang == "ua") { ?>
     <h1><?php echo$this->post['titleUa'];?></h1>
     <small class="muted">
-        <b> Дата: </b> <?php echo date('Y-m-d H:i:s',$this->escape($this->post['date'])); ?>
-        <b> Категорія: </b>
+        <div class="date"><b> Дата: </b> <?php echo date('d.m.Y',$this->escape($this->post['date'])); ?></div>
+        <div class="category"><b> Категорія: </b>
         <?php echo '<a href="/index/category/id/'.$this->escape($this->post['categoryId']).'">'.$this->escape($this->post['categoryUa']).'</a>'; ?>
-        <b> Користувач </b> <?php echo '<a href="/user/profile/id/'.$this->escape($this->post['userId']).'">'.$this->escape($this->post['user']).'</a>'; ?>
+        </div>
+        <div class="user"><b> Користувач </b> <?php echo '<a href="/user/profile/id/'.$this->escape($this->post['userId']).'">'.$this->escape($this->post['user']).'</a>'; ?>
+        </div>
     </small>
     <?php  if (Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->role == 'admin')  {?>
         <div class="pull-right">
@@ -29,10 +31,12 @@ $this->headTitle($this->post['title']);
     <?php } else {?>
         <h2><?php echo$this->post['title'];?></h2>
         <small class="muted">
-            <b> Дата: </b> <?php echo date('Y-m-d H:i:s',$this->escape($this->post['date'])); ?>
-            <b> Категория: </b>
+            <div class="date"><b> Дата: </b> <?php echo date('d.m.Y',$this->escape($this->post['date'])); ?></div>
+            <div class="category"><b> Категория: </b>
             <?php echo '<a href="/index/category/id/'.$this->escape($this->post['categoryId']).'">'.$this->escape($this->post['category']).'</a>'; ?>
-            <b> Пользователь </b> <?php echo '<a href="/user/profile/id/'.$this->escape($this->post['userId']).'">'.$this->escape($this->post['user']).'</a>'; ?>
+            </div>
+            <div class="user"> <b> Пользователь </b> <?php echo '<a href="/user/profile/id/'.$this->escape($this->post['userId']).'">'.$this->escape($this->post['user']).'</a>'; ?>
+            </div>
         </small>
         <?php  if (Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->role == 'admin')  {?>
             <div class="pull-right">
