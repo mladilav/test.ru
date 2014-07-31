@@ -26,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="22" selection-start="1491" selection-end="1491" vertical-scroll-proportion="0.0" vertical-offset="1225" max-vertical-offset="4556">
+            <state line="63" column="23" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.5457627" vertical-offset="749" max-vertical-offset="4556">
               <folding />
             </state>
           </provider>
@@ -55,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="analytic.phtml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="analytic.phtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/index/analytic.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="33" selection-start="556" selection-end="556" vertical-scroll-proportion="0.18511796" vertical-offset="0" max-vertical-offset="551">
+            <state line="6" column="33" selection-start="556" selection-end="556" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="204">
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#!!top" expanded="true" />
               </folding>
@@ -168,12 +168,12 @@
         <option value="$PROJECT_DIR$/application/views/scripts/test/question.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/rating.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/profile.phtml" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/application/models/Menu.php" />
         <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/build.phtml" />
         <option value="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/analytic.phtml" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -881,13 +881,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="22" selection-start="1491" selection-end="1491" vertical-scroll-proportion="0.0" vertical-offset="1225" max-vertical-offset="4556">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/test/index.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="611" />
@@ -925,10 +918,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/index/analytic.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="33" selection-start="556" selection-end="556" vertical-scroll-proportion="0.18511796" vertical-offset="0" max-vertical-offset="551">
+        <state line="6" column="33" selection-start="556" selection-end="556" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="204">
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="23" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.5457627" vertical-offset="749" max-vertical-offset="4556">
+          <folding />
         </state>
       </provider>
     </entry>
