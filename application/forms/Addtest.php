@@ -52,13 +52,19 @@ class Application_Form_Addtest extends Zend_Form
             ->addValidator('NotEmpty', true,
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             );
+        $patterns = new Application_Model_DbTable_Pattern();
+        $pattern = new Zend_Form_Element_Select('pattern');
+
+        $pattern->setLabel('Выберите шаблон теста:')
+                ->addMultiOptions($patterns->arrayPattern());
+
         // создаём кнопку submit
         $submit = new Zend_Form_Element_Submit('add');
         $submit->setLabel('Добавить тест')
             ->setAttrib('class','btn btn-success');
 
         // добавляем элементы в форму
-        $this->addElements(array($int, $name, $nameUa, $topic,$comment, $submit));
+        $this->addElements(array($int, $name, $nameUa, $topic,$comment,$pattern, $submit));
 
         // указываем метод передачи данных
         $this->setMethod('post');

@@ -1,0 +1,9 @@
+<div class="settings">
+    <h4><?php if ($this->lang == "ua") echo 'Шаблони'; else echo 'Шаблоны'; ?>:</h4>
+    <table class="table table-condensed">
+        <?php
+        // Создаём patrialLoop, передав массив фильмов, полученных от контроллера
+        echo $this->partialLoop('/partials/pattern.phtml', $this->pattern);
+        ?>
+    </table>
+</div>

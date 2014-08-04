@@ -7,7 +7,7 @@ echo ' №'.$this->questionNumber.'</h3>';
 echo '<h4>'.$this->question.'</h4>';
 echo $this->capture; ?>
 
-<?php if ($this->type == 0) {?>
+<?php if (($this->type == 0)&&(!empty($this->answer['0']))) {?>
 <table class="table table-bordered">
     <tr><td> А: <?php echo $this->answer['0'];?> </td></tr>
     <tr><td> Б: <?php echo $this->answer['1'];?> </td></tr>

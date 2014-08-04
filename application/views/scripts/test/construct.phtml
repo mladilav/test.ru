@@ -5,21 +5,36 @@ if ($this->lang == "ua") $this->title = "Конструктор тестів"; e
 $this->headTitle($this->title);
 ?>
 <div class="settings">
-    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'addtest')); ?>" class="btn btn-success">
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'addtest')); ?>" class="btn btn-small btn-success">
         <i class="icon-plus icon-white"></i>
-        <?php if ($this->lang == "ua") echo 'Додати тест'; else echo 'Добавить тест'; ?></a>
+        <?php if ($this->lang == "ua") echo 'Тест'; else echo 'Тест'; ?></a>
 
-    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'typequestion')); ?>" class="btn btn-success">
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'typequestion')); ?>" class="btn btn-small  btn-success">
         <i class="icon-plus icon-white"></i>
-        <?php if ($this->lang == "ua") echo 'Додати питання'; else echo 'Добавить вопрос'; ?></a>
+        <?php if ($this->lang == "ua") echo 'Питання'; else echo 'Вопрос'; ?></a>
 
-    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'uploadtest')); ?>" class="btn btn-success" >
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'uploadtest')); ?>" class="btn btn-small btn-success" >
         <i class="icon-arrow-down icon-white"></i>
         <?php if ($this->lang == "ua") echo 'Завантажити питання'; else echo 'Загрузить вопросы'; ?></a>
-    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'addtopic')); ?>" class="btn btn-success"
+
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'addtopic')); ?>" class="btn btn-small  btn-success"
        > <i class="icon-plus icon-white"></i>
-        <?php if ($this->lang == "ua") echo 'Додати тему'; else echo 'Добавить тему'; ?> </a>
+        <?php if ($this->lang == "ua") echo 'Тему'; else echo 'Тему'; ?> </a>
+
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'random')); ?>" class="btn btn-small  btn-success" >
+        <i class=" icon-check icon-white"></i>
+        <?php if ($this->lang == "ua") echo 'Випадковий тест'; else echo 'Случайный тест'; ?></a>
+
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'pattern')); ?>" class="btn btn-small btn-success" >
+        <i class=" icon-list icon-white"></i>
+        <?php if ($this->lang == "ua") echo 'Створити шаблон'; else echo 'Создать шаблон'; ?></a>
     <hr>
+
+
+
+    <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'allpattern')); ?>">
+    <?php if ($this->lang == "ua") echo 'Управління шаблонами'; else echo 'Управление шаблонами'; ?></a>
+
     <h4><?php if ($this->lang == "ua") echo 'Теми'; else echo 'Темы'; ?>:</h4>
     <table class="table table-condensed">
         <?php
@@ -46,6 +61,8 @@ $this->headTitle($this->title);
                     echo $this->partialLoop('/partials/question.phtml', $this->question);
                 ?>
             </table>
+            <a href="<?php echo $this->url(array('controller' => 'test', 'action' => 'allquestion')); ?>">
+                <?php if ($this->lang == "ua") echo 'Дивитися все ...'; else echo 'Смотреть все...'; ?></a>
         </div>
     </div>
 </div>

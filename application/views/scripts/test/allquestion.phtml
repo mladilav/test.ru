@@ -1,0 +1,9 @@
+<div class="settings">
+    <h4><?php if ($this->lang == "ua") echo 'Питання'; else echo 'Вопросы'; ?>:</h4>
+    <table class="table table-condensed">
+        <?php
+        if ($this->lang == "ua") echo $this->partialLoop('/partials/questionUa.phtml', $this->question); else
+            echo $this->partialLoop('/partials/question.phtml', $this->question);
+        ?>
+    </table>
+</div>

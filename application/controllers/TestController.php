@@ -727,7 +727,7 @@ class TestController extends Zend_Controller_Action
         $tests = new Application_Model_DbTable_Test();
         $this->view->tests = $tests->fetchAll();
         $question = new Application_Model_DbTable_Question();
-        $this->view->question = $question->fetchAll();
+        $this->view->question = $question->fetchAll($question->select()->limit(5));
     }
 
     public function dataAction()
@@ -944,108 +944,206 @@ class TestController extends Zend_Controller_Action
                     DIRECTORY_SEPARATOR .
                     $newName);
                 $form->file->receive();
-                $question = new Application_Model_DbTable_Question();
+
                 $xlsData = $this->getXLS($_SERVER['DOCUMENT_ROOT'].$fileUrl);
 
                 foreach ($xlsData as $array){
-                    $capture = '';
-                    if($form->getValue('type') == 0){
-                        $answers = serialize(array(   '0' => $array[4],
-                            '1' => $array[5],
-                            '2' => $array[6],
-                            '3' => $array[7]));
 
-                        $answersUa = serialize(array(   '0' => $array[8],
-                            '1' => $array[9],
-                            '2' => $array[10],
-                            '3' => $array[11]));
-                        $answerRight = $array[12];
-                        if(isset($array[13])){
-                            $capture = $array[13];
-                        }
-                    }
+                    if($form->getValue('type') == 0){
+                       $this->insertTestLight($array);}
 
                     if($form->getValue('type') == 2){
-                        $answers = serialize(array( '1' => $array[4],
-                            '2' => $array[5],
-                            '3' => $array[6],
-                            '4' => $array[7],
-                            'A' => $array[8],
-                            'B' => $array[9],
-                            'C' => $array[10],
-                            'D' => $array[11],
-                            'E' => $array[12]));
-
-                        $answersUa = serialize(array( '1' => $array[13],
-                            '2' => $array[14],
-                            '3' => $array[15],
-                            '4' => $array[16],
-                            'A' => $array[17],
-                            'B' => $array[18],
-                            'C' => $array[19],
-                            'D' => $array[20],
-                            'E' => $array[21]));
-
-                        $answerRight = serialize(array( '1' => $array[22],
-                            '2' => $array[23],
-                            '3' => $array[24],
-                            '4' => $array[25]));
-                        if(isset($array[26])){
-                            $capture = $array[26];
-                        }
-                    }
+                        $this->insertTestMiddle($array); }
 
                     if($form->getValue('type') == 3){
-                        $answers = serialize( array( '1' => $array[4],
-                            '2' => $array[5],
-                            '3' => $array[6],
-                            '4' => $array[7],
-                            '5' => $array[8],
-                            '6' => $array[9]));
-
-                        $answersUa = serialize( array( '1' => $array[10],
-                            '2' => $array[11],
-                            '3' => $array[12],
-                            '4' => $array[13],
-                            '5' => $array[14],
-                            '6' => $array[15]));
-                        $answerRight = $array[16].','.$array[17].','
-                            .$array[18];
-                        if(isset($array[19])){
-                            $capture = $array[19];
-                        }
-                    }
+                        $this->insertTestHard($array);}
 
                     if($form->getValue('type') == 4){
-                        $answers = '';
-                        $answersUa = '';
-                        $answerRight = $array[4];
-                        if(isset($array[5])){
-                            $capture = $array[5];
-                        }
-                    }
+                        $this->insertTestTask($array);}
 
-                    $data = array(
-                        'name' => $array[0],
-                        'nameUa' => $array[1],
-                        'topicId' => $array[2],
-                        'cost' => $array[3],
-                        'type' => $form->getValue('type'),
-                        'answers' => $answers,
-                        'answersUa' => $answersUa,
-                        'answerRight' => $answerRight,
-                        'capture' => $capture
 
-                    );
-                    $question->addQuestion($data);
 
 
                 }
+                $this->_helper->redirector('uploadtest', 'test');
             } else {
 
                 $form->populate($formData);
             }
         }
+    }
+
+
+    public function insertTestLight($array)
+    {
+        $capture = '';
+        $question = new Application_Model_DbTable_Question();
+        if(isset($array[4])){
+            $answers = serialize(array(   '0' => $array[4],
+                '1' => $array[5],
+                '2' => $array[6],
+                '3' => $array[7]));}
+        else{
+            $answers = '';
+        }
+        if(isset($array[4])){
+            $answersUa = serialize(array(   '0' => $array[8],
+                '1' => $array[9],
+                '2' => $array[10],
+                '3' => $array[11]));} else
+        {$answersUa = '';}
+        $answerRight = $array[12];
+        if(isset($array[13])){
+            $capture = $array[13];
+        }
+
+        $data = array(
+            'name' => $array[0],
+            'nameUa' => $array[1],
+            'topicId' => $array[2],
+            'cost' => $array[3],
+            'type' => 0,
+            'answers' => $answers,
+            'answersUa' => $answersUa,
+            'answerRight' => $answerRight,
+            'capture' => $capture
+
+        );
+        $question->addQuestion($data);
+    }
+
+
+    public function insertTestMiddle($array)
+    {
+        $capture = '';
+        $question = new Application_Model_DbTable_Question();
+        if(isset($array[4])){
+        $answers = serialize(array( '1' => $array[4],
+            '2' => $array[5],
+            '3' => $array[6],
+            '4' => $array[7],
+            'A' => $array[8],
+            'B' => $array[9],
+            'C' => $array[10],
+            'D' => $array[11],
+            'E' => $array[12]));} else{
+            $answers = serialize(array( '1' => $array[4],
+                '2' => $array[5],
+                '3' => $array[6],
+                '4' => $array[7],
+                'A' => '-',
+                'B' => '-',
+                'C' => '-',
+                'D' => '-',
+                'E' => '-'));
+        }
+        if(isset($array[4])){
+        $answersUa = serialize(array( '1' => $array[13],
+            '2' => $array[14],
+            '3' => $array[15],
+            '4' => $array[16],
+            'A' => $array[17],
+            'B' => $array[18],
+            'C' => $array[19],
+            'D' => $array[20],
+            'E' => $array[21]));
+        } else {
+            $answersUa = serialize(array( '1' => $array[13],
+                '2' => $array[14],
+                '3' => $array[15],
+                '4' => $array[16],
+                'A' => '-',
+                'B' => '-',
+                'C' => '-',
+                'D' => '-',
+                'E' => '-'));
+        }
+        $answerRight = serialize(array( '1' => $array[22],
+            '2' => $array[23],
+            '3' => $array[24],
+            '4' => $array[25]));
+        if(isset($array[26])){
+            $capture = $array[26];
+        }
+
+        $data = array(
+            'name' => $array[0],
+            'nameUa' => $array[1],
+            'topicId' => $array[2],
+            'cost' => $array[3],
+            'type' => 2,
+            'answers' => $answers,
+            'answersUa' => $answersUa,
+            'answerRight' => $answerRight,
+            'capture' => $capture
+
+        );
+        $question->addQuestion($data);
+
+    }
+
+    public function insertTestHard($array)
+    {
+        $capture = '';
+        $question = new Application_Model_DbTable_Question();
+        $answers = serialize( array( '1' => $array[4],
+            '2' => $array[5],
+            '3' => $array[6],
+            '4' => $array[7],
+            '5' => $array[8],
+            '6' => $array[9]));
+
+        $answersUa = serialize( array( '1' => $array[10],
+            '2' => $array[11],
+            '3' => $array[12],
+            '4' => $array[13],
+            '5' => $array[14],
+            '6' => $array[15]));
+        $answerRight = $array[16].','.$array[17].','
+            .$array[18];
+        if(isset($array[19])){
+            $capture = $array[19];
+        }
+
+        $data = array(
+            'name' => $array[0],
+            'nameUa' => $array[1],
+            'topicId' => $array[2],
+            'cost' => $array[3],
+            'type' => 3,
+            'answers' => $answers,
+            'answersUa' => $answersUa,
+            'answerRight' => $answerRight,
+            'capture' => $capture
+
+        );
+        $question->addQuestion($data);
+    }
+
+    public function insertTestTask($array)
+    {
+        $capture = '';
+        $question = new Application_Model_DbTable_Question();
+        $answers = '';
+        $answersUa = '';
+        $answerRight = $array[4];
+        if(isset($array[5])){
+            $capture = $array[5];
+        }
+
+        $data = array(
+            'name' => $array[0],
+            'nameUa' => $array[1],
+            'topicId' => $array[2],
+            'cost' => $array[3],
+            'type' => 4,
+            'answers' => $answers,
+            'answersUa' => $answersUa,
+            'answerRight' => $answerRight,
+            'capture' => $capture
+
+        );
+        $question->addQuestion($data);
     }
 
     public function getXLS($xls){
@@ -1093,5 +1191,185 @@ class TestController extends Zend_Controller_Action
             ->order('result DESC')
             ->order('time ASC'));
         $this->view->results = $results;}
+    }
+
+
+    public function randomAction(){
+        $form = new Application_Form_Addtest();
+        $request = new Zend_Controller_Request_Http();
+        $lang = $request->getCookie('lang');
+        if($lang == "ua"){
+            $topics = new Application_Model_DbTable_Topic();
+            $form->topic->addMultiOptions($topics->arrayUaSelect());
+            $form->name->setLabel("Назва тесту російською:");
+            $form->nameUa->setLabel("Назва тесту українською:");
+            $form->comments->setLabel("Коментар:");
+            $form->add->setLabel("Додати тест");
+        }
+        $this->view->form = $form;
+        if ($this->getRequest()->isPost()) {
+            // Принимаем его
+            $formData = $this->getRequest()->getPost();
+
+            // Если форма заполнена верно
+            if ($form->isValid($formData)) {
+                $data = array(
+                    'name' => $form->getValue('name'),
+                    'nameUa' => $form->getValue('nameUa'),
+                    'author' => Zend_Auth::getInstance()->getIdentity()->username,
+                    'userId' => Zend_Auth::getInstance()->getIdentity()->id,
+                    'topicId' => $form->getValue('topic'),
+                    'comments' => $form->getValue('comments'),
+
+                );
+
+                $test = new Application_Model_DbTable_Test();
+
+                $test->addTest($data);
+
+                        $testId = $test->getAdapter()->lastInsertId();
+                        $this->randomTestZNO($testId,$form->getValue('pattern'));
+
+
+
+            } else {
+
+                $form->populate($formData);
+            }
+        }
+    }
+
+    public function randomTestZNO($testId, $patternId){
+
+        $array = array();
+        $patterns = new Application_Model_DbTable_Pattern();
+        $arrayPattern = $patterns->getPattern($patternId);
+        $structure = unserialize($arrayPattern['structure']);
+        foreach ($structure as $struct){
+            $array = array_merge($array,$this->getRandomQuestion($struct['type'],$struct['col'],$struct['class']));
+        }
+
+
+        $rel = new Application_Model_DbTable_Testquestionrel();
+        $i = 1;
+        foreach($array as $quest){
+            $data = array(
+                'testId' => $testId,
+                'questionId' => $quest['id'],
+                'number' => $i
+            );
+           $rel->addTestquestionrel($data);
+           $i++;
+        }
+    }
+
+    public function getRandomQuestion($type, $col, $class){
+        $qustion = new Application_Model_DbTable_Question();
+        $qustionQuery = $qustion->fetchAll($qustion->select()->where("type = ".$type)->where('topicId = '.$class)->order('RAND()')->limit($col));
+        return $qustionQuery->toArray();
+    }
+
+
+    public function patternAction(){
+        $form = new Application_Form_Pattern();
+
+        $this->view->form = $form;
+
+        if ($this->getRequest()->isPost()) {
+            // Принимаем его
+            $formData = $this->getRequest()->getPost();
+
+            // Если форма заполнена верно
+            if ($form->isValid($formData)) {
+
+                $structure = serialize($this->constructPattern($form));
+                $data = array(
+                    'name' => $form->getValue('name'),
+                    'text' => $form->getValue('text'),
+                    'structure' => $structure
+                );
+                $pattern = new Application_Model_DbTable_Pattern();
+                $pattern->addPattern($data);
+            } else {
+                $form->populate($formData);
+            }
+        }
+    }
+
+    public function constructPattern($form){
+        $arrayAll = array();
+        for($i = 6; $i < 11; $i++){
+        $array = $this->getArrayPattern($form,'typeOneClass'.$i,0,$i);
+        if($array){ $arrayAll[] = $array; }
+        }
+
+        for($i = 6; $i < 11; $i++){
+            $array = $this->getArrayPattern($form,'typeTwoClass'.$i,2,$i);
+            if($array){ $arrayAll[] = $array; }
+        }
+
+        for($i = 6; $i < 11; $i++){
+            $array = $this->getArrayPattern($form,'typeThreeClass'.$i,3,$i);
+            if($array){ $arrayAll[] = $array; }
+        }
+
+        for($i = 6; $i < 11; $i++){
+            $array = $this->getArrayPattern($form,'typeFourClass'.$i,4,$i);
+            if($array){ $arrayAll[] = $array; }
+        }
+        return $arrayAll;
+    }
+
+    public function getArrayPattern($form, $name, $type, $class){
+        if($form->getValue($name)!=0){
+            $array = array('type'=> $type, 'col' => $form->getValue($name), 'class'=>$class);}
+        if(isset($array)){
+            return $array;
+        } else { return false;}
+
+    }
+
+    public function allpatternAction(){
+        $pattern = new Application_Model_DbTable_Pattern();
+        $this->view->pattern = $pattern->fetchAll();
+    }
+
+
+    public function deletepatternAction()
+    {
+        // Если к нам идёт Post запрос
+        if ($this->getRequest()->isPost()) {
+            // Принимаем значение
+            $del = $this->getRequest()->getPost('del');
+
+            // Если пользователь подтвердил своё желание удалить запись
+            if ($del == 'Да' || $del == 'Так' ) {
+                // Принимаем id записи, которую хотим удалить
+                $id = $this->getRequest()->getPost('id');
+
+                // Создаём объект модели
+                $pattern = new Application_Model_DbTable_Pattern();
+
+                $pattern->deletePattern($id);
+            }
+
+            // Используем библиотечный helper для редиректа на action = index
+            $this->_helper->redirector('construct', 'test');
+        } else {
+            // Если запрос не Post, выводим сообщение для подтверждения
+            // Получаем id записи, которую хотим удалить
+            $id = $this->_getParam('id');
+
+            // Создаём объект модели
+            $pattern = new Application_Model_DbTable_Pattern();
+
+            // Достаём запись и передаём в view
+            $this->view->pattern = $pattern->getPattern($id);
+        }
+    }
+
+    public function allquestionAction(){
+        $question = new Application_Model_DbTable_Question();
+        $this->view->question = $question->fetchAll();
     }
 }

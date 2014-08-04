@@ -4,11 +4,11 @@ if ($this->lang == "ua"){
     $this->headTitle($this->title);
     ?>
     <p>Ви дійсно хочете видалити підкатегорію
-        '<?php echo $this->escape($this->category['nameUa']); ?>'?
+        '<?php echo $this->escape($this->subcategory['nameUa']); ?>'?
     </p>
     <form action="<?php echo $this->url(array('action' => 'deletesubcat')); ?>" method="post">
         <div>
-            <input type="hidden" name="id" value="<?php echo $this->category['id']; ?>"/>
+            <input type="hidden" name="id" value="<?php echo $this->subcategory['id']; ?>"/>
             <input type="submit" name="del" value="Так"/>
             <input type="submit" name="del" value="Ні"/>
         </div>
@@ -17,11 +17,11 @@ if ($this->lang == "ua"){
     $this->headTitle($this->title);
     ?>
     <p>Вы действительно хотите удалить подкатегорию
-        '<?php echo $this->escape($this->category['name']); ?>'?
+        '<?php echo $this->escape($this->subcategory['name']); ?>'?
     </p>
     <form action="<?php echo $this->url(array('action' => 'deletesubcat')); ?>" method="post">
         <div>
-            <input type="hidden" name="id" value="<?php echo $this->category['id']; ?>"/>
+            <input type="hidden" name="id" value="<?php echo $this->subcategory['id']; ?>"/>
             <input type="submit" name="del" value="Да"/>
             <input type="submit" name="del" value="Нет"/>
         </div>
