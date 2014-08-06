@@ -88,9 +88,9 @@ echo $this->doctype();
 
     <div class="single-item">
         <div class="image"><img src="/img/capture01.png"></div>
+        <div class="image"><img src="/img/capture02.png"></div>
         <div class="image"><img src="/img/capture01.png"></div>
-        <div class="image"><img src="/img/capture01.png"></div>
-        <div class="image"><img src="/img/capture01.png"></div>
+        <div class="image"><img src="/img/capture02.png"></div>
     </div>
 
 
@@ -126,7 +126,12 @@ echo $this->doctype();
 
     <script type="text/javascript">
         $(document).ready(function(){
-            $('.single-item').slick({dots: true, arrows: false});
+            $('.single-item').slick({
+                autoplay: true,
+                fade: true,
+                speed:700,
+                dots: true,
+                arrows: false});
         });
     </script>
 
