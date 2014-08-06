@@ -7,7 +7,7 @@ class Application_Form_TestsThree extends Zend_Form
     {
 
         // указываем имя формы
-
+        $this->setName('testThree');
         $answerOne = new Zend_Form_Element_Select('answerOne');
 
         // задаём ему label и отмечаем как обязательное поле;

@@ -5,11 +5,12 @@ class Application_Form_TestsFour extends Zend_Form
 {
     public function init()
     {
+        $this->setName('testFour');
         $answer = new Zend_Form_Element_Text('answer');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $answer->setRequired(true);
+        $answer->setRequired(true)->setLabel("Введите ответ");
 
         $submit = new Zend_Form_Element_Submit('add');
         $submit->setAttrib('class','btn btn-success')->setLabel('Далее');

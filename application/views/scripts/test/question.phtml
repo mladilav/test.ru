@@ -56,4 +56,23 @@ echo $this->capture; ?>
 
 <?php echo $this->form; ?>
 
+
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#testOne label').click(function(){
+            $('#testOne label').css('background-position','0px -0px');
+            $('#testOne label').find('input:checked').parent('#testOne label').css('background-position','0px -54px');
+        });
+        $('#testOne label').hover(function(){
+            $('#testOne label').css('background-position','0px 0px');
+            $(this).css('background-position','0px -18px');
+            $('#testOne label').find('input:checked').parent('#testOne label').css('background-position','0px -72px');
+            $(this).find('input:checked').parent('#testOne label').css('background-position','0px -90px');
+        });
+        $('#testOne label').mouseout(function(){
+            $(this).find('input:checked').parent('#testOne label').css('background-position','0px -72px');});
+    });
+
+</script>

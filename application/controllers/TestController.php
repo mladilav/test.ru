@@ -278,7 +278,7 @@ class TestController extends Zend_Controller_Action
             $this->view->answer = $answer;
 
             if ($questions["capture"] != NULL) {
-                $this->view->capture = '<img src ="' . $questions["capture"] . '" align="right" width="500px">';
+                $this->view->capture = '<img src ="' . $questions["capture"] . '">';
             }
             $this->view->form = $form;
 

@@ -5,6 +5,7 @@ class Application_Form_TestsOne extends Zend_Form
 {
     public function init()
     {
+        $this->setName('testOne');
         $answer = new Zend_Form_Element_Radio('answer');
 
         // задаём ему label и отмечаем как обязательное поле;

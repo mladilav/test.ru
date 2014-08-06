@@ -12,7 +12,9 @@ body{
     text-align: center;
 
 }
-
+.leftBar  li{
+    text-indent: -12px;
+}
 .leftBar ul li,.leftBar .accordion {
     text-align: left;
 }
@@ -41,7 +43,7 @@ body{
     background-image: linear-gradient(to bottom, #71ab1d, #53840c);
     background-repeat: repeat-x;
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-    color: #ffffff;
+    color: #ffffff!important;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -57,13 +59,12 @@ a:hover {
 
 .header{
     background-image: url("/img/banner.png");
-    background-position: center center;
+    background-position: left center;
     background-repeat: no-repeat;
     height: 110px;
-    margin-bottom: 5px;
+    margin-bottom: 20px;
     margin-top: 20px;
     text-align: right;
-
 }
 .header p {
     padding-top: 90px;
@@ -263,4 +264,85 @@ input[type="color"]:focus,
 .single-item img{
     border-radius: 5px;
 }
+.question img{
+    width: 80%;
+    margin-left:10%;
+}
 
+#testOne label{
+    float: left;
+    font-size: 16px;
+    margin: -25px 30px 0px 0px;
+ }
+
+
+#testOne label input[type="radio"]{
+    margin: 0;
+    margin-right: 6px;
+}
+
+#testTwo dt,#testTwo dd {
+    float: left;
+}
+#testTwo select{
+    width: 52px;
+    margin: 0px 68px 0px 0px;
+}
+#testTwo dt{
+    padding-top: 5px;
+}
+
+#testThree dt,#testThree dd {
+    float: left;
+}
+#testThree select{
+    width: 52px;
+    margin: 0px 117px 0px 0px;
+}
+#testThree dt{
+    padding-top: 5px;
+}
+#testFour dt{
+    float: left;
+    padding-top: 5px;
+    margin-right: 10px;
+}
+
+#testFour input[type="text"]{
+    width: 432px;
+}
+#testFour dd{
+    float: left;
+}
+.question h4{
+    color: #2a4602;
+}
+
+
+
+
+
+
+
+#testOne label input[type="radio"] {
+    display:none;}
+
+#testOne label {
+    display: inline-block;
+    height: 18px;
+    width: 36px;
+    margin: 0 25px 0 0;
+    background-image: url(/img/butoons_tick.png);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    text-align: right;
+}
+
+
+#testOne label:hover {
+    background-position: 0px -18px;
+}
+
+#testOne label:active {
+    background-position: 0px -36px;
+}
