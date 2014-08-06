@@ -29,16 +29,16 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="9" selection-start="248" selection-end="248" vertical-scroll-proportion="0.39016393" vertical-offset="0" max-vertical-offset="6018">
+            <state line="69" column="23" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.30327868" vertical-offset="988" max-vertical-offset="6188">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="question.phtml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/scripts/test/question.phtml">
+      <file leaf-file-name="profile.phtml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/user/profile.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="101" selection-start="2696" selection-end="2696" vertical-scroll-proportion="0.0" vertical-offset="1258" max-vertical-offset="1411">
+            <state line="32" column="13" selection-start="1856" selection-end="1856" vertical-scroll-proportion="-10.538462" vertical-offset="270" max-vertical-offset="952">
               <folding />
             </state>
           </provider>
@@ -47,7 +47,7 @@
       <file leaf-file-name="layout.phtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="13" selection-start="4097" selection-end="4259" vertical-scroll-proportion="0.0" vertical-offset="2210" max-vertical-offset="2397">
+            <state line="114" column="21" selection-start="3701" selection-end="3704" vertical-scroll-proportion="-8.730769" vertical-offset="1711" max-vertical-offset="2397">
               <folding />
             </state>
           </provider>
@@ -124,7 +124,6 @@
         <option value="$PROJECT_DIR$/application/views/scripts/index/post.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/rating.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/user/profile.phtml" />
         <option value="$PROJECT_DIR$/application/models/Menu.php" />
         <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/analytic.phtml" />
@@ -149,6 +148,7 @@
         <option value="$PROJECT_DIR$/application/forms/TestsFour.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/build.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/question.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/user/profile.phtml" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
       </list>
     </option>
@@ -341,6 +341,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test.ru" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test.ru" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="user" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -720,11 +746,6 @@
         <state line="0" column="22" selection-start="22" selection-end="22" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/profile.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="18" selection-start="1573" selection-end="1573" vertical-scroll-proportion="0.0" vertical-offset="346" max-vertical-offset="918" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1167" column="0" selection-start="16414" selection-end="17221" vertical-scroll-proportion="0.0" vertical-offset="19461" max-vertical-offset="104941" />
@@ -886,13 +907,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="584" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="13" selection-start="4097" selection-end="4259" vertical-scroll-proportion="0.0" vertical-offset="1813" max-vertical-offset="2397">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="280" column="81" selection-start="10372" selection-end="10372" vertical-scroll-proportion="0.0" vertical-offset="4697" max-vertical-offset="23460">
@@ -923,14 +937,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/test/question.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="101" selection-start="2696" selection-end="2696" vertical-scroll-proportion="0.0" vertical-offset="1258" max-vertical-offset="1411">
+        <state line="74" column="101" selection-start="2696" selection-end="2696" vertical-scroll-proportion="0.7380137" vertical-offset="827" max-vertical-offset="1411">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="21" selection-start="3701" selection-end="3704" vertical-scroll-proportion="-8.730769" vertical-offset="1711" max-vertical-offset="2397">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/profile.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="13" selection-start="1856" selection-end="1856" vertical-scroll-proportion="-10.538462" vertical-offset="270" max-vertical-offset="952">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="9" selection-start="248" selection-end="248" vertical-scroll-proportion="0.39016393" vertical-offset="0" max-vertical-offset="6018">
+        <state line="69" column="23" selection-start="1336" selection-end="1336" vertical-scroll-proportion="0.30327868" vertical-offset="988" max-vertical-offset="6188">
           <folding />
         </state>
       </provider>

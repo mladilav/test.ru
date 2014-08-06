@@ -27,8 +27,10 @@
             <a href="/auth/regtw">bind</a>
         <?php }; ?></li>
 </ul>
+    <?php if (Zend_Auth::getInstance()->getIdentity()->id == $this->user['id']){ ?>
     <a href="/user/edit/id/<?php echo Zend_Auth::getInstance()->getIdentity()->id; ?>" class="btn btn-success">
         <?php if($this->lang == "ua") echo 'Редагувати:'; else echo 'Редактировать:';?></a>
+    <?php }?>
     <hr>
 <?php if (Zend_Auth::getInstance()->getIdentity()->id == $this->user['id']){ ?>
     <h4 class="text-success"><img src="/img/profile-result.png">

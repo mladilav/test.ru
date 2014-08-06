@@ -13,7 +13,7 @@ body{
 
 }
 .leftBar  li{
-    text-indent: -12px;
+    text-indent:0px;
 }
 .leftBar ul li,.leftBar .accordion {
     text-align: left;
@@ -67,7 +67,7 @@ a:hover {
     text-align: right;
 }
 .header p {
-    padding-top: 90px;
+    padding-top: 110px;
     padding-right: 20px;
 }
 .navbar{
@@ -154,6 +154,16 @@ a:hover {
 }
 
 
+.footer .dropdown-menu li{
+    float: left;
+    font-weight: normal;
+    display: block;
+    list-style-type: none;
+    padding-right: 0px;
+    font-size: 14px;
+    min-width: 250px;
+    text-align: left;
+}
 
 
 .btn-success:hover, .btn-success:focus, .btn-success:active, .btn-success.active, .btn-success.disabled, .btn-success[disabled] {
