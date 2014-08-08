@@ -8,7 +8,6 @@ class AuthController extends Zend_Controller_Action
         $array = array();
         $part= new Application_Model_Part($array);
         $menu= new Application_Model_Menu();
-        $test= new Application_Model_Tests($array);
         $request = new Zend_Controller_Request_Http();
         $lang = $request->getCookie('lang');
         $this->view->lang = $lang;
@@ -251,7 +250,8 @@ class AuthController extends Zend_Controller_Action
 
 
                 // Вызываем метод модели addMovie для вставки новой записи
-                $user->addUsers($username, md5($password), md5($password_rep), $email, $photo, $gender,$class,$letter, $date_reg, $role, $vk, $fc, $tw);
+                $user->addUsers($username, md5($password), md5($password_rep), $email, $photo, $gender,$class,$letter,
+                    $date_reg, $role, $vk, $fc, $tw);
 
                 // Используем библиотечный helper для редиректа на action = index
                 $this->authreg($username, md5($password));
@@ -315,19 +315,11 @@ class AuthController extends Zend_Controller_Action
             if ($result) {
                 $user = new Application_Model_DbTable_User();
                 if (Zend_Auth::getInstance()->hasIdentity()) {
-                    $username = Zend_Auth::getInstance()->getIdentity()->username;
-                    $vk = $userInfo['id'];
-                    $fc = Zend_Auth::getInstance()->getIdentity()->fc;
-                    $tw = Zend_Auth::getInstance()->getIdentity()->tw;
-                    $password = Zend_Auth::getInstance()->getIdentity()->password;
-                    $password_rep = Zend_Auth::getInstance()->getIdentity()->password;
-                    $email = Zend_Auth::getInstance()->getIdentity()->email;
-                    $photo = Zend_Auth::getInstance()->getIdentity()->photo;
-                    $gender = Zend_Auth::getInstance()->getIdentity()->gender;
-                    $date_reg = Zend_Auth::getInstance()->getIdentity()->date_reg;
-                    $role = Zend_Auth::getInstance()->getIdentity()->role;
-                    $id = Zend_Auth::getInstance()->getIdentity()->id;
-                    $user->updateUser($id, $username, $password, $password_rep, $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw);
+
+                    $data = array(
+                    'vk' => $userInfo['id'],
+                    'id' => Zend_Auth::getInstance()->getIdentity()->id,);
+                    $user->updateUser($data);
                     $this->_helper->redirector('profile', 'user');
                 } else {
                     $username = $userInfo['uid'];
@@ -345,7 +337,7 @@ class AuthController extends Zend_Controller_Action
                     }
                     $date_reg = time();
                     $role = 'guest';
-                    $user->addUsers($username, $password, $password_rep, $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw);
+                    $user->addUsers($username, $password, $password_rep, $email, $photo, $gender,'','', $date_reg, $role, $vk, $fc, $tw);
                     $this->authreg($username, $password);
                 }
             }
@@ -401,19 +393,12 @@ class AuthController extends Zend_Controller_Action
             if ($result) {
                 $user = new Application_Model_DbTable_User();
                 if (Zend_Auth::getInstance()->hasIdentity()) {
-                    $username = Zend_Auth::getInstance()->getIdentity()->username;
-                    $fc = $userInfo['id'];
-                    $vk = Zend_Auth::getInstance()->getIdentity()->vk;
-                    $tw = Zend_Auth::getInstance()->getIdentity()->tw;
-                    $password = Zend_Auth::getInstance()->getIdentity()->password;
-                    $password_rep = Zend_Auth::getInstance()->getIdentity()->password;
-                    $email = Zend_Auth::getInstance()->getIdentity()->email;
-                    $photo = Zend_Auth::getInstance()->getIdentity()->photo;
-                    $gender = Zend_Auth::getInstance()->getIdentity()->gender;
-                    $date_reg = Zend_Auth::getInstance()->getIdentity()->date_reg;
-                    $role = Zend_Auth::getInstance()->getIdentity()->role;
-                    $id = Zend_Auth::getInstance()->getIdentity()->id;
-                    $user->updateUser($id, $username, $password, $password_rep, $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw);
+                   $data = array(
+
+                    'fc' => $userInfo['id'],
+                    'id' => Zend_Auth::getInstance()->getIdentity()->id,
+                );
+                    $user->updateUser($data);
                     $this->_helper->redirector('profile', 'user');
                 } else {
                     $username = $userInfo['id'];
@@ -427,7 +412,8 @@ class AuthController extends Zend_Controller_Action
                     $gender = $userInfo['gender'];
                     $date_reg = time();
                     $role = 'guest';
-                    $user->addUsers($username, $password, $password_rep, $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw);
+                    $user->addUsers($username, $password, $password_rep, $email, $photo, $gender,'','',
+                        $date_reg, $role, $vk, $fc, $tw);
                     $this->authreg($username, $password);
                 }
 
@@ -582,19 +568,12 @@ class AuthController extends Zend_Controller_Action
             $user_data = json_decode($response, true);
             $user = new Application_Model_DbTable_User();
             if (Zend_Auth::getInstance()->hasIdentity()) {
-                $username = Zend_Auth::getInstance()->getIdentity()->username;
-                $tw = $user_data['id'];
-                $vk = Zend_Auth::getInstance()->getIdentity()->vk;
-                $fc = Zend_Auth::getInstance()->getIdentity()->fc;
-                $password = Zend_Auth::getInstance()->getIdentity()->password;
-                $password_rep = Zend_Auth::getInstance()->getIdentity()->password;
-                $email = Zend_Auth::getInstance()->getIdentity()->email;
-                $photo = Zend_Auth::getInstance()->getIdentity()->photo;
-                $gender = Zend_Auth::getInstance()->getIdentity()->gender;
-                $date_reg = Zend_Auth::getInstance()->getIdentity()->date_reg;
-                $role = Zend_Auth::getInstance()->getIdentity()->role;
-                $id = Zend_Auth::getInstance()->getIdentity()->id;
-                $user->updateUser($id, $username, $password, $password_rep, $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw);
+
+                $data = array(
+                'tw' => $user_data['id'],
+                'id' => Zend_Auth::getInstance()->getIdentity()->id,);
+
+                $user->updateUser($data);
                 $this->_helper->redirector('profile', 'user');
             } else {
                 $username = $user_data['id'];
@@ -610,7 +589,8 @@ class AuthController extends Zend_Controller_Action
                 $date_reg = time();
                 $role = 'guest';
 
-                $user->addUsers($username, $password, $password_rep, $email, $photo, $gender, $date_reg, $role, $vk, $fc, $tw);
+                $user->addUsers($username, $password, $password_rep, $email, $photo, $gender,'','', $date_reg, $role,
+                    $vk, $fc, $tw);
                 $this->authreg($username, $password);
             }
         }
