@@ -591,7 +591,7 @@ class AuthController extends Zend_Controller_Action
                 $date_reg = time();
                 $role = 'guest';
 
-                $user->addUsers($username, $password, $password_rep, $email, $photo, $gender,$class,$letter, $date_reg, $role, $vk, $fc, $tw);
+                $user->addUsers($username, $password, $password_r, $email, $photo, $gender,$class,$letter, $date_reg, $role, $vk, $fc, $tw);
                 $this->authreg($username, $password);
             }
         }
