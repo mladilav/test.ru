@@ -579,13 +579,12 @@ class AuthController extends Zend_Controller_Action
             } else {
                 $username = $user_data['id'];
                 $password = md5($user_data['id']);
-                $password_rep = md5($user_data['id']);
+                $password_r = md5($user_data['id']);
                 $tw = $user_data['id'];
                 $vk = '';
                 $fc = '';
                 $class = '';
                 $letter = '';
-                $password_rep = $user_data['id'];
                 $email = '';
                 $photo = $user_data['profile_image_url'];
                 $gender = '';
