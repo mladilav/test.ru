@@ -276,7 +276,7 @@ class AuthController extends Zend_Controller_Action
             $this->_helper->redirector('index', 'index');
         }
 
-        $client_id = '4485744 '; // ID приложения
+        $client_id = '4485744'; // ID приложения
         $client_secret = '9JYDwQ0AptHRMFRRr6ma'; // Защищённый ключ
         $redirect_uri = 'http://moregeo.com/auth/regvk'; // Адрес сайта
         $url = 'http://oauth.vk.com/authorize';
@@ -315,7 +315,6 @@ class AuthController extends Zend_Controller_Action
             if ($result) {
                 $user = new Application_Model_DbTable_User();
                 if (Zend_Auth::getInstance()->hasIdentity()) {
-
                     $data = array(
                     'vk' => $userInfo['id'],
                     'id' => Zend_Auth::getInstance()->getIdentity()->id,);
@@ -326,6 +325,8 @@ class AuthController extends Zend_Controller_Action
                     $vk = $userInfo['uid'];
                     $fc = '';
                     $tw = '';
+                    $class = '';
+                    $letter = '';
                     $password = md5($userInfo['uid']);
                     $password_rep = md5($userInfo['uid']);
                     $email = '';
@@ -337,7 +338,7 @@ class AuthController extends Zend_Controller_Action
                     }
                     $date_reg = time();
                     $role = 'guest';
-                    $user->addUsers($username, $password, $password_rep, $email, $photo, $gender,'','', $date_reg, $role, $vk, $fc, $tw);
+                    $user->addUsers($username, $password, $password_rep, $email, $photo, $gender,$class,$letter, $date_reg, $role, $vk, $fc, $tw);
                     $this->authreg($username, $password);
                 }
             }
@@ -582,6 +583,8 @@ class AuthController extends Zend_Controller_Action
                 $tw = $user_data['id'];
                 $vk = '';
                 $fc = '';
+                $class = '';
+                $letter = '';
                 $password_rep = $user_data['id'];
                 $email = '';
                 $photo = $user_data['profile_image_url'];
@@ -589,8 +592,7 @@ class AuthController extends Zend_Controller_Action
                 $date_reg = time();
                 $role = 'guest';
 
-                $user->addUsers($username, $password, $password_rep, $email, $photo, $gender,'','', $date_reg, $role,
-                    $vk, $fc, $tw);
+                $user->addUsers($username, $password, $password_rep, $email, $photo, $gender,$class,$letter, $date_reg, $role, $vk, $fc, $tw);
                 $this->authreg($username, $password);
             }
         }

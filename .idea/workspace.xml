@@ -47,7 +47,7 @@
       <file leaf-file-name="AuthController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="592" column="20" selection-start="23133" selection-end="23133" vertical-scroll-proportion="0.55341506" vertical-offset="9748" max-vertical-offset="10982">
+            <state line="594" column="140" selection-start="23268" selection-end="23268" vertical-scroll-proportion="-0.6077058" vertical-offset="10445" max-vertical-offset="11016">
               <folding />
             </state>
           </provider>
@@ -56,7 +56,7 @@
       <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/DbTable/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="20" selection-start="783" selection-end="783" vertical-scroll-proportion="-3.3846154" vertical-offset="371" max-vertical-offset="1411">
+            <state line="27" column="137" selection-start="792" selection-end="900" vertical-scroll-proportion="-7.3076925" vertical-offset="269" max-vertical-offset="1411">
               <folding />
             </state>
           </provider>
@@ -168,7 +168,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -537,6 +536,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -619,11 +619,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937106" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39937106" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.0" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -918,6 +918,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="137" selection-start="792" selection-end="900" vertical-scroll-proportion="-7.3076925" vertical-offset="269" max-vertical-offset="1411">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/user/profile.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="32" column="13" selection-start="1856" selection-end="1856" vertical-scroll-proportion="-6.269231" vertical-offset="381" max-vertical-offset="952">
@@ -925,16 +932,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="20" selection-start="783" selection-end="783" vertical-scroll-proportion="-3.3846154" vertical-offset="371" max-vertical-offset="1411">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="592" column="20" selection-start="23133" selection-end="23133" vertical-scroll-proportion="0.55341506" vertical-offset="9748" max-vertical-offset="10982">
+        <state line="594" column="140" selection-start="23268" selection-end="23268" vertical-scroll-proportion="-0.6077058" vertical-offset="10445" max-vertical-offset="11016">
           <folding />
         </state>
       </provider>
