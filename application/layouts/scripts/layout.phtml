@@ -74,15 +74,17 @@ echo $this->doctype();
 
 
 <div class="container">
-    <div class="header"><p><?php echo $this->layout()->auth;?></p></div>
+    <div class="header"><p></p></div>
 <div class="navbar">
     <div class="navbar-inner">
 
         <ul class="nav">
             <?php echo $this->layout()->menu;?>
         </ul>
+
         <a href="/index/lang/lang/ua"><img src="/img/Ukraine-Flag.png"></a>
         <a href="/index/lang/lang/ru"><img src="/img/Russia-Flag.png"></a>
+        <p><?php echo $this->layout()->auth;?></p>
     </div>
 </div>
 

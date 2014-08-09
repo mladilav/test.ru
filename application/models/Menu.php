@@ -64,11 +64,12 @@ class Application_Model_Menu
         if (Zend_Auth::getInstance()->getIdentity())
         {
             $result = '<a href="/user/profile/id/'.Zend_Auth::getInstance()->getIdentity()->id.'">Личный кабинет </a>';
-            $result = $result.'/ <a href="/auth/logout">Выход</a>';
+            $result = $result.' <a href="/auth/logout">Выход</a>';
         }
         else {
-            $result = '<a href="/auth/login">Вход</a>';
-            $result .= '/<a href="/auth/registration">Регистрация</a>';
+            $result = '<a class="regist" href="/auth/registration">Регистрация</a>';
+            $result .= '<a href="/auth/login">Вход</a>';
+
 
         }
         return $result;
@@ -79,12 +80,11 @@ class Application_Model_Menu
         if (Zend_Auth::getInstance()->getIdentity())
         {
             $result = '<a href="/user/profile/id/'.Zend_Auth::getInstance()->getIdentity()->id.'">Особистий кабінет</a>';
-            $result = $result.'/ <a href="/auth/logout">Вихід</a>';
+            $result = $result.'<a href="/auth/logout">Вихід</a>';
         }
         else {
-            $result = '<a href="/auth/login">Вхід</a>';
-            $result .= '/<a href="/auth/registration">Реєстрація</a>';
-
+            $result = '<a class="regist" href="/auth/registration">Реєстрація</a>';
+            $result .= '<a href="/auth/login">Вхід</a>';
         }
         return $result;
     }

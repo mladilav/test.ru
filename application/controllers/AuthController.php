@@ -145,7 +145,9 @@ class AuthController extends Zend_Controller_Action
             'redirect_uri' => $redirect_uri,
             'response_type' => 'code'
         );
-        echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Регисрация через ВКонтакте</a></p>';
+        echo $link = '<div class="social">
+        Зарегистрироваться через социальные сети
+        <a href="' . $url . '?' . urldecode(http_build_query($params)) . '"><img src="/img/vkontakte.png" ></a>';
 
 
         // Регистрация через facebook
@@ -162,7 +164,7 @@ class AuthController extends Zend_Controller_Action
             'scope' => 'email,user_birthday'
         );
 
-        echo $link = '<p><a href="' . $url . '?' . urldecode(http_build_query($params)) . '">Регистрация через Facebook</a></p>';
+        echo $link = '<a href="' . $url . '?' . urldecode(http_build_query($params)) . '"><img src="/img/facebook.png"></a>';
 
 
         //Регистрация через twitter
@@ -220,7 +222,7 @@ class AuthController extends Zend_Controller_Action
 
         $link = AUTHORIZE_URL . '?oauth_token=' . $oauth_token;
 
-        echo '<a href="' . $link . '">Регистрация Twitter</a>';
+        echo '<a href="' . $link . '"><img src="/img/twitter.png" ></a></div>';
 
         // Если к нам идёт Post запрос
         if ($this->getRequest()->isPost()) {

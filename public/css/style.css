@@ -86,6 +86,7 @@ a:hover {
 .navbar a img {
     margin-left: 8px;
     padding-top: 11px;
+    float: right;
 
 }
 .slick-dots li button:before {
@@ -360,4 +361,24 @@ input[type="color"]:focus,
 
 #testOne label:active {
     background-position: 0px -36px;
+}
+
+.navbar-inner p{
+    margin: 0;
+    float: right;
+    padding: 10px 0 0 0;
+}
+
+.navbar-inner p a{
+    padding: 14px;
+}
+.navbar-inner .regist{
+
+
+}
+.regist:hover{
+
+}
+.social img{
+    padding-left: 8px;
 }
