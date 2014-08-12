@@ -25,7 +25,7 @@ body{
 }
 
 .leftBar ul li a,.leftBar .accordion-heading a{
-   padding-left: 30px;
+   padding-left: 16px;
 }
 .leftBar .accordion-group{
     border: 0;
@@ -426,5 +426,5 @@ h1{
     border-radius: 5px;
 }
 .leftBar .accordion-toggle{
-    font-size: 16px;
+    font-size: 13px;
 }
