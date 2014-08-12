@@ -118,6 +118,8 @@ class IndexController extends Zend_Controller_Action
                     'user' => Zend_Auth::getInstance()->getIdentity()->username,
                     'date' => time(),
                     'icon' => $form->getValue('icon'),
+                    'descriptionTeg' => $form->getValue('descriptionTeg'),
+                    'keywords' => $form->getValue('keywords'),
                 );
                 // Создаём объект модели
                 $post = new Application_Model_DbTable_Posts();
@@ -208,6 +210,8 @@ class IndexController extends Zend_Controller_Action
                     'user' => Zend_Auth::getInstance()->getIdentity()->username,
                     'date' => time(),
                     'icon' => $form->getValue('icon'),
+                    'descriptionTeg' => $form->getValue('descriptionTeg'),
+                    'keywords' => $form->getValue('keywords'),
                 );
 
 

@@ -120,6 +120,29 @@ class Application_Form_Add extends Zend_Form
             ->addMultiOptions($subcategories->arraySelect());
 
 
+        $descriptionTeg = new Zend_Form_Element_Text('descriptionTeg');
+
+        // задаём ему label и отмечаем как обязательное поле;
+        // также добавляем фильтры и валидатор с переводом
+        $descriptionTeg->setLabel('Description:')
+            ->setRequired(true)
+            ->addFilter('StripTags')
+            ->addFilter('StringTrim')
+            ->addValidator('NotEmpty', true,
+                array('messages' => array('isEmpty' => $isEmptyMessage))
+            );
+
+        $keywords = new Zend_Form_Element_Text('keywords');
+
+        // задаём ему label и отмечаем как обязательное поле;
+        // также добавляем фильтры и валидатор с переводом
+        $keywords->setLabel('Keywords:')
+            ->setRequired(true)
+            ->addFilter('StripTags')
+            ->addFilter('StringTrim')
+            ->addValidator('NotEmpty', true,
+                array('messages' => array('isEmpty' => $isEmptyMessage))
+            );
         // создаём кнопку submit
         $submit = new Zend_Form_Element_Submit('add');
         $submit->setLabel('Добавить статью')
@@ -127,7 +150,7 @@ class Application_Form_Add extends Zend_Form
 
         // добавляем элементы в форму
         $this->addElements(array($id, $title,$titleUa, $icon,$part,$category, $subcategory, $description,$descriptionUa,
-            $text,$textUa, $submit));
+            $text,$textUa, $keywords,$descriptionTeg, $submit));
         // указываем метод передачи данных
         $this->setMethod('post');
 

@@ -1,5 +1,7 @@
 <?php
 $this->headTitle($this->post['title']);
+$this->headMeta()->appendName('keywords',$this->post['keywords']);
+$this->headMeta()->appendName('description',$this->post['description']);
 ?>
 
 
