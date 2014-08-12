@@ -72,7 +72,7 @@ class Application_Model_DbTable_Posts extends Zend_Db_Table_Abstract
     }
 
     public function getPaginatorRows($pageNumber = 1) {
-        $pagi = new Zend_Paginator_Adapter_DbSelect($this->select()->from('posts'));
+        $pagi = new Zend_Paginator_Adapter_DbSelect($this->select()->from('posts')->order('date DESC'));
         $paginator = new Zend_Paginator($pagi);
         $paginator->setCurrentPageNumber($pageNumber);
         $paginator->setItemCountPerPage(5);
