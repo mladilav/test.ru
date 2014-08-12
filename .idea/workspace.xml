@@ -35,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="IndexController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="416" column="0" selection-start="16050" selection-end="16050" vertical-scroll-proportion="0.49657536" vertical-offset="101" max-vertical-offset="884">
+            <state line="416" column="0" selection-start="16050" selection-end="16050" vertical-scroll-proportion="-11.153846" vertical-offset="101" max-vertical-offset="884">
               <folding>
                 <element signature="n#init#0;n#IndexController#0;n#!!top" expanded="false" />
                 <element signature="n#indexAction#0;n#IndexController#0;n#!!top" expanded="false" />
@@ -67,26 +67,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post.phtml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="post.phtml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/index/post.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="68" selection-start="181" selection-end="181" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1071">
+            <state line="3" column="71" selection-start="184" selection-end="184" vertical-scroll-proportion="0.08931699" vertical-offset="0" max-vertical-offset="1071">
               <folding>
-                <marker date="1407825610613" expanded="false" signature="217:229" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="230:3102" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="346:872" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="488:670" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="697:859" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="1026:1395" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="1154:1203" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="1333:1380" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="1741:2296" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="1891:2079" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="2110:2279" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="2458:2847" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="2590:2643" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="2777:2828" placeholder="..." />
-                <marker date="1407825610613" expanded="true" signature="2893:3095" placeholder="..." />
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -169,8 +155,8 @@
         <option value="$PROJECT_DIR$/application/views/scripts/test/build.phtml" />
         <option value="$PROJECT_DIR$/application/forms/Add.php" />
         <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
-        <option value="$PROJECT_DIR$/application/views/scripts/index/post.phtml" />
         <option value="$PROJECT_DIR$/application/models/DbTable/Posts.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/index/post.phtml" />
       </list>
     </option>
   </component>
@@ -761,29 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/post.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="68" selection-start="181" selection-end="181" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1071">
-          <folding>
-            <marker date="1407825610613" expanded="false" signature="217:229" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="230:3102" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="346:872" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="488:670" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="697:859" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="1026:1395" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="1154:1203" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="1333:1380" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="1741:2296" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="1891:2079" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="2110:2279" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="2458:2847" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="2590:2643" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="2777:2828" placeholder="..." />
-            <marker date="1407825610613" expanded="true" signature="2893:3095" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/DbTable/Posts.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="74" column="82" selection-start="1983" selection-end="2003" vertical-scroll-proportion="0.78253424" vertical-offset="801" max-vertical-offset="1513">
@@ -793,7 +756,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="416" column="0" selection-start="16050" selection-end="16050" vertical-scroll-proportion="0.49657536" vertical-offset="101" max-vertical-offset="884">
+        <state line="416" column="0" selection-start="16050" selection-end="16050" vertical-scroll-proportion="-11.153846" vertical-offset="101" max-vertical-offset="884">
           <folding>
             <element signature="n#init#0;n#IndexController#0;n#!!top" expanded="false" />
             <element signature="n#indexAction#0;n#IndexController#0;n#!!top" expanded="false" />
@@ -817,6 +780,15 @@
             <element signature="n#settingsAction#0;n#IndexController#0;n#!!top" expanded="false" />
             <element signature="n#analyticAction#0;n#IndexController#0;n#!!top" expanded="false" />
             <element signature="n#langAction#0;n#IndexController#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/post.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="71" selection-start="184" selection-end="184" vertical-scroll-proportion="0.08931699" vertical-offset="0" max-vertical-offset="1071">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
