@@ -2,9 +2,12 @@
 
 <?php
 if($this->lang == "ua")
-    echo $this->partialLoop('/partials/postsUa.phtml', $this->post);
-else
-    echo $this->partialLoop('/partials/posts.phtml', $this->post);
+{
+    echo '<h1>'.$this->subcategory['nameUa'].'</h1>';
+    echo $this->partialLoop('/partials/postsUa.phtml', $this->post);}
+else{
+    echo '<h1>'.$this->subcategory['name'].'</h1>';
+    echo $this->partialLoop('/partials/posts.phtml', $this->post);}
 ?>
 
 

@@ -74,23 +74,24 @@ echo $this->doctype();
 
 
 <div class="container">
-    <div class="header"><p></p></div>
+    <a href="/"><div class="header"><p></p></div></a>
 <div class="navbar">
     <div class="navbar-inner">
 
         <ul class="nav">
             <?php echo $this->layout()->menu;?>
         </ul>
-
-        <a href="/index/lang/lang/ua"><img src="/img/Ukraine-Flag.png"></a>
-        <a href="/index/lang/lang/ru"><img src="/img/Russia-Flag.png"></a>
+        <form style="margin: 0;margin-top: 8px;float:right;" method="post">
+        <input type="submit" value="ua" name="lang" id="ua" src="/img/Ukraine-Flag.png">
+        <input type="submit" value="ru" name="lang" id="ru" src="/img/Russia-Flag.png">
+        </form>
         <p><?php echo $this->layout()->auth;?></p>
     </div>
 </div>
 
     <div class="single-item">
-        <div class="image"><img src="/img/capture01.png"></div>
-        <div class="image"><img src="/img/capture02.png"></div>
+        <div class="image"><a href="http://ru.osvita.ua/test/"><img src="/img/capture01.png"></a></div>
+        <div class="image"><a href="http://testportal.gov.ua/"><img src="/img/capture02.png"></a></div>
         <div class="image"><img src="/img/capture01.png"></div>
         <div class="image"><img src="/img/capture02.png"></div>
     </div>
@@ -136,6 +137,9 @@ echo $this->doctype();
                 arrows: false});
         });
     </script>
+
+
+
 
 
 </body>

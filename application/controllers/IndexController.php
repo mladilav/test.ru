@@ -5,13 +5,21 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
+        if($this->getRequest()->isPost()){
+            $lang = $this->getRequest()->getPost('lang');
+            $request = new Zend_Controller_Request_Http();
+            $this->getResponse()->setRawHeader(new Zend_Http_Header_SetCookie(
+                'lang', $lang, NULL, '/', $request->getServer('HTTP_HOST'), false, true
+            ));
+        }
+        else {
+            $request = new Zend_Controller_Request_Http();
+            $lang = $request->getCookie('lang');
+        }
 
         $array = array();
         $part= new Application_Model_Part($array);
         $menu= new Application_Model_Menu();
-        $test= new Application_Model_Tests($array);
-        $request = new Zend_Controller_Request_Http();
-        $lang = $request->getCookie('lang');
         $this->view->lang = $lang;
 
         if($lang == "ua"){
@@ -28,6 +36,7 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
+
         $post = new Application_Model_DbTable_Posts();
         $page = (int) $this->getRequest()->getParam('page');
         if ($page > 0) {
@@ -421,7 +430,11 @@ class IndexController extends Zend_Controller_Action
 
             $post = new Application_Model_DbTable_Posts();
             $this->view->post = $post->fetchAll('categoryId = '. $id);
-
+            $category = new Application_Model_DbTable_Category();
+            $this->view->category = $category->getCategory($id);
+            $categories = $category->getCategory($id);
+            $part = new Application_Model_DbTable_Part();
+            $this->view->part = $part->getPart($categories['partId']);
         }
        /* $category = new Application_Model_DbTable_Category();
         $this->view->categories = $category->fetchAll();*/
@@ -435,6 +448,8 @@ class IndexController extends Zend_Controller_Action
 
             $post = new Application_Model_DbTable_Posts();
             $this->view->post = $post->fetchAll('partId = '. $id);
+            $parts = new Application_Model_DbTable_Part();
+            $this->view->parts = $parts->getPart($id);
 
         }
         /* $category = new Application_Model_DbTable_Category();
@@ -449,6 +464,8 @@ class IndexController extends Zend_Controller_Action
 
             $post = new Application_Model_DbTable_Posts();
             $this->view->post = $post->fetchAll('subcategoryId = '. $id);
+            $subcategory = new Application_Model_DbTable_Subcategory();
+            $this->view->subcategory = $subcategory->getSubcategory($id);
 
         }
         /* $category = new Application_Model_DbTable_Category();
@@ -760,11 +777,14 @@ class IndexController extends Zend_Controller_Action
 
     public function langAction()
     {
+        $this->_helper->layout()->disableLayout();
+        $this->_helper->viewRenderer->setNoRender(true);
         $lang = $this->_getParam('lang');
         $request = new Zend_Controller_Request_Http();
         $this->getResponse()->setRawHeader(new Zend_Http_Header_SetCookie(
             'lang', $lang, NULL, '/', $request->getServer('HTTP_HOST'), false, true
         ));
-        $this->_helper->redirector('index', 'index');
+        $url = $request->getCookie('url');
+        $this->_helper->redirector->gotoUrl($url);
     }
 }

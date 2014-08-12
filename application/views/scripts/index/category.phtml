@@ -1,15 +1,38 @@
-<?php
-// Создаём заголовок страницы, который загрузится в layout
-if($this->lang == "ua") $this->title = "Категорії"; else
-$this->title = "Категории";
-$this->headTitle($this->title);
-?>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        var h1 = document.getElementById('partId');
+        var h4 = document.getElementById('catId');
+        var div = document.getElementById('accordion2');
+        var elems = div.getElementsByClassName('accordion-toggle');
+         for(var i=0; i<elems.length; i++)
+         {
+         if(elems[i].innerHTML == h1.innerHTML){
+            var str = elems[i].href;
+            var num = str.length - 9;
+            var part = document.getElementById(str.substring(num));
+            part.className = 'in';
+            var elem = part.getElementsByClassName('accordion-toggle');
+             for(var j=0; j<elem.length; j++)
+             {
+                 if(elem[j].innerHTML == h4.innerHTML){
+                     var li = elem[j].parentElement;
+                     li.className = 'act';
+                 }
+             }
+         }
+         }
+    });
+</script>
 
 <?php
 if($this->lang == "ua")
-    echo $this->partialLoop('/partials/postsUa.phtml', $this->post);
-else
-echo $this->partialLoop('/partials/posts.phtml', $this->post);
+{
+    echo '<h1 id="partId">'.$this->part['nameUa'].'</h1><h4 id="catId">'.$this->category['nameUa'].'</h4>';
+    echo $this->partialLoop('/partials/postsUa.phtml', $this->post);}
+else {
+    echo '<h1  id="partId">'.$this->part['name'].'</h1><h4 id="catId">'.$this->category['name'].'</h4>';
+    echo $this->partialLoop('/partials/posts.phtml', $this->post);}
 ?>
 
 

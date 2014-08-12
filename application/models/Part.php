@@ -53,8 +53,7 @@ class Application_Model_Part
             {$result = $result.'<a class="accordion-toggle" href="/index/part/id/'.$parts->getId().'">'.$parts->getName().'</a></div></div>';}
             else
             {
-                $result = $result.'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse'.$i.'">
-                           '.$parts->getName().' </a>
+                $result = $result.'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse'.$i.'">'.$parts->getName().'</a>
                            </div>
                            <div id="collapse'.$i.'" class="accordion-body collapse ">
                            <div class="accordion-inner">';
@@ -92,8 +91,7 @@ class Application_Model_Part
             {$result = $result.'<a class="accordion-toggle" href="/index/part/id/'.$parts->getId().'">'.$parts->getNameUa().'</a></div></div>';}
             else
             {
-                $result = $result.'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse'.$i.'">
-                           '.$parts->getNameUa().' </a>
+                $result = $result.'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse'.$i.'">'.$parts->getNameUa().'</a>
                            </div>
                            <div id="collapse'.$i.'" class="accordion-body collapse ">
                            <div class="accordion-inner">';

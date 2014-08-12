@@ -373,7 +373,10 @@ input[type="color"]:focus,
     padding: 14px;
 }
 .navbar-inner .regist{
-
+    background-color: #FFA500;
+    background-image: linear-gradient(to bottom, #FFA500, #FF8C00);
+    border: 1px solid #FF4500;
+    color: #ffffff;
 
 }
 .regist:hover{
@@ -381,4 +384,44 @@ input[type="color"]:focus,
 }
 .social img{
     padding-left: 8px;
+}
+
+
+#registration dd:after{
+    content: "*";
+    color:red;
+    width: 10px;
+    height: 10px;
+
+}
+#registration #photo-element:after, #registration #registration-element:after,
+#registration #class-element:after,#registration #letter-element:after{
+    content: "";
+}
+#ua{
+    background-image: url('/img/Ukraine-Flag.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    width: 16px;
+    font-size: 0;
+}
+
+#ru{
+    background-image: url('/img/Russia-Flag.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    width: 16px;
+    font-size: 0;
+}
+h1{
+    font-size: 27px;
+    font-weight: 100;
+
+}
+
+.accordion-heading .act{
+    background-color: rgba(83, 132, 12, 0.3);
+    border-radius: 5px;
 }

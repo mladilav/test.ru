@@ -1,9 +1,13 @@
 
 <?php
 if($this->lang == "ua")
-    echo $this->partialLoop('/partials/postsUa.phtml', $this->post);
-else
+{
+    echo '<h1>'.$this->parts['nameUa'].'</h1>';
+    echo $this->partialLoop('/partials/postsUa.phtml', $this->post);}
+else{
+    echo '<h1>'.$this->parts['name'].'</h1>';
     echo $this->partialLoop('/partials/posts.phtml', $this->post);
+}
 ?>
 
 

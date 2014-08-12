@@ -3,12 +3,23 @@
 class TestController extends Zend_Controller_Action
 {
     public function init()
-    {  $array = array();
+
+    {
+        if($this->getRequest()->isPost()){
+            $lang = $this->getRequest()->getPost('lang');
+            $request = new Zend_Controller_Request_Http();
+            $this->getResponse()->setRawHeader(new Zend_Http_Header_SetCookie(
+                'lang', $lang, NULL, '/', $request->getServer('HTTP_HOST'), false, true
+            ));
+        }
+        else {
+            $request = new Zend_Controller_Request_Http();
+            $lang = $request->getCookie('lang');
+        }
+
+        $array = array();
         $part= new Application_Model_Part($array);
         $menu= new Application_Model_Menu();
-        $test= new Application_Model_Tests($array);
-        $request = new Zend_Controller_Request_Http();
-        $lang = $request->getCookie('lang');
         $this->view->lang = $lang;
 
         if($lang == "ua"){
