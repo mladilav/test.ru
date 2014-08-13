@@ -391,7 +391,9 @@ class TestController extends Zend_Controller_Action
             $this->view->date = date("i:s", (time() - $_SESSION['time']));
             $this->view->result = $result->fetchAll($result->select()
                                          ->from('resulttest')
-                                         ->where('testId = ?', $testId)->order('number ASC'));
+                                         ->where('testId = ?', $testId)
+                                         ->where('userId = ?', Zend_Auth::getInstance()->getIdentity()->id)
+                                         ->order('number ASC'));
             $time = (time() - $_SESSION['time']);
             $test = new Application_Model_DbTable_Test();
             $test_array = $test->getTest($testId);

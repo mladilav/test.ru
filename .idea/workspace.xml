@@ -26,19 +26,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="441" column="43" selection-start="8220" selection-end="8220" vertical-scroll-proportion="0.21967213" vertical-offset="7363" max-vertical-offset="7990">
+            <state line="441" column="43" selection-start="8220" selection-end="8220" vertical-scroll-proportion="0.0" vertical-offset="7363" max-vertical-offset="7990">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TestController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1425" column="36" selection-start="54302" selection-end="54313" vertical-scroll-proportion="-30.307692" vertical-offset="3700" max-vertical-offset="4641">
+            <state line="394" column="106" selection-start="14950" selection-end="14950" vertical-scroll-proportion="0.33390412" vertical-offset="2780" max-vertical-offset="5100">
               <folding>
                 <element signature="n#init#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#indexAction#0;n#TestController#0;n#!!top" expanded="false" />
@@ -46,7 +46,6 @@
                 <element signature="n#edittestAction#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#deletetestAction#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#typequestionAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="n#resultAction#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#addquestion1Action#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#addquestion2Action#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#addquestion3Action#0;n#TestController#0;n#!!top" expanded="false" />
@@ -68,7 +67,7 @@
                 <element signature="n#getXLS#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#buildAction#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#ratingAction#0;n#TestController#0;n#!!top" expanded="false" />
-                <element signature="e#46046#46359#0" expanded="false" />
+                <element signature="e#46196#46509#0" expanded="false" />
                 <element signature="n#randomAction#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#randomTestZNO#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#getRandomQuestion#0;n#TestController#0;n#!!top" expanded="false" />
@@ -78,6 +77,7 @@
                 <element signature="n#allpatternAction#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#deletepatternAction#0;n#TestController#0;n#!!top" expanded="false" />
                 <element signature="n#allquestionAction#0;n#TestController#0;n#!!top" expanded="false" />
+                <element signature="n#rightanswerAction#0;n#TestController#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -176,9 +176,9 @@
         <option value="$PROJECT_DIR$/application/forms/TestsOne.php" />
         <option value="$PROJECT_DIR$/application/Bootstrap.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/result.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/rightanswer.phtml" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
       </list>
     </option>
   </component>
@@ -843,9 +843,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="441" column="43" selection-start="8220" selection-end="8220" vertical-scroll-proportion="0.0" vertical-offset="7363" max-vertical-offset="7990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1425" column="36" selection-start="54302" selection-end="54313" vertical-scroll-proportion="-30.307692" vertical-offset="3700" max-vertical-offset="4641">
+        <state line="394" column="106" selection-start="14950" selection-end="14950" vertical-scroll-proportion="0.33390412" vertical-offset="2780" max-vertical-offset="5100">
           <folding>
             <element signature="n#init#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#indexAction#0;n#TestController#0;n#!!top" expanded="false" />
@@ -853,7 +860,6 @@
             <element signature="n#edittestAction#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#deletetestAction#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#typequestionAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="n#resultAction#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#addquestion1Action#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#addquestion2Action#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#addquestion3Action#0;n#TestController#0;n#!!top" expanded="false" />
@@ -875,7 +881,7 @@
             <element signature="n#getXLS#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#buildAction#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#ratingAction#0;n#TestController#0;n#!!top" expanded="false" />
-            <element signature="e#46046#46359#0" expanded="false" />
+            <element signature="e#46196#46509#0" expanded="false" />
             <element signature="n#randomAction#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#randomTestZNO#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#getRandomQuestion#0;n#TestController#0;n#!!top" expanded="false" />
@@ -885,14 +891,8 @@
             <element signature="n#allpatternAction#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#deletepatternAction#0;n#TestController#0;n#!!top" expanded="false" />
             <element signature="n#allquestionAction#0;n#TestController#0;n#!!top" expanded="false" />
+            <element signature="n#rightanswerAction#0;n#TestController#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="441" column="43" selection-start="8220" selection-end="8220" vertical-scroll-proportion="0.21967213" vertical-offset="7363" max-vertical-offset="7990">
-          <folding />
         </state>
       </provider>
     </entry>
