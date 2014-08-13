@@ -75,6 +75,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $acl->addResource('allpattern', 'test');
         $acl->addResource('deletepattern', 'test');
         $acl->addResource('allquestion', 'test');
+        $acl->addResource('rightanswer', 'test');
 
 
         $acl->addResource('user');
@@ -117,7 +118,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $acl->allow('admin', 'test', array( 'addtest', 'edittest', 'deletetest', 'typequestion', 'question',
             'deletequestion', 'addquestion1', 'addquestion2', 'addquestion3', 'addquestion4', 'construct', 'add',
             'addtopic', 'edittopic', 'deletetopic', 'allresults', 'uploadtest', 'build','random','pattern','allpattern',
-            'deletepattern','allquestion'));
+            'deletepattern','allquestion','rightanswer'));
 
         $acl->allow('admin', 'user', array('edit', 'delete', 'addgroups', 'editgroups', 'deletegroups', 'settings',
             'homework', 'addhomework', 'deletehomework', 'sendhomework', 'group','deleteuser', 'addgroupsuser', 'adduser', ));

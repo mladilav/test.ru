@@ -1,0 +1,118 @@
+<div class="settings">
+<div class="question">
+    <?php
+    echo $this->errMessage;
+    echo '<h3>';
+    if($this->lang == "ua") echo 'Питання'; else echo 'Вопрос';
+    echo ' №'.$this->questionNumber.'</h3>';?>
+
+    <?php
+    echo '<h4>'.$this->question.'</h4>';
+    echo $this->capture; ?>
+
+    <?php if (($this->type == 0)&&(!empty($this->answer['0']))) {?>
+
+        <table class="table table-bordered">
+            <tr><td <?php if($this->answerRight == 0) {echo 'class="rightAnswer"';}?> >
+                     А: <?php echo $this->answer['0'];?> </td></tr>
+            <tr><td <?php if($this->answerRight == 1) {echo 'class="rightAnswer"';}?> >
+                     Б: <?php echo $this->answer['1'];?> </td></tr>
+            <tr><td <?php if($this->answerRight == 2) {echo 'class="rightAnswer"';}?>>
+                     В: <?php echo $this->answer['2'];?> </td></tr>
+            <tr><td <?php if($this->answerRight == 3) {echo 'class="rightAnswer"';}?>>
+                     Г: <?php echo $this->answer['3'];?> </td></tr>
+        </table>
+    <?php } ?>
+    <?php if (($this->type == 0)&&(empty($this->answer['0']))) {
+            echo '<div class="rightAnswer">Правильный ответ: ';
+            if($this->answerRight == 0) echo 'A';
+            if($this->answerRight == 1) echo 'Б';
+            if($this->answerRight == 2) echo 'В';
+            if($this->answerRight == 3) echo 'Г';
+        echo '</div>';
+         } ?>
+
+    <?php if ($this->type == 2) {?>
+        <table class="table table-bordered">
+            <tr>
+                <td valign="middle">1: <?php echo $this->answer['1'];?>
+                    <div class="rightAnswer" style="float: right">
+                        <?php
+                        if($this->answerRight[1] == 0) echo 'A';
+                        if($this->answerRight[1] == 1) echo 'Б';
+                        if($this->answerRight[1] == 2) echo 'В';
+                        if($this->answerRight[1] == 3) echo 'Г';
+                        if($this->answerRight[1] == 4) echo 'Д';?>
+                    </div>
+                </td>
+                <td>A: <?php echo $this->answer['A'];?></td>
+            </tr>
+            <tr>
+                <td>2: <?php echo $this->answer['2'];?>
+                    <div class="rightAnswer" style="float: right">
+                        <?php
+                        if($this->answerRight[2] == 0) echo 'A';
+                        if($this->answerRight[2] == 1) echo 'Б';
+                        if($this->answerRight[2] == 2) echo 'В';
+                        if($this->answerRight[2] == 3) echo 'Г';
+                        if($this->answerRight[2] == 4) echo 'Д';?>
+                    </div>
+                </td>
+                <td>Б: <?php echo $this->answer['B'];?></td>
+            </tr>
+            <tr>
+                <td>3: <?php echo $this->answer['3'];?>
+                    <div class="rightAnswer" style="float: right">
+                        <?php
+                        if($this->answerRight[3] == 0) echo 'A';
+                        if($this->answerRight[3] == 1) echo 'Б';
+                        if($this->answerRight[3] == 2) echo 'В';
+                        if($this->answerRight[3] == 3) echo 'Г';
+                        if($this->answerRight[3] == 4) echo 'Д';?>
+                    </div>
+                </td>
+                <td>В: <?php echo $this->answer['C'];?></td>
+            </tr>
+            <tr>
+                <td>4: <?php echo $this->answer['4'];?>
+                    <div class="rightAnswer" style="float: right">
+                        <?php
+                        if($this->answerRight[4] == 0) echo 'A';
+                        if($this->answerRight[4] == 1) echo 'Б';
+                        if($this->answerRight[4] == 2) echo 'В';
+                        if($this->answerRight[4] == 3) echo 'Г';
+                        if($this->answerRight[4] == 4) echo 'Д';?>
+                    </div></td>
+                <td>Г: <?php echo $this->answer['D'];?></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Д: <?php echo $this->answer['E'];?></td>
+            </tr>
+        </table>
+    <?php } ?>
+
+    <?php if ($this->type == 3) {?>
+        <table class="table table-bordered">
+
+            <tr><td <?php if(strstr($this->answerRight,'1')) {echo 'class="rightAnswer"';}?>
+                    > 1: <?php echo $this->answer['1'];?> </td></tr>
+            <tr><td <?php if(strstr($this->answerRight,'2')) {echo 'class="rightAnswer"';}?>
+                    > 2: <?php echo $this->answer['2'];?> </td></tr>
+            <tr><td <?php if(strstr($this->answerRight,'3')) {echo 'class="rightAnswer"';}?>
+                    > 3: <?php echo $this->answer['3'];?> </td></tr>
+            <tr><td <?php if(strstr($this->answerRight,'4')) {echo 'class="rightAnswer"';}?>
+                    > 4: <?php echo $this->answer['4'];?> </td></tr>
+            <tr><td <?php if(strstr($this->answerRight,'5')) {echo 'class="rightAnswer"';}?>
+                    > 5: <?php echo $this->answer['5'];?> </td></tr>
+            <tr><td <?php if(strstr($this->answerRight,'6')) {echo 'class="rightAnswer"';}?>
+                    > 6: <?php echo $this->answer['6'];?> </td></tr>
+        </table>
+    <?php } ?>
+
+    <?php if ($this->type == 4) {?>
+    <div class="rightAnswer">Правильный ответ: <?php echo $this->answerRight;?>
+        </div>
+        <?php } ?>
+
+</div></div>

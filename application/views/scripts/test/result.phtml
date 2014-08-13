@@ -11,8 +11,20 @@
     </tr>
     <?php
     if(isset($this->result))
-    {echo $this->partialLoop('/partials/result.phtml', $this->result);}
-    ?>
+    { foreach($this->result as $result){
+        ?>
+
+    <tr>
+        <td>
+            <?php if($this->topic == 0){ ?>
+            <a href="/test/rightanswer/testId/<?=$result['testId'];?>/number/<?=$result['number'];?>" target="_blank">
+            <?php echo '№'.$result['number']; ?></td>
+            </a>
+               <?php } else {?>
+            <?php echo '№'.$result['number']; }?></td>
+        <td class="text-success"><?php echo '+'.$result['bool']; ?></td>
+    </tr>
+    <?php }}    ?>
 </table>
     <?php if($this->comments){?>
     <div class="well">

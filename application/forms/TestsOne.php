@@ -20,7 +20,6 @@ class Application_Form_TestsOne extends Zend_Form
             ->setSeparator(' ')
             ->setRequired(true);
 
-
         $submit = new Zend_Form_Element_Submit('add');
         $submit->setAttrib('class','btn btn-success')->setLabel('Далее');
 

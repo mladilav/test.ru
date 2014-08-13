@@ -244,6 +244,7 @@ class TestController extends Zend_Controller_Action
                 $result->truncate();
             }
             $this->view->questionNumber = $questionNumber;
+            $this->view->testId = $test;
             $questionId = new Application_Model_DbTable_Testquestionrel();
             $questions_array = $questionId->getTestquestionrel($questionNumber, $test);
 
@@ -333,12 +334,15 @@ class TestController extends Zend_Controller_Action
                         foreach ($result_array as $res) {
                             if ($res == $form->getValue("answerOne")) {
                                 $results += $questions['cost'];
+                                break;
                             }
                             if ($res == $form->getValue("answerTwo")) {
                                 $results += $questions['cost'];
+                                break;
                             }
                             if ($res == $form->getValue("answerThree")) {
                                 $results += $questions['cost'];
+                                break;
                             }
 
                         }
@@ -387,7 +391,7 @@ class TestController extends Zend_Controller_Action
             $this->view->date = date("i:s", (time() - $_SESSION['time']));
             $this->view->result = $result->fetchAll($result->select()
                                          ->from('resulttest')
-                                         ->where('testId = ?', $testId));
+                                         ->where('testId = ?', $testId)->order('number ASC'));
             $time = (time() - $_SESSION['time']);
             $test = new Application_Model_DbTable_Test();
             $test_array = $test->getTest($testId);
@@ -984,7 +988,6 @@ class TestController extends Zend_Controller_Action
         }
     }
 
-
     public function insertTestLight($array)
     {
         $capture = '';
@@ -1022,7 +1025,6 @@ class TestController extends Zend_Controller_Action
         );
         $question->addQuestion($data);
     }
-
 
     public function insertTestMiddle($array)
     {
@@ -1204,7 +1206,6 @@ class TestController extends Zend_Controller_Action
         $this->view->results = $results;}
     }
 
-
     public function randomAction(){
         $form = new Application_Form_Addtest();
         $request = new Zend_Controller_Request_Http();
@@ -1280,7 +1281,6 @@ class TestController extends Zend_Controller_Action
         return $qustionQuery->toArray();
     }
 
-
     public function patternAction(){
         $form = new Application_Form_Pattern();
 
@@ -1345,7 +1345,6 @@ class TestController extends Zend_Controller_Action
         $this->view->pattern = $pattern->fetchAll();
     }
 
-
     public function deletepatternAction()
     {
         // Если к нам идёт Post запрос
@@ -1382,5 +1381,49 @@ class TestController extends Zend_Controller_Action
     public function allquestionAction(){
         $question = new Application_Model_DbTable_Question();
         $this->view->question = $question->fetchAll();
+    }
+
+    public function rightanswerAction(){
+        $testId = $this->_getParam('testId', 0);
+        if ($testId > 0) {
+            $number = $this->_getParam('number', 0);
+            $testquestionrel = new Application_Model_DbTable_Testquestionrel();
+            $questionss = $testquestionrel->fetchAll($testquestionrel->select()
+                                                                    ->where("testId =".$testId)
+                                                                    ->where("number =".$number));
+            $array = $questionss->toArray();
+            $question_array = $array[0];
+            $question = new Application_Model_DbTable_Question();
+
+            $questions = $question->getQuestion($question_array['questionId']);
+            $request = new Zend_Controller_Request_Http();
+            $lang = $request->getCookie('lang');
+            if($lang == "ua")
+            {
+                $this->view->question = $questions['nameUa'];
+                $answer = $questions["answersUa"];
+
+            }else {
+
+                $this->view->question = $questions['name'];
+                $answer = $questions["answers"];
+            }
+
+            $this->view->type = $questions['type'];
+            if($questions['type']!= 4)
+            {$answer = unserialize($answer);}
+            $this->view->answer = $answer;
+
+            if ($questions["capture"] != NULL) {
+                $this->view->capture = '<img src ="' . $questions["capture"] . '">';
+            }
+
+            $this->view->questionNumber = $number;
+            $this->view->testId = $testId;
+            $answerRight = $questions["answerRight"];
+            if($questions['type']== 2)
+            {$answerRight = unserialize($questions["answerRight"]);}
+            $this->view->answerRight = $answerRight;
+        }
     }
 }
