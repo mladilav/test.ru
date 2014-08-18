@@ -372,7 +372,7 @@ input[type="color"]:focus,
 }
 
 .navbar-inner p a{
-    padding: 14px;
+    padding: 13px;
 }
 .navbar-inner .regist{
     background-color: #FFA500;
@@ -400,8 +400,14 @@ input[type="color"]:focus,
 #registration #class-element:after,#registration #letter-element:after{
     content: "";
 }
+
+#languaue input[type="submit"]{
+    background: none;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 #ua{
-    background-image: url('/img/Ukraine-Flag.png');
+    background-image: url('/img/Ukraine-Flag.png')!important;
     background-position: center;
     background-repeat: no-repeat;
     border: 0;
@@ -410,7 +416,7 @@ input[type="color"]:focus,
 }
 
 #ru{
-    background-image: url('/img/Russia-Flag.png');
+    background-image: url('/img/Russia-Flag.png')!important;
     background-position: center;
     background-repeat: no-repeat;
     border: 0;
