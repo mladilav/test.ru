@@ -26,20 +26,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="376" column="22" selection-start="6976" selection-end="6976" vertical-scroll-proportion="0.6262295" vertical-offset="6010" max-vertical-offset="8007">
+            <state line="374" column="3" selection-start="6936" selection-end="6936" vertical-scroll-proportion="0.0" vertical-offset="6010" max-vertical-offset="8007">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.phtml" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="layout.phtml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="79" selection-start="2858" selection-end="2858" vertical-scroll-proportion="-14.615385" vertical-offset="1031" max-vertical-offset="2584">
-              <folding />
+            <state line="54" column="21" selection-start="1973" selection-end="1973" vertical-scroll-proportion="0.43664384" vertical-offset="663" max-vertical-offset="2601">
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#head#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -143,8 +145,8 @@
         <option value="$PROJECT_DIR$/application/views/scripts/test/result.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/rightanswer.phtml" />
         <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
-        <option value="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
+        <option value="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" />
       </list>
     </option>
   </component>
@@ -211,6 +213,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test.ru" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test.ru" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -432,11 +452,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\test.ru\public\img" />
       <recent name="C:\xampp\htdocs\test.ru\application\forms" />
       <recent name="C:\xampp\htdocs\test.ru\public" />
       <recent name="C:\xampp\htdocs\test.ru\library" />
       <recent name="C:\xampp\htdocs\test.ru\application\models" />
-      <recent name="C:\xampp\htdocs\test.ru\application\views\scripts\index" />
     </key>
   </component>
   <component name="RunManager">
@@ -773,13 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="79" selection-start="2858" selection-end="2858" vertical-scroll-proportion="-14.615385" vertical-offset="1031" max-vertical-offset="2584">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/test/result.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="102" selection-start="814" selection-end="814" vertical-scroll-proportion="-4.8076925" vertical-offset="198" max-vertical-offset="986">
@@ -791,8 +804,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="376" column="22" selection-start="6976" selection-end="6976" vertical-scroll-proportion="0.6262295" vertical-offset="6010" max-vertical-offset="8007">
+        <state line="374" column="3" selection-start="6936" selection-end="6936" vertical-scroll-proportion="0.0" vertical-offset="6010" max-vertical-offset="8007">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="21" selection-start="1973" selection-end="1973" vertical-scroll-proportion="0.43664384" vertical-offset="663" max-vertical-offset="2601">
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#head#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
