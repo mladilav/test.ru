@@ -1,3 +1,9 @@
+<?php
+$this->headTitle('Moregeo - подготовка ЗНО');
+$this->headMeta()->appendName('keywords','География, ЗНО, ДПА, тесты');
+$this->headMeta()->appendName('description','География – это то, что нас окружает, проникнитесь ею. Отельные категории посвящены подготовке к ЗНО, ДПА, просто школьной программе. Тесты, с огромным выбором вариантов заданий, Вы можете проходить онлайн.');
+?>
+
 <?php if(!isset($_COOKIE['lang'])) $_COOKIE['lang'] = "ru";?>
 <?php  if (Zend_Auth::getInstance()->hasIdentity() && Zend_Auth::getInstance()->getIdentity()->role == 'admin')  {?>
 <p><a href="<?php echo $this->url(array('controller' => 'index', 'action' => 'add')); ?>" class="btn btn-success">

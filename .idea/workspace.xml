@@ -35,10 +35,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.phtml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="layout.phtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="244" selection-start="2308" selection-end="2308" vertical-scroll-proportion="0.7740806" vertical-offset="510" max-vertical-offset="2635">
+            <state line="55" column="0" selection-start="2036" selection-end="2036" vertical-scroll-proportion="-9.153846" vertical-offset="697" max-vertical-offset="2618">
               <folding>
                 <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#head#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -46,10 +46,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="index.phtml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="68" selection-start="120" selection-end="120" vertical-scroll-proportion="0.05954466" vertical-offset="0" max-vertical-offset="571">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="post.phtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/index/post.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="0" selection-start="113" selection-end="188" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1071">
+            <state line="0" column="0" selection-start="0" selection-end="191" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1071">
               <folding />
             </state>
           </provider>
@@ -58,7 +67,7 @@
       <file leaf-file-name="TestController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="394" column="106" selection-start="14950" selection-end="14950" vertical-scroll-proportion="0.0" vertical-offset="6698" max-vertical-offset="24412">
+            <state line="394" column="106" selection-start="14950" selection-end="14950" vertical-scroll-proportion="-0.0" vertical-offset="6698" max-vertical-offset="24412">
               <folding />
             </state>
           </provider>
@@ -67,7 +76,7 @@
       <file leaf-file-name="rightanswer.phtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/test/rightanswer.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="58" selection-start="5344" selection-end="5344" vertical-scroll-proportion="0.0" vertical-offset="1507" max-vertical-offset="2108">
+            <state line="113" column="58" selection-start="5344" selection-end="5344" vertical-scroll-proportion="-15.923077" vertical-offset="1507" max-vertical-offset="2108">
               <folding>
                 <marker date="1407929520200" expanded="true" signature="4242:4311" placeholder="..." />
               </folding>
@@ -78,7 +87,7 @@
       <file leaf-file-name="Question.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/DbTable/Question.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="20" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1649">
+            <state line="10" column="20" selection-start="224" selection-end="224" vertical-scroll-proportion="-0.65384614" vertical-offset="153" max-vertical-offset="1649">
               <folding />
             </state>
           </provider>
@@ -118,7 +127,6 @@
         <option value="$PROJECT_DIR$/application/views/scripts/test/deletetopic.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/partials/posts.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/partials/postsUa.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/rating.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/analytic.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/random.phtml" />
@@ -156,6 +164,7 @@
         <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/application/layouts/scripts/layout.phtml" />
+        <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
       </list>
     </option>
   </component>
@@ -485,7 +494,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -528,11 +537,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/deletesubcat.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="79" selection-start="433" selection-end="433" vertical-scroll-proportion="0.29109588" vertical-offset="0" max-vertical-offset="584" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/forms/Login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="1671" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969" />
@@ -748,18 +752,18 @@
         <state line="65" column="32" selection-start="1791" selection-end="1793" vertical-scroll-proportion="0.90068495" vertical-offset="579" max-vertical-offset="19142" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/test/rightanswer.phtml">
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/test/result.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="58" selection-start="5344" selection-end="5344" vertical-scroll-proportion="0.0" vertical-offset="1507" max-vertical-offset="2108">
+        <state line="19" column="102" selection-start="814" selection-end="814" vertical-scroll-proportion="-4.8076925" vertical-offset="198" max-vertical-offset="986">
           <folding>
-            <marker date="1407929520200" expanded="true" signature="4242:4311" placeholder="..." />
+            <marker date="1407923717203" expanded="true" signature="1443:1580" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Question.php">
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="20" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="1649">
+        <state line="374" column="3" selection-start="6936" selection-end="6936" vertical-scroll-proportion="0.0" vertical-offset="6010" max-vertical-offset="8007">
           <folding />
         </state>
       </provider>
@@ -771,35 +775,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/test/result.phtml">
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/test/rightanswer.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="102" selection-start="814" selection-end="814" vertical-scroll-proportion="-4.8076925" vertical-offset="198" max-vertical-offset="986">
+        <state line="113" column="58" selection-start="5344" selection-end="5344" vertical-scroll-proportion="-15.923077" vertical-offset="1507" max-vertical-offset="2108">
           <folding>
-            <marker date="1407923717203" expanded="true" signature="1443:1580" placeholder="..." />
+            <marker date="1407929520200" expanded="true" signature="4242:4311" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/post.phtml">
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/Question.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="113" selection-end="188" vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="1071">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="374" column="3" selection-start="6936" selection-end="6936" vertical-scroll-proportion="0.0" vertical-offset="6010" max-vertical-offset="8007">
+        <state line="10" column="20" selection-start="224" selection-end="224" vertical-scroll-proportion="-0.65384614" vertical-offset="153" max-vertical-offset="1649">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/layouts/scripts/layout.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="244" selection-start="2308" selection-end="2308" vertical-scroll-proportion="0.7740806" vertical-offset="510" max-vertical-offset="2635">
+        <state line="55" column="0" selection-start="2036" selection-end="2036" vertical-scroll-proportion="-9.153846" vertical-offset="697" max-vertical-offset="2618">
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#noscript#0;n#head#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/post.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="191" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/index.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="68" selection-start="120" selection-end="120" vertical-scroll-proportion="0.05954466" vertical-offset="0" max-vertical-offset="571">
+          <folding />
         </state>
       </provider>
     </entry>
