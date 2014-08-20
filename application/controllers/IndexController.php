@@ -36,6 +36,10 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
+        $this->_helper->redirector('content', 'index');
+    }
+    public function contentAction()
+    {
 
         $post = new Application_Model_DbTable_Posts();
         $page = (int) $this->getRequest()->getParam('page');
@@ -135,7 +139,7 @@ class IndexController extends Zend_Controller_Action
 
                 // Вызываем метод модели addMovie для вставки новой записи
                 $post->addPost($data);
-                $this->_helper->redirector('index', 'index');
+                $this->_helper->redirector('content', 'index');
 
             } else {
                 // Если форма заполнена неверно,
@@ -229,7 +233,7 @@ class IndexController extends Zend_Controller_Action
 
                 // Вызываем метод модели addMovie для вставки новой записи
                 $post->updatePost($data);
-                $this->_helper->redirector('index', 'index');
+                $this->_helper->redirector('content', 'index');
 
             } else {
                 // Если форма заполнена неверно,
