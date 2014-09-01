@@ -29,7 +29,7 @@
       <file leaf-file-name="TestController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="964" column="88" selection-start="39193" selection-end="39193" vertical-scroll-proportion="0.6760563" vertical-offset="16052" max-vertical-offset="24412">
+            <state line="964" column="41" selection-start="39333" selection-end="39333" vertical-scroll-proportion="0.6760563" vertical-offset="16052" max-vertical-offset="24412">
               <folding />
             </state>
           </provider>
@@ -425,7 +425,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -740,7 +740,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="964" column="88" selection-start="39193" selection-end="39193" vertical-scroll-proportion="0.6760563" vertical-offset="16052" max-vertical-offset="24412">
+        <state line="964" column="41" selection-start="39333" selection-end="39333" vertical-scroll-proportion="0.6760563" vertical-offset="16052" max-vertical-offset="24412">
           <folding />
         </state>
       </provider>
