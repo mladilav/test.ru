@@ -42,7 +42,7 @@ else {
 <div class="post"  style="clear: left;">
 
     <?php if ($this->lang == "ua") { ?>
-    <h1><?php echo$this->post['titleUa'];?></h1>
+    <h2><?php echo$this->post['titleUa'];?></h2>
     <small class="muted">
         <div class="date"><b> Дата: </b> <?php echo date('d.m.Y',$this->escape($this->post['date'])); ?></div>
         <div class="category"><b> Категорія: </b>
@@ -60,9 +60,11 @@ else {
                 <i class="icon-trash"></i></a>
         </div>
     <?php }?>
-    <hr>
-    <?php echo '<img src="'.$this->escape($this->post['icon']).'" style="padding:20px;padding-top:0;float:left;width:300px;">'; ?>
-    <?php echo htmlspecialchars_decode($this->escape($this->post['bodyUa'])); ?>
+        <div class="inner">
+            <?php echo '<img src="'.$this->escape($this->post['icon']).'">'; ?>
+            <?php echo htmlspecialchars_decode($this->escape($this->post['bodyUa'])); ?>
+            <hr>
+        </div>
     <hr>
     <?php } else {?>
         <h2><?php echo$this->post['title'];?></h2>
@@ -87,6 +89,7 @@ else {
         <?php echo '<img src="'.$this->escape($this->post['icon']).'">'; ?>
         <?php echo htmlspecialchars_decode($this->escape($this->post['body'])); ?>
         <hr>
-    <?php } ?>
         </div>
+    <?php } ?>
+
 </div>
