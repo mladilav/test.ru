@@ -29,7 +29,7 @@
       <file leaf-file-name="TestController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="963" column="0" selection-start="39104" selection-end="39104" vertical-scroll-proportion="0.5392354" vertical-offset="16103" max-vertical-offset="24412">
+            <state line="959" column="21" selection-start="39009" selection-end="39009" vertical-scroll-proportion="0.4024145" vertical-offset="16103" max-vertical-offset="24412">
               <folding />
             </state>
           </provider>
@@ -740,7 +740,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="963" column="0" selection-start="39104" selection-end="39104" vertical-scroll-proportion="0.5392354" vertical-offset="16103" max-vertical-offset="24412">
+        <state line="959" column="21" selection-start="39009" selection-end="39009" vertical-scroll-proportion="0.4024145" vertical-offset="16103" max-vertical-offset="24412">
           <folding />
         </state>
       </provider>

@@ -951,18 +951,18 @@ class TestController extends Zend_Controller_Action
                 $file = $form->file->getFileInfo();
                 $ext = split("[/\\.]", $file['file']['name']);
                 $newName = 'question' . date("His", time()) . '.' . $ext[count($ext) - 1];
-                $fileUrl = '/uploads/' . date("d-m-Y", time()) . '/' . $newName;
-                if (!file_exists('uploads/' . date("d-m-Y", time()))) {
-                    mkdir('uploads/' . date("d-m-Y", time()), 0700);
+                $fileUrl = '/var/www/html/public/uploads/' . date("d-m-Y", time()) . '/' . $newName;
+                if (!file_exists('var/www/html/public/uploads/' . date("d-m-Y", time()))) {
+                    mkdir('var/www/html/public/uploads/' . date("d-m-Y", time()), 0700);
                 }
                 $form->file->addFilter('Rename', realpath(dirname('.')) .
                     DIRECTORY_SEPARATOR .
-                    'uploads/' . date("d-m-Y", time()) . '/' .
+                    'var/www/html/public/uploads/' . date("d-m-Y", time()) . '/' .
                     DIRECTORY_SEPARATOR .
                     $newName);
                 $form->file->receive();
 
-                $xlsData = $this->getXLS($_SERVER['DOCUMENT_ROOT'].'/var/www/html/public'.$fileUrl);
+                $xlsData = $this->getXLS($_SERVER['DOCUMENT_ROOT'].$fileUrl);
 
                 foreach ($xlsData as $array){
 
