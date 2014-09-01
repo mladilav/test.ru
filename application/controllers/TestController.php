@@ -957,7 +957,7 @@ class TestController extends Zend_Controller_Action
                 }
                 $form->file->addFilter('Rename', realpath(dirname('.')) .
                     DIRECTORY_SEPARATOR .
-                    'var/www/html/public/uploads/' . date("d-m-Y", time()) . '/' .
+                    'uploads/' . date("d-m-Y", time()) . '/' .
                     DIRECTORY_SEPARATOR .
                     $newName);
                 $form->file->receive();
