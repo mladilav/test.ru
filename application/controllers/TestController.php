@@ -7,10 +7,15 @@ class TestController extends Zend_Controller_Action
     {
         if($this->getRequest()->isPost()){
             $lang = $this->getRequest()->getPost('lang');
-            $request = new Zend_Controller_Request_Http();
-            $this->getResponse()->setRawHeader(new Zend_Http_Header_SetCookie(
-                'lang', $lang, NULL, '/', $request->getServer('HTTP_HOST'), false, true
-            ));
+            if(empty($lang)){
+                $request = new Zend_Controller_Request_Http();
+                $lang = $request->getCookie('lang');
+            }
+            else{
+                $request = new Zend_Controller_Request_Http();
+                $this->getResponse()->setRawHeader(new Zend_Http_Header_SetCookie(
+                    'lang', $lang, NULL, '/', $request->getServer('HTTP_HOST'), false, true
+                ));}
         }
         else {
             $request = new Zend_Controller_Request_Http();

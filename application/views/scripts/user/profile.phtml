@@ -5,7 +5,8 @@
         <a href="/user/profile"><?php if($this->lang == "ua") echo 'Особистий кабінет'; else echo 'Личный кабинет';?></a>
     </li>
     <li><a href="/user/messege"><?php if($this->lang == "ua") echo 'Повідомлення'; else echo 'Сообщения';?></a></li>
-    <li><a href="/user/messegesend"><?php if($this->lang == "ua") echo 'Надіслати повідомлення'; else echo 'Отправить сообщение';?></a></li>
+    <li><a href="/user/messegesend"><?php if($this->lang == "ua") echo 'Надіслати повідомлення адміністратору'; else echo 'Отправить сообщение администратору
+';?></a></li>
 </ul><div class="profile">
 <h4 class="text-success"><?php if($this->lang == "ua") echo 'Коротка інформація:'; else echo 'Краткая информация:';?> </h4>
 <img src="<?php  if($this->user['photo'] == NULL)
@@ -13,18 +14,21 @@
                 else echo $this->user['photo']?>" width="120px" height="120px" align="left" style="padding: 20px;">
 <ul>
     <li><b>Email:</b><?= $this->user['email']; ?></li>
-    <li><b>Gender: </b><?= $this->user['gender']; ?></li>
-    <li><b>Rating: </b><?= $this->user['result']; ?></li>
-    <li><b>Class: </b><?= $this->user['class']; ?>-<?= $this->user['letter']; ?></li>
-    <li><b>Role: </b><?= $this->user['role']; ?></li>
-    <li><b>VK: </b><?php if ($this->user['vk'] != 0) echo 'yes'; else { ?>
-            <a href="/auth/regvk">bind</a>
+    <li><b><?php if($this->lang == "ua") echo 'Стать'; else echo 'Пол';?>: </b><?= $this->user['gender']; ?></li>
+    <li><b><?php if($this->lang == "ua") echo 'Рейтинг'; else echo 'Рейтинг';?>: </b><?= $this->user['result']; ?></li>
+    <li><b><?php if($this->lang == "ua") echo 'Клас'; else echo 'Класс';?>: </b><?= $this->user['class']; ?>-<?= $this->user['letter']; ?></li>
+    <li><b><?php if($this->lang == "ua") echo 'Доступ'; else echo 'Доступ';?>: </b><?= $this->user['role']; ?></li>
+    <li><b>VK: </b><?php if ($this->user['vk'] != 0) echo '+'; else { ?>
+            <a href="/auth/regvk"><?php if($this->lang == "ua") echo "Зв'язати зі сторінкою"; else echo 'Связать со страницей
+';?></a>
         <?php }; ?></li>
-    <li><b>FC: </b><?php if ($this->user['fc'] != 0) echo 'yes'; else { ?>
-            <a href="/auth/regfc">bind</a>
+    <li><b>FC: </b><?php if ($this->user['fc'] != 0) echo '+'; else { ?>
+            <a href="/auth/regfc"><?php if($this->lang == "ua") echo "Зв'язати зі сторінкою"; else echo 'Связать со страницей
+';?></a>
         <?php }; ?></li>
-    <li><b>TW: </b><?php if ($this->user['tw'] != 0) echo 'yes'; else { ?>
-            <a href="/auth/regtw">bind</a>
+    <li><b>TW: </b><?php if ($this->user['tw'] != 0) echo '+'; else { ?>
+            <a href="/auth/regtw"><?php if($this->lang == "ua") echo "Зв'язати зі сторінкою"; else echo 'Связать со страницей
+';?></a>
         <?php }; ?></li>
 </ul>
     <?php if (Zend_Auth::getInstance()->getIdentity()->id == $this->user['id']){ ?>

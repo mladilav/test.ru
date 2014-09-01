@@ -16,7 +16,7 @@ class Application_Form_Registration extends Zend_Form
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $username->setLabel('Логин:')
+        $username->setLabel('Логин(Ваше имя на сайте):')
             ->setRequired(true)
             ->addFilter('StripTags')
             ->addFilter('StringTrim')

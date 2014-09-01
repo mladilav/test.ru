@@ -389,16 +389,13 @@ input[type="color"]:focus,
 }
 
 
-#registration dd:after{
-    content: "*";
-    color:red;
-    width: 10px;
-    height: 10px;
+#registration input,#registration select{
+    box-shadow:0 0 2px red;
 
 }
-#registration #photo-element:after, #registration #registration-element:after,
-#registration #class-element:after,#registration #letter-element:after{
-    content: "";
+#registration #photo, #registration #registration,
+#registration #class,#registration #letter{
+    box-shadow:none;
 }
 
 #languaue input[type="submit"]{
