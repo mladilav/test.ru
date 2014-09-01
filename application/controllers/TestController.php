@@ -951,7 +951,7 @@ class TestController extends Zend_Controller_Action
                 $file = $form->file->getFileInfo();
                 $ext = split("[/\\.]", $file['file']['name']);
                 $newName = 'question' . date("His", time()) . '.' . $ext[count($ext) - 1];
-                $fileUrl = '/var/www/html/public/uploads/' . date("d-m-Y", time()) . '/' . $newName;
+                $fileUrl = '/uploads/' . date("d-m-Y", time()) . '/' . $newName;
                 if (!file_exists('uploads/' . date("d-m-Y", time()))) {
                     mkdir('uploads/' . date("d-m-Y", time()), 0700);
                 }
@@ -962,7 +962,7 @@ class TestController extends Zend_Controller_Action
                     $newName);
                 $form->file->receive();
 
-                $xlsData = $this->getXLS($_SERVER['DOCUMENT_ROOT'].$fileUrl);
+                $xlsData = $this->getXLS($_SERVER['DOCUMENT_ROOT'].'var/www/html/public'.$fileUrl);
 
                 foreach ($xlsData as $array){
 
