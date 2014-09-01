@@ -951,7 +951,7 @@ class TestController extends Zend_Controller_Action
                 $file = $form->file->getFileInfo();
                 $ext = split("[/\\.]", $file['file']['name']);
                 $newName = 'question' . date("His", time()) . '.' . $ext[count($ext) - 1];
-                $fileUrl = '/uploads/' . date("d-m-Y", time()) . '/' . $newName;
+                $fileUrl = '/var/www/html/public/uploads/' . date("d-m-Y", time()) . '/' . $newName;
                 if (!file_exists('uploads/' . date("d-m-Y", time()))) {
                     mkdir('uploads/' . date("d-m-Y", time()), 0700);
                 }
