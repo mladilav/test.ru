@@ -952,12 +952,12 @@ class TestController extends Zend_Controller_Action
                 $ext = split("[/\\.]", $file['file']['name']);
                 $newName = 'question' . date("His", time()) . '.' . $ext[count($ext) - 1];
                 $fileUrl = '/var/www/html/public/uploads/' . date("d-m-Y", time()) . '/' . $newName;
-                if (!file_exists('/var/www/html/public/uploads/' . date("d-m-Y", time()))) {
-                    mkdir('/var/www/html/public/uploads/' . date("d-m-Y", time()), 0700);
+                if (!file_exists('var/www/html/public/uploads/' . date("d-m-Y", time()))) {
+                    mkdir('var/www/html/public/uploads/' . date("d-m-Y", time()), 0700);
                 }
                 $form->file->addFilter('Rename', realpath(dirname('.')) .
                     DIRECTORY_SEPARATOR .
-                    'uploads/' . date("d-m-Y", time()) . '/' .
+                    'var/www/html/public/uploads/' . date("d-m-Y", time()) . '/' .
                     DIRECTORY_SEPARATOR .
                     $newName);
                 $form->file->receive();
