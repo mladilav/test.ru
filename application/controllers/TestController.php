@@ -962,7 +962,7 @@ class TestController extends Zend_Controller_Action
                     $newName);
                 $form->file->receive();
 
-                $xlsData = $this->getXLS($_SERVER['DOCUMENT_ROOT'].'var/www/html/public'.$fileUrl);
+                $xlsData = $this->getXLS($_SERVER['DOCUMENT_ROOT'].'/var/www/html/public'.$fileUrl);
 
                 foreach ($xlsData as $array){
 
