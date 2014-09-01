@@ -26,11 +26,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TestController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TestController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="953" column="28" selection-start="38600" selection-end="38600" vertical-scroll-proportion="0.2997988" vertical-offset="16052" max-vertical-offset="24412">
+            <state line="953" column="28" selection-start="38600" selection-end="38600" vertical-scroll-proportion="-2.9215686" vertical-offset="16052" max-vertical-offset="24412">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="analytic.phtml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/index/analytic.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="0" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.5536398" vertical-offset="0" max-vertical-offset="522">
+              <folding>
+                <element signature="n#style#0;n#iframe#0;n#noscript#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,7 +68,6 @@
         <option value="$PROJECT_DIR$/application/views/scripts/test/deletetopic.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/partials/posts.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/rating.phtml" />
-        <option value="$PROJECT_DIR$/application/views/scripts/index/analytic.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/random.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/deletesubcat.phtml" />
         <option value="$PROJECT_DIR$/application/models/DbTable/Pattern.php" />
@@ -96,6 +106,7 @@
         <option value="$PROJECT_DIR$/application/views/scripts/index/post.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/partials/postsUa.phtml" />
         <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/index/analytic.phtml" />
       </list>
     </option>
   </component>
@@ -175,42 +186,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test.ru" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test.ru" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test.ru" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test.ru" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="application" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -260,6 +235,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="partials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test.ru" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test.ru" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="index" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -425,7 +426,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -468,11 +469,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/forms/Addtest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="80" selection-start="2618" selection-end="2618" vertical-scroll-proportion="0.60746" vertical-offset="780" max-vertical-offset="1343" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/test/deletetest.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="1060" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="612" />
@@ -738,8 +734,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="953" column="28" selection-start="38600" selection-end="38600" vertical-scroll-proportion="0.2997988" vertical-offset="16052" max-vertical-offset="24412">
+        <state line="953" column="28" selection-start="38600" selection-end="38600" vertical-scroll-proportion="-2.9215686" vertical-offset="16052" max-vertical-offset="24412">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/index/analytic.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.5536398" vertical-offset="0" max-vertical-offset="522">
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#noscript#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
