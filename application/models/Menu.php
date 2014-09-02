@@ -5,7 +5,7 @@ class Application_Model_Menu
     public function getMenu()
     {
         $result = '<li><a href="/">Главная</a></li>
-                   <li><a href="/">О проекте</a></li>';
+                   <li><a href="/index/about">О проекте</a></li>';
 
         if (Zend_Auth::getInstance()->hasIdentity()) {
 
@@ -35,7 +35,7 @@ class Application_Model_Menu
     public function getUaMenu()
     {
         $result = '<li><a href="/">Головна</a></li>
-                   <li><a href="/">Про проект</a></li>';
+                   <li><a href="/index/about">Про проект</a></li>';
 
         if (Zend_Auth::getInstance()->hasIdentity()) {
 

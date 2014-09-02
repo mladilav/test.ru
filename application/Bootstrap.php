@@ -36,7 +36,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $acl->addResource('analytic', 'index');
         $acl->addResource('lang', 'index');
         $acl->addResource('content', 'index');
-
+        $acl->addResource('about', 'index');
         $acl->addResource('error');
 
         $acl->addResource('auth');
@@ -105,7 +105,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $acl->addRole('admin', 'guest');
 
         // разрешаем гостю просматривать ресурс index
-        $acl->allow('guest', 'index', array('index', 'part', 'category','subcategory','lang','post','content'));
+        $acl->allow('guest', 'index', array('index', 'part', 'category','subcategory','lang','post','content','about'));
 
         // разрешаем гостю просматривать ресурс auth и его подресурсы
         $acl->allow('guest', 'auth', array('index', 'login', 'logout', 'registration', 'regvk','regfc','regtw'));

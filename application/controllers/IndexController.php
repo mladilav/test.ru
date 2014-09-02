@@ -38,7 +38,10 @@ class IndexController extends Zend_Controller_Action
             $this->view->layout()->menu = $menu->getMenu();
         }
     }
+    public function aboutAction()
+    {
 
+    }
     public function indexAction()
     {
         $this->_helper->redirector('content', 'index');
