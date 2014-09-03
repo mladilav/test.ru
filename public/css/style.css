@@ -461,3 +461,8 @@ h1{
     border-radius: 5px;
     padding: 5px;
 }
+
+
+.alert-success {
+    margin-top: 50px;
+}
