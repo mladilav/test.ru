@@ -987,7 +987,7 @@ class TestController extends Zend_Controller_Action
 
 
                 }
-                echo 'Файл успешно загружен. Загрузите следующий.';
+                echo '<div class="alert-success">Файл успешно загружен. Загрузите следующий.</div>';
             } else {
 
                 $form->populate($formData);
