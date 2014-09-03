@@ -4,7 +4,11 @@
 echo $this->errMessage;
 echo '<h3>';
 if($this->lang == "ua") echo 'Питання'; else echo 'Вопрос';
-echo ' №'.$this->questionNumber.'</h3>';?>
+echo ' №'.$this->questionNumber.'</h3>';
+if($this->testsArray['topicId'] == 1){
+echo '<h5>';
+if($this->lang == "ua") echo 'Залишилось часу'; else echo 'Осталось времени';
+echo ': '.date('H:i:s',$this->time).'</h5>';}?>
 
     <?php
 echo '<h4>'.$this->question.'</h4>';

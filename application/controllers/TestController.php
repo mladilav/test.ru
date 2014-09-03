@@ -248,8 +248,17 @@ class TestController extends Zend_Controller_Action
                 $result = new Application_Model_DbTable_Resulttest();
                 $result->truncate();
             }
+            else
+            {   $tests_ar = new Application_Model_DbTable_Test();
+                $this->view->testsArray = $tests_ar->getTest($test);
+                $test_arr = $tests_ar->getTest($test);
+                if((time()-$_SESSION['time']>=21600)&&($test_arr['topicId']== 1)){
+                    $this->_helper->redirector->gotoUrl('/test/result/testId/' . $test);
+                }
+            }
             $this->view->questionNumber = $questionNumber;
             $this->view->testId = $test;
+            $this->view->time = 21600 - (time()-$_SESSION['time']);
             $questionId = new Application_Model_DbTable_Testquestionrel();
             $questions_array = $questionId->getTestquestionrel($questionNumber, $test);
 

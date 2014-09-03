@@ -63,7 +63,16 @@ class Application_Model_Menu
     {
         if (Zend_Auth::getInstance()->getIdentity())
         {
+            $table = new Application_Model_DbTable_Messege();
+            $messege = $table->fetchAll($table->select()->where('userIdTo = '.Zend_Auth::getInstance()->getIdentity()->id)
+                ->where('status = 1')
+                ->order('date DESC '));
+
             $result = '<a href="/user/profile/id/'.Zend_Auth::getInstance()->getIdentity()->id.'">Личный кабинет </a>';
+            if($messege->count()>0){
+                $result =  $result.'<a class="label label-success" style="padding:4px;" href="/user/messege">'.$messege->count().'</a>';
+
+            }
             $result = $result.' <a href="/auth/logout">Выход</a>';
         }
         else {
@@ -79,7 +88,15 @@ class Application_Model_Menu
     {
         if (Zend_Auth::getInstance()->getIdentity())
         {
+            $table = new Application_Model_DbTable_Messege();
+            $messege = $table->fetchAll($table->select()->where('userIdTo = '.Zend_Auth::getInstance()->getIdentity()->id)
+                ->where('status = 1')
+                ->order('date DESC '));
             $result = '<a href="/user/profile/id/'.Zend_Auth::getInstance()->getIdentity()->id.'">Особистий кабінет</a>';
+            if($messege->count()>0){
+                $result =  $result.' <a class="label label-success" style="padding:4px;"  href="/user/messege">'.$messege->count().'</a>';
+
+            }
             $result = $result.'<a href="/auth/logout">Вихід</a>';
         }
         else {
