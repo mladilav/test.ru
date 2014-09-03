@@ -72,6 +72,18 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
         $this->delete('id = ' . (int)$id);
     }
 
+    public function getUsername($username)
+    {
+        $row = $this->fetchRow('username ='.$username);
+
+        // Если результат пустой, выкидываем исключение
+        if (!$row) {
+            return false;
+        }
+        // Возвращаем результат, упакованный в массив
+        return true;
+    }
+
 
 }
 
