@@ -38,16 +38,25 @@
       <file leaf-file-name="IndexController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="0" selection-start="1394" selection-end="1394" vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="13702">
+            <state line="42" column="0" selection-start="1394" selection-end="1394" vertical-scroll-proportion="-27.461538" vertical-offset="0" max-vertical-offset="13702">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about.phtml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="TestController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="989" column="65" selection-start="39959" selection-end="39959" vertical-scroll-proportion="0.43486974" vertical-offset="16596" max-vertical-offset="24497">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.phtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/index/about.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="31" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.519084" vertical-offset="0" max-vertical-offset="524">
+            <state line="16" column="31" selection-start="1776" selection-end="1776" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="459">
               <folding />
             </state>
           </provider>
@@ -136,11 +145,11 @@
         <option value="$PROJECT_DIR$/application/views/scripts/user/profile.phtml" />
         <option value="$PROJECT_DIR$/application/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
-        <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/application/Bootstrap.php" />
         <option value="$PROJECT_DIR$/application/models/Menu.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/about.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
       </list>
     </option>
   </component>
@@ -699,21 +708,9 @@
         <state line="107" column="116" selection-start="4328" selection-end="4328" vertical-scroll-proportion="-5.4615383" vertical-offset="1677" max-vertical-offset="2465" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="0" selection-start="1394" selection-end="1394" vertical-scroll-proportion="0.0" vertical-offset="714" max-vertical-offset="13702">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Menu.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="39" selection-start="1650" selection-end="1650" vertical-scroll-proportion="1.2003816" vertical-offset="0" max-vertical-offset="1649" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="13" selection-start="656" selection-end="656" vertical-scroll-proportion="-0.38931298" vertical-offset="527" max-vertical-offset="24497" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/index/add.phtml">
@@ -725,7 +722,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/index/about.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="31" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.519084" vertical-offset="0" max-vertical-offset="524">
+        <state line="16" column="31" selection-start="1776" selection-end="1776" vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="459">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="42" column="0" selection-start="1394" selection-end="1394" vertical-scroll-proportion="-27.461538" vertical-offset="0" max-vertical-offset="13702">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="989" column="65" selection-start="39959" selection-end="39959" vertical-scroll-proportion="0.43486974" vertical-offset="16596" max-vertical-offset="24497">
           <folding />
         </state>
       </provider>

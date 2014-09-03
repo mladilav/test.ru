@@ -987,7 +987,7 @@ class TestController extends Zend_Controller_Action
 
 
                 }
-                $this->_helper->redirector('uploadtest', 'test');
+                echo 'Файл успешно загружен. Загрузите следующий.';
             } else {
 
                 $form->populate($formData);
