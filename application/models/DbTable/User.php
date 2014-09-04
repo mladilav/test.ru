@@ -74,7 +74,7 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
 
     public function getUsername($username)
     {
-        $row = $this->fetchAll("username LIKE ".$username);
+        $row = $this->fetchAll("username LIKE "."'".$username."'");
 
         // Если результат пустой, выкидываем исключение
         if (!$row) {

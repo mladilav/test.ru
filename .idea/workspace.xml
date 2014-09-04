@@ -35,19 +35,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AuthController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="267" column="19" selection-start="10147" selection-end="10147" vertical-scroll-proportion="0.6360153" vertical-offset="4207" max-vertical-offset="11356">
+            <state line="267" column="19" selection-start="10147" selection-end="10147" vertical-scroll-proportion="-6.8846154" vertical-offset="4360" max-vertical-offset="11356">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="User.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/models/DbTable/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="40" selection-start="2169" selection-end="2169" vertical-scroll-proportion="-7.6538463" vertical-offset="1093" max-vertical-offset="1615">
+            <state line="76" column="64" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.38122606" vertical-offset="1093" max-vertical-offset="1615">
               <folding />
             </state>
           </provider>
@@ -112,8 +112,8 @@
         <option value="$PROJECT_DIR$/application/models/Menu.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/question.phtml" />
         <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
-        <option value="$PROJECT_DIR$/application/models/DbTable/User.php" />
         <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
+        <option value="$PROJECT_DIR$/application/models/DbTable/User.php" />
       </list>
     </option>
   </component>
@@ -729,16 +729,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/User.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="40" selection-start="2169" selection-end="2169" vertical-scroll-proportion="-7.6538463" vertical-offset="1093" max-vertical-offset="1615">
+        <state line="267" column="19" selection-start="10147" selection-end="10147" vertical-scroll-proportion="-6.8846154" vertical-offset="4360" max-vertical-offset="11356">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="267" column="19" selection-start="10147" selection-end="10147" vertical-scroll-proportion="0.6360153" vertical-offset="4207" max-vertical-offset="11356">
+        <state line="76" column="64" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.38122606" vertical-offset="1093" max-vertical-offset="1615">
           <folding />
         </state>
       </provider>
