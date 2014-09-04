@@ -268,6 +268,7 @@ class AuthController extends Zend_Controller_Action
                 if($user->getUsername($form->getValue('username'))){
                     $this->_helper->redirector('registration', 'auth');
                 }
+                else{
 
                 // Вызываем метод модели addMovie для вставки новой записи
                 $user->addUsers($username, md5($password), md5($password_rep), $email, $photo, $gender,$class,$letter,
@@ -275,6 +276,7 @@ class AuthController extends Zend_Controller_Action
 
                 // Используем библиотечный helper для редиректа на action = index
                 $this->authreg($username, md5($password));
+                }
 
             } else {
                 // Если форма заполнена неверно,
