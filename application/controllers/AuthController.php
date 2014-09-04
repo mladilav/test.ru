@@ -265,6 +265,9 @@ class AuthController extends Zend_Controller_Action
 
                 $user = new Application_Model_DbTable_User();
 
+               if(!$user->getUsername($username)){
+                   $this->_helper->redirector('registration', 'auth');
+               }
 
                 // Вызываем метод модели addMovie для вставки новой записи
                 $user->addUsers($username, md5($password), md5($password_rep), $email, $photo, $gender,$class,$letter,

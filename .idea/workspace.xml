@@ -38,7 +38,7 @@
       <file leaf-file-name="AuthController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="273" column="58" selection-start="10518" selection-end="10518" vertical-scroll-proportion="0.6072797" vertical-offset="4324" max-vertical-offset="11305">
+            <state line="267" column="19" selection-start="10147" selection-end="10147" vertical-scroll-proportion="0.6360153" vertical-offset="4207" max-vertical-offset="11356">
               <folding />
             </state>
           </provider>
@@ -47,7 +47,7 @@
       <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/DbTable/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="76" column="42" selection-start="2171" selection-end="2171" vertical-scroll-proportion="-7.6538463" vertical-offset="1093" max-vertical-offset="1615">
+            <state line="76" column="40" selection-start="2169" selection-end="2169" vertical-scroll-proportion="-7.6538463" vertical-offset="1093" max-vertical-offset="1615">
               <folding />
             </state>
           </provider>
@@ -722,13 +722,6 @@
         <state line="455" column="85" selection-start="15642" selection-end="15650" vertical-scroll-proportion="0.45288754" vertical-offset="7586" max-vertical-offset="8670" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/DbTable/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="42" selection-start="2171" selection-end="2171" vertical-scroll-proportion="-7.6538463" vertical-offset="1093" max-vertical-offset="1615">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/TestController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="247" column="69" selection-start="9120" selection-end="9120" vertical-scroll-proportion="0.0" vertical-offset="4199" max-vertical-offset="24650">
@@ -736,9 +729,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/DbTable/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="40" selection-start="2169" selection-end="2169" vertical-scroll-proportion="-7.6538463" vertical-offset="1093" max-vertical-offset="1615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="273" column="58" selection-start="10518" selection-end="10518" vertical-scroll-proportion="0.6072797" vertical-offset="4324" max-vertical-offset="11305">
+        <state line="267" column="19" selection-start="10147" selection-end="10147" vertical-scroll-proportion="0.6360153" vertical-offset="4207" max-vertical-offset="11356">
           <folding />
         </state>
       </provider>
