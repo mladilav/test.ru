@@ -25,7 +25,7 @@ body{
 }
 
 .leftBar ul li a,.leftBar .accordion-heading a{
-    padding-left: 14px;
+    padding-left: 5px;
     padding-right: 0;
 }
 .leftBar .accordion-group{
@@ -468,7 +468,7 @@ h1{
 }
 
 .accordion-inner{
-    padding-left: 0;
+    padding-left: 5px;
 }
 
 .accordion-inner .accordion-inner{
