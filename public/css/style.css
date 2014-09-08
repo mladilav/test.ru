@@ -6,6 +6,9 @@
 body{
     background: #e6e6e6;
 }
+li{
+    list-style-type: none;
+}
 
 .leftBar{
     background: #FFFFFF;
