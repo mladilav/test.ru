@@ -470,3 +470,7 @@ h1{
 .accordion-inner{
     padding-left: 0;
 }
+
+.accordion-inner .accordion-inner{
+    padding-left: 20px;
+}
