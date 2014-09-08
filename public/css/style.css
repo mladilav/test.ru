@@ -466,3 +466,7 @@ h1{
 .alert-success {
     top: 50px;
 }
+
+.accordion-inner{
+    padding-left: 0;
+}

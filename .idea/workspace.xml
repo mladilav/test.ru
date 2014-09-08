@@ -35,10 +35,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="content.phtml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="content.phtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/index/content.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="0" selection-start="1171" selection-end="1171" vertical-scroll-proportion="0.648855" vertical-offset="0" max-vertical-offset="524">
+            <state line="20" column="0" selection-start="1171" selection-end="1171" vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="442">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Menu.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/Menu.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="72" column="83" selection-start="3606" selection-end="3606" vertical-scroll-proportion="-0.46153846" vertical-offset="1212" max-vertical-offset="1938">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="470" column="19" selection-start="8717" selection-end="8717" vertical-scroll-proportion="0.90727276" vertical-offset="7491" max-vertical-offset="8109">
               <folding />
             </state>
           </provider>
@@ -97,7 +115,6 @@
         <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/application/Bootstrap.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/about.phtml" />
-        <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/application/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/application/models/Menu.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/question.phtml" />
@@ -105,6 +122,7 @@
         <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/application/models/DbTable/User.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/content.phtml" />
+        <option value="$PROJECT_DIR$/public/css/style.css" />
       </list>
     </option>
   </component>
@@ -170,6 +188,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test.ru" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test.ru" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -669,11 +705,6 @@
         <state line="16" column="0" selection-start="334" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="510" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="455" column="2" selection-start="8497" selection-end="8497" vertical-scroll-proportion="0.0" vertical-offset="6845" max-vertical-offset="8041" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="42" column="0" selection-start="1394" selection-end="1394" vertical-scroll-proportion="-27.461538" vertical-offset="0" max-vertical-offset="13702" />
@@ -682,11 +713,6 @@
     <entry file="file://$PROJECT_DIR$/application/views/scripts/index/about.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="31" selection-start="1776" selection-end="1776" vertical-scroll-proportion="0.519084" vertical-offset="0" max-vertical-offset="524" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="83" selection-start="3606" selection-end="3606" vertical-scroll-proportion="-6.3461537" vertical-offset="1059" max-vertical-offset="1938" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/user/messege.phtml">
@@ -763,7 +789,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/index/content.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="1171" selection-end="1171" vertical-scroll-proportion="0.648855" vertical-offset="0" max-vertical-offset="524">
+        <state line="20" column="0" selection-start="1171" selection-end="1171" vertical-scroll-proportion="-13.076923" vertical-offset="0" max-vertical-offset="442">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="72" column="83" selection-start="3606" selection-end="3606" vertical-scroll-proportion="-0.46153846" vertical-offset="1212" max-vertical-offset="1938">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="470" column="19" selection-start="8717" selection-end="8717" vertical-scroll-proportion="0.90727276" vertical-offset="7491" max-vertical-offset="8109">
           <folding />
         </state>
       </provider>
