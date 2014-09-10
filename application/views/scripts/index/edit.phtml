@@ -1,3 +1,28 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var h1 = document.getElementById('partId');
+        var h4 = document.getElementById('catId');
+        var div = document.getElementById('accordion2');
+        var elems = div.getElementsByClassName('accordion-toggle');
+        for(var i=0; i<elems.length; i++)
+        {
+            if(elems[i].innerHTML == h1.innerHTML){
+                var str = elems[i].href;
+                var num = str.length - 9;
+                var part = document.getElementById(str.substring(num));
+                part.className = 'in';
+                var elem = part.getElementsByClassName('accordion-toggle');
+                for(var j=0; j<elem.length; j++)
+                {
+                    if(elem[j].innerHTML == h4.innerHTML){
+                        var li = elem[j].parentElement;
+                        li.className = 'act';
+                    }
+                }
+            }
+        }
+    });
+</script>
 <style>
     #description,#descriptionUa {
         width: 98%;
@@ -12,6 +37,15 @@
 <?php
 if ($this->lang == "ua") $this->title = "Редагувати статтю"; else
     $this->title = "Редактировать статью  ";?>
+
+<?php
+if($this->lang == "ua")
+{
+    echo '<h1 id="partId" style="display:none;">'.$this->post['partUa'].'</h1><h4 id="catId" style="display:none;">'.$this->post['categoryUa'].'</h4>';}
+else {
+    echo '<h1  id="partId" style="display:none;">'.$this->post['part'].'</h1><h4 id="catId" style="display:none;">'.$this->post['category'].'</h4>';}
+?>
+
 <div class="settings">
     <?php
 echo $this->errMessage;

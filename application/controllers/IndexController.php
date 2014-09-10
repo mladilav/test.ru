@@ -255,6 +255,7 @@ class IndexController extends Zend_Controller_Action
                 // Создаём объект модели
                 $posts = new Application_Model_DbTable_Posts();
                 // Заполняем форму информацией при помощи метода populate
+                $this->view->post = $posts->getPost($id);
                 $form->populate($posts->getPost($id));
 
             }
