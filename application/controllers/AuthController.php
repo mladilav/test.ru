@@ -160,7 +160,7 @@ class AuthController extends Zend_Controller_Action
             'redirect_uri' => $redirect_uri,
             'response_type' => 'code'
         );
-        echo $link = '<div class="social">
+        $link = '<div class="social">
         Зарегистрироваться через социальные сети
         <a href="' . $url . '?' . urldecode(http_build_query($params)) . '"><img src="/img/vkontakte.png" ></a>';
 
@@ -179,7 +179,7 @@ class AuthController extends Zend_Controller_Action
             'scope' => 'email,user_birthday'
         );
 
-        echo $link = '<a href="' . $url . '?' . urldecode(http_build_query($params)) . '"><img src="/img/facebook.png"></a>';
+        $link .= '<a href="' . $url . '?' . urldecode(http_build_query($params)) . '"><img src="/img/facebook.png"></a>';
 
 
         //Регистрация через twitter
@@ -235,9 +235,10 @@ class AuthController extends Zend_Controller_Action
 
 // генерируем ссылку аутентификации
 
-        $link = AUTHORIZE_URL . '?oauth_token=' . $oauth_token;
+        $links = AUTHORIZE_URL . '?oauth_token=' . $oauth_token;
 
-        echo '<a href="' . $link . '"><img src="/img/twitter.png" ></a></div>';
+        $link .= '<a href="' . $links . '"><img src="/img/twitter.png" ></a></div>';
+        $this->view->social = $link;
 
         // Если к нам идёт Post запрос
 		
@@ -268,11 +269,12 @@ class AuthController extends Zend_Controller_Action
 
                if($user->getUsername($username) > 0){
 					$form->populate($formData);
-					echo '<div class="alert alert-error">';
+					$echo = '<div class="alert alert-error pull-left">';
                     if ($lang == "ua") {
-							echo 'Виберіть інший логін.	Цей вже зайнятий!';} else
-							{echo 'Выберите другой логин. Этот уже занят';} 
-					echo '</div>';
+							$echo .= 'Виберіть інший логін.	Цей вже зайнятий!';} else
+							{$echo .= 'Выберите другой логин. Этот уже занят';}
+                   $echo .= '</div>';
+                   $this->view->mes = $echo;
                } else
 			   {
 

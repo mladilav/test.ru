@@ -1,6 +1,65 @@
+<script>
+    $(document).ready(function() {
+
+        $('#password').blur(function(){
+            if(($(this).val().length < 6)&&($(this).val().length!=0)){
+                $('.pasw').removeClass('hide');}
+            else{
+                $('.pasw').addClass('hide');
+            }
+        });
+        $('#password_rep').blur(function(){
+            if(($('#password').val() != $(this).val())&&($(this).val().length*$('#password').val().length)!=0){
+
+                $('.repeat').removeClass('hide');}
+            else {
+                $('.repeat').addClass('hide');
+            }
+        });
+        $('#email').blur(function(){
+            if(!isValidEmailAddress($(this).val())&&($(this).val().length!=0)){
+                $('.email').removeClass('hide');
+            }  else {
+                $('.email').addClass('hide');
+            }
+        });
+
+
+
+    });
+
+    function isValidEmailAddress(emailAddress) {
+        var pattern = new RegExp(/^(("[\w-+\s]+")|([\w-+]+(?:\.[\w-+]+)*)|("[\w-+\s]+")([\w-+]+(?:\.[\w-+]+)*))(@((?:[\w-+]+\.)*\w[\w-+]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][\d]\.|1[\d]{2}\.|[\d]{1,2}\.))((25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\.){2}(25[0-5]|2[0-4][\d]|1[\d]{2}|[\d]{1,2})\]?$)/i);
+        return pattern.test(emailAddress);
+    };
+</script>
+<div class="pull-left">
 <?php
     if ($_COOKIE['lang']=="ua") $this->title = "Реєстрація"; else
 $this->title = "Регистрация";
 echo $this->errMessage;
 echo $this->form;
-?>
+?></div>
+<div class="pull-right">
+    <?=$this->social?>
+    <div class="mes">
+    <?=$this->mes?>
+    </div>
+
+
+        <div class="alert alert-error pasw pull-left hide">
+        <?php if ($_COOKIE['lang']=="ua")  echo "
+                Занадто слабкий пароль!"; else
+            echo  "Слишком слабый пароль!"; ?> </div>
+    <div class="alert alert-error repeat pull-left hide">
+        <?php if ($_COOKIE['lang']=="ua")  echo "
+                 Паролі не збігаються! "; else
+            echo  " Пароли не совпадают! "; ?> </div>
+
+    <div class="alert alert-error email pull-left hide">
+        <?php if ($_COOKIE['lang']=="ua")  echo "
+                 Невірна адреса пошти! "; else
+            echo  "Неправильный адрес почты! "; ?> </div>
+
+
+</div>

@@ -477,3 +477,14 @@ h1{
 .accordion-inner .accordion-inner{
     padding-left: 20px;
 }
+.social{
+    float: right;
+    margin-top: -30px;
+    position: relative;
+}
+.mes{
+    margin-top: 20px;
+}
+.alert{
+    clear: left;
+}
