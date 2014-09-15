@@ -240,13 +240,14 @@ class AuthController extends Zend_Controller_Action
         echo '<a href="' . $link . '"><img src="/img/twitter.png" ></a></div>';
 
         // Если к нам идёт Post запрос
+		
         if ($this->getRequest()->isPost()) {
             // Принимаем его
             $formData = $this->getRequest()->getPost();
 
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
-
+				
                 $username = $form->getValue('username');
                 $password = $form->getValue('password');
                 $password_rep = $form->getValue('password_rep');
@@ -265,16 +266,20 @@ class AuthController extends Zend_Controller_Action
 
                 $user = new Application_Model_DbTable_User();
 
-               if(!$user->getUsername($username)){
-                   $this->_helper->redirector('registration', 'auth');
-               }
+               if($user->getUsername($username) > 0){
+					$form->populate($formData);
+					echo '<div class="alert alert-error">';
+                    if ($lang == "ua") {
+							echo 'Виберіть інший логін.	Цей вже зайнятий!';} else
+							{echo 'Выберите другой логин. Этот уже занят';} 
+					echo '</div>';
+               } else
+			   {
 
-                // Вызываем метод модели addMovie для вставки новой записи
+                
                 $user->addUsers($username, md5($password), md5($password_rep), $email, $photo, $gender,$class,$letter,
-                    $date_reg, $role, $vk, $fc, $tw);
-
-                // Используем библиотечный helper для редиректа на action = index
-                $this->authreg($username, md5($password));
+                    $date_reg, $role, $vk, $fc, $tw); 
+                $this->authreg($username, md5($password));}
 
 
             } else {
