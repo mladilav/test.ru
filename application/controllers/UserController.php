@@ -488,33 +488,7 @@ class UserController extends Zend_Controller_Action
 
             $formData = $this->getRequest()->getPost();
             if ($form->isValid($formData)) {
-
-
-                $email=new TEmail;
-
-                $email->from_email='noreply@konservs.com';
-
-                $email->from_name='Автор ІЇҐЭЄ іїґэє';
-
-                $email->to_email='******@gmail.com';
-
-                $email->to_name='Для Васі';
-
-                $email->subject='Тема ІЇҐЭЄ іїґэє';
-
-                $email->body='Текстовий тестовий лист. Тест: ІЇҐЭЄ іїґэє';
-
-                if($email->send())
-
-                    echo('Plain text email - OK.<br>'); else
-
-                    echo('Plain text email - Error!<br>');
-
-                //HTML письмо
-
-                echo('HTML email - sending...<br>');
-
-                $email=new TEmail;
+                $email=new Application_Model_TEmail();
 
                 $email->from_email = Zend_Auth::getInstance()->getIdentity()->email;
 

@@ -19,6 +19,15 @@ class Application_Model_TEmail{
 
     public $type='text/plain';
 
+    function mime_header_encode($str, $data_charset, $send_charset){
+
+        if($data_charset != $send_charset)
+
+            $str=iconv($data_charset,$send_charset.'//IGNORE',$str);
+
+        return ('=?'.$send_charset.'?B?'.base64_encode($str).'?=');
+
+    }
     function send(){
 
         $dc=$this->data_charset;
@@ -27,11 +36,11 @@ class Application_Model_TEmail{
 
         //Кодируем поля адресата, темы и отправителя
 
-        $enc_to=mime_header_encode($this->to_name,$dc,$sc).' <'.$this->to_email.'>';
+        $enc_to=$this->mime_header_encode($this->to_name,$dc,$sc).' <'.$this->to_email.'>';
 
-        $enc_subject=mime_header_encode($this->subject,$dc,$sc);
+        $enc_subject= $this->mime_header_encode($this->subject,$dc,$sc);
 
-        $enc_from=mime_header_encode($this->from_name,$dc,$sc).' <'.$this->from_email.'>';
+        $enc_from=$this->mime_header_encode($this->from_name,$dc,$sc).' <'.$this->from_email.'>';
 
         //Кодируем тело письма
 
