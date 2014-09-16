@@ -502,25 +502,12 @@ class UserController extends Zend_Controller_Action
 
                 $email->type='text/html';
 
-                $email->body='Тестовий лист в HTML.
+                $email->body='
 
-                        <h1>Header 1 (Заголовок 1)</h1>
+                        <h1>'. $form->getValue('caption') .'</h1>
+                        <p>'.$form->getValue('text').'</p>';
 
-                        <h2>Header 2 (Заголовок 2)</h2>
-
-                        <h3>Header 3 (Заголовок 3)</h3>
-
-                        <h4>Header 4 (Заголовок 4)</h4>
-
-                        <h5>Header 5 (Заголовок 5)</h5>
-
-                        Тест: ІЇҐЭЄ іїґэє';
-
-                if($email->send())
-
-                    echo('HTML email - OK.<br>'); else
-
-                    echo('HTML email - Error!<br>');
+               $email->send();
 
                 /*$messege = '<table><tr><th>'.$form->getValue('caption').'</th></tr> ';
                 $messege .= '<tr><td>'.$form->getValue('text').'</td></tr>';

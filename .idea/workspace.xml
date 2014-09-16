@@ -47,7 +47,7 @@
       <file leaf-file-name="UserController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="496" column="53" selection-start="16891" selection-end="16891" vertical-scroll-proportion="-0.30268198" vertical-offset="8590" max-vertical-offset="9367">
+            <state line="509" column="30" selection-start="17242" selection-end="17242" vertical-scroll-proportion="0.25095785" vertical-offset="8522" max-vertical-offset="9146">
               <folding />
             </state>
           </provider>
@@ -920,7 +920,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="496" column="53" selection-start="16891" selection-end="16891" vertical-scroll-proportion="-0.30268198" vertical-offset="8590" max-vertical-offset="9367">
+        <state line="509" column="30" selection-start="17242" selection-end="17242" vertical-scroll-proportion="0.25095785" vertical-offset="8522" max-vertical-offset="9146">
           <folding />
         </state>
       </provider>
