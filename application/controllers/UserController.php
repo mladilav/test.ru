@@ -494,7 +494,7 @@ class UserController extends Zend_Controller_Action
 
                 $email->from_name = 'Автор '.Zend_Auth::getInstance()->getIdentity()->username;
 
-                $email->to_email='mladi2010@yandex.ua';
+                $email->to_email='it.oleh@mail.ru';
 
                 $email->to_name= 'Администратору';
 
