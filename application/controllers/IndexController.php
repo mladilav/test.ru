@@ -237,7 +237,7 @@ class IndexController extends Zend_Controller_Action
 
                 // Вызываем метод модели addMovie для вставки новой записи
                 $post->updatePost($data);
-                $this->_helper->redirector('content', 'index');
+                $this->_helper->redirector('index', 'index');
 
             } else {
                 // Если форма заполнена неверно,

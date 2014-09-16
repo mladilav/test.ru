@@ -44,10 +44,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="502" column="29" selection-start="17374" selection-end="17374" vertical-scroll-proportion="0.7758621" vertical-offset="8129" max-vertical-offset="8806">
+            <state line="502" column="29" selection-start="17374" selection-end="17374" vertical-scroll-proportion="-58.653847" vertical-offset="7009" max-vertical-offset="8806">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="239" column="49" selection-start="10008" selection-end="10008" vertical-scroll-proportion="0.6" vertical-offset="3757" max-vertical-offset="13668">
               <folding />
             </state>
           </provider>
@@ -135,10 +144,10 @@
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/messege.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/userhomework.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/paginator_control.phtml" />
         <option value="$PROJECT_DIR$/application/controllers/UserController.php" />
+        <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
       </list>
     </option>
   </component>
@@ -789,13 +798,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1749" selection-end="1749" vertical-scroll-proportion="0.8" vertical-offset="510" max-vertical-offset="13668">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/paginator_control.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="36" selection-start="161" selection-end="161" vertical-scroll-proportion="-0.13601533" vertical-offset="156" max-vertical-offset="680">
@@ -826,7 +828,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="502" column="29" selection-start="17374" selection-end="17374" vertical-scroll-proportion="0.7758621" vertical-offset="8129" max-vertical-offset="8806">
+        <state line="502" column="29" selection-start="17374" selection-end="17374" vertical-scroll-proportion="-58.653847" vertical-offset="7009" max-vertical-offset="8806">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="239" column="49" selection-start="10008" selection-end="10008" vertical-scroll-proportion="0.6" vertical-offset="3757" max-vertical-offset="13668">
           <folding />
         </state>
       </provider>
