@@ -44,10 +44,6 @@ class IndexController extends Zend_Controller_Action
     }
     public function indexAction()
     {
-        $this->_helper->redirector('content', 'index');
-    }
-    public function contentAction()
-    {
         $post = new Application_Model_DbTable_Posts();
         $page = (int) $this->getRequest()->getParam('page');
         if ($page > 0) {
@@ -56,6 +52,7 @@ class IndexController extends Zend_Controller_Action
             $this->view->paginator = $post->getPaginatorRows(1);
         }
     }
+
 
     public function postAction()
     {
