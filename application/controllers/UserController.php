@@ -49,8 +49,12 @@ class UserController extends Zend_Controller_Action
     public function editAction()
     {
 
-        $id = $this->_getParam('id', 0);
 
+        if (Zend_Auth::getInstance()->getIdentity()) {
+
+            $id = Zend_Auth::getInstance()->getIdentity()->id;
+
+        } else { return;}
         $form = new Application_Form_Registration();
         $form->registration->setLabel('Сохранить');
         $request = new Zend_Controller_Request_Http();
@@ -101,11 +105,7 @@ class UserController extends Zend_Controller_Action
             // Если мы выводим форму, то получаем id фильма, который хотим обновить
 
             $users = new Application_Model_DbTable_User();
-            if (Zend_Auth::getInstance()->getIdentity()) {
-                if ((Zend_Auth::getInstance()->getIdentity()->id != $id) && (Zend_Auth::getInstance()->getIdentity()->role != 'admin')) {
-                    $id = Zend_Auth::getInstance()->getIdentity()->id;
-                }
-            }
+
 
             $form->populate($users->getUser($id));
 
