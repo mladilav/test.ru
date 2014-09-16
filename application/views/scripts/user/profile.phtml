@@ -13,11 +13,15 @@
                     echo "/img/profile.png";
                 else echo $this->user['photo']?>" width="120px" height="120px" align="left" style="padding: 20px;">
 <ul>
-    <li><b>Email:</b><?= $this->user['email']; ?></li>
-    <li><b><?php if($this->lang == "ua") echo 'Стать'; else echo 'Пол';?>: </b><?= $this->user['gender']; ?></li>
-    <li><b><?php if($this->lang == "ua") echo 'Рейтинг'; else echo 'Рейтинг';?>: </b><?= $this->user['result']; ?></li>
-    <li><b><?php if($this->lang == "ua") echo 'Клас'; else echo 'Класс';?>: </b><?= $this->user['class']; ?>-<?= $this->user['letter']; ?></li>
-    <li><b><?php if($this->lang == "ua") echo 'Доступ'; else echo 'Доступ';?>: </b><?= $this->user['role']; ?></li>
+    <li><b>Email: </b><?= $this->user['email']; ?></li>
+    <li><b><?php if($this->lang == "ua") echo 'Стать'; else echo 'Пол';?>:  </b><?= $this->user['gender']; ?></li>
+    <li><b><?php if($this->lang == "ua") echo 'Рейтинг'; else echo 'Рейтинг';?>:  </b><?= $this->user['result']; ?></li>
+    <li><b><?php if($this->lang == "ua") echo 'Клас'; else echo 'Класс';?>:  </b><?= $this->user['class']; ?>-<?= $this->user['letter']; ?></li>
+    <li><b><?php if($this->lang == "ua") echo 'Доступ'; else echo 'Доступ';?>:  </b><?= $this->user['role']; ?></li>
+
+
+    <?php if (Zend_Auth::getInstance()->getIdentity()->id == $this->user['id']){ ?>
+
     <li><b>VK: </b><?php if ($this->user['vk'] != 0) echo '+'; else { ?>
             <a href="/auth/regvk"><?php if($this->lang == "ua") echo "Зв'язати зі сторінкою"; else echo 'Связать со страницей
 ';?></a>
@@ -30,6 +34,10 @@
             <a href="/auth/regtw"><?php if($this->lang == "ua") echo "Зв'язати зі сторінкою"; else echo 'Связать со страницей
 ';?></a>
         <?php }; ?></li>
+
+    <?php }; ?>
+
+
 </ul>
     <?php if (Zend_Auth::getInstance()->getIdentity()->id == $this->user['id']){ ?>
     <a href="/user/edit/id/<?php echo Zend_Auth::getInstance()->getIdentity()->id; ?>" class="btn btn-success">

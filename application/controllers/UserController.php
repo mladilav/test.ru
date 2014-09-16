@@ -490,19 +490,78 @@ class UserController extends Zend_Controller_Action
             if ($form->isValid($formData)) {
 
 
-                $messege = ' '.$form->getValue('caption').'. ';
-                $messege .= ' '.$form->getValue('text').' ';
-                $messege .= '  oт '.Zend_Auth::getInstance()->getIdentity()->username.' ';
-                mail("dmitrikov_samuel@mail.ru", "New message", $messege, "From: webmaster@moregeo.com\r\n"
+                $email=new TEmail;
+
+                $email->from_email='noreply@konservs.com';
+
+                $email->from_name='Автор ІЇҐЭЄ іїґэє';
+
+                $email->to_email='******@gmail.com';
+
+                $email->to_name='Для Васі';
+
+                $email->subject='Тема ІЇҐЭЄ іїґэє';
+
+                $email->body='Текстовий тестовий лист. Тест: ІЇҐЭЄ іїґэє';
+
+                if($email->send())
+
+                    echo('Plain text email - OK.<br>'); else
+
+                    echo('Plain text email - Error!<br>');
+
+                //HTML письмо
+
+                echo('HTML email - sending...<br>');
+
+                $email=new TEmail;
+
+                $email->from_email = Zend_Auth::getInstance()->getIdentity()->email;
+
+                $email->from_name = 'Автор '.Zend_Auth::getInstance()->getIdentity()->username;
+
+                $email->to_email='mladilav2014@gmail.com';
+
+                $email->to_name= 'Администратору';
+
+                $email->subject= $form->getValue('caption');
+
+                $email->type='text/html';
+
+                $email->body='Тестовий лист в HTML.
+
+                        <h1>Header 1 (Заголовок 1)</h1>
+
+                        <h2>Header 2 (Заголовок 2)</h2>
+
+                        <h3>Header 3 (Заголовок 3)</h3>
+
+                        <h4>Header 4 (Заголовок 4)</h4>
+
+                        <h5>Header 5 (Заголовок 5)</h5>
+
+                        Тест: ІЇҐЭЄ іїґэє';
+
+                if($email->send())
+
+                    echo('HTML email - OK.<br>'); else
+
+                    echo('HTML email - Error!<br>');
+
+                /*$messege = '<table><tr><th>'.$form->getValue('caption').'</th></tr> ';
+                $messege .= '<tr><td>'.$form->getValue('text').'</td></tr>';
+                $messege .= '<tr><td>  oт '.Zend_Auth::getInstance()->getIdentity()->username.'</td></tr></table>';
+               /* mail("dmitrikov_samuel@mail.ru", "New message", $messege, "From: webmaster@moregeo.com\r\n"
                     ."Reply-To: ".Zend_Auth::getInstance()->getIdentity()->username."@moregeo.com\r\n"
-                    ."X-Mailer: PHP/" . phpversion());
-                mail("mladi2010@yandex.ua", "New message", $messege, "From: ".Zend_Auth::getInstance()->getIdentity()->username."@moregeo.com\r\n"
+                    ."X-Mailer: PHP/" . phpversion());*/
+               /* mail("mladi2010@yandex.ua", "New message", $messege, "From: ".Zend_Auth::getInstance()->getIdentity()->username."@moregeo.com\r\n"
                     ."Reply-To: webmaster@moregeo.com\r\n"
                     ."X-Mailer: PHP/" . phpversion());
 
-                mail("it.oleh@mail.ru", "New message", $messege, "From: webmaster@moregeo.com\r\n"
+                /*mail("it.oleh@mail.ru", "New message", $messege, "From: webmaster@moregeo.com\r\n"
                     ."Reply-To: ".Zend_Auth::getInstance()->getIdentity()->username."@moregeo.com\r\n"
-                    ."X-Mailer: PHP/" . phpversion());
+                    ."X-Mailer: PHP/" . phpversion());*/
+
 
                 }
                 $this->_helper->redirector('profile', 'user');

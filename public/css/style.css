@@ -490,3 +490,10 @@ h1{
 .alert{
     clear: left;
 }
+
+.auth-link{
+    display: block;
+    font-size: 24px;
+    margin: 74px 136px;
+    padding: 5px 7px;
+}

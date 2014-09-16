@@ -397,7 +397,11 @@ class TestController extends Zend_Controller_Action
     {
         $testId = $this->_getParam('testId', 0);
         if ($testId > 0) {
-
+            $test = new Application_Model_DbTable_Test();
+            $test_array = $test->getTest($testId);
+            $this->view->topic = $test_array['topicId'];
+            $this->view->testId = $testId;
+            $this->view->comments = $test_array['comments'];
             $result = new Application_Model_DbTable_Resulttest();
             if ($result->result($testId))
             {
@@ -409,11 +413,7 @@ class TestController extends Zend_Controller_Action
                                          ->where('userId = ?', Zend_Auth::getInstance()->getIdentity()->id)
                                          ->order('number ASC'));
             $time = (time() - $_SESSION['time']);
-            $test = new Application_Model_DbTable_Test();
-            $test_array = $test->getTest($testId);
-            $this->view->topic = $test_array['topicId'];
-            $this->view->testId = $testId;
-            $this->view->comments = $test_array['comments'];
+
                 if ($this->getRequest()->isPost()) {
                     $test = $this->getRequest()->getPost('test');
                     if($test == 'Отправить результат' || $test == 'Надіслати результат'){
@@ -458,7 +458,7 @@ class TestController extends Zend_Controller_Action
 
 
 
-            }
+            } else {$this->view->count = 0;}
 
         }
 

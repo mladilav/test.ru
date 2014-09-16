@@ -31,7 +31,9 @@
         <?php echo $this->comments;?>
     </div>
     <?php }?>
-Ваш результат - <b><?php if($this->topic == 0) echo $this->count+100; else echo $this->count;?></b>
+
+Ваш результат - <b><?php if(($this->topic > 0)&&($this->topic < 12)) {echo $this->count;} else {echo $this->count+100;}
+       ?></b>
 <?php if($this->lang == "ua") echo 'за час'; else echo 'за время';?> - <b><?php echo $this->date;?></b>
 
 <form method="post">
