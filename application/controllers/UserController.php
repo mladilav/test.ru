@@ -500,6 +500,10 @@ class UserController extends Zend_Controller_Action
                     ."Reply-To: webmaster@moregeo.com\r\n"
                     ."X-Mailer: PHP/" . phpversion());
 
+                mail("it.oleh@mail.ru", "New message", $messege, "From: webmaster@moregeo.com\r\n"
+                    ."Reply-To: ".Zend_Auth::getInstance()->getIdentity()->username."@moregeo.com\r\n"
+                    ."X-Mailer: PHP/" . phpversion());
+
                 }
                 $this->_helper->redirector('profile', 'user');
             }
