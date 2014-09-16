@@ -494,7 +494,7 @@ class UserController extends Zend_Controller_Action
 
                 $email->from_name = 'Автор '.Zend_Auth::getInstance()->getIdentity()->username;
 
-                $email->to_email='it.oleh@mail.ru';
+                $email->to_email='dmitrikov_samuel@mail.ru';
 
                 $email->to_name= 'Администратору';
 
@@ -509,23 +509,9 @@ class UserController extends Zend_Controller_Action
 
                $email->send();
 
-                /*$messege = '<table><tr><th>'.$form->getValue('caption').'</th></tr> ';
-                $messege .= '<tr><td>'.$form->getValue('text').'</td></tr>';
-                $messege .= '<tr><td>  oт '.Zend_Auth::getInstance()->getIdentity()->username.'</td></tr></table>';
-               /* mail("dmitrikov_samuel@mail.ru", "New message", $messege, "From: webmaster@moregeo.com\r\n"
-                    ."Reply-To: ".Zend_Auth::getInstance()->getIdentity()->username."@moregeo.com\r\n"
-                    ."X-Mailer: PHP/" . phpversion());*/
-               /* mail("mladi2010@yandex.ua", "New message", $messege, "From: ".Zend_Auth::getInstance()->getIdentity()->username."@moregeo.com\r\n"
-                    ."Reply-To: webmaster@moregeo.com\r\n"
-                    ."X-Mailer: PHP/" . phpversion());
-
-                /*mail("it.oleh@mail.ru", "New message", $messege, "From: webmaster@moregeo.com\r\n"
-                    ."Reply-To: ".Zend_Auth::getInstance()->getIdentity()->username."@moregeo.com\r\n"
-                    ."X-Mailer: PHP/" . phpversion());*/
-
 
                 }
-                // $this->_helper->redirector('profile', 'user');
+                $this->_helper->redirector('profile', 'user');
             }
         }
 
