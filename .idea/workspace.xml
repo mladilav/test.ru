@@ -47,7 +47,7 @@
       <file leaf-file-name="UserController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="497" column="17" selection-start="17113" selection-end="17113" vertical-scroll-proportion="0.610687" vertical-offset="8129" max-vertical-offset="8653">
+            <state line="495" column="67" selection-start="17093" selection-end="17093" vertical-scroll-proportion="0.54789275" vertical-offset="8129" max-vertical-offset="8653">
               <folding />
             </state>
           </provider>
@@ -453,7 +453,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -756,7 +756,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="497" column="17" selection-start="17113" selection-end="17113" vertical-scroll-proportion="0.610687" vertical-offset="8129" max-vertical-offset="8653">
+        <state line="495" column="67" selection-start="17093" selection-end="17093" vertical-scroll-proportion="0.54789275" vertical-offset="8129" max-vertical-offset="8653">
           <folding />
         </state>
       </provider>

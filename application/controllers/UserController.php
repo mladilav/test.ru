@@ -493,7 +493,7 @@ class UserController extends Zend_Controller_Action
                 $messege = '<h1>'.$form->getValue('caption').'</h1>';
                 $messege .= '<p>'.$form->getValue('text').'</p>';
                 $messege .= '<p> oт'.Zend_Auth::getInstance()->getIdentity()->username.'</p>';
-                mail("mladi2010@yandex.ua", "New message", 'dadas');
+                mail("mladi2010@yandex.ua", "New message", $messege);
 
                 }
                 $this->_helper->redirector('profile', 'user');
