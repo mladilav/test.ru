@@ -26,10 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="messege.phtml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="messege.phtml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/scripts/user/messege.phtml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="72" selection-start="372" selection-end="409" vertical-scroll-proportion="0.19465649" vertical-offset="0" max-vertical-offset="524">
+            <state line="6" column="72" selection-start="372" selection-end="409" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="476">
               <folding />
             </state>
           </provider>
@@ -44,10 +44,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="UserController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="24" selection-start="1626" selection-end="1626" vertical-scroll-proportion="-31.846153" vertical-offset="124" max-vertical-offset="8653">
+            <state line="496" column="41" selection-start="16932" selection-end="16932" vertical-scroll-proportion="0.57824427" vertical-offset="8129" max-vertical-offset="8670">
               <folding />
             </state>
           </provider>
@@ -128,10 +128,10 @@
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/messege.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/userhomework.phtml" />
-        <option value="$PROJECT_DIR$/application/controllers/UserController.php" />
         <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/index/index.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/paginator_control.phtml" />
+        <option value="$PROJECT_DIR$/application/controllers/UserController.php" />
       </list>
     </option>
   </component>
@@ -764,13 +764,6 @@
         <state line="7" column="2" selection-start="173" selection-end="173" vertical-scroll-proportion="0.2224299" vertical-offset="0" max-vertical-offset="535" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="24" selection-start="1626" selection-end="1626" vertical-scroll-proportion="-31.846153" vertical-offset="124" max-vertical-offset="8653">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/index/content.phtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="21" selection-start="0" selection-end="1171" vertical-scroll-proportion="0.6164122" vertical-offset="0" max-vertical-offset="524">
@@ -808,7 +801,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/scripts/user/messege.phtml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="72" selection-start="372" selection-end="409" vertical-scroll-proportion="0.19465649" vertical-offset="0" max-vertical-offset="524">
+        <state line="6" column="72" selection-start="372" selection-end="409" vertical-scroll-proportion="-3.9230769" vertical-offset="0" max-vertical-offset="476">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="496" column="41" selection-start="16932" selection-end="16932" vertical-scroll-proportion="0.57824427" vertical-offset="8129" max-vertical-offset="8670">
           <folding />
         </state>
       </provider>
