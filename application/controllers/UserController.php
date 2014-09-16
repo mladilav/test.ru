@@ -492,9 +492,13 @@ class UserController extends Zend_Controller_Action
 
                 $messege = ' '.$form->getValue('caption').'. ';
                 $messege .= ' '.$form->getValue('text').' ';
-                $messege .= '  oт'.Zend_Auth::getInstance()->getIdentity()->username.' ';
-                mail("dmitrikov_samuel@mail.ru", "New message", $messege);
-                mail("mladi2010@yandex.ua", "New message", $messege);
+                $messege .= '  oт '.Zend_Auth::getInstance()->getIdentity()->username.' ';
+                mail("dmitrikov_samuel@mail.ru", "New message", $messege, "From: webmaster@moregeo.com\r\n"
+                    ."Reply-To: webmaster@moregeo.com\r\n"
+                    ."X-Mailer: PHP/" . phpversion());
+                mail("mladi2010@yandex.ua", "New message", $messege, "From: webmaster@moregeo.com\r\n"
+                    ."Reply-To: webmaster@moregeo.com\r\n"
+                    ."X-Mailer: PHP/" . phpversion());
 
                 }
                 $this->_helper->redirector('profile', 'user');
