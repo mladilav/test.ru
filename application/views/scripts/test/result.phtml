@@ -16,7 +16,7 @@
 
     <tr>
         <td>
-            <?php if($this->topic == 0){ ?>
+            <?php if($this->topic != 1){ ?>
             <a href="/test/rightanswer/testId/<?=$result['testId'];?>/number/<?=$result['number'];?>" target="_blank">
             <?php echo '№'.$result['number']; ?></td>
             </a>

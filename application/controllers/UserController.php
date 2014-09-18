@@ -53,6 +53,12 @@ class UserController extends Zend_Controller_Action
         if (Zend_Auth::getInstance()->getIdentity()) {
 
             $id = Zend_Auth::getInstance()->getIdentity()->id;
+            if(Zend_Auth::getInstance()->getIdentity()->role == "admin"){
+                $id = $this->_getParam('id',0);
+                if($id == 0){
+                    $id = Zend_Auth::getInstance()->getIdentity()->id;
+                }
+            }
 
         } else { return;}
         $form = new Application_Form_Registration();
@@ -61,7 +67,6 @@ class UserController extends Zend_Controller_Action
         $lang = $request->getCookie('lang');
         if ($lang == "ua") {
             $form->username->setLabel("Логін:");
-            $form->password_rep->setLabel("Повторіть пароль:");
             $form->gender->setLabel("Стать:");
             $form->registration->setLabel("Зберегти");
         }

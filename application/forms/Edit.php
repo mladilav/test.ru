@@ -40,17 +40,6 @@ class Application_Form_Edit extends Zend_Form
             );
 
 
-        $password_rep = new Zend_Form_Element_Password('password_rep');
-
-        // задаём ему label и отмечаем как обязательное поле;
-        // также добавляем фильтры и валидатор с переводом
-        $password_rep->setLabel('Повторите пароль:')
-            ->setRequired(true)
-            ->addFilter('StripTags')
-            ->addFilter('StringTrim')
-            ->addValidator('NotEmpty', true,
-                array('messages' => array('isEmpty' => $isEmptyMessage))
-            );
 
         $email = new Zend_Form_Element_Text('email');
 
@@ -89,7 +78,7 @@ class Application_Form_Edit extends Zend_Form
         $submit->setLabel('Сохранить ');
 
         // добавляем элементы в форму
-        $this->addElements(array($username, $password, $password_rep, $email, $photo, $gender, $submit));
+        $this->addElements(array($username, $password, $email, $photo, $gender, $submit));
         // указываем метод передачи данных
         $this->setMethod('post');
 

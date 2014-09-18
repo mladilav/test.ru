@@ -43,6 +43,7 @@ class Application_Model_DbTable_Resulttest extends Zend_Db_Table_Abstract
 
         return $result;
     }
+
     public function resultInfo($testId)
     {
         $result = 0;

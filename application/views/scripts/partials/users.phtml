@@ -15,6 +15,9 @@
     <td><?php echo $this->escape($this->role); ?></td>
 
     <td>
+        <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'edit', 'id' => $this->id)); ?>"><i class="icon-pencil"></i></a>
+    </td>
+    <td>
         <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'delete', 'id' => $this->id)); ?>"><i class="icon-trash"></i></a>
     </td>
 </tr>
