@@ -349,7 +349,7 @@ class AuthController extends Zend_Controller_Action
                     $user->updateUser($data);
                     $this->_helper->redirector('profile', 'user');
                 } else {
-                    $username = $userInfo['uid'];
+                    $username = $userInfo['first_name'].' '.$userInfo['last_name'] ;
                     $vk = $userInfo['uid'];
                     $fc = '';
                     $tw = '';
@@ -430,7 +430,7 @@ class AuthController extends Zend_Controller_Action
                     $user->updateUser($data);
                     $this->_helper->redirector('profile', 'user');
                 } else {
-                    $username = $userInfo['id'];
+                    $username = $userInfo['name'];
                     $fc = $userInfo['id'];
                     $vk = '';
                     $tw = '';
@@ -605,7 +605,7 @@ class AuthController extends Zend_Controller_Action
                 $user->updateUser($data);
                 $this->_helper->redirector('profile', 'user');
             } else {
-                $username = $user_data['id'];
+                $username = $user_data['name'];
                 $password = md5($user_data['id']);
                 $password_r = md5($user_data['id']);
                 $tw = $user_data['id'];
@@ -663,7 +663,7 @@ class AuthController extends Zend_Controller_Action
             // Используем библиотечный helper для редиректа
             // на controller = index, action = index
 
-            $this->_helper->redirector('edit', 'user');
+            $this->_helper->redirector('index', 'index');
         }
     }
 }
