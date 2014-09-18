@@ -62,10 +62,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AuthController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="630" column="20" selection-start="24439" selection-end="24439" vertical-scroll-proportion="-0.5392354" vertical-offset="10978" max-vertical-offset="11475">
+            <state line="630" column="20" selection-start="24439" selection-end="24439" vertical-scroll-proportion="1.254902" vertical-offset="10774" max-vertical-offset="11475">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="profile.phtml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/scripts/user/profile.phtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="142" selection-start="642" selection-end="642" vertical-scroll-proportion="0.33932135" vertical-offset="0" max-vertical-offset="1156">
               <folding />
             </state>
           </provider>
@@ -132,7 +141,6 @@
         <option value="$PROJECT_DIR$/application/controllers/IndexController.php" />
         <option value="$PROJECT_DIR$/application/controllers/TestController.php" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
-        <option value="$PROJECT_DIR$/application/views/scripts/user/profile.phtml" />
         <option value="$PROJECT_DIR$/application/models/TEmail.php" />
         <option value="$PROJECT_DIR$/application/views/scripts/test/result.phtml" />
         <option value="$PROJECT_DIR$/application/models/DbTable/Resulttest.php" />
@@ -141,6 +149,7 @@
         <option value="$PROJECT_DIR$/application/views/scripts/partials/users.phtml" />
         <option value="$PROJECT_DIR$/application/views/scripts/user/settings.phtml" />
         <option value="$PROJECT_DIR$/application/controllers/AuthController.php" />
+        <option value="$PROJECT_DIR$/application/views/scripts/user/profile.phtml" />
       </list>
     </option>
   </component>
@@ -845,11 +854,6 @@
         <state line="27" column="0" selection-start="936" selection-end="1329" vertical-scroll-proportion="0.85794395" vertical-offset="0" max-vertical-offset="765" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/profile.phtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="18" selection-start="858" selection-end="858" vertical-scroll-proportion="0.3908046" vertical-offset="51" max-vertical-offset="1156" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="493" column="11" selection-start="8982" selection-end="8982" vertical-scroll-proportion="0.0" vertical-offset="7952" max-vertical-offset="8568">
@@ -927,7 +931,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="630" column="20" selection-start="24439" selection-end="24439" vertical-scroll-proportion="-0.5392354" vertical-offset="10978" max-vertical-offset="11475">
+        <state line="630" column="20" selection-start="24439" selection-end="24439" vertical-scroll-proportion="1.254902" vertical-offset="10774" max-vertical-offset="11475">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/scripts/user/profile.phtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="142" selection-start="642" selection-end="642" vertical-scroll-proportion="0.33932135" vertical-offset="0" max-vertical-offset="1156">
           <folding />
         </state>
       </provider>

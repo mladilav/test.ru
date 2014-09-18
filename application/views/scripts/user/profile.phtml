@@ -8,7 +8,7 @@
     <li><a href="/user/messegesend"><?php if($this->lang == "ua") echo 'Надіслати повідомлення адміністратору'; else echo 'Отправить сообщение администратору
 ';?></a></li>
 </ul><div class="profile">
-<h4 class="text-success"><?php if($this->lang == "ua") echo 'Коротка інформація:'; else echo 'Краткая информация:';?> </h4>
+<h4 class="text-success"><?php if($this->lang == "ua") echo 'Коротка інформація:'; else echo 'Краткая информация:';?><?= $this->user['username']; ?> </h4>
 <img src="<?php  if($this->user['photo'] == NULL)
                     echo "/img/profile.png";
                 else echo $this->user['photo']?>" width="120px" height="120px" align="left" style="padding: 20px;">
