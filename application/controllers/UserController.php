@@ -96,8 +96,19 @@ class UserController extends Zend_Controller_Action
                 $user = new Application_Model_DbTable_User();
 
                 // Вызываем метод модели addMovie для вставки новой записи
+
+                if($user->getUsernameEdit($data) > 0){
+                    $form->populate($formData);
+                    $echo = '<div class="alert alert-error pull-left">';
+                    if ($lang == "ua") {
+                        $echo .= 'Виберіть інший логін.	Цей вже зайнятий!';} else
+                    {$echo .= 'Выберите другой логин. Этот уже занят';}
+                    $echo .= '</div>';
+                    $this->view->mes = $echo;
+                } else
+                {
                 $user->updateUser($data);
-                $this->_helper->redirector('index', 'index');
+                $this->_helper->redirector('index', 'index');}
                 // Используем библиотечный helper для редиректа на action = index
 
             } else {

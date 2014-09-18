@@ -76,7 +76,16 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
     {
         $row = $this->fetchAll("username = '".$username."'");
 
-        
+
+        // Возвращаем результат, упакованный в массив
+        return $row->count();
+    }
+
+    public function getUsernameEdit($data)
+    {
+        $row = $this->fetchAll("username = '".$data['username']."' AND id <> ".$data['id']);
+
+
         // Возвращаем результат, упакованный в массив
         return $row->count();
     }
