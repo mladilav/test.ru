@@ -311,9 +311,9 @@ class AuthController extends Zend_Controller_Action
             'response_type' => 'code'
         );
 
-       
-        echo '<a class="auth-link" href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Vkontakte</a>';
+        echo $link = '<p><a class="auth-link" href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через ВКонтакте</a></p>';
 
+       
         if (isset($_GET['code'])) {
             $result = false;
             $params = array(
