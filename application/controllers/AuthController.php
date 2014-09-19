@@ -299,11 +299,7 @@ class AuthController extends Zend_Controller_Action
 
         // проверяем, авторизирован ли пользователь
 
-        if (Zend_Auth::getInstance()->hasIdentity()) {
-            // если да, то делаем редирект, чтобы исключить многократную авторизацию
-            $this->_helper->redirector('index', 'index');
-        }
-
+        
         $client_id = '4485744'; // ID приложения
         $client_secret = '9JYDwQ0AptHRMFRRr6ma'; // Защищённый ключ
         $redirect_uri = 'http://moregeo.com/auth/regvk'; // Адрес сайта
@@ -343,11 +339,15 @@ class AuthController extends Zend_Controller_Action
             if ($result) {
                 $user = new Application_Model_DbTable_User();
                 if (Zend_Auth::getInstance()->hasIdentity()) {
+
                     $data = array(
                     'vk' => $userInfo['id'],
                     'id' => Zend_Auth::getInstance()->getIdentity()->id,);
+
                     $user->updateUser($data);
                     $this->_helper->redirector('profile', 'user');
+
+
                 } else {
                     $username = $userInfo['first_name'].' '.$userInfo['last_name'] ;
                     $vk = $userInfo['uid'];
@@ -422,6 +422,8 @@ class AuthController extends Zend_Controller_Action
             if ($result) {
                 $user = new Application_Model_DbTable_User();
                 if (Zend_Auth::getInstance()->hasIdentity()) {
+
+
                    $data = array(
 
                     'fc' => $userInfo['id'],
