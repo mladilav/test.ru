@@ -297,10 +297,9 @@ class AuthController extends Zend_Controller_Action
     public function regvkAction()
     {
 
-        // проверяем, авторизирован ли пользователь
 
 
-        $client_id = '4485744 '; // ID приложения
+        $client_id = '4485744'; // ID приложения
         $client_secret = '9JYDwQ0AptHRMFRRr6ma'; // Защищённый ключ
         $redirect_uri = 'http://moregeo.com/auth/regvk'; // Адрес сайта
         $url = 'http://oauth.vk.com/authorize';
@@ -310,9 +309,7 @@ class AuthController extends Zend_Controller_Action
             'redirect_uri' => $redirect_uri,
             'response_type' => 'code'
         );
-
-        echo $link = '<p><a class="auth-link" href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через ВКонтакте</a></p>';
-
+        echo '<a class="auth-link" href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через ВКонтакте</a>';
 
         if (isset($_GET['code'])) {
             $result = false;
