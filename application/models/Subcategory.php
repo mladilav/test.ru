@@ -42,7 +42,7 @@ class Application_Model_Subcategory
         $result = '<ul>';
         foreach ($subcategoryArray as $subcat)
         {
-            $result = $result.'<li><a href="/index/subcategory/id/'.$subcat->getId().'">'.$subcat->getName().'</a></li>';
+            $result = $result.'<li><a class="sub" href="/index/subcategory/id/'.$subcat->getId().'">'.$subcat->getName().'</a></li>';
         }
         $result = $result.'</ul>';
         return $result;
@@ -59,7 +59,7 @@ class Application_Model_Subcategory
         $result = '<ul>';
         foreach ($subcategoryArray as $subcat)
         {
-            $result = $result.'<li><a href="/index/subcategory/id/'.$subcat->getId().'">'.$subcat->getNameUa().'</a></li>';
+            $result = $result.'<li><a class="sub"  href="/index/subcategory/id/'.$subcat->getId().'">'.$subcat->getNameUa().'</a></li>';
         }
         $result = $result.'</ul>';
         return $result;

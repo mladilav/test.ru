@@ -1,12 +1,67 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var h1 = document.getElementById('partId');
+        var sub = document.getElementById('subcatId');
+        var h4 = document.getElementById('catId');
+        var div = document.getElementById('accordion2');
+        var elems = div.getElementsByClassName('accordion-toggle');
+        for(var i=0; i<elems.length; i++)
+        {
+            if(elems[i].innerHTML == h1.innerHTML){
+                var str = elems[i].href;
+                var num = str.length - 9;
+                var part = document.getElementById(str.substring(num));
 
+                part.className = 'in';
+
+                var elem = part.getElementsByClassName('accordion-toggle');
+
+                for(var j = 0; j<elem.length; j++)
+                {
+
+                    if(elem[j].innerHTML.trim() == h4.innerHTML.trim()){
+
+                        var str2 = elem[j].href;
+
+                        var num2 = str2.length - 4;
+                        var part2 = document.getElementById(str2.substring(num2));
+                        part2.className = 'in';
+
+                        var el = part2.getElementsByClassName('sub');
+                        for(var l = 0; l<el.length; l++)
+                        {
+
+                            if(el[l].innerHTML.trim() == sub.innerHTML.trim()){
+                                var li = el[l].parentElement;
+                                li.className = 'act';
+                            }
+                        }
+
+                    }
+
+                /*var elem = part.getElementsByClassName('accordion-toggle');
+                for(var j=0; j<elem.length; j++)
+                {
+                    if(elem[j].innerHTML == h4.innerHTML){
+                        var li = elem[j].parentElement;
+                        li.className = 'act';
+                    }
+                }*/
+                }
+            }
+        }
+    });
+</script>
 
 <?php
 if($this->lang == "ua")
 {
-    echo '<h1>'.$this->subcategory['nameUa'].'</h1>';
+    echo '<h1 id="partId" style="display:none;">'.$this->part['nameUa'].'</h1><h4 id="catId" style="display:none;">'.$this->category['nameUa'].'</h4>';
+    echo '<h1 id="subcatId">'.$this->subcategory['nameUa'].'</h1>';
     echo $this->partialLoop('/partials/postsUa.phtml', $this->post);}
 else{
-    echo '<h1>'.$this->subcategory['name'].'</h1>';
+    echo '<h1  id="partId" style="display:none;">'.$this->part['name'].'</h1><h4 id="catId" style="display:none;">'.$this->category['name'].'</h4>';
+    echo '<h1 id="subcatId">'.$this->subcategory['name'].'</h1>';
     echo $this->partialLoop('/partials/posts.phtml', $this->post);}
 ?>
 

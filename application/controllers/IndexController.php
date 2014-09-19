@@ -472,9 +472,20 @@ class IndexController extends Zend_Controller_Action
         if ($id > 0) {
 
             $post = new Application_Model_DbTable_Posts();
+
             $this->view->post = $post->fetchAll('subcategoryId = '. $id);
+
             $subcategory = new Application_Model_DbTable_Subcategory();
-            $this->view->subcategory = $subcategory->getSubcategory($id);
+            $subcategorys = $subcategory->getSubcategory($id);
+            $this->view->subcategory = $subcategorys;
+
+            $category = new Application_Model_DbTable_Category();
+            $categories = $category->getCategory($subcategorys['categoryId']);
+            $this->view->category = $categories;
+
+            $parts = new Application_Model_DbTable_Part();
+            $this->view->part = $parts->getPart($categories['partId']);
+
 
         }
         /* $category = new Application_Model_DbTable_Category();
