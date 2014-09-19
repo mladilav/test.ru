@@ -313,7 +313,7 @@ class AuthController extends Zend_Controller_Action
 
         echo $link = '<p><a class="auth-link" href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через ВКонтакте</a></p>';
 
-       
+
         if (isset($_GET['code'])) {
             $result = false;
             $params = array(
@@ -344,7 +344,7 @@ class AuthController extends Zend_Controller_Action
                 if (Zend_Auth::getInstance()->hasIdentity()) {
 
                     $data = array(
-                    'vk' => $userInfo['id'],
+                    'vk' => $userInfo['uid'],
                     'id' => Zend_Auth::getInstance()->getIdentity()->id,);
 
                     $user->updateUser($data);

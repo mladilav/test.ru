@@ -38,7 +38,7 @@
       <file leaf-file-name="AuthController.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="315" column="7" selection-start="11778" selection-end="11778" vertical-scroll-proportion="0.38122606" vertical-offset="5156" max-vertical-offset="11526">
+            <state line="346" column="42" selection-start="13080" selection-end="13080" vertical-scroll-proportion="0.90229887" vertical-offset="5411" max-vertical-offset="11526">
               <folding />
             </state>
           </provider>
@@ -896,7 +896,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="315" column="7" selection-start="11778" selection-end="11778" vertical-scroll-proportion="0.38122606" vertical-offset="5156" max-vertical-offset="11526">
+        <state line="346" column="42" selection-start="13080" selection-end="13080" vertical-scroll-proportion="0.90229887" vertical-offset="5411" max-vertical-offset="11526">
           <folding />
         </state>
       </provider>
