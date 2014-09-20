@@ -418,6 +418,7 @@ class TestController extends Zend_Controller_Action
                     $test = $this->getRequest()->getPost('test');
                     if($test == 'Отправить результат' || $test == 'Надіслати результат'){
                         $type = 'homework';
+
                     }
                     else {
                         $type = 'rating';
@@ -432,6 +433,13 @@ class TestController extends Zend_Controller_Action
                     $resultBD  = new Application_Model_DbTable_Result();
                     $group = new Application_Model_DbTable_Groups();
                     $group_array = $group->getGroups(Zend_Auth::getInstance()->getIdentity()->groupId);
+                    $groupId = Zend_Auth::getInstance()->getIdentity()->groupId;
+                    if(!$group_array){
+                        $group_array['name'] = 'Нет группы';
+                        $group_array['nameUa'] = 'Нет групи';
+                        $groupId = '0';
+                    }
+
 
                     $data = array(
                         'user' => Zend_Auth::getInstance()->getIdentity()->username,
@@ -444,14 +452,14 @@ class TestController extends Zend_Controller_Action
                         'time' =>  $time,
                         'group' => $group_array['name'],
                         'groupUa' => $group_array['nameUa'],
-                        'groupId' => Zend_Auth::getInstance()->getIdentity()->groupId,
+                        'groupId' => $groupId,
                         'type' => $type,
                     );
                         $bool = $resultBD->addResult($data);
                         if (!$bool){echo 'Больше тест проходить нельзя!';}
 
                         $_SESSION['time'] = '';
-                        //$this->_helper->redirector->gotoUrl('/user/profile');
+                        $this->_helper->redirector->gotoUrl('/user/profile');
                     }
 
 

@@ -18,7 +18,7 @@ class Application_Model_DbTable_Groups extends Zend_Db_Table_Abstract
 
         // Если результат пустой, выкидываем исключение
         if (!$row) {
-            throw new Exception("Нет записи с id - $id");
+            return false;
         }
         // Возвращаем результат, упакованный в массив
         return $row->toArray();
