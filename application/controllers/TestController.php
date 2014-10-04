@@ -240,6 +240,7 @@ class TestController extends Zend_Controller_Action
 
     public function questionAction()
     {
+        $resulttest = new Application_Model_DbTable_Resulttest();
         $test = $this->_getParam('test', 0);
         if ($test > 0) {
             $questionNumber = $this->_getParam('question', 0);
@@ -247,6 +248,21 @@ class TestController extends Zend_Controller_Action
                 $_SESSION['time'] = time();
                 $result = new Application_Model_DbTable_Resulttest();
                 $result->truncate();
+                $testModel = new Application_Model_DbTable_Testquestionrel();
+                $testAll = $testModel->fetchAll("testId = ".(int)$test);
+                $numTests = $testAll->count();
+                for($j = 1; $j <= $numTests;$j++){
+
+                    $dataOne = array(
+                        'number' => $j,
+                        'bool' => 0,
+                        'userId' => Zend_Auth::getInstance()->getIdentity()->id,
+                        'testId' => $test,
+                    );
+
+                    $resulttest->addResulttest($dataOne);
+                }
+
             }
             else
             {   $tests_ar = new Application_Model_DbTable_Test();
@@ -376,7 +392,7 @@ class TestController extends Zend_Controller_Action
                         'testId' => $test,
                     );
 
-                    $resulttest = new Application_Model_DbTable_Resulttest();
+
                     $resulttest->addResulttest($data);
                     $questionNumber++;
                     $this->_helper->redirector->gotoUrl('/test/question/test/' . $test . '/question/' . $questionNumber);
@@ -403,8 +419,7 @@ class TestController extends Zend_Controller_Action
             $this->view->testId = $testId;
             $this->view->comments = $test_array['comments'];
             $result = new Application_Model_DbTable_Resulttest();
-            if ($result->result($testId))
-            {
+
             $this->view->count = $result->result($testId);
             $this->view->date = date("i:s", (time() - $_SESSION['time']));
             $this->view->result = $result->fetchAll($result->select()
@@ -466,7 +481,7 @@ class TestController extends Zend_Controller_Action
 
 
 
-            } else {$this->view->count = 0;}
+
 
         }
 
@@ -1325,6 +1340,7 @@ class TestController extends Zend_Controller_Action
                 );
                 $pattern = new Application_Model_DbTable_Pattern();
                 $pattern->addPattern($data);
+                $this->_helper->redirector('allpattern', 'test');
             } else {
                 $form->populate($formData);
             }

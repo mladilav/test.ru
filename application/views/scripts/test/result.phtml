@@ -33,8 +33,10 @@
     <?php }?>
 
 Ваш результат - <b><?php if(($this->topic > 0)&&($this->topic < 12)) {echo $this->count;} else {echo $this->count+100;}
-       ?></b>
-<?php if($this->lang == "ua") echo 'за час'; else echo 'за время';?> - <b><?php echo $this->date;?></b>
+       ?>
+    <?php if(!$this->count){if($this->lang == "ua") echo 'Тест не пройдений! '; else echo 'Тест не пройден! ';}?>
+    </b>
+<?php if($this->lang == "ua") echo ' за час'; else echo ' за время'; ?> - <b><?php  if(!$this->date) echo '0'; else echo $this->date;?></b>
 
 <form method="post">
     <?php if($this->topic == 1) {?>

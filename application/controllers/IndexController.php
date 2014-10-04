@@ -86,12 +86,12 @@ class IndexController extends Zend_Controller_Action
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
                 $parts = new Application_Model_DbTable_Part();
-                $parts_ar = $parts->getPart($form->getValue('part'));
+                $parts_ar = $parts->getPart($form->getValue('partId'));
 
-                if($form->getValue('category') > 0){
+                if($form->getValue('categoryId') > 0){
                 $categories = new Application_Model_DbTable_Category();
-                $categories_ar = $categories->getCategory($form->getValue('category'));
-                    $categoryId = $form->getValue('category');
+                $categories_ar = $categories->getCategory($form->getValue('categoryId'));
+                    $categoryId = $form->getValue('categoryId');
                     $category = $categories_ar['name'];
                     $categoryUa = $categories_ar['nameUa'];
                 }
@@ -102,10 +102,10 @@ class IndexController extends Zend_Controller_Action
                 }
 
 
-                if($form->getValue('subcategory') > 0){
+                if($form->getValue('subcategoryId') > 0){
                     $subcategories = new Application_Model_DbTable_Subcategory();
-                    $subcategories_ar = $subcategories->getSubcategory($form->getValue('subcategory'));
-                    $subcategoryId = $form->getValue('subcategory');
+                    $subcategories_ar = $subcategories->getSubcategory($form->getValue('subcategoryId'));
+                    $subcategoryId = $form->getValue('subcategoryId');
                     $subcategory = $subcategories_ar['name'];
                     $subcategoryUa = $subcategories_ar['nameUa'];
                 }
@@ -143,7 +143,7 @@ class IndexController extends Zend_Controller_Action
 
                 // Вызываем метод модели addMovie для вставки новой записи
                 $post->addPost($data);
-                $this->_helper->redirector('content', 'index');
+                $this->_helper->redirector('index', 'index');
 
             } else {
                 // Если форма заполнена неверно,
@@ -178,12 +178,12 @@ class IndexController extends Zend_Controller_Action
             // Если форма заполнена верно
             if ($form->isValid($formData)) {
                 $parts = new Application_Model_DbTable_Part();
-                $parts_ar = $parts->getPart($form->getValue('part'));
+                $parts_ar = $parts->getPart($form->getValue('partId'));
 
-                if($form->getValue('category') > 0){
+                if($form->getValue('categoryId') > 0){
                     $categories = new Application_Model_DbTable_Category();
-                    $categories_ar = $categories->getCategory($form->getValue('category'));
-                    $categoryId = $form->getValue('category');
+                    $categories_ar = $categories->getCategory($form->getValue('categoryId'));
+                    $categoryId = $form->getValue('categoryId');
                     $category = $categories_ar['name'];
                     $categoryUa = $categories_ar['nameUa'];
                 }
@@ -196,8 +196,8 @@ class IndexController extends Zend_Controller_Action
 
                 if($form->getValue('subcategory') > 0){
                     $subcategories = new Application_Model_DbTable_Subcategory();
-                    $subcategories_ar = $subcategories->getSubcategory($form->getValue('subcategory'));
-                    $subcategoryId = $form->getValue('subcategory');
+                    $subcategories_ar = $subcategories->getSubcategory($form->getValue('subcategoryId'));
+                    $subcategoryId = $form->getValue('subcategoryId');
                     $subcategory = $subcategories_ar['name'];
                     $subcategoryUa = $subcategories_ar['nameUa'];
                 }
@@ -223,8 +223,6 @@ class IndexController extends Zend_Controller_Action
                     'subcategoryId' => $subcategoryId,
                     'subcategory' => $subcategory,
                     'subcategoryUa' => $subcategoryUa,
-                    'userId' => Zend_Auth::getInstance()->getIdentity()->id,
-                    'user' => Zend_Auth::getInstance()->getIdentity()->username,
                     'date' => time(),
                     'icon' => $form->getValue('icon'),
                     'descriptionTeg' => $form->getValue('descriptionTeg'),
@@ -254,6 +252,7 @@ class IndexController extends Zend_Controller_Action
                 // Заполняем форму информацией при помощи метода populate
                 $this->view->post = $posts->getPost($id);
                 $form->populate($posts->getPost($id));
+
 
             }
         }

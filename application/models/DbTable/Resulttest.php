@@ -38,7 +38,7 @@ class Application_Model_DbTable_Resulttest extends Zend_Db_Table_Abstract
         {return false;}
         foreach ($data as $row) {
             $answer = new Application_Model_Resulttest($row);
-            $result =$result + $answer->getResult();
+            $result = $result + $answer->getResult();
         }
 
         return $result;

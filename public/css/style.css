@@ -188,6 +188,8 @@ a:hover {
     border-radius: 5px;
     margin-top: -20px;
     padding: 10px;
+    width:100%;
+    display:inline-block;
 }
 .profile .nav{
     margin-bottom: 0;

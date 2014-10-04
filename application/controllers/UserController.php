@@ -85,7 +85,6 @@ class UserController extends Zend_Controller_Action
                     'password' => md5($form->getValue('password')),
                     'email' => $form->getValue('email'),
                     'photo' => $form->getValue('photo'),
-                    'group' => $form->getValue('group'),
                     'gender' => $form->getValue('gender'),
                     'letter' => $form->getValue('letter'),
                     'class' => $form->getValue('class'),

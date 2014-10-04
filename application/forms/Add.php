@@ -95,7 +95,7 @@ class Application_Form_Add extends Zend_Form
                 array('messages' => array('isEmpty' => $isEmptyMessage))
             );
         $parts = new Application_Model_DbTable_Part();
-        $part = new Zend_Form_Element_Select('part');
+        $part = new Zend_Form_Element_Select('partId');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
@@ -104,7 +104,7 @@ class Application_Form_Add extends Zend_Form
 
 
         $categories = new Application_Model_DbTable_Category();
-        $category = new Zend_Form_Element_Select('category');
+        $category = new Zend_Form_Element_Select('categoryId');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
@@ -112,7 +112,7 @@ class Application_Form_Add extends Zend_Form
             ->addMultiOptions($categories->arraySelect());
 
         $subcategories = new Application_Model_DbTable_Subcategory();
-        $subcategory = new Zend_Form_Element_Select('subcategory');
+        $subcategory = new Zend_Form_Element_Select('subcategoryId');
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
