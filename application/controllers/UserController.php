@@ -37,6 +37,7 @@ class UserController extends Zend_Controller_Action
             $this->view->layout()->auth = $menu->getAuth();
             $this->view->layout()->menu = $menu->getMenu();
         }
+        $this->view->layout()->messages = $menu->message();
     }
 
     public function indexAction()

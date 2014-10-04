@@ -431,7 +431,8 @@ h1{
 
 }
 
-.accordion-heading .act{
+
+li.act{
     background-color: rgba(83, 132, 12, 0.3);
     border-radius: 5px;
 }
@@ -506,7 +507,14 @@ h1{
 
 .auth-link{
     display: block;
-    font-size: 24px;
     margin: 74px 136px;
     padding: 5px 7px;
+}
+
+.main-menu.active{
+    border-bottom:5px solid ;
+}
+li .tests{
+    padding: 5px!important;
+
 }

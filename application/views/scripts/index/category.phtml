@@ -10,6 +10,7 @@
          if(elems[i].innerHTML == h1.innerHTML){
             var str = elems[i].href;
             var num = str.length - 9;
+            elems[i].className = ' accordion-toggle main-menu active';
             var part = document.getElementById(str.substring(num));
             part.className = 'in';
             var elem = part.getElementsByClassName('accordion-toggle');

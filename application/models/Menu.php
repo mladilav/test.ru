@@ -105,5 +105,17 @@ class Application_Model_Menu
         }
         return $result;
     }
+
+    public function message(){
+        $table = new Application_Model_DbTable_Messege();
+        $messege = $table->fetchAll($table->select()->where('userIdTo = '.Zend_Auth::getInstance()->getIdentity()->id)
+            ->where('status = 1')
+            ->order('date DESC '));
+        if($messege->count()>0){
+            $result =  '<span class="label label-success" style="padding:2px 3px;margin-left:7px;" ">'.$messege->count().'</span>';
+            return $result;
+
+        }
+    }
 }
 ?>

@@ -2,7 +2,7 @@
     <li>
         <a href="/user/profile"><?php if($this->lang == "ua") echo 'Особистий кабінет'; else echo 'Личный кабинет';?></a>
     </li>
-    <li class="active"><a href="/user/messege"><?php if($this->lang == "ua") echo 'Повідомлення'; else echo 'Сообщения';?></a></li>
+    <li class="active"><a href="/user/messege"><?php if($this->lang == "ua") echo 'Повідомлення'; else echo 'Сообщения';?><?=$this->layout()->messages;?></a></li>
     <li><a href="/user/messegesend"><?php if($this->lang == "ua") echo 'Надіслати повідомлення адміністратору';
             else echo 'Отправить сообщение администратору';?></a></li>
 </ul>
@@ -12,7 +12,7 @@
     <?php if($this->homework['text']!= NULL)
         echo html_entity_decode($this->homework['text']); ?>
     <?php if($this->homework['test']!= NULL)
-               echo '<a href="'.$this->homework['test'].'"> Пройти тест </a>'; ?>
+               echo '<a href="'.$this->homework['test'].'"  class="btn btn-success"> Пройти тест </a>'; ?>
 
     <?php if($this->homework['file']!= NULL)
         echo '<a href="'.$this->homework['file'].'"> Файл</a>'; ?>

@@ -25,6 +25,38 @@ class Application_Model_DbTable_Testquestionrel extends Zend_Db_Table_Abstract
         return $row->toArray();
     }
 
+
+
+    public function getBalls($testId)
+    {
+
+        $test = (int)$testId;
+
+        $row = $this->fetchAll('testId = '.$test );
+
+        if (!$row) {
+            return false;
+        }
+        $questionModel = new Application_Model_DbTable_Question();
+        $result = 0;
+        $array = $row->toArray();
+        foreach($array as &$element){
+            $questionId = $element['questionId'];
+            $question = $questionModel->getQuestion($questionId);
+            if(($question['type']==0)||($question['type']==4)){
+                $result+= $question['cost'];
+            }
+
+            if($question['type']==2){
+                $result+= 4*$question['cost'];
+            }
+            if($question['type']==3){
+                $result+= 3*$question['cost'];
+            }
+        }
+        return $result;
+    }
+
     public function addTestquestionrel ($data)
     {
 

@@ -243,6 +243,12 @@ class TestController extends Zend_Controller_Action
         $resulttest = new Application_Model_DbTable_Resulttest();
         $test = $this->_getParam('test', 0);
         if ($test > 0) {
+
+            $testsM = new Application_Model_DbTable_Test();
+            $topicM = new Application_Model_DbTable_Topic();
+            $testArr = $testsM->getTest($test);
+            $this->view->topic = $topicM->getTopicId($testArr['topicId']);
+            $this->view->test = $testArr;
             $questionNumber = $this->_getParam('question', 0);
             if ($questionNumber == 1) {
                 $_SESSION['time'] = time();
@@ -420,6 +426,8 @@ class TestController extends Zend_Controller_Action
             $this->view->comments = $test_array['comments'];
             $result = new Application_Model_DbTable_Resulttest();
 
+            $rel = new Application_Model_DbTable_Testquestionrel();
+            $this->view->bals = $rel->getBalls($testId);
             $this->view->count = $result->result($testId);
             $this->view->date = date("i:s", (time() - $_SESSION['time']));
             $this->view->result = $result->fetchAll($result->select()
@@ -1236,6 +1244,11 @@ class TestController extends Zend_Controller_Action
     public function ratingAction(){
         $id = $this->_getParam('id', 0);
         if($id > 0){
+            $testsM = new Application_Model_DbTable_Test();
+            $topicM = new Application_Model_DbTable_Topic();
+            $testArr = $testsM->getTest($id);
+            $this->view->topic = $topicM->getTopicId($testArr['topicId']);
+            $this->view->test = $testArr;
         $result = new Application_Model_DbTable_Result();
         $results = $result->fetchAll($result->select()
             ->where('type =?','rating')

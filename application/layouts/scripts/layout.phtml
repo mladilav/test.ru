@@ -139,6 +139,22 @@ echo $this->doctype();
                 speed:700,
                 dots: true,
                 arrows: false});
+            var prevLink;
+            $('.main-menu').click(function(){
+                if($(this).hasClass("active")){
+                    $(this).removeClass('active');
+                    return;
+                }
+                if($('.main-menu').hasClass("active")){
+                $('.main-menu').removeClass('active');
+                }
+                if(prevLink == $(this).attr("href")){
+                    prevLink = '';
+                    return;
+                }
+                $(this).addClass('active');
+                prevLink = $(this).attr("href");
+            });
         });
     </script>
 

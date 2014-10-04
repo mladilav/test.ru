@@ -1,4 +1,42 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var h1 = document.getElementById('topicId');
+        var h4 = document.getElementById('testId');
+        $("#tests0").addClass('in');
+        $(".test").addClass('active');
+        var div = document.getElementById('accordion4');
+        var elems = div.getElementsByClassName('accordion-toggle');
+        for(var i=0; i<elems.length; i++)
+        {
 
+            if(elems[i].innerHTML == h1.innerHTML){
+                var str = elems[i].href;
+                var num = str.length - 5;
+                var part = document.getElementById(str.substring(num));
+                part.className = 'in';
+                var elem = part.getElementsByClassName('tests');
+                for(var j=0; j<elem.length; j++)
+                {
+
+                    if(elem[j].innerHTML == h4.innerHTML){
+
+                        console.log(elem[j].innerHTML);
+                        var li = elem[j].parentElement;
+                        li.className = 'act';
+                    }
+                }
+            }
+        }
+    });
+</script>
+
+<?php
+if($this->lang == "ua")
+{
+    echo '<h1 id="topicId" style="display:none;">'.$this->topic['nameUa'].'</h1><h4 id="testId" style="display:none;">'.$this->test['nameUa'].'</h4>';}
+else {
+    echo '<h1 id="topicId" style="display:none;">'.$this->topic['name'].'</h1><h4  id="testId" style="display:none;">'.$this->test['name'].'</h4>';}
+?>
 <div class="question">
 <?php
 echo $this->errMessage;

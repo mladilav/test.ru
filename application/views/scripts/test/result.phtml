@@ -32,8 +32,9 @@
     </div>
     <?php }?>
 
-Ваш результат - <b><?php if(($this->topic > 0)&&($this->topic < 12)) {echo $this->count;} else {echo $this->count+100;}
-       ?>
+Ваш результат - <b><?php if(($this->topic > 0)&&($this->topic < 12)) {echo $this->count;} else {echo $this->count+100;}?> </b>
+из <b><?php if(($this->topic > 0)&&($this->topic < 12)) {echo $this->bals;} else {echo $this->bals+100;}?> </b>
+
     <?php if(!$this->count){if($this->lang == "ua") echo 'Тест не пройдений! '; else echo 'Тест не пройден! ';}?>
     </b>
 <?php if($this->lang == "ua") echo ' за час'; else echo ' за время'; ?> - <b><?php  if(!$this->date) echo '0'; else echo $this->date;?></b>
@@ -48,10 +49,10 @@ else echo 'Отправить результат';?>">
     <?php } ?>
 </form>
 
-<script type="text/javascript" src="//yandex.st/share/share.js"
-        charset="utf-8"></script>
-<div class="yashare-auto-init" data-yashareL10n="ru"
-     data-yashareQuickServices="vkontakte,facebook" data-yashareTheme="counter"
+    <script type="text/javascript" src="//yastatic.net/share/share.js"
+            charset="utf-8"></script>
+    <div class="yashare-auto-init" data-yashareL10n="ru"
+         data-yashareType="link" data-yashareQuickServices="vkontakte,facebook,twitter"
 
-    ></div><br>
+        ></div> <br>
 </div>

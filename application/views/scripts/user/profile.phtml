@@ -4,7 +4,7 @@
     <li class="active">
         <a href="/user/profile"><?php if($this->lang == "ua") echo 'Особистий кабінет'; else echo 'Личный кабинет';?></a>
     </li>
-    <li><a href="/user/messege"><?php if($this->lang == "ua") echo 'Повідомлення'; else echo 'Сообщения';?></a></li>
+    <li><a href="/user/messege"><?php if($this->lang == "ua") echo 'Повідомлення'; else echo 'Сообщения';?><?=$this->layout()->messages;?></a> </li>
     <li><a href="/user/messegesend"><?php if($this->lang == "ua") echo 'Надіслати повідомлення адміністратору'; else echo 'Отправить сообщение администратору
 ';?></a></li>
 </ul><div class="profile">

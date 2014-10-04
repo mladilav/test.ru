@@ -1,6 +1,45 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        var h1 = document.getElementById('topicId');
+        var h4 = document.getElementById('testId');
+        $("#ratings0").addClass('in');
+        $(".rating").addClass('active');
+        var div = document.getElementById('accordion5');
+        var elems = div.getElementsByClassName('accordion-toggle');
+        for(var i=0; i<elems.length; i++)
+        {
+
+            if(elems[i].innerHTML == h1.innerHTML){
+                var str = elems[i].href;
+                var num = str.length - 7;
+                var part = document.getElementById(str.substring(num));
+                console.log(str.substring(num));
+                part.className = 'in';
+                var elem = part.getElementsByClassName('tests');
+                for(var j=0; j<elem.length; j++)
+                {
+
+                    if(elem[j].innerHTML == h4.innerHTML){
+
+                        console.log(elem[j].innerHTML);
+                        var li = elem[j].parentElement;
+                        li.className = 'act';
+                    }
+                }
+            }
+        }
+    });
+</script>
+<?php
+if($this->lang == "ua")
+{
+    echo '<h1 id="topicId" style="">'.$this->topic['nameUa'].'</h1><h4 id="testId" style="">'.$this->test['nameUa'].'</h4>';}
+else {
+    echo '<h1 id="topicId" style="">'.$this->topic['name'].'</h1><h4  id="testId" style="">'.$this->test['name'].'</h4>';}
+?>
 <div class="settings">
 <h4 class="text-info"><img src="/img/profile-result.png">
-    <?php if($this->lang == "ua") echo 'Результати:'; else echo 'Результаты:';?> </h4>
+    <?php if($this->lang == "ua") echo 'Рейтинг результатів:'; else echo 'Рейтинг результатов:';?> </h4>
 
 <table class="table table-condensed">
     <tr>

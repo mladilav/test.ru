@@ -9,8 +9,10 @@
             if(elems[i].innerHTML == h1.innerHTML){
                 var str = elems[i].href;
                 var num = str.length - 9;
+
                 var part = document.getElementById(str.substring(num));
                 part.className = 'in';
+                elems[i].className = ' accordion-toggle main-menu active';
                 var elem = part.getElementsByClassName('accordion-toggle');
                 for(var j=0; j<elem.length; j++)
                 {

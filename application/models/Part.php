@@ -50,10 +50,10 @@ class Application_Model_Part
             $category = new Application_Model_Category($array);
             $resultCat = $category->getCategory($parts->getId());
             if(!$resultCat)
-            {$result = $result.'<a class="accordion-toggle" href="/index/part/id/'.$parts->getId().'">'.$parts->getName().'</a></div></div>';}
+            {$result = $result.'<a class="accordion-toggle main-menu" href="/index/part/id/'.$parts->getId().'">'.$parts->getName().'</a></div></div>';}
             else
             {
-                $result = $result.'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse'.$i.'">'.$parts->getName().'</a>
+                $result = $result.'<a class="accordion-toggle main-menu" data-toggle="collapse" data-parent="#accordion2" href="#collapse'.$i.'">'.$parts->getName().'</a>
                            </div>
                            <div id="collapse'.$i.'" class="accordion-body collapse ">
                            <div class="accordion-inner">';
@@ -88,10 +88,10 @@ class Application_Model_Part
             $category = new Application_Model_Category($array);
             $resultCat = $category->getUaCategory($parts->getId());
             if(!$resultCat)
-            {$result = $result.'<a class="accordion-toggle" href="/index/part/id/'.$parts->getId().'">'.$parts->getNameUa().'</a></div></div>';}
+            {$result = $result.'<a class="accordion-toggle main-menu" href="/index/part/id/'.$parts->getId().'">'.$parts->getNameUa().'</a></div></div>';}
             else
             {
-                $result = $result.'<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse'.$i.'">'.$parts->getNameUa().'</a>
+                $result = $result.'<a class="accordion-toggle main-menu " data-toggle="collapse" data-parent="#accordion2" href="#collapse'.$i.'">'.$parts->getNameUa().'</a>
                            </div>
                            <div id="collapse'.$i.'" class="accordion-body collapse ">
                            <div class="accordion-inner">';

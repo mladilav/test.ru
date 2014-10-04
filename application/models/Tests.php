@@ -47,7 +47,7 @@ class Application_Model_Tests
         $topics = $topic->arrayTopic();
         $i = 0;
         $result = '<div class = "accordion-group"><div class="accordion-heading">
-                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#tests'.$i.'">';
+                       <a class="accordion-toggle main-menu test" data-toggle="collapse" data-parent="#accordion4" href="#tests'.$i.'">';
         $result .= 'Тесты';
         $result .= '</a></div>
                            <div id="tests'.$i.'" class="accordion-body collapse ">
@@ -69,7 +69,7 @@ class Application_Model_Tests
                             $tests = $test->arrayObjectsTest($top->getId());
                             foreach($tests as $tes)
                             {
-                                $result .= '<li><a href="/test/question/test/'.$tes->getId().'/question/1">'.$tes->getName().'</a></li>';
+                                $result .= '<li><a class="tests" href="/test/question/test/'.$tes->getId().'/question/1">'.$tes->getName().'</a></li>';
 
                             }
                             $result .='</ul></div></div></div>';
@@ -88,7 +88,7 @@ class Application_Model_Tests
         $topics = $topic->arrayTopic();
         $i = 0;
         $result = '<div class = "accordion-group"><div class="accordion-heading">
-                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#tests'.$i.'">';
+                       <a class="accordion-toggle main-menu test" data-toggle="collapse" data-parent="#accordion4" href="#tests'.$i.'">';
         $result .= 'Тести';
         $result .= '</a></div>
                            <div id="tests'.$i.'" class="accordion-body collapse ">
@@ -110,7 +110,7 @@ class Application_Model_Tests
                 $tests = $test->arrayObjectsTest($top->getId());
                 foreach($tests as $tes)
                 {
-                    $result .= '<li><a href="/test/question/test/'.$tes->getId().'/question/1">'.$tes->getNameUa().'</a></li>';
+                    $result .= '<li><a class="tests" href="/test/question/test/'.$tes->getId().'/question/1">'.$tes->getNameUa().'</a></li>';
 
                 }
                 $result .='</ul></div></div></div>';
@@ -131,7 +131,7 @@ class Application_Model_Tests
         $topics = $topic->arrayTopic();
         $i = 0;
         $result = '<div class = "accordion-group"><div class="accordion-heading">
-                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#ratings'.$i.'">';
+                       <a class="accordion-toggle main-menu rating" data-toggle="collapse" data-parent="#accordion4" href="#ratings'.$i.'">';
         $result .= 'Рейтинги';
         $result .= '</a></div>
                            <div id="ratings'.$i.'" class="accordion-body collapse ">
@@ -145,7 +145,7 @@ class Application_Model_Tests
             else
             {
                 $result .= '<div class = "accordion-group"><div class="accordion-heading">
-                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion5" href="#rating'.$i.'">';
+                       <a class="accordion-toggle " data-toggle="collapse" data-parent="#accordion5" href="#rating'.$i.'">';
                 $result .= $top->getName();
                 $result .= '</a></div>
                            <div id="rating'.$i.'" class="accordion-body collapse ">
@@ -156,7 +156,7 @@ class Application_Model_Tests
                     $rating = new Application_Model_DbTable_Result();
                     $ratingArray = $rating->fetchAll($rating->select()->where('testId ='.$tes->getId())->where('type =?','rating'));
                     if($ratingArray->count()>0){
-                    $result .= '<li><a href="/test/rating/id/'.$tes->getId().'">'.$tes->getName().'</a></li>';
+                    $result .= '<li><a class="tests" href="/test/rating/id/'.$tes->getId().'">'.$tes->getName().'</a></li>';
                     }
 
                 }
@@ -176,7 +176,7 @@ class Application_Model_Tests
         $topics = $topic->arrayTopic();
         $i = 0;
         $result = '<div class = "accordion-group"><div class="accordion-heading">
-                       <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion4" href="#ratings'.$i.'">';
+                       <a class="accordion-toggle main-menu rating" data-toggle="collapse" data-parent="#accordion4" href="#ratings'.$i.'">';
         $result .= 'Рейтинги';
         $result .= '</a></div>
                            <div id="ratings'.$i.'" class="accordion-body collapse ">
@@ -201,7 +201,7 @@ class Application_Model_Tests
                     $rating = new Application_Model_DbTable_Result();
                     $ratingArray = $rating->fetchAll($rating->select()->where('testId ='.$tes->getId())->where('type =?','rating'));
                     if($ratingArray->count()>0){
-                        $result .= '<li><a href="/test/rating/id/'.$tes->getId().'">'.$tes->getNameUa().'</a></li>';
+                        $result .= '<li><aclass="tests" href="/test/rating/id/'.$tes->getId().'">'.$tes->getNameUa().'</a></li>';
                     }
 
                 }

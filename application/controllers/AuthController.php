@@ -309,7 +309,7 @@ class AuthController extends Zend_Controller_Action
             'redirect_uri' => $redirect_uri,
             'response_type' => 'code'
         );
-        echo '<a class="auth-link" href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через ВКонтакте</a>';
+        echo '<a class="btn btn-success auth-link" href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через ВКонтакте</a>';
 
         if (isset($_GET['code'])) {
             $result = false;
@@ -389,7 +389,7 @@ class AuthController extends Zend_Controller_Action
             'scope' => 'email,user_birthday'
         );
 
-        echo $link = '<p><a class="auth-link" href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Facebook</a></p>';
+        echo $link = '<p><a class="btn btn-success auth-link" href="' . $url . '?' . urldecode(http_build_query($params)) . '">Аутентификация через Facebook</a></p>';
 
         if (isset($_GET['code'])) {
             $result = false;
@@ -511,7 +511,7 @@ class AuthController extends Zend_Controller_Action
 
         $link = AUTHORIZE_URL . '?oauth_token=' . $oauth_token;
 
-        echo '<a class="auth-link" href="' . $link . '">Аутентификация через Twitter</a>';
+        echo '<a class="btn btn-success auth-link" href="' . $link . '">Аутентификация через Twitter</a>';
 
 
         if (!empty($_GET['oauth_token']) && !empty($_GET['oauth_verifier'])) {
