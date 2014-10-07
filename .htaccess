@@ -1,0 +1,5 @@
+<ifmodule mod_rewrite.c="">
+RewriteEngine on
+
+RewriteRule ^/?$ /index/content [L,QSA]
+</ifmodule>

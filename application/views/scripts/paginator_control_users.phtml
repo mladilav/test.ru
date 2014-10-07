@@ -1,0 +1,35 @@
+
+<?php if ($this->pageCount): ?>
+    <div class="pagination">
+        <ul>
+            <?php if (isset($this->previous)): ?>
+                <li><a href="/user/settings/?page=1&params=<?=$_SESSION['sort']['params']?>" id="<?= $this->first; ?>" class="pageCount">
+                        <?php if($_COOKIE['lang'] == "ua") echo 'Початок'; else echo 'Начало';?></a></li>
+            <?php endif;
+            if (isset($this->previous)):
+                ?>
+                <li><a href="/user/settings/?page=<?php echo $this->previous;?>&params=<?=$_SESSION['sort']['params']?>" id="<?= $this->previous; ?>" class="pageCount">
+                        <?php if($_COOKIE['lang'] == "ua") echo 'Попередня'; else echo 'Предыдущая';?></a></li>
+            <?php endif;
+
+            for($i=1; $i<=$this->pageCount; $i++):
+                ?>
+                <?php if ($this->current == $i): ?>
+                <li class="active"><a href="/user/settings/?page=<?php echo $i;?>&params=<?=$_SESSION['sort']['params']?>" id="<?= $i ?>" class="pageCount"><?= $i ?></a></li>
+            <?php else: ?>
+                <li><a href="/user/settings/?page=<?php echo $i;?>&params=<?=$_SESSION['sort']['params']?>" id="<?= $i ?>" class="pageCount"><?= $i ?></a></li>
+            <?php
+            endif;
+            endfor;
+            if (isset($this->next)):
+                ?>
+                <li><a href="/user/settings/?page=<?php echo $this->next;?>&params=<?=$_SESSION['sort']['params']?>" id="<?= $this->next; ?>" class="pageCount">
+                        <?php if($_COOKIE['lang'] == "ua") echo 'Наступна'; else echo 'Следующая';?></a></li>
+            <?php endif; ?>
+            <?php if (isset($this->next)): ?>
+                <li><a href="/user/settings/?page=<?php echo $i;?>&params=<?=$_SESSION['sort']['params']?>" id="<?= $this->last; ?>" class="pageCount">
+                        <?php if($_COOKIE['lang'] == "ua") echo 'Кінець'; else echo 'Конец';?></a></li>
+            <?php endif; ?>
+        </ul>
+    </div>
+<?php endif; ?>
