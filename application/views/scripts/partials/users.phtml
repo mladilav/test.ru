@@ -12,6 +12,7 @@
     <td><?php echo $this->escape($this->username); ?></td>
     <td><?php echo $this->escape($this->email); ?></td>
     <td><?php echo $this->escape($this->group); ?></td>
+    <td><?php echo $this->escape($this->class); ?>-<?php echo $this->escape($this->letter); ?></td>
     <td><?php echo $this->escape($this->role); ?></td>
 
     <td>
@@ -19,5 +20,11 @@
     </td>
     <td>
         <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'delete', 'id' => $this->id)); ?>"><i class="icon-trash"></i></a>
+    </td>
+
+    <td>
+        <?php if($this->role == 'guest'){ ?>
+            <a href="<?php echo $this->url(array('controller' => 'user', 'action' => 'status', 'id' => $this->id)); ?>"><i class="icon-ok"></i></a>
+        <?php } ?>
     </td>
 </tr>

@@ -260,11 +260,57 @@ class UserController extends Zend_Controller_Action
 
     public function settingsAction()
     {
-        $group = new Application_Model_DbTable_Groups();
-        $this->view->groups = $group->fetchAll();
+
 
         $users = new Application_Model_DbTable_User();
-        $this->view->users = $users->fetchAll();
+        $page = (int) $this->getRequest()->getParam('page');
+        $sort = $this->getRequest()->getParam('params');
+        $sessionNamespace = new Zend_Session_Namespace('sort');
+        $sessionNamespace->params = $sort;
+
+        if($sort == 'username'){
+            if ($page > 0) {
+                $this->view->paginator = $users->getPaginatorRowsUsername($page);
+            } else {
+                $this->view->paginator = $users->getPaginatorRowsUsername(1);
+            }
+
+
+            return;
+        }
+
+        if($sort == 'email'){
+            if ($page > 0) {
+                $this->view->paginator = $users->getPaginatorRowsEmail($page);
+            } else {
+                $this->view->paginator = $users->getPaginatorRowsEmail(1);
+            }
+            return;
+        }
+
+        if($sort == 'group'){
+            if ($page > 0) {
+                $this->view->paginator = $users->getPaginatorRowsGroup($page);
+            } else {
+                $this->view->paginator = $users->getPaginatorRowsGroup(1);
+            }
+            return;
+        }
+
+        if($sort == 'class'){
+            if ($page > 0) {
+                $this->view->paginator = $users->getPaginatorRowsClass($page);
+            } else {
+                $this->view->paginator = $users->getPaginatorRowsClass(1);
+            }
+            return;
+        }
+
+        if ($page > 0) {
+            $this->view->paginator = $users->getPaginatorRows($page);
+        } else {
+            $this->view->paginator = $users->getPaginatorRows(1);
+        }
 
     }
 
@@ -530,5 +576,27 @@ class UserController extends Zend_Controller_Action
                 $this->_helper->redirector('profile', 'user');
             }
         }
+
+
+
+    public function statusAction()
+    {
+        $id = $this->_getParam('id');
+        if ($id > 0)
+        {
+            $users = new Application_Model_DbTable_User();
+            $data = array('id'=> $id, 'role'=> 'user');
+            $users->updateUser($data);
+            $this->_helper->redirector('settings', 'user');
+        }
+    }
+
+    public function groupsAction(){
+        $groups = new Application_Model_DbTable_Groups();
+        $this->view->groups = $groups->fetchAll();
+
+    }
+
+
 
 }

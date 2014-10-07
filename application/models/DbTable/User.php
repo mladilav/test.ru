@@ -91,5 +91,51 @@ class Application_Model_DbTable_User extends Zend_Db_Table_Abstract
     }
 
 
+    public function getPaginatorRows($pageNumber = 1) {
+        $pagi = new Zend_Paginator_Adapter_DbSelect($this->select()->from('users')->order('date_reg DESC'));
+        $paginator = new Zend_Paginator($pagi);
+        $paginator->setCurrentPageNumber($pageNumber);
+        $paginator->setItemCountPerPage(50);
+        $paginator->setPageRange(1);
+        return $paginator;
+    }
+
+
+    public function getPaginatorRowsUsername($pageNumber = 1) {
+        $pagi = new Zend_Paginator_Adapter_DbSelect($this->select()->from('users')->order('username ASC'));
+        $paginator = new Zend_Paginator($pagi);
+        $paginator->setCurrentPageNumber($pageNumber);
+        $paginator->setItemCountPerPage(50);
+        $paginator->setPageRange(1);
+        return $paginator;
+    }
+
+    public function getPaginatorRowsEmail($pageNumber = 1) {
+        $pagi = new Zend_Paginator_Adapter_DbSelect($this->select()->from('users')->order('email ASC'));
+        $paginator = new Zend_Paginator($pagi);
+        $paginator->setCurrentPageNumber($pageNumber);
+        $paginator->setItemCountPerPage(50);
+        $paginator->setPageRange(1);
+        return $paginator;
+    }
+
+    public function getPaginatorRowsGroup($pageNumber = 1) {
+        $pagi = new Zend_Paginator_Adapter_DbSelect($this->select()->from('users')->order('group ASC'));
+        $paginator = new Zend_Paginator($pagi);
+        $paginator->setCurrentPageNumber($pageNumber);
+        $paginator->setItemCountPerPage(50);
+        $paginator->setPageRange(1);
+        return $paginator;
+    }
+
+    public function getPaginatorRowsClass($pageNumber = 1) {
+        $pagi = new Zend_Paginator_Adapter_DbSelect($this->select()->from('users')->order('class ASC')->order('letter ASC'));
+        $paginator = new Zend_Paginator($pagi);
+        $paginator->setCurrentPageNumber($pageNumber);
+        $paginator->setItemCountPerPage(50);
+        $paginator->setPageRange(1);
+        return $paginator;
+    }
+
 }
 

@@ -102,15 +102,23 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $acl->addRole('guest');
 
         // администратор, который наследует доступ от гостя
-        $acl->addRole('admin', 'guest');
 
-        // разрешаем гостю просматривать ресурс index
+        $acl->addRole('user', 'guest');
+        $acl->addRole('admin', 'user');
+
+
         $acl->allow('guest', 'index', array('index', 'part', 'category','subcategory','lang','post','content','about'));
 
         // разрешаем гостю просматривать ресурс auth и его подресурсы
         $acl->allow('guest', 'auth', array('index', 'login', 'logout', 'registration', 'regvk','regfc','regtw'));
-        $acl->allow('guest', 'test', array('index','question', 'result', 'data', 'topic', 'rating'));
-        $acl->allow('guest', 'user', array('index','edit', 'profile', 'messege', 'userhomework','messegesend'));
+        $acl->allow('guest', 'test', array('data'));
+        $acl->allow('guest', 'user', array('index','edit', 'profile','messegesend'));
+
+
+
+        // пользователь
+        $acl->allow('user', 'test', array('index','question', 'result', 'topic', 'rating'));
+        $acl->allow('user', 'user', array('messege', 'userhomework'));
 
         // даём администратору доступ к ресурсам 'add', 'edit' и 'delete'
         $acl->allow('admin', 'index', array('add', 'edit', 'delete', 'addpart', 'editpart', 'deletepart', 'addcat',
@@ -122,7 +130,8 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             'deletepattern','allquestion','rightanswer'));
 
         $acl->allow('admin', 'user', array('edit', 'delete', 'addgroups', 'editgroups', 'deletegroups', 'settings',
-            'homework', 'addhomework', 'deletehomework', 'sendhomework', 'group','deleteuser', 'addgroupsuser', 'adduser', ));
+            'homework', 'addhomework', 'deletehomework', 'sendhomework', 'group','deleteuser', 'addgroupsuser',
+            'adduser', 'status','groups','sort'));
 
         // разрешаем администратору просматривать страницу ошибок
         $acl->allow('admin', 'error');
