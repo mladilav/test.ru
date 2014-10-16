@@ -54,10 +54,10 @@ echo $this->capture; ?>
 
 <?php if (($this->type == 0)&&(!empty($this->answer['0']))) {?>
 <table class="table table-bordered">
-    <tr><td> А: <?php echo $this->answer['0'];?> </td></tr>
-    <tr><td> Б: <?php echo $this->answer['1'];?> </td></tr>
-    <tr><td> В: <?php echo $this->answer['2'];?> </td></tr>
-    <tr><td> Г: <?php echo $this->answer['3'];?> </td></tr>
+    <tr><td><span class="test-question">А </span> <?php echo $this->answer['0'];?> </td></tr>
+    <tr><td><span class="test-question"> Б </span> <?php echo $this->answer['1'];?> </td></tr>
+    <tr><td><span class="test-question"> В </span> <?php echo $this->answer['2'];?> </td></tr>
+    <tr><td><span class="test-question"> Г </span> <?php echo $this->answer['3'];?> </td></tr>
 </table>
 <?php } ?>
 
@@ -65,24 +65,24 @@ echo $this->capture; ?>
 <?php if ($this->type == 2) {?>
  <table class="table table-bordered">
      <tr>
-         <td>1: <?php echo $this->answer['1'];?></td>
-         <td>A: <?php echo $this->answer['A'];?></td>
+         <td><span class="test-question">1 </span> <?php echo $this->answer['1'];?></td>
+         <td><span class="test-question">A </span> <?php echo $this->answer['A'];?></td>
      </tr>
      <tr>
-         <td>2: <?php echo $this->answer['2'];?></td>
-         <td>Б: <?php echo $this->answer['B'];?></td>
+         <td><span class="test-question">2 </span> <?php echo $this->answer['2'];?></td>
+         <td><span class="test-question">Б </span> <?php echo $this->answer['B'];?></td>
      </tr>
      <tr>
-         <td>3: <?php echo $this->answer['3'];?></td>
-         <td>В: <?php echo $this->answer['C'];?></td>
+         <td><span class="test-question">3 </span> <?php echo $this->answer['3'];?></td>
+         <td><span class="test-question">В </span> <?php echo $this->answer['C'];?></td>
      </tr>
      <tr>
-         <td>4: <?php echo $this->answer['4'];?></td>
-         <td>Г: <?php echo $this->answer['D'];?></td>
+         <td><span class="test-question">4 </span> <?php echo $this->answer['4'];?></td>
+         <td><span class="test-question">Г </span> <?php echo $this->answer['D'];?></td>
      </tr>
      <tr>
          <td></td>
-         <td>Д: <?php echo $this->answer['E'];?></td>
+         <td><span class="test-question">Д</span> <?php echo $this->answer['E'];?></td>
      </tr>
      </table>
 <?php } ?>
@@ -90,12 +90,12 @@ echo $this->capture; ?>
 <?php if ($this->type == 3) {?>
     <table class="table table-bordered">
 
-        <tr><td> 1: <?php echo $this->answer['1'];?> </td></tr>
-        <tr><td> 2: <?php echo $this->answer['2'];?> </td></tr>
-        <tr><td> 3: <?php echo $this->answer['3'];?> </td></tr>
-        <tr><td> 4: <?php echo $this->answer['4'];?> </td></tr>
-        <tr><td> 5: <?php echo $this->answer['5'];?> </td></tr>
-        <tr><td> 6: <?php echo $this->answer['6'];?> </td></tr>
+        <tr><td><span class="test-question"> 1 </span> <?php echo $this->answer['1'];?> </td></tr>
+        <tr><td><span class="test-question"> 2 </span> <?php echo $this->answer['2'];?> </td></tr>
+        <tr><td><span class="test-question"> 3 </span> <?php echo $this->answer['3'];?> </td></tr>
+        <tr><td><span class="test-question"> 4 </span> <?php echo $this->answer['4'];?> </td></tr>
+        <tr><td><span class="test-question"> 5 </span> <?php echo $this->answer['5'];?> </td></tr>
+        <tr><td><span class="test-question"> 6 </span> <?php echo $this->answer['6'];?> </td></tr>
     </table>
 <?php } ?>
 

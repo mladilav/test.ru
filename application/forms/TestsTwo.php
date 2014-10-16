@@ -12,7 +12,7 @@ class Application_Form_TestsTwo extends Zend_Form
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $answerOne->setLabel('1:')
+        $answerOne->setLabel('1')
             ->addMultiOptions(array(
                 '0' => 'A',
                 '1' => 'Б',
@@ -27,7 +27,7 @@ class Application_Form_TestsTwo extends Zend_Form
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $answerTwo->setLabel('2:')
+        $answerTwo->setLabel('2')
             ->addMultiOptions(array(
                 '0' => 'A',
                 '1' => 'Б',
@@ -42,7 +42,7 @@ class Application_Form_TestsTwo extends Zend_Form
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $answerThree->setLabel('3:')
+        $answerThree->setLabel('3')
             ->addMultiOptions(array(
                 '0' => 'A',
                 '1' => 'Б',
@@ -57,7 +57,7 @@ class Application_Form_TestsTwo extends Zend_Form
 
         // задаём ему label и отмечаем как обязательное поле;
         // также добавляем фильтры и валидатор с переводом
-        $answerFour->setLabel('4:')
+        $answerFour->setLabel('4')
             ->addMultiOptions(array(
                 '0' => 'A',
                 '1' => 'Б',

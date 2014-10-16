@@ -359,6 +359,9 @@ input[type="color"]:focus,
     background-position: 0px 0px;
     background-repeat: no-repeat;
     text-align: right;
+    color: rgb(251, 128, 0);
+    text-shadow: -1px 1px 1px #999999;
+    font-weight: bold;
 }
 
 
@@ -517,4 +520,36 @@ li.act{
 li .tests{
     padding: 5px!important;
 
+}
+
+
+.table-bordered th, .table-bordered td {
+    border-left: 1px solid #bbb;
+}
+
+.table th, .table td {
+    border-top: 1px solid #bbb;
+}
+.table-bordered {
+    border: 1px solid #bbb;}
+
+.test-question{
+    color: rgb(251, 128, 0);
+    text-shadow: -1px 1px 1px #999999;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+
+.errors{
+    font-size: 12px;
+    position: absolute;
+    margin-left: 467px;
+    margin-top: -20px;
+}
+
+#testTwo label{
+    color: rgb(251, 128, 0);
+    text-shadow: -1px 1px 1px #999999;
+    font-weight: bold;
 }
